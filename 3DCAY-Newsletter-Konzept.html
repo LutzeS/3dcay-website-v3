@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3DCAY Newsletter-Konzept &amp; Redaktionsplan 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--red:#e3101a;--white:#FFF;--gray-50:#FAFAFA;--gray-100:#F0F0F0;--gray-200:#E5E5E5;--gray-500:#737373;--gray-700:#404040;--font-sans:'Inter',-apple-system,sans-serif;--font-mono:'JetBrains Mono',monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font-sans);background:var(--gray-50);color:var(--black);line-height:1.7}
+.doc{max-width:860px;margin:0 auto;background:var(--white);min-height:100vh}
+
+/* Cover */
+.cover{background:var(--black);color:var(--white);padding:80px 64px;position:relative;overflow:hidden}
+.cover::after{content:'';position:absolute;right:-60px;top:-60px;width:300px;height:300px;border-radius:50%;border:1px solid rgba(255,255,255,0.05)}
+.cover__badge{font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:24px}
+.cover__title{font-size:36px;font-weight:800;letter-spacing:-0.03em;line-height:1.15;margin-bottom:16px}
+.cover__sub{font-size:16px;color:rgba(255,255,255,0.5);max-width:500px}
+.cover__meta{margin-top:40px;display:flex;gap:40px;font-size:13px;color:rgba(255,255,255,0.4)}
+.cover__meta strong{color:rgba(255,255,255,0.7);font-weight:600}
+
+/* Content */
+.content{padding:48px 64px}
+
+h2{font-size:24px;font-weight:800;letter-spacing:-0.02em;margin:48px 0 20px;padding-bottom:12px;border-bottom:2px solid var(--black)}
+h2:first-child{margin-top:0}
+h3{font-size:18px;font-weight:700;margin:32px 0 12px;color:var(--black)}
+h4{font-size:15px;font-weight:700;margin:20px 0 8px;color:var(--gray-700)}
+p{margin-bottom:16px;font-size:15px;color:var(--gray-700)}
+
+/* Highlight Box */
+.highlight{background:rgba(227,16,26,0.04);border-left:3px solid var(--red);padding:20px 24px;margin:24px 0;border-radius:0 8px 8px 0}
+.highlight p{margin-bottom:0;color:var(--black);font-weight:500}
+.highlight p:last-child{margin-bottom:0}
+
+/* Info Box */
+.info{background:var(--gray-50);border:1px solid var(--gray-200);padding:20px 24px;margin:24px 0;border-radius:8px}
+.info__label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--red);margin-bottom:8px;font-weight:600}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+th{background:var(--black);color:var(--white);text-align:left;padding:12px 16px;font-weight:600;font-size:13px;letter-spacing:0.02em}
+td{padding:12px 16px;border-bottom:1px solid var(--gray-200);vertical-align:top}
+tr:hover td{background:var(--gray-50)}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;margin:2px}
+.tag--red{background:rgba(227,16,26,0.08);color:var(--red)}
+.tag--blue{background:rgba(37,99,235,0.08);color:#2563eb}
+.tag--green{background:rgba(22,163,74,0.08);color:#16a34a}
+.tag--gray{background:var(--gray-100);color:var(--gray-700)}
+
+/* Rubric Cards */
+.rubrics{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+.rubric{border:1px solid var(--gray-200);border-radius:12px;padding:20px;transition:border-color 0.2s}
+.rubric:hover{border-color:var(--red)}
+.rubric__num{font-family:var(--font-mono);font-size:28px;font-weight:800;color:var(--red);margin-bottom:4px}
+.rubric__title{font-size:16px;font-weight:700;margin-bottom:8px}
+.rubric__desc{font-size:13px;color:var(--gray-500);line-height:1.6}
+
+/* KPI Grid */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:24px 0}
+.kpi{text-align:center;padding:20px;background:var(--gray-50);border-radius:10px}
+.kpi__num{font-size:28px;font-weight:800;color:var(--red);letter-spacing:-0.03em}
+.kpi__label{font-size:12px;color:var(--gray-500);margin-top:4px}
+
+/* Timeline */
+.timeline{margin:24px 0}
+.timeline__item{display:flex;gap:20px;padding:16px 0;border-bottom:1px solid var(--gray-100)}
+.timeline__month{min-width:80px;font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--red)}
+.timeline__content{flex:1}
+.timeline__title{font-size:14px;font-weight:700;margin-bottom:4px}
+.timeline__desc{font-size:13px;color:var(--gray-500)}
+
+/* Print */
+@media print{
+  body{background:white}
+  .doc{box-shadow:none}
+  .cover{padding:60px 48px}
+  .content{padding:36px 48px}
+  h2{page-break-after:avoid}
+  .rubrics,.kpis{page-break-inside:avoid}
+  table{page-break-inside:avoid}
+}
+@page{size:A4;margin:15mm}
+</style>
+</head>
+<body>
+<div class="doc">
+
+<!-- COVER -->
+<div class="cover">
+  <p class="cover__badge">Internes Strategiedokument</p>
+  <h1 class="cover__title">Newsletter-Konzept<br>&amp; Redaktionsplan 2026</h1>
+  <p class="cover__sub">Monatlicher B2B-Newsletter f&uuml;r Marketing-Entscheider &mdash; Strategie, Rubriken und 12-Monats-Themenplan f&uuml;r 3DCAY Marketing Solutions.</p>
+  <div class="cover__meta">
+    <div><strong>Erstellt:</strong> M&auml;rz 2026</div>
+    <div><strong>Frequenz:</strong> 1&times; monatlich</div>
+    <div><strong>Zielgruppe:</strong> B2B Marketing-Entscheider</div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- 1. STRATEGIE -->
+<h2>1. Newsletter-Strategie</h2>
+
+<h3>Ziel &amp; Positionierung</h3>
+<p>Der 3DCAY-Newsletter positioniert euch als <strong>den</strong> Experten f&uuml;r Marketing-Fulfillment-Digitalisierung im deutschsprachigen B2B-Raum. Jede Ausgabe liefert einen konkreten Mehrwert, der die Leser n&auml;her an eine Zusammenarbeit heranf&uuml;hrt &mdash; ohne aggressiven Sales-Druck.</p>
+
+<div class="highlight">
+  <p><strong>Kernversprechen an den Leser:</strong></p>
+  <p>&bdquo;Einmal im Monat das Wichtigste zu Marketing-Automation, Web-to-Publish und Fulfillment &mdash; praxisnah, kompakt, auf den Punkt.&ldquo;</p>
+</div>
+
+<h3>Strategische Ziele</h3>
+<table>
+  <tr><th>Ziel</th><th>Beschreibung</th><th>KPI</th></tr>
+  <tr><td><strong>Lead Nurturing</strong></td><td>Interessenten warmhalten und Richtung Demo/Beratung f&uuml;hren</td><td>Demo-Anfragen aus Newsletter</td></tr>
+  <tr><td><strong>Thought Leadership</strong></td><td>3DCAY als Branchenexperte positionieren</td><td>&Ouml;ffnungsrate &gt;30%</td></tr>
+  <tr><td><strong>Produkt-Awareness</strong></td><td>Neue Features, Case Studies, Projekterfolge kommunizieren</td><td>Klickrate &gt;5%</td></tr>
+  <tr><td><strong>Community Building</strong></td><td>Wiederkehrende Leserschaft aufbauen</td><td>Abmelderate &lt;0.5%</td></tr>
+</table>
+
+<h3>Zielgruppe im Detail</h3>
+<div class="info">
+  <p class="info__label">Prim&auml;re Persona</p>
+  <p><strong>Marketing-Leitung / CMO im B2B-Mittelstand</strong></p>
+  <p style="margin-bottom:0">Unternehmen mit 50&ndash;5.000 Mitarbeitern &bull; Verantwortet Werbemittel-Prozesse &bull; K&auml;mpft mit manuellen Abl&auml;ufen und Medienbrüchen &bull; Muss Marketing-ROI nachweisen &bull; Entscheidet &uuml;ber Tool-Investitionen oder bereitet Entscheidung vor</p>
+</div>
+
+<h3>Absender &amp; Tonalita&#776;t</h3>
+<p><strong>Absender:</strong> Pers&ouml;nlich vom Gesch&auml;ftsf&uuml;hrer oder einem Senior Consultant &mdash; kein generisches &bdquo;3DCAY Team&ldquo;. Pers&ouml;nliche Absender erzielen nachweislich h&ouml;here &Ouml;ffnungsraten.</p>
+<p><strong>Ton:</strong> Fachlich kompetent, aber nicht akademisch. Direkt, klar, mit einem Schuss Pers&ouml;nlichkeit. Wie ein kluger Kollege, der einem beim Kaffee die neuesten Insights erkl&auml;rt. Deutsch, Duzen nur wenn zur Marke passend, sonst professionelles Siezen.</p>
+
+<!-- 2. RUBRIKEN -->
+<h2>2. Feste Rubriken</h2>
+
+<p>Jede Ausgabe folgt einem wiederkehrenden Aufbau mit 4 festen Rubriken. Das schafft Wiedererkennung und erleichtert die Produktion.</p>
+
+<div class="rubrics">
+  <div class="rubric">
+    <div class="rubric__num">01</div>
+    <div class="rubric__title">Deep Dive</div>
+    <div class="rubric__desc">Das Herzst&uuml;ck: Ein ausf&uuml;hrlicher Praxis-Artikel zu einem Kernthema. 400&ndash;600 W&ouml;rter. Konkretes Problem &rarr; L&ouml;sungsansatz &rarr; Umsetzungstipps. Ziel: Thought Leadership.</div>
+  </div>
+  <div class="rubric">
+    <div class="rubric__num">02</div>
+    <div class="rubric__title">Case Spotlight</div>
+    <div class="rubric__desc">Kurze Projekt-Story oder Branchen-Beispiel: Vorher/Nachher mit konkreten Zahlen. 150&ndash;200 W&ouml;rter. Kann auch externe Best Practices sein. Ziel: Social Proof.</div>
+  </div>
+  <div class="rubric">
+    <div class="rubric__num">03</div>
+    <div class="rubric__title">Tool &amp; Tech Radar</div>
+    <div class="rubric__desc">1&ndash;2 kurze Updates: Neue Features, Tool-Empfehlungen, KI-Trends, Branchennews. Bullet-Format. Ziel: Praxisn&auml;he &amp; Aktualit&auml;t.</div>
+  </div>
+  <div class="rubric">
+    <div class="rubric__num">04</div>
+    <div class="rubric__title">CTA des Monats</div>
+    <div class="rubric__desc">Ein klarer Call-to-Action: Whitepaper-Download, Assessment starten, Demo buchen, Webinar-Einladung. Wechselt monatlich je nach Kampagnenziel.</div>
+  </div>
+</div>
+
+<h3>Optionale Bonusrubriken (rotierend)</h3>
+<table>
+  <tr><th>Rubrik</th><th>Beschreibung</th><th>Frequenz</th></tr>
+  <tr><td><strong>Zahl des Monats</strong></td><td>Eine einzige Statistik mit kurzem Kontext (z.B. &bdquo;73% der B2B-Marketer planen, ihr Fulfillment zu digitalisieren.&ldquo;)</td><td>Alle 2 Monate</td></tr>
+  <tr><td><strong>Frag den Experten</strong></td><td>Leser-Frage beantwortet &mdash; echte oder kuratierte Fragen. Baut Interaktion auf.</td><td>Quartal</td></tr>
+  <tr><td><strong>Behind the Scenes</strong></td><td>Einblick in 3DCAY-Projekte, Team, Arbeitsweise. Menschelt.</td><td>Quartal</td></tr>
+  <tr><td><strong>Branchen-Benchmark</strong></td><td>Mini-Vergleich: &bdquo;So machen es andere&ldquo; &mdash; anonymisierte Insights aus Kundenprojekten.</td><td>Halbjahr</td></tr>
+</table>
+
+<!-- 3. AUFBAU -->
+<h2>3. Aufbau einer Ausgabe</h2>
+
+<div class="info">
+  <p class="info__label">E-Mail-Anatomie</p>
+  <p style="margin-bottom:8px"><strong>Betreffzeile:</strong> Max. 50 Zeichen, neugierig machend oder konkreten Nutzen versprechen</p>
+  <p style="margin-bottom:8px"><strong>Preheader:</strong> Erg&auml;nzt die Betreffzeile, wiederholt sie nicht</p>
+  <p style="margin-bottom:8px"><strong>Hero-Block:</strong> Logo + 1 Zeile Value Statement + ggf. Ausgaben-Nummer</p>
+  <p style="margin-bottom:8px"><strong>Block 1 &mdash; Deep Dive:</strong> Teasertext (100&ndash;150 W&ouml;rter) + &bdquo;Weiterlesen&ldquo;-Button &rarr; Blog/Landing Page</p>
+  <p style="margin-bottom:8px"><strong>Block 2 &mdash; Case Spotlight:</strong> Kompakte Story mit Ergebnis-Highlight</p>
+  <p style="margin-bottom:8px"><strong>Block 3 &mdash; Tool &amp; Tech Radar:</strong> 2&ndash;3 Bullet Points mit Links</p>
+  <p style="margin-bottom:8px"><strong>Block 4 &mdash; CTA des Monats:</strong> Prominenter Button mit klarer Handlungsaufforderung</p>
+  <p style="margin-bottom:0"><strong>Footer:</strong> Social Links, Abmelde-Link, Impressum</p>
+</div>
+
+<h3>Betreffzeilen-Formeln</h3>
+<table>
+  <tr><th>Formel</th><th>Beispiel</th></tr>
+  <tr><td>Zahl + Nutzen</td><td>&bdquo;3 Wege, Ihre Werbemittel-Kosten um 40% zu senken&ldquo;</td></tr>
+  <tr><td>Frage</td><td>&bdquo;Kennen Sie Ihren Cost-per-Print?&ldquo;</td></tr>
+  <tr><td>Kontr&auml;r</td><td>&bdquo;Warum mehr Content nicht die L&ouml;sung ist&ldquo;</td></tr>
+  <tr><td>Neugier</td><td>&bdquo;Was uns 500 Fulfillment-Projekte gelehrt haben&ldquo;</td></tr>
+  <tr><td>Update</td><td>&bdquo;Neu: KI-gest&uuml;tzte Bildfreigabe f&uuml;r W2P-Portale&ldquo;</td></tr>
+</table>
+
+<!-- 4. KPIs -->
+<h2>4. Erfolgs-KPIs</h2>
+
+<div class="kpis">
+  <div class="kpi"><div class="kpi__num">&gt;30%</div><div class="kpi__label">&Ouml;ffnungsrate</div></div>
+  <div class="kpi"><div class="kpi__num">&gt;5%</div><div class="kpi__label">Klickrate (CTR)</div></div>
+  <div class="kpi"><div class="kpi__num">&lt;0.5%</div><div class="kpi__label">Abmelderate</div></div>
+  <div class="kpi"><div class="kpi__num">&ge;2</div><div class="kpi__label">Demo-Anfragen/Monat</div></div>
+</div>
+
+<table>
+  <tr><th>KPI</th><th>Zielwert</th><th>B2B-Benchmark</th><th>Messung</th></tr>
+  <tr><td>&Ouml;ffnungsrate</td><td>&gt;30%</td><td>21&ndash;25%</td><td>ESP-Dashboard</td></tr>
+  <tr><td>Klickrate (CTR)</td><td>&gt;5%</td><td>2&ndash;3%</td><td>ESP-Dashboard</td></tr>
+  <tr><td>Click-to-Open (CTOR)</td><td>&gt;15%</td><td>10&ndash;12%</td><td>ESP-Dashboard</td></tr>
+  <tr><td>Abmelderate</td><td>&lt;0.5%</td><td>0.2&ndash;0.5%</td><td>ESP-Dashboard</td></tr>
+  <tr><td>Demo-Anfragen</td><td>&ge;2 pro Ausgabe</td><td>&mdash;</td><td>Netlify Forms / CRM</td></tr>
+  <tr><td>Whitepaper-Downloads</td><td>&ge;5 pro Ausgabe</td><td>&mdash;</td><td>Netlify Forms</td></tr>
+  <tr><td>Listenwachstum</td><td>+10% pro Quartal</td><td>5&ndash;8%</td><td>ESP-Dashboard</td></tr>
+</table>
+
+<!-- 5. REDAKTIONSPLAN -->
+<h2>5. Redaktionsplan &mdash; 12 Monate</h2>
+
+<p>Der Plan kombiniert Lead Nurturing, Thought Leadership und Produkt-Updates in einem ausbalancierten Mix. Jede Ausgabe hat einen thematischen Schwerpunkt.</p>
+
+<div class="timeline">
+  <div class="timeline__item">
+    <div class="timeline__month">APR 2026</div>
+    <div class="timeline__content">
+      <div class="timeline__title">Launch-Ausgabe: &bdquo;Warum Marketing-Fulfillment 2026 Chefsache ist&ldquo;</div>
+      <div class="timeline__desc">
+        <span class="tag tag--red">Deep Dive</span> <span class="tag tag--green">Thought Leadership</span><br>
+        Einf&uuml;hrungsausgabe: Status Quo der Branche, die 5 gr&ouml;&szlig;ten Schmerzpunkte, Vorstellung des Newsletter-Formats.<br>
+        <strong>CTA:</strong> Whitepaper-Download &bull; <strong>Case:</strong> Teaser EGGER-Projekt
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline__item">
+    <div class="timeline__month">MAI 2026</div>
+    <div class="timeline__content">
+      <div class="timeline__title">&bdquo;Web-to-Publish: Was es wirklich kostet (und spart)&ldquo;</div>
+      <div class="timeline__desc">
+        <span class="tag tag--red">Deep Dive</span> <span class="tag tag--blue">Produkt</span><br>
+        TCO-Analyse W2P-Systeme, versteckte Kosten manueller Prozesse, Break-Even-Berechnung.<br>
+        <strong>CTA:</strong> Kostenlosen Fit-Check starten &bull; <strong>Case:</strong> Gastro-Kette Speisekarten-Automation
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline__item">
+    <div class="timeline__month">JUN 2026</div>
+    <div class="timeline__content">
+      <div class="timeline__title">&bdquo;KI im Marketing-Fulfillment: Hype vs. Realit&auml;t&ldquo;</div>
+      <div class="timeline__desc">
+        <span class="tag tag--red">Deep Dive</span> <span class="tag tag--green">Thought Leadership</span><br>
+        Wo KI heute echten Mehrwert bringt (Bildgenerierung, Textadaption, Freigabe-Workflows) und wo nicht.<br>
+        <strong>CTA:</strong> Demo anfragen &bull; <strong>Tech Radar:</strong> 3 KI-Tools im Praxistest
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline__item">
+    <div class="timeline__month">JUL 2026</div>
+    <div class="timeline__content">
+      <div class="timeline__title">&bdquo;Der perfekte Freigabe-Workflow in 5 Schritten&ldquo;</div>
+      <div class="timeline__desc">
+        <span class="tag tag--red">Deep Dive</span> <span class="tag tag--blue">Produkt</span><br>
+        Praxis-Guide: Vom Briefing bis zur Druckfreigabe &mdash; automatisiert und nachvollziehbar.<br>
+        <strong>CTA:</strong> Workflow-Template herunterladen &bull; <strong>Case:</strong> Versicherungskonzern Compliance-Freigabe
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline__item">
+    <div class="timeline__month">AUG 2026</div>
+    <div class="timeline__content">
+      <div class="timeline__title">&bdquo;Sommerloch? 5 Quick Wins f&uuml;r Ihr Marketing-Setup&ldquo;</div>
+      <div class="timeline__desc">
+        <span class="tag tag--gray">Leichtgewicht</span> <span class="tag tag--blue">Produkt</span><br>
+        Kurze, umsetzbare Tipps: Asset-Bibliothek aufr&auml;umen, Templates standardisieren, Analytics einrichten.<br>
+        <strong>CTA:</strong> Fit-Check &bull; <strong>Bonus:</strong> Checkliste als PDF-Download
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline__item">
+    <div class="timeline__month">SEP 2026</div>
+    <div class="timeline__content">
+      <div class="timeline__title">&bdquo;Shop-System + ERP: So vermeiden Sie die 7 teuersten Fehler&ldquo;</div>
+      <div class="timeline__desc">
+        <span class="tag tag--red">Deep Dive</span> <span class="tag tag--green">Thought Leadership</span><br>
+        B2B-Shop-Integration: Typische Stolperfallen bei der ERP-Anbindung und wie man sie umgeht.<br>
+        <strong>CTA:</strong> Demo anfragen &bull; <strong>Case:</strong> Industriegruppe mit 12 Standorten
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline__item">
+    <div class="timeline__month">OKT 2026</div>
+    <div class="timeline__content">
+      <div class="timeline__title">&bdquo;ROI von Marketing-Automation: So &uuml;berzeugen Sie die Gesch&auml;ftsf&uuml;hrung&ldquo;</div>
+      <div class="timeline__desc">
+        <span class="tag tag--red">Deep Dive</span> <span class="tag tag--green">Thought Leadership</span><br>
+        Business-Case-Template, Argumentationshilfen, konkrete Einsparungsrechnung.<br>
+        <strong>CTA:</strong> Whitepaper-Download (ROI-Kapitel) &bull; <strong>Bonus:</strong> ROI-Rechner-Template
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline__item">
+    <div class="timeline__month">NOV 2026</div>
+    <div class="timeline__content">
+      <div class="timeline__title">&bdquo;Jahresend-Kampagnen automatisieren: Weihnachtskarten bis POS&ldquo;</div>
+      <div class="timeline__desc">
+        <span class="tag tag--blue">Produkt</span> <span class="tag tag--gray">Saisonal</span><br>
+        Praxistipps f&uuml;r saisonale Materialien: Personalisierte Mailings, POS-Displays, Adventskalender-Aktionen.<br>
+        <strong>CTA:</strong> Beratungsgespr&auml;ch buchen &bull; <strong>Case:</strong> Handelsunternehmen Weihnachtskampagne
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline__item">
+    <div class="timeline__month">DEZ 2026</div>
+    <div class="timeline__content">
+      <div class="timeline__title">&bdquo;Jahresr&uuml;ckblick: Die wichtigsten Fulfillment-Trends 2026&ldquo;</div>
+      <div class="timeline__desc">
+        <span class="tag tag--green">Thought Leadership</span> <span class="tag tag--gray">Saisonal</span><br>
+        R&uuml;ckblick auf die wichtigsten Entwicklungen, Learnings aus Kundenprojekten, Ausblick auf 2027.<br>
+        <strong>CTA:</strong> Strategie-Workshop f&uuml;r Q1 2027 buchen &bull; <strong>Bonus:</strong> &bdquo;Frag den Experten&ldquo; Spezial
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline__item">
+    <div class="timeline__month">JAN 2027</div>
+    <div class="timeline__content">
+      <div class="timeline__title">&bdquo;2027 Kickoff: Ihr 90-Tage-Plan f&uuml;r Marketing-Digitalisierung&ldquo;</div>
+      <div class="timeline__desc">
+        <span class="tag tag--red">Deep Dive</span> <span class="tag tag--blue">Produkt</span><br>
+        Konkrete Roadmap: Was in 90 Tagen realistisch umsetzbar ist &mdash; mit Meilensteinen und Quick Wins.<br>
+        <strong>CTA:</strong> Fit-Check + Beratungsgespr&auml;ch &bull; <strong>Tech Radar:</strong> Top 5 Tools f&uuml;r 2027
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline__item">
+    <div class="timeline__month">FEB 2027</div>
+    <div class="timeline__content">
+      <div class="timeline__title">&bdquo;DAM vs. PIM vs. W2P: Der ultimative Vergleich&ldquo;</div>
+      <div class="timeline__desc">
+        <span class="tag tag--red">Deep Dive</span> <span class="tag tag--green">Thought Leadership</span><br>
+        Entscheidungsmatrix: Wann welches System Sinn macht, Integrations-Szenarien, Kosten-Nutzen-Vergleich.<br>
+        <strong>CTA:</strong> Whitepaper-Download &bull; <strong>Case:</strong> Verlagsgruppe Multi-System-Integration
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline__item">
+    <div class="timeline__month">M&Auml;R 2027</div>
+    <div class="timeline__content">
+      <div class="timeline__title">&bdquo;1 Jahr Newsletter: Unsere Top 5 Learnings + Leser-Highlights&ldquo;</div>
+      <div class="timeline__desc">
+        <span class="tag tag--gray">Community</span> <span class="tag tag--green">Thought Leadership</span><br>
+        Jubil&auml;umsausgabe: Meistgelesene Artikel, Leser-Feedback, Behind the Scenes bei 3DCAY.<br>
+        <strong>CTA:</strong> Umfrage: Was wollt ihr 2027 lesen? &bull; <strong>Bonus:</strong> Exklusives Dankeschön f&uuml;r Abonnenten
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 6. THEMEN-MIX -->
+<h2>6. Themen-Mix &Uuml;bersicht</h2>
+
+<table>
+  <tr><th>Monat</th><th>Schwerpunkt</th><th>CTA-Typ</th><th>Content-Typ</th></tr>
+  <tr><td>Apr 26</td><td>Branchenstatus Fulfillment</td><td>Whitepaper</td><td><span class="tag tag--green">Thought Leadership</span></td></tr>
+  <tr><td>Mai 26</td><td>W2P Kosten &amp; ROI</td><td>Fit-Check</td><td><span class="tag tag--blue">Produkt</span></td></tr>
+  <tr><td>Jun 26</td><td>KI im Marketing</td><td>Demo</td><td><span class="tag tag--green">Thought Leadership</span></td></tr>
+  <tr><td>Jul 26</td><td>Freigabe-Workflows</td><td>Template</td><td><span class="tag tag--blue">Produkt</span></td></tr>
+  <tr><td>Aug 26</td><td>Quick Wins</td><td>Fit-Check</td><td><span class="tag tag--gray">Leichtgewicht</span></td></tr>
+  <tr><td>Sep 26</td><td>Shop + ERP</td><td>Demo</td><td><span class="tag tag--green">Thought Leadership</span></td></tr>
+  <tr><td>Okt 26</td><td>ROI &amp; Business Case</td><td>Whitepaper</td><td><span class="tag tag--green">Thought Leadership</span></td></tr>
+  <tr><td>Nov 26</td><td>Saisonale Kampagnen</td><td>Beratung</td><td><span class="tag tag--blue">Produkt</span></td></tr>
+  <tr><td>Dez 26</td><td>Jahresr&uuml;ckblick</td><td>Workshop</td><td><span class="tag tag--gray">Community</span></td></tr>
+  <tr><td>Jan 27</td><td>90-Tage-Plan</td><td>Fit-Check</td><td><span class="tag tag--blue">Produkt</span></td></tr>
+  <tr><td>Feb 27</td><td>System-Vergleich</td><td>Whitepaper</td><td><span class="tag tag--green">Thought Leadership</span></td></tr>
+  <tr><td>M&auml;r 27</td><td>Jubil&auml;um &amp; Learnings</td><td>Umfrage</td><td><span class="tag tag--gray">Community</span></td></tr>
+</table>
+
+<!-- 7. TOOLING -->
+<h2>7. Empfohlenes Tooling</h2>
+
+<table>
+  <tr><th>Kategorie</th><th>Empfehlung</th><th>Warum</th></tr>
+  <tr><td><strong>ESP (E-Mail Service Provider)</strong></td><td>Brevo (ex Sendinblue) oder Mailchimp</td><td>DSGVO-konform, gutes Free-Tier, Automation-Funktionen, deutschsprachiger Support</td></tr>
+  <tr><td><strong>Landing Pages</strong></td><td>Bereits vorhanden (Netlify)</td><td>Whitepaper- und Assessment-Pages sind live</td></tr>
+  <tr><td><strong>Formulare</strong></td><td>Netlify Forms &rarr; ESP-Integration</td><td>Webhook/Zapier: Bei Newsletter-Signup automatisch in ESP-Liste eintragen</td></tr>
+  <tr><td><strong>Analytics</strong></td><td>ESP-integriert + UTM-Parameter</td><td>Jeder Link im Newsletter bekommt UTM-Tags f&uuml;r GA4-Tracking</td></tr>
+  <tr><td><strong>Design</strong></td><td>ESP-Template-Builder</td><td>Responsive HTML-Templates im 3DCAY-Design (schwarz/rot/wei&szlig;, Inter-Font)</td></tr>
+</table>
+
+<div class="highlight">
+  <p><strong>Quick-Start-Empfehlung:</strong> Brevo Free Tier (300 E-Mails/Tag) reicht f&uuml;r den Start v&ouml;llig. Sp&auml;ter auf Starter-Plan upgraden. Netlify Forms per Zapier/Make.com mit Brevo verbinden, damit Newsletter-Signups automatisch in die Liste flie&szlig;en.</p>
+</div>
+
+<!-- 8. PRODUKTIONSABLAUF -->
+<h2>8. Monatlicher Produktionsablauf</h2>
+
+<table>
+  <tr><th>Woche</th><th>Tag</th><th>Aufgabe</th><th>Verantwortlich</th></tr>
+  <tr><td>Woche 1</td><td>Mo</td><td>Thema &amp; Betreffzeile festlegen</td><td>Content / GF</td></tr>
+  <tr><td>Woche 2</td><td>Mo&ndash;Mi</td><td>Deep Dive schreiben, Case ausw&auml;hlen</td><td>Content</td></tr>
+  <tr><td>Woche 2</td><td>Do</td><td>Tool &amp; Tech Radar recherchieren</td><td>Content / Dev</td></tr>
+  <tr><td>Woche 3</td><td>Mo</td><td>Alle Inhalte ins ESP-Template &uuml;bertragen</td><td>Content</td></tr>
+  <tr><td>Woche 3</td><td>Di</td><td>Review &amp; Freigabe</td><td>GF</td></tr>
+  <tr><td>Woche 3</td><td>Mi</td><td>Test-Versand (intern)</td><td>Content</td></tr>
+  <tr><td>Woche 3</td><td>Do 9:00</td><td><strong>Versand</strong></td><td>Automatisch / Content</td></tr>
+  <tr><td>Woche 4</td><td>Mo</td><td>Ergebnisse auswerten, Learnings notieren</td><td>Content</td></tr>
+</table>
+
+<div class="info">
+  <p class="info__label">Optimaler Versandzeitpunkt</p>
+  <p style="margin-bottom:0"><strong>Donnerstag, 9:00 Uhr</strong> &mdash; B2B-Studien zeigen die h&ouml;chsten &Ouml;ffnungsraten am Dienstag&ndash;Donnerstag vormittags. Donnerstag als fixer Tag gibt euch Puffer f&uuml;r Last-Minute-&Auml;nderungen ohne Wochenend-Stress.</p>
+</div>
+
+<!-- 9. WACHSTUM -->
+<h2>9. Listenwachstum-Strategie</h2>
+
+<h3>Bestehende Touchpoints (bereits live)</h3>
+<table>
+  <tr><th>Touchpoint</th><th>Mechanismus</th><th>Status</th></tr>
+  <tr><td>Website Newsletter-Sektion</td><td>Inline-Formular vor CTA-Bereich</td><td><span class="tag tag--green">Live</span></td></tr>
+  <tr><td>Whitepaper Landing Page</td><td>E-Mail-Pflichtfeld + Opt-in</td><td><span class="tag tag--green">Live</span></td></tr>
+  <tr><td>Assessment Landing Page</td><td>E-Mail nach Ergebnis</td><td><span class="tag tag--green">Live</span></td></tr>
+  <tr><td>Footer-Link</td><td>Link zur Newsletter-Sektion</td><td><span class="tag tag--green">Live</span></td></tr>
+</table>
+
+<h3>Zus&auml;tzliche Wachstumshebel</h3>
+<table>
+  <tr><th>Ma&szlig;nahme</th><th>Aufwand</th><th>Erwarteter Impact</th></tr>
+  <tr><td>LinkedIn-Posts mit Newsletter-Teaser</td><td>Niedrig</td><td>+5&ndash;10 Abonnenten/Monat</td></tr>
+  <tr><td>Exit-Intent Popup auf der Website</td><td>Mittel</td><td>+3&ndash;5% Conversion-Uplift</td></tr>
+  <tr><td>Webinar-Registrierungen mit Opt-in</td><td>Hoch</td><td>+20&ndash;50 Abonnenten/Event</td></tr>
+  <tr><td>Partner-Cross-Promotion</td><td>Mittel</td><td>+10&ndash;30 Abonnenten/Aktion</td></tr>
+  <tr><td>E-Mail-Signatur mit Newsletter-Link</td><td>Niedrig</td><td>Stetige passive Signups</td></tr>
+</table>
+
+<!-- 10. DSGVO -->
+<h2>10. DSGVO-Compliance</h2>
+
+<table>
+  <tr><th>Anforderung</th><th>Umsetzung</th></tr>
+  <tr><td>Double Opt-in</td><td>Pflicht: Jeder Signup muss per Best&auml;tigungs-E-Mail verifiziert werden</td></tr>
+  <tr><td>Einwilligungstext</td><td>&bdquo;Ich m&ouml;chte den monatlichen 3DCAY-Newsletter erhalten und kann mich jederzeit abmelden.&ldquo;</td></tr>
+  <tr><td>Abmelde-Link</td><td>In jedem Newsletter im Footer &mdash; 1-Klick-Abmeldung</td></tr>
+  <tr><td>Datenschutzhinweis</td><td>Link zur Datenschutzerkl&auml;rung im Formular und im Newsletter-Footer</td></tr>
+  <tr><td>Verarbeitungsverzeichnis</td><td>Newsletter-Versand in das Verarbeitungsverzeichnis aufnehmen</td></tr>
+  <tr><td>Auftragsverarbeitung</td><td>AV-Vertrag mit dem ESP abschlie&szlig;en (bei Brevo/Mailchimp standardm&auml;&szlig;ig verf&uuml;gbar)</td></tr>
+</table>
+
+<div style="margin-top:64px;padding-top:32px;border-top:2px solid var(--black);text-align:center">
+  <p style="font-family:var(--font-mono);font-size:12px;color:var(--gray-500);letter-spacing:0.05em">&copy; 2026 3DCAY MARKETING SOLUTIONS &mdash; INTERNES STRATEGIEDOKUMENT</p>
+</div>
+
+</div>
+</div>
+</body>
+</html>

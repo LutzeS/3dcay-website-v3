@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="3DCAY Cashback – Intelligente Cashback- und Promotionslösungen mit KI-gestützter Belegerkennung. Automatisiert, skalierbar und perfekt für verkaufsfördernde Aktionen.">
+    <meta property="og:title" content="3DCAY Cashback – KI-gestützte Cashback-Lösungen">
+    <meta property="og:description" content="Automatisierte Cashback- und Promotionsprozesse mit OCR und künstlicher Intelligenz.">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:type" content="website">
+    <title>3DCAY Cashback – Intelligente Cashback- und Promotionslösungen</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========================================
+           DESIGN SYSTEM
+           ======================================== */
+        :root {
+            --black: #0A0A0A;
+            --red: #e3101a;
+            --red-hover: #ff1a25;
+            --white: #FFF;
+            --gray-50: #FAFAFA;
+            --gray-100: #F0F0F0;
+            --gray-200: #E5E5E5;
+            --gray-500: #737373;
+            --gray-700: #404040;
+            --gray-900: #171717;
+            
+            --font-sans: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            --container-max: 1280px;
+            --container-px: 32px;
+            
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--gray-700);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           TYPOGRAPHY
+           ======================================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 800;
+            letter-spacing: -0.035em;
+            line-height: 1.04;
+            color: var(--black);
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        h4 { font-size: 1.25rem; }
+        h5 { font-size: 1rem; }
+
+        p {
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        em {
+            color: var(--red);
+            font-style: normal;
+        }
+
+        .label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--red);
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* ========================================
+           BUTTONS
+           ======================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 32px;
+            border-radius: 100px;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            gap: 8px;
+        }
+
+        .btn--primary {
+            background-color: var(--red);
+            color: var(--white);
+        }
+
+        .btn--primary:hover {
+            background-color: var(--red-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(227, 16, 26, 0.3);
+        }
+
+        .btn--outline-white {
+            border: 2px solid var(--white);
+            color: var(--white);
+            background-color: transparent;
+        }
+
+        .btn--outline-white:hover {
+            background-color: var(--white);
+            color: var(--red);
+            transform: translateY(-2px);
+        }
+
+        .btn--outline {
+            border: 2px solid var(--gray-200);
+            color: var(--black);
+            background-color: transparent;
+        }
+
+        .btn--outline:hover {
+            border-color: var(--red);
+            color: var(--red);
+            transform: translateY(-2px);
+        }
+
+        .btn--dark {
+            background-color: var(--black);
+            color: var(--white);
+        }
+
+        .btn--dark:hover {
+            background-color: var(--gray-900);
+            transform: translateY(-2px);
+        }
+
+        /* ========================================
+           LAYOUT UTILITIES
+           ======================================== */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--container-px);
+        }
+
+        section {
+            padding: 80px var(--container-px);
+        }
+
+        .grid {
+            display: grid;
+            gap: 32px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .grid-6 {
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .flex-between {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flex-col {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* ========================================
+           NAVIGATION
+           ======================================== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--white);
+            border-bottom: 1px solid var(--gray-100);
+            padding: 16px var(--container-px);
+        }
+
+        .nav-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 18px;
+            color: var(--red);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--red);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            border: 1px solid var(--gray-100);
+            border-radius: 8px;
+            min-width: 200px;
+            margin-top: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 16px;
+            color: var(--gray-700);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--gray-50);
+            color: var(--red);
+        }
+
+        /* ========================================
+           HERO SECTION
+           ======================================== */
+        .hero {
+            background: linear-gradient(135deg, #0A0A0A 0%, #1a1a1a 100%);
+            color: var(--white);
+            padding: 120px var(--container-px) 80px;
+            text-align: center;
+        }
+
+        .hero .container {
+            max-width: 900px;
+        }
+
+        .hero .label {
+            color: var(--red);
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 24px;
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+        }
+
+        .hero p {
+            color: var(--gray-200);
+            font-size: 18px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
+        }
+
+        /* ========================================
+           CASHBACK PIPELINE SVG ANIMATION
+           ======================================== */
+        .cb-pipeline-anim {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 60px;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        .cb-pipeline-anim.active { opacity: 1; transform: none; }
+        .cb-pipeline-anim svg {
+            width: 100%;
+            max-width: 880px;
+            height: auto;
+        }
+        .cb-pipeline-anim .draw {
+            fill: none;
+            stroke: rgba(227,16,26,0.7);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: var(--len);
+            stroke-dashoffset: var(--len);
+        }
+        .cb-pipeline-anim .draw-white {
+            fill: none;
+            stroke: rgba(255,255,255,0.25);
+            stroke-width: 1.4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: var(--len);
+            stroke-dashoffset: var(--len);
+        }
+        .cb-pipeline-anim .draw-accent {
+            fill: none;
+            stroke: var(--red);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: var(--len);
+            stroke-dashoffset: var(--len);
+        }
+        .cb-pipeline-anim .draw-glow {
+            fill: none;
+            stroke: rgba(227,16,26,0.35);
+            stroke-width: 1;
+            stroke-linecap: round;
+            stroke-dasharray: var(--len);
+            stroke-dashoffset: var(--len);
+        }
+        .cb-pipeline-anim .fade-in { opacity: 0; }
+        .cb-pipeline-anim.active .draw { animation: cbDraw 2s cubic-bezier(.4,0,.2,1) forwards; }
+        .cb-pipeline-anim.active .draw-white { animation: cbDraw 1.8s cubic-bezier(.4,0,.2,1) forwards; }
+        .cb-pipeline-anim.active .draw-accent { animation: cbDraw 2s cubic-bezier(.4,0,.2,1) forwards; }
+        .cb-pipeline-anim.active .draw-glow { animation: cbDraw 1.6s cubic-bezier(.4,0,.2,1) forwards; }
+        .cb-pipeline-anim.active .fade-in { animation: cbFade 1s ease forwards; }
+        .cb-pipeline-anim.active .d1 { animation-delay: 0.2s; }
+        .cb-pipeline-anim.active .d2 { animation-delay: 0.5s; }
+        .cb-pipeline-anim.active .d3 { animation-delay: 0.9s; }
+        .cb-pipeline-anim.active .d4 { animation-delay: 1.3s; }
+        .cb-pipeline-anim.active .d5 { animation-delay: 1.7s; }
+        .cb-pipeline-anim.active .d6 { animation-delay: 2.1s; }
+        .cb-pipeline-anim.active .d7 { animation-delay: 2.5s; }
+        .cb-pipeline-anim.active .d8 { animation-delay: 2.9s; }
+        .cb-pipeline-anim.active .d9 { animation-delay: 3.3s; }
+        .cb-pipeline-anim.active .d10 { animation-delay: 3.7s; }
+        .cb-pipeline-anim.active .d11 { animation-delay: 4.1s; }
+        .cb-pipeline-anim.active .d12 { animation-delay: 4.5s; }
+        .cb-pipeline-anim.active .d13 { animation-delay: 4.9s; }
+        .cb-pipeline-anim.active .d14 { animation-delay: 5.3s; }
+        .cb-pipeline-anim.active .d15 { animation-delay: 5.7s; }
+        @keyframes cbDraw { to { stroke-dashoffset: 0; } }
+        @keyframes cbFade { to { opacity: 1; } }
+        @keyframes cbPulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+        .cb-pipeline-anim.active .pulse {
+            animation: cbPulse 2s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            .cb-pipeline-anim svg { max-width: 100%; }
+        }
+
+        /* ========================================
+           SECTION STYLES
+           ======================================== */
+        .section-light {
+            background-color: var(--white);
+        }
+
+        .section-gray {
+            background-color: var(--gray-50);
+        }
+
+        .section-dark {
+            background-color: var(--black);
+            color: var(--white);
+        }
+
+        .section-red {
+            background: linear-gradient(135deg, #e3101a 0%, #ff1a25 100%);
+            color: var(--white);
+        }
+
+        .section-dark h2,
+        .section-red h2 {
+            color: var(--white);
+        }
+
+        .section-dark p,
+        .section-red p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            margin-bottom: 24px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--gray-700);
+        }
+
+        .section-dark .section-header p,
+        .section-red .section-header p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* ========================================
+           FEATURE CARDS
+           ======================================== */
+        .card {
+            padding: 32px;
+            border-radius: 12px;
+            background-color: var(--white);
+            border: 1px solid var(--gray-100);
+            transition: var(--transition);
+        }
+
+        .section-gray .card {
+            background-color: var(--white);
+        }
+
+        .card:hover {
+            border-color: var(--red);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .card p {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--red);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 800;
+            margin-bottom: 16px;
+            font-size: 24px;
+        }
+
+        /* ========================================
+           STAT BLOCKS
+           ======================================== */
+        .stat-block {
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 500;
+        }
+
+        /* ========================================
+           CASE STUDY
+           ======================================== */
+        .case-study {
+            padding: 40px;
+            background-color: var(--white);
+            border-left: 4px solid var(--red);
+            border-radius: 4px;
+        }
+
+        .case-study-header {
+            margin-bottom: 32px;
+        }
+
+        .case-study h2 {
+            margin-bottom: 8px;
+        }
+
+        .case-study-content {
+            display: grid;
+            gap: 32px;
+        }
+
+        .case-study-section {
+            margin-bottom: 24px;
+        }
+
+        .case-study-section h3 {
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+
+        .case-study-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .case-study-section li {
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 12px;
+            color: var(--gray-700);
+        }
+
+        .case-study-section li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--red);
+            font-weight: bold;
+        }
+
+        .case-study-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .metric-card {
+            padding: 24px;
+            background-color: var(--gray-50);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .metric-card h4 {
+            color: var(--gray-500);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        .metric-value {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 800;
+            color: var(--red);
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: var(--gray-700);
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px var(--container-px) 40px;
+        }
+
+        .footer-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: var(--transition);
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .footer-section a:hover {
+            color: var(--red);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ========================================
+           MODAL
+           ======================================== */
+        .demo-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .demo-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gray-500);
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--red);
+        }
+
+        .modal-content h2 {
+            margin-bottom: 16px;
+        }
+
+        .modal-content p {
+            margin-bottom: 24px;
+            color: var(--gray-700);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--black);
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            font-family: var(--font-sans);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--red);
+            box-shadow: 0 0 0 3px rgba(227, 16, 26, 0.1);
+        }
+
+        /* ========================================
+           ANIMATIONS
+           ======================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .reveal.active {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .cb-pipeline-anim.reveal {
+            transform: none;
+        }
+        .cb-pipeline-anim.reveal.active {
+            animation: none;
+            opacity: 1;
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 768px) {
+            section {
+                padding: 60px var(--container-px);
+            }
+
+            .nav-links {
+                gap: 16px;
+                font-size: 14px;
+            }
+
+            .hero {
+                padding: 80px var(--container-px) 60px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
+            }
+
+            .grid-2,
+            .grid-3,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                margin-bottom: 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .modal-content {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <a href="index-v4.html" class="logo">3DCAY</a>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="#produkte">Produkte</a>
+                    <div class="dropdown-menu">
+                        <a href="shop.html">Shop</a>
+                        <a href="web-to-publish.html">Web-to-Publish</a>
+                        <a href="cashback.html" class="active">Cashback</a>
+                        <a href="3dcay-app.html">App</a>
+                    </div>
+                </li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="ki-lab.html">KI Lab</a></li>
+                <li><a href="referenzen.html">Referenzen</a></li>
+            </ul>
+            <div class="nav-cta">
+                <button class="btn btn--primary" onclick="openDemo()">Demo anfragen</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="label">3DCAY CASHBACK</div>
+            <h1>Intelligente Cashback- und Promotionslösungen mit KI-gestützter Belegerkennung</h1>
+            <p>Automatisiert, skalierbar und perfekt für verkaufsfördernde Aktionen.</p>
+            
+            <div class="hero-cta">
+                <button class="btn btn--primary" onclick="openDemo()">Cashback-Demo anfragen</button>
+                <a href="#case" class="btn btn--outline-white">Case Study: EGGER</a>
+            </div>
+
+            <!-- Pipeline SVG Animation -->
+            <div class="cb-pipeline-anim reveal">
+                <svg viewBox="0 0 880 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Step 1: Belegerkennung — Receipt/Scan icon -->
+                    <g transform="translate(20, 30)">
+                        <!-- Receipt outline -->
+                        <rect class="draw d1" x="10" y="10" width="100" height="130" rx="6" style="--len:460"/>
+                        <!-- Scan lines on receipt -->
+                        <line class="draw-white d2" x1="28" y1="35" x2="92" y2="35" style="--len:64"/>
+                        <line class="draw-white d2" x1="28" y1="50" x2="82" y2="50" style="--len:54"/>
+                        <line class="draw-white d2" x1="28" y1="65" x2="88" y2="65" style="--len:60"/>
+                        <line class="draw-white d3" x1="28" y1="80" x2="72" y2="80" style="--len:44"/>
+                        <!-- Scan beam -->
+                        <line class="draw-accent d3" x1="10" y1="100" x2="110" y2="100" style="--len:100"/>
+                        <!-- OCR dots -->
+                        <circle class="draw-glow d4 pulse" cx="30" cy="115" r="3" style="--len:19"/>
+                        <circle class="draw-glow d4 pulse" cx="50" cy="115" r="3" style="--len:19"/>
+                        <circle class="draw-glow d4 pulse" cx="70" cy="115" r="3" style="--len:19"/>
+                        <!-- Label -->
+                        <text class="fade-in d4" x="60" y="165" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Inter,sans-serif" font-size="11" font-weight="600" letter-spacing="0.03em">BELEGERKENNUNG</text>
+                    </g>
+
+                    <!-- Arrow 1→2 -->
+                    <g transform="translate(148, 75)">
+                        <line class="draw-accent d5" x1="0" y1="20" x2="40" y2="20" style="--len:40"/>
+                        <polyline class="draw-accent d5" points="32,12 42,20 32,28" style="--len:24"/>
+                    </g>
+
+                    <!-- Step 2: Validierung — Checkmark/Shield icon -->
+                    <g transform="translate(195, 30)">
+                        <!-- Shield outline -->
+                        <path class="draw d6" d="M60,10 L105,28 L105,80 C105,110 60,135 60,135 C60,135 15,110 15,80 L15,28 Z" style="--len:320"/>
+                        <!-- Checkmark inside shield -->
+                        <polyline class="draw-accent d7" points="38,72 54,88 82,55" style="--len:62" stroke-width="3.5"/>
+                        <!-- Small validation ticks -->
+                        <line class="draw-white d7" x1="35" y1="42" x2="45" y2="42" style="--len:10"/>
+                        <line class="draw-white d7" x1="55" y1="42" x2="85" y2="42" style="--len:30"/>
+                        <!-- Label -->
+                        <text class="fade-in d7" x="60" y="165" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Inter,sans-serif" font-size="11" font-weight="600" letter-spacing="0.03em">VALIDIERUNG</text>
+                    </g>
+
+                    <!-- Arrow 2→3 -->
+                    <g transform="translate(323, 75)">
+                        <line class="draw-accent d8" x1="0" y1="20" x2="40" y2="20" style="--len:40"/>
+                        <polyline class="draw-accent d8" points="32,12 42,20 32,28" style="--len:24"/>
+                    </g>
+
+                    <!-- Step 3: Matching — Puzzle/Connect icon -->
+                    <g transform="translate(370, 30)">
+                        <!-- Two connecting pieces -->
+                        <path class="draw d9" d="M20,40 L50,40 C50,40 50,30 60,30 C70,30 70,40 70,40 L100,40 L100,100 L70,100 C70,100 70,90 60,90 C50,90 50,100 50,100 L20,100 Z" style="--len:340"/>
+                        <!-- Connection lines -->
+                        <line class="draw-white d9" x1="35" y1="60" x2="85" y2="60" style="--len:50"/>
+                        <line class="draw-white d10" x1="35" y1="75" x2="75" y2="75" style="--len:40"/>
+                        <!-- Glow dots at connection -->
+                        <circle class="draw-glow d10 pulse" cx="60" cy="30" r="4" style="--len:25"/>
+                        <circle class="draw-glow d10 pulse" cx="60" cy="90" r="4" style="--len:25"/>
+                        <!-- Label -->
+                        <text class="fade-in d10" x="60" y="135" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Inter,sans-serif" font-size="11" font-weight="600" letter-spacing="0.03em">MATCHING</text>
+                    </g>
+
+                    <!-- Arrow 3→4 -->
+                    <g transform="translate(498, 75)">
+                        <line class="draw-accent d11" x1="0" y1="20" x2="40" y2="20" style="--len:40"/>
+                        <polyline class="draw-accent d11" points="32,12 42,20 32,28" style="--len:24"/>
+                    </g>
+
+                    <!-- Step 4: Berechnung — Calculator/Formula icon -->
+                    <g transform="translate(545, 30)">
+                        <!-- Calculator body -->
+                        <rect class="draw d11" x="15" y="10" width="90" height="120" rx="8" style="--len:420"/>
+                        <!-- Display -->
+                        <rect class="draw-white d12" x="28" y="22" width="64" height="25" rx="3" style="--len:178"/>
+                        <!-- Numbers/keys grid -->
+                        <line class="draw-white d12" x1="35" y1="60" x2="50" y2="60" style="--len:15"/>
+                        <line class="draw-white d12" x1="60" y1="60" x2="75" y2="60" style="--len:15"/>
+                        <line class="draw-white d13" x1="35" y1="78" x2="50" y2="78" style="--len:15"/>
+                        <line class="draw-white d13" x1="60" y1="78" x2="75" y2="78" style="--len:15"/>
+                        <line class="draw-white d13" x1="35" y1="96" x2="50" y2="96" style="--len:15"/>
+                        <!-- Result highlight -->
+                        <line class="draw-accent d13" x1="60" y1="96" x2="85" y2="96" style="--len:25"/>
+                        <!-- Euro symbol -->
+                        <text class="fade-in d13" x="60" y="42" text-anchor="middle" fill="rgba(227,16,26,0.8)" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700">€ 24,90</text>
+                        <!-- Label -->
+                        <text class="fade-in d13" x="60" y="155" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Inter,sans-serif" font-size="11" font-weight="600" letter-spacing="0.03em">BERECHNUNG</text>
+                    </g>
+
+                    <!-- Arrow 4→5 -->
+                    <g transform="translate(673, 75)">
+                        <line class="draw-accent d14" x1="0" y1="20" x2="40" y2="20" style="--len:40"/>
+                        <polyline class="draw-accent d14" points="32,12 42,20 32,28" style="--len:24"/>
+                    </g>
+
+                    <!-- Step 5: Auszahlung — Payment/Transfer icon -->
+                    <g transform="translate(720, 30)">
+                        <!-- Wallet/card outline -->
+                        <rect class="draw d14" x="10" y="25" width="110" height="80" rx="10" style="--len:380"/>
+                        <!-- Card stripe -->
+                        <line class="draw-white d14" x1="10" y1="50" x2="120" y2="50" style="--len:110"/>
+                        <!-- Chip -->
+                        <rect class="draw-accent d15" x="28" y="60" width="22" height="16" rx="3" style="--len:76"/>
+                        <!-- Transfer arrow (money going out) -->
+                        <line class="draw-accent d15" x1="80" y1="78" x2="108" y2="78" style="--len:28"/>
+                        <polyline class="draw-accent d15" points="100,72 110,78 100,84" style="--len:18"/>
+                        <!-- Checkmark circle -->
+                        <circle class="draw d15" cx="65" cy="130" r="14" style="--len:88"/>
+                        <polyline class="draw-accent d15" points="56,130 63,137 75,124" style="--len:26" stroke-width="2.5"/>
+                        <!-- Label -->
+                        <text class="fade-in d15" x="65" y="165" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Inter,sans-serif" font-size="11" font-weight="600" letter-spacing="0.03em">AUSZAHLUNG</text>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section class="section-light reveal">
+        <div class="container">
+            <div class="section-header">
+                <div class="label">DAS PROBLEM</div>
+                <h2>Warum klassische Cashback-Prozesse teuer und fehleranfällig sind</h2>
+                <p>Klassische Aktionen verursachen hohen manuellen Aufwand: Rechnungen mussten geprüft, Daten übertragen und Auszahlungen manuell vorbereitet werden. Das Ziel war eine vollständig automatisierte, skalierbare Lösung, die Prozesse vereinfacht, Fehler minimiert und die Teilnehmerzufriedenheit erhöht.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTION SECTION -->
+    <section class="section-gray reveal">
+        <div class="container">
+            <div class="section-header">
+                <div class="label">DIE LÖSUNG</div>
+                <h2>3DCAY Cashback digitalisiert und automatisiert Ihre Cashback- und Promotionprozesse vollständig</h2>
+                <p>Von der Belegerfassung bis zur Auszahlung.</p>
+            </div>
+
+            <div class="grid grid-6">
+                <div class="card reveal">
+                    <div class="card-icon">⚙</div>
+                    <h3>Automatische Erkennung</h3>
+                    <p>Automatische Erkennung von Artikeln, Mengen und Rechnungsdaten</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon">📋</div>
+                    <h3>Regelbasierte Berechnung</h3>
+                    <p>Regelbasierte Berechnung von Cashback- und Bonusbeträgen</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon">🛡</div>
+                    <h3>Fraud Detection</h3>
+                    <p>Fraud Detection zur Erkennung von Betrugsversuchen</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon">📊</div>
+                    <h3>Admin-Dashboard</h3>
+                    <p>Integrierte Prüf- und Freigabeprozesse über ein Admin-Dashboard</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon">📈</div>
+                    <h3>KI-Insight Views</h3>
+                    <p>Reporting-Dashboard mit KI-Insight Views</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon">☁</div>
+                    <h3>DSGVO Cloud</h3>
+                    <p>DSGVO-konforme Cloud-Architektur und skalierbare Systemstruktur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI BLOCK -->
+    <section class="section-dark reveal">
+        <div class="container">
+            <div class="section-header">
+                <div class="label">POWERED BY AI</div>
+                <h2>Künstliche Intelligenz im Kern — nicht als Add-on</h2>
+                <p>OCR-Technologie und KI erkennen Artikel, Mengen und relevante Daten automatisch, validieren und ordnen den jeweiligen Aktionsregeln zu. Cashback-Beträge werden direkt berechnet und Prozesse ohne manuellen Aufwand abgewickelt.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="stat-block reveal">
+                    <div class="stat-number">99.2%</div>
+                    <div class="stat-label">Erkennungsrate</div>
+                </div>
+                <div class="stat-block reveal">
+                    <div class="stat-number">45s</div>
+                    <div class="stat-label">pro Beleg</div>
+                </div>
+                <div class="stat-block reveal">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">manuelle Schritte</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE STUDY -->
+    <section class="section-light reveal" id="case">
+        <div class="container">
+            <div class="section-header">
+                <div class="label">CASE STUDY — EGGER</div>
+                <h2>KI-gestütztes Cashback-Portal für die Industrie</h2>
+            </div>
+
+            <div class="case-study">
+                <div class="case-study-header">
+                    <h3>Ausgangssituation</h3>
+                </div>
+                <p>Ein Industrieunternehmen in Österreich wollte sein Cashback-Programm effizienter gestalten. Bisher waren manuelle Rechnungsprüfungen, Datentransfers und Auszahlungsvorbereitung zeitaufwendig und fehleranfällig. Das Ziel: Vollständige Automatisierung und Skalierbarkeit für mehrere Tausend Transaktionen pro Monat.</p>
+
+                <div class="case-study-section" style="margin-top: 32px;">
+                    <h3>Die Lösung mit 3DCAY Cashback</h3>
+                    <ul>
+                        <li>OCR-basierte automatische Belegerfassung und Datenextraktion</li>
+                        <li>Intelligente Regelentine für Cashback-Berechnung pro Beleg</li>
+                        <li>Admin-Dashboard für Prüfung, Freigabe und Reporting</li>
+                        <li>Fraud Detection zur Betrugsbekämpfung</li>
+                        <li>Automatische Auszahlung an Teilnehmer über API-Integration</li>
+                        <li>Echtzeit-Reporting und Insights für Marketing-Teams</li>
+                    </ul>
+                </div>
+
+                <div class="case-study-metrics">
+                    <div class="metric-card">
+                        <h4>Vorher</h4>
+                        <div class="metric-value">12 Min</div>
+                        <div class="metric-label">manuell pro Beleg</div>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Nachher</h4>
+                        <div class="metric-value">45 Sek</div>
+                        <div class="metric-label">automatisch pro Beleg</div>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Ergebnis</h4>
+                        <div class="metric-value">100%</div>
+                        <div class="metric-label">Vollautomatisierung</div>
+                    </div>
+                </div>
+
+                <div class="case-study-section">
+                    <h3>Ergebnis & Mehrwert</h3>
+                    <ul>
+                        <li>Zeitersparnis: Von 12 Min auf 45 Sekunden pro Beleg</li>
+                        <li>Kostenreduktion: 95% Einsparungen bei manuellen Prozessen</li>
+                        <li>Skalierbarkeit: Problemlos 50.000+ Belege pro Monat</li>
+                        <li>Fehlerquote: Reduktion auf unter 0,1%</li>
+                        <li>Zufriedenheit: Höhere Teilnehmer-Zufriedenheit durch schnelle Auszahlungen</li>
+                        <li>Compliance: Vollständige DSGVO-Konformität und Audit-Trail</li>
+                    </ul>
+                </div>
+
+                <div class="case-study-section" style="margin-top: 32px; border-top: 1px solid var(--gray-100); padding-top: 24px;">
+                    <p><strong style="color: var(--black);">Fazit:</strong> Mit dem KI-gestützten 3DCAY Cashback-Portal realisieren Unternehmen effiziente, digitale Verkaufsförderung — schnell, sicher und messbar.</p>
+                    <p style="margin-top: 16px;"><a href="#" style="color: var(--red); text-decoration: none; font-weight: 600;">Vollständige Case Study →</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="section-gray reveal">
+        <div class="container">
+            <div class="section-header">
+                <div class="label">EINSATZMÖGLICHKEITEN</div>
+                <h2>Von Cashback bis Garantie-Kampagne</h2>
+            </div>
+
+            <div class="grid grid-4">
+                <div class="card reveal">
+                    <h3>Cashback-Programme</h3>
+                    <p>Digitale Rückerstattungen mit automatischer Belegprüfung und Auszahlung. Ideal für Kundenbindung und Umsatzsteigerung.</p>
+                </div>
+                <div class="card reveal">
+                    <h3>Händler-Incentives</h3>
+                    <p>Bonuszahlungen an Einzelhandelsfachkräfte basierend auf Verkaufszielen und Belegen. Einfach, transparent und motivierend.</p>
+                </div>
+                <div class="card reveal">
+                    <h3>Bonusaktionen</h3>
+                    <p>Zeitlich begrenzte Promotionen mit automatischer Berechnung von Boni. Komplexe Regeln werden spielend einfach umgesetzt.</p>
+                </div>
+                <div class="card reveal">
+                    <h3>Garantie-Kampagnen</h3>
+                    <p>Garantie-Rückerstattungen bei Produkt-Defekten oder ungeplanten Schäden. Vollautomatisch und kundenfreundlich.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="section-red reveal">
+        <div class="container">
+            <div style="text-align: center;">
+                <h2>Weniger manueller Aufwand. Höhere Geschwindigkeit. Maximale Skalierbarkeit durch AI.</h2>
+                
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 40px;">
+                    <button class="btn btn--primary" onclick="openDemo()" style="background-color: var(--white); color: var(--red);">Cashback-Demo anfragen →</button>
+                </div>
+
+                <div style="display: flex; gap: 32px; justify-content: center; margin-top: 24px; flex-wrap: wrap;">
+                    <a href="assessment.html" style="color: var(--white); text-decoration: none; font-weight: 600; transition: var(--transition);" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Assessment starten</a>
+                    <a href="whitepaper.html" style="color: var(--white); text-decoration: none; font-weight: 600; transition: var(--transition);" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Whitepaper downloaden</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Produkte</h4>
+                    <ul>
+                        <li><a href="web-to-publish.html">Web-to-Publish</a></li>
+                        <li><a href="shop.html">E-Shop</a></li>
+                        <li><a href="3dcay-app.html">Apps</a></li>
+                        <li><a href="cashback.html">Cashback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Lösungen</h4>
+                    <ul>
+                        <li><a href="#marketing">Marketing Fulfillment</a></li>
+                        <li><a href="#e-commerce">E-Commerce</a></li>
+                        <li><a href="#digital">Digital Solutions</a></li>
+                        <li><a href="#analytics">Analytics & Insights</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Unternehmen</h4>
+                    <ul>
+                        <li><a href="#about">Über uns</a></li>
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#careers">Karriere</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Ressourcen</h4>
+                    <ul>
+                        <li><a href="whitepaper.html">Whitepaper</a></li>
+                        <li><a href="assessment.html">Fit-Check</a></li>
+                        <li><a href="ki-lab-newsletter.html">KI-Lab Newsletter</a></li>
+                        <li><a href="referenzen.html">Referenzen</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Rechtliches</h4>
+                    <ul>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="#cookies">Cookie-Einstellungen</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 drei-d CAY SOLUTIONS GmbH. Alle Rechte vorbehalten.</p>
+                <p>Made by <strong>drei-d</strong> — 20 Jahre Fulfillment Excellence</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- DEMO MODAL -->
+    <div class="demo-modal" id="demoModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeDemo()">✕</button>
+            <h2>Cashback-Demo anfragen</h2>
+            <p>Lernen Sie 3DCAY Cashback in einer Live-Demo kennen. Unser Team zeigt Ihnen die Lösung in Aktion.</p>
+            
+            <form onsubmit="handleDemoSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Unternehmen</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-Mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Nachricht (optional)</label>
+                    <textarea id="message" name="message" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary" style="width: 100%;">Demo anfragen</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Demo Modal Functions
+        function openDemo() {
+            document.getElementById('demoModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDemo() {
+            document.getElementById('demoModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function handleDemoSubmit(event) {
+            event.preventDefault();
+            alert('Vielen Dank! Wir werden uns in Kürze mit Ihnen in Verbindung setzen.');
+            closeDemo();
+            document.querySelector('form').reset();
+        }
+
+        // Close modal on background click
+        document.getElementById('demoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDemo();
+            }
+        });
+
+        // Intersection Observer for Reveal Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        // Observe all reveal elements
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

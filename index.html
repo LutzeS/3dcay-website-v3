@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3DCAY — Synergien aus Design & IT</title>
+<meta name="description" content="3DCAY vereint Design, IT und KI-Technologie: Web-to-Publish, B2B Shop- & ERP-Systeme, Marketing-Fulfillment und KI-gestützte Webentwicklung aus einer Hand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════
+   3DCAY DESIGN SYSTEM — V3.0
+   ══════════════════════════════════════════════════ */
+:root {
+  --black: #0A0A0A;
+  --red: #e3101a;
+  --red-hover: #ff1a25;
+  --white: #FFFFFF;
+  --gray-50: #FAFAFA;
+  --gray-100: #F0F0F0;
+  --gray-200: #E5E5E5;
+  --gray-500: #737373;
+  --gray-700: #404040;
+  --gray-900: #171717;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --container: 1280px;
+  --gutter: 32px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: var(--font-sans); background: var(--black); color: var(--white); line-height: 1.6; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+.container { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* Label */
+.label { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); }
+.label--gray { color: var(--gray-500); }
+
+/* ── NAV ── */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 64px; display: flex; align-items: center; transition: background 0.4s ease, backdrop-filter 0.4s ease; }
+.nav.scrolled { background: rgba(10,10,10,0.88); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.nav__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+.nav__logo svg { height: 22px; width: auto; }
+.nav__links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav__links a { font-size: 14px; font-weight: 400; color: var(--gray-500); transition: color 0.2s ease; letter-spacing: -0.01em; }
+.nav__links a:hover { color: var(--white); }
+.nav__cta { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--white); border: 1px solid rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 100px; transition: all 0.2s ease; }
+.nav__cta:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+.nav__mobile { display: none; flex-direction: column; gap: 5px; padding: 4px; }
+.nav__mobile span { display: block; width: 24px; height: 1.5px; background: var(--white); }
+
+/* ── HERO ── */
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; padding: 128px 0 96px; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(227,16,26,0.06) 0%, transparent 60%); pointer-events: none; }
+.hero::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 80px 80px; pointer-events: none; mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 70%); }
+.hero__content { position: relative; z-index: 2; }
+.hero__eyebrow { margin-bottom: 24px; }
+.hero__title { font-size: clamp(40px, 7vw, 76px); font-weight: 800; line-height: 1.04; letter-spacing: -0.035em; max-width: 900px; margin-bottom: 24px; }
+.hero__title em { font-style: normal; color: var(--red); }
+.hero__sub { font-size: clamp(16px, 1.4vw, 20px); font-weight: 400; color: var(--gray-500); max-width: 600px; line-height: 1.65; margin-bottom: 40px; }
+.hero__actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; padding: 14px 28px; border-radius: 100px; transition: all 0.2s cubic-bezier(0.4,0,0.2,1); letter-spacing: -0.01em; }
+.btn--primary { background: var(--red); color: var(--white); }
+.btn--primary:hover { background: var(--red-hover); transform: translateY(-1px); box-shadow: 0 8px 32px rgba(227,16,26,0.25); }
+.btn--outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.2); }
+.btn--outline:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.4); }
+.btn__arrow { transition: transform 0.2s ease; }
+.btn:hover .btn__arrow { transform: translateX(3px); }
+
+/* ── CLIENTS ── */
+.clients { padding: 48px 0; border-bottom: 1px solid rgba(255,255,255,0.06); overflow: hidden; }
+.clients__label { text-align: center; margin-bottom: 28px; }
+.clients__track { display: flex; align-items: center; gap: 48px; justify-content: center; flex-wrap: wrap; }
+.clients__logo { font-family: var(--font-sans); font-size: 15px; font-weight: 700; color: var(--gray-700); letter-spacing: -0.02em; opacity: 0.5; transition: opacity 0.2s ease; white-space: nowrap; }
+.clients__logo:hover { opacity: 0.8; }
+
+/* ── METRICS ── */
+.metrics { padding: 96px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.metrics__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.metric__number { font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px; }
+.metric__number span { color: var(--red); }
+.metric__label { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-500); }
+
+/* ── SECTION ── */
+.section { padding: 128px 0; }
+.section--light { background: var(--white); color: var(--black); }
+.section--gray { background: var(--gray-50); color: var(--black); }
+.section__header { max-width: 720px; margin-bottom: 64px; }
+.section__title { font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; margin-top: 16px; }
+.section--light .section__title { color: var(--black); }
+.section__text { font-size: 16px; color: var(--gray-500); line-height: 1.7; margin-top: 16px; max-width: 580px; }
+
+/* ── VALUE CHAIN ── */
+.chain__grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+.chain__item { background: var(--black); padding: 32px 20px; text-align: center; transition: background 0.3s ease; position: relative; }
+.chain__item:hover { background: rgba(255,255,255,0.03); }
+.chain__item::after { content: '→'; position: absolute; right: -4px; top: 50%; transform: translateY(-50%); color: var(--red); font-size: 14px; z-index: 2; }
+.chain__item:last-child::after { display: none; }
+.chain__num { font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: var(--red); letter-spacing: 0.08em; margin-bottom: 16px; }
+.chain__icon { width: 40px; height: 40px; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; }
+.chain__icon svg { width: 24px; height: 24px; color: var(--gray-500); }
+.chain__item:hover .chain__icon svg { color: var(--red); transition: color 0.3s; }
+.chain__title { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 6px; }
+.chain__text { font-size: 12px; color: var(--gray-500); line-height: 1.5; }
+
+/* ── PILLARS (3 Columns) ── */
+.pillars__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+.pillar { background: var(--black); padding: 40px; transition: background 0.3s ease; }
+.pillar:hover { background: rgba(255,255,255,0.03); }
+.pillar__num { font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: var(--red); letter-spacing: 0.08em; margin-bottom: 24px; }
+.pillar__title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+.pillar__text { font-size: 14px; color: var(--gray-500); line-height: 1.7; }
+.pillar__features { list-style: none; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 8px; }
+.pillar__features li { font-family: var(--font-mono); font-size: 11px; color: var(--gray-500); letter-spacing: 0.02em; padding-left: 16px; position: relative; }
+.pillar__features li::before { content: '→'; position: absolute; left: 0; color: var(--red); }
+
+/* ── SPLIT LAYOUT ── */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.split__visual { position: relative; border-radius: 2px; overflow: hidden; background: var(--gray-900); border: 1px solid rgba(255,255,255,0.06); }
+.split__visual--code { padding: 32px; font-family: var(--font-mono); font-size: 13px; color: var(--gray-500); line-height: 2; }
+.split__visual--code .hl { color: var(--red); }
+.split__visual--code .dim { color: var(--gray-700); }
+.split__visual--code .wht { color: var(--white); }
+
+/* ── CAPABILITIES GRID ── */
+.cap__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--gray-200); border-radius: 2px; overflow: hidden; }
+.cap { background: var(--white); padding: 40px 32px; transition: background 0.3s ease; }
+.cap:hover { background: var(--gray-50); }
+.cap__icon { width: 40px; height: 40px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; transition: all 0.3s ease; }
+.cap:hover .cap__icon { background: var(--red); border-color: var(--red); }
+.cap__icon svg { width: 18px; height: 18px; color: var(--gray-700); transition: color 0.3s; }
+.cap:hover .cap__icon svg { color: var(--white); }
+.cap__title { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; color: var(--black); margin-bottom: 8px; }
+.cap__text { font-size: 14px; color: var(--gray-500); line-height: 1.7; }
+
+/* ── REFERENCE ── */
+.ref { border: 1px solid rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+.ref__header { padding: 32px; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.ref__client { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-500); }
+.ref__tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.tag { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.1); border-radius: 2px; color: var(--gray-500); }
+.ref__body { padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.ref__title { font-size: 26px; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 12px; }
+.ref__text { font-size: 15px; color: var(--gray-500); line-height: 1.7; }
+.ref__stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.ref__stat-val { font-size: 32px; font-weight: 800; letter-spacing: -0.03em; }
+.ref__stat-lbl { font-family: var(--font-mono); font-size: 11px; color: var(--gray-500); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 4px; }
+
+/* ── TRUST GRID ── */
+.trust__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--gray-200); border-radius: 2px; overflow: hidden; }
+.trust__item { background: var(--white); padding: 24px; display: flex; align-items: center; gap: 16px; }
+.trust__icon { width: 32px; height: 32px; flex-shrink: 0; }
+.trust__icon svg { width: 100%; height: 100%; color: var(--gray-700); }
+.trust__text { font-size: 14px; font-weight: 500; color: var(--black); }
+
+/* ── STATUS DOT ── */
+.status-dot { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gray-500); }
+.status-dot::before { content: ''; width: 6px; height: 6px; background: var(--red); border-radius: 50%; animation: pulse 2s ease infinite; }
+@keyframes pulse { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(227,16,26,0.4)} 50%{opacity:0.7;box-shadow:0 0 0 6px rgba(227,16,26,0)} }
+
+/* ── LAB ── */
+.lab__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.lab__card { border: 1px solid rgba(255,255,255,0.06); border-radius: 2px; padding: 28px; transition: all 0.3s ease; }
+.lab__card:hover { border-color: rgba(227,16,26,0.2); background: rgba(255,255,255,0.02); }
+.lab__card-status { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.lab__card-title { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+.lab__card-text { font-size: 14px; color: var(--gray-500); line-height: 1.6; }
+
+/* ── CTA ── */
+.cta-section { text-align: center; padding: 128px 0; position: relative; }
+.cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(227,16,26,0.06) 0%, transparent 70%); pointer-events: none; }
+.cta__title { font-size: clamp(32px, 5vw, 56px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; max-width: 700px; margin: 16px auto 20px; position: relative; }
+.cta__text { font-size: 16px; color: var(--gray-500); max-width: 500px; margin: 0 auto 32px; position: relative; }
+.cta__actions { position: relative; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+/* ── FOOTER ── */
+.footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 64px 0 24px; }
+.footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer__brand p { font-size: 14px; color: var(--gray-500); line-height: 1.7; margin-top: 16px; max-width: 300px; }
+.footer__col-title { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-500); margin-bottom: 20px; }
+.footer__links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.footer__links a { font-size: 14px; color: var(--gray-500); transition: color 0.2s; }
+.footer__links a:hover { color: var(--white); }
+.footer__bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer__copy { font-family: var(--font-mono); font-size: 11px; color: var(--gray-700); }
+.footer__legal { display: flex; gap: 24px; }
+.footer__legal a { font-size: 13px; color: var(--gray-500); transition: color 0.2s; }
+.footer__legal a:hover { color: var(--white); }
+
+/* ── SCROLL REVEAL ── */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.stagger > .reveal:nth-child(1){transition-delay:0ms} .stagger > .reveal:nth-child(2){transition-delay:100ms} .stagger > .reveal:nth-child(3){transition-delay:200ms} .stagger > .reveal:nth-child(4){transition-delay:300ms} .stagger > .reveal:nth-child(5){transition-delay:400ms} .stagger > .reveal:nth-child(6){transition-delay:500ms}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .chain__grid{grid-template-columns:repeat(3,1fr)} .chain__item:nth-child(3)::after{display:none}
+  .pillars__grid{grid-template-columns:1fr} .cap__grid{grid-template-columns:1fr} .split{grid-template-columns:1fr;gap:40px}
+  .ref__body{grid-template-columns:1fr} .footer__grid{grid-template-columns:1fr 1fr;gap:32px} .trust__grid{grid-template-columns:1fr} .metrics__grid{grid-template-columns:repeat(2,1fr)} .lab__grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  :root{--gutter:20px} .nav__links{display:none} .nav__mobile{display:flex}
+  .chain__grid{grid-template-columns:repeat(2,1fr)} .chain__item:nth-child(2n)::after{display:none}
+  .metrics__grid{grid-template-columns:1fr 1fr;gap:24px}
+  .footer__grid{grid-template-columns:1fr} .footer__bottom{flex-direction:column;gap:16px;text-align:center}
+  .cta__actions{flex-direction:column;align-items:center}
+  .hero__actions{flex-direction:column} .hero__actions .btn{justify-content:center}
+}
+@media(max-width:480px){ .chain__grid{grid-template-columns:1fr} .chain__item::after{display:none} .metrics__grid{grid-template-columns:1fr} .ref__stats{grid-template-columns:1fr} }
+@media(prefers-reduced-motion:reduce){ .reveal{opacity:1;transform:none;transition:none} html{scroll-behavior:auto} .status-dot::before{animation:none} }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#" class="nav__logo" aria-label="3DCAY Home">
+      <svg viewBox="120 130 600 185" xmlns="http://www.w3.org/2000/svg">
+        <g><path d="M132,299.3v-1.1l7.1-28.4c2.6.7,4.5,2.3,6.7,3.4,4.3,2,8.7,3.1,13.3,4.5,8.2,2.6,17.4,2.8,25.8.6s2.8-1.6,4.3-2.1c3-1,5.3-3.1,7.3-5.7,6.5-8.7,5.3-21.6-2.8-29s-13.9-7.3-22-7.3h-14.7c0,0,0-28.1,0-28.1,6.9-.1,13.3.1,19.9-.5s4.6-1.3,6.9-2.1c6-2.1,10.8-6.6,12.2-12.3s-.2-13-5.2-17.2-6.2-2.9-9.6-3.9-9.1-1.1-13.2,0-11.6,2.3-16.7,5.2-4.8,2.6-7.4,3.9l-6.9-27.4c-.2-1,1.4-1.9,2-2.2l7.9-3.9c4.6-2.3,9.7-3,14.6-4.6,7.1-2.3,14.5-2.1,22-2.1s12.1,0,17.7,2.1,7.5,2.5,11,4.6c12.6,7.4,20,20.3,19.8,35.1s-2.8,18.6-9,25.8-6.1,5.6-11.3,9.2-4.9,1.5-7.1,3.4c4.4,1.6,8.9,2,12.3,4.6s4.2,2.5,6,4.2l3.5,3.4c16.5,16.1,15.3,54.5-14.2,71s-6.8,3-10.4,4.5c-7.8,3.2-23.4,4.2-31.9,3.5s-14.3-.9-20.9-3.6c-3.7-1.5-7.5-2.2-11-4.1s-3.8-2.5-5.8-3.3Z" fill="#e3101a"/><path d="M353.2,281.3c-2.2,2.2-9.1,8.1-11.5,9s-3.1,1.9-4.7,2.8c-3.4,1.8-7,2.7-10.6,4.3-5.9,2.6-12.4,3-18.8,4.4s-3.7,1-5.9,1.2c-16.9,1.1-36.9,1.3-53.3-2.3v-157.4s14.3-2.2,14.3-2.2c12.3-1.9,40.3-2.6,52.5.3s11.8,1.7,17.1,4.4,6.4,2.5,9.3,4.3l4.9,3.1c30.5,19.4,33.8,65.6,24.3,97.6-3.4,11.7-9.3,22-17.6,30.6ZM339.3,201.8c-3-14.2-12.1-27.1-26.4-31.2-6.6-3.9-24.3-3.3-31.8-1.6v105.5c9.2,1,18.4,1,27.2-1.3s4.2-2.1,6.4-2.5c25.3-10.8,29.6-45.4,24.6-68.9Z" fill="#e3101a"/><path d="M470.8,138.5c6.1,0,22.1,3.5,28.3,6.8l-6.8,28.9c-4.3-1.5-8.1-2.9-12.5-4-14.5-3.7-31.8-2-43.6,8.1s-11.8,14.3-14.2,23.5c-6.5,24.9-1.5,59.8,26.8,69.3l5.7,1.9c6.6,2.2,21.7.6,28.7-1l-8.5,31.6c-11.5.9-23.2,1.6-34.1-1.5-4.9-1.4-9.9-2.2-14.1-4.7s-5.6-2.5-8-4.2l-4.5-3.1c-11.8-8.3-19.4-20.7-23.8-34.7-6.4-20.5-6.3-42.6-.3-63.2s11.6-25.7,22.1-35.2,11-8.1,17.8-11.6,8.6-2.6,12.8-4.4,9.8-1.3,14.5-2.5h13.9Z" fill="#e3101a"/><path d="M565.4,260.6h-41.2s-10,40.9-10,40.9h-33.7s43.8-160.9,43.8-160.9h42.4s44.7,160.9,44.7,160.9h-35c0,0-11-40.9-11-40.9ZM560.3,233l-9.3-35.7-6.8-29.7-6.1,29-9.2,36.5h31.3Z" fill="#e3101a"/><polygon points="678.6 140.7 715.2 140.6 667.8 234.8 667.8 301.5 635.4 301.5 635.4 236.2 589.9 140.6 627.3 140.6 640.5 176 653.1 210.7 667.7 169.9 678.6 140.7" fill="#e3101a"/></g>
+      </svg>
+    </a>
+    <ul class="nav__links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#w2p">Web-to-Publish</a></li>
+      <li><a href="#fulfillment">Fulfillment</a></li>
+      <li><a href="#ki">KI-Entwicklung</a></li>
+      <li><a href="#referenzen">Referenzen</a></li>
+      <li><a href="#unternehmen">Über uns</a></li>
+    </ul>
+    <a href="#kontakt" class="nav__cta">Kontakt <span class="btn__arrow">→</span></a>
+    <button class="nav__mobile" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="container hero__content">
+    <div class="hero__eyebrow"><span class="label">Synergien aus Design & IT</span></div>
+    <h1 class="hero__title reveal">Web-to-Publish.<br>Shop & ERP.<br><em>KI-driven Development.</em></h1>
+    <p class="hero__sub reveal">3DCAY vereint über 20 Jahre Expertise in Design, IT-Entwicklung und Fulfillment zu einer Plattform. Wir bauen skalierbare B2B-Lösungen — von der Medienindividualisierung bis zum vollautomatischen Marketing-Fulfillment.</p>
+    <div class="hero__actions reveal">
+      <a href="#kontakt" class="btn btn--primary">Projekt besprechen <span class="btn__arrow">→</span></a>
+      <a href="#leistungen" class="btn btn--outline">Leistungen entdecken <span class="btn__arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CLIENTS ═══════════ -->
+<section class="clients">
+  <div class="container">
+    <p class="clients__label label label--gray">Unsere Kunden vertrauen auf 3DCAY</p>
+    <div class="clients__track">
+      <span class="clients__logo">EGGER</span>
+      <span class="clients__logo">Volkswagen</span>
+      <span class="clients__logo">Barmer</span>
+      <span class="clients__logo">Cornelsen</span>
+      <span class="clients__logo">TÜV Nord</span>
+      <span class="clients__logo">VGH</span>
+      <span class="clients__logo">Coca-Cola</span>
+      <span class="clients__logo">Heimbs</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WERTSCHÖPFUNGSKETTE ═══════════ -->
+<section class="section" id="leistungen">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="label">Unsere Wertschöpfungskette</span>
+      <h2 class="section__title">Von der Beratung bis zum Reporting. Alles aus einer Hand.</h2>
+      <p class="section__text">Sechs Kompetenzfelder, eine durchgängige Plattform. Kein Medienbruch, keine Schnittstellen-Probleme — Design und IT als echte Einheit.</p>
+    </div>
+    <div class="chain__grid stagger">
+      <div class="chain__item reveal">
+        <div class="chain__num">01</div>
+        <div class="chain__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div class="chain__title">Beratung & Konzeption</div>
+        <div class="chain__text">Strategische Analyse Ihrer Anforderungen</div>
+      </div>
+      <div class="chain__item reveal">
+        <div class="chain__num">02</div>
+        <div class="chain__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+        <div class="chain__title">Web-to-Publish</div>
+        <div class="chain__text">Markenkonforme Medien&shy;individualisierung</div>
+      </div>
+      <div class="chain__item reveal">
+        <div class="chain__num">03</div>
+        <div class="chain__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+        <div class="chain__title">Shop-Systeme</div>
+        <div class="chain__text">B2B-Shops mit ERP-Integration</div>
+      </div>
+      <div class="chain__item reveal">
+        <div class="chain__num">04</div>
+        <div class="chain__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 3v18"/><path d="M8 8l4-5 4 5"/><rect x="4" y="14" width="16" height="6" rx="1"/></svg></div>
+        <div class="chain__title">Marketing-Aktionen</div>
+        <div class="chain__text">Kampagnen, Versand&shy;aktionen, Promotions</div>
+      </div>
+      <div class="chain__item reveal">
+        <div class="chain__num">05</div>
+        <div class="chain__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="6" width="22" height="12" rx="2"/><path d="M1 10h22"/></svg></div>
+        <div class="chain__title">Fulfillment</div>
+        <div class="chain__text">Lager, Konfektionierung, Versand</div>
+      </div>
+      <div class="chain__item reveal">
+        <div class="chain__num">06</div>
+        <div class="chain__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
+        <div class="chain__title">Reporting</div>
+        <div class="chain__text">Echtzeit-Dashboards & Analytics</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ METRICS ═══════════ -->
+<section class="metrics">
+  <div class="container">
+    <div class="metrics__grid stagger">
+      <div class="metric reveal"><div class="metric__number">20<span>+</span></div><div class="metric__label">Jahre Erfahrung</div></div>
+      <div class="metric reveal"><div class="metric__number">150<span>k</span></div><div class="metric__label">Sendungen / Jahr</div></div>
+      <div class="metric reveal"><div class="metric__number">35<span>+</span></div><div class="metric__label">Enterprise-Kunden</div></div>
+      <div class="metric reveal"><div class="metric__number">6</div><div class="metric__label">Aktive KI-Module</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ THREE PILLARS ═══════════ -->
+<section class="section" id="w2p">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="label">Kern-Kompetenzen</span>
+      <h2 class="section__title">Drei Säulen. Eine Plattform.</h2>
+    </div>
+    <div class="pillars__grid stagger">
+      <div class="pillar reveal">
+        <div class="pillar__num">01 — WEB-TO-PUBLISH</div>
+        <h3 class="pillar__title">Markensteuerung in Echtzeit</h3>
+        <p class="pillar__text">Deutschlandweit führender Web-to-Publish Anbieter. Unsere CAY PUBLISH Plattform ermöglicht markenkonforme Individualisierung von Drucksachen, Speisekarten, Plakaten und Aufstellern — ohne Designkenntnisse.</p>
+        <ul class="pillar__features">
+          <li>Template-basierte Editoren</li>
+          <li>Brand-Compliance automatisch</li>
+          <li>Gastronomie & Versicherung</li>
+          <li>Multi-Mandanten-fähig</li>
+        </ul>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar__num">02 — SHOP & ERP</div>
+        <h3 class="pillar__title">B2B-Commerce mit Tiefgang</h3>
+        <p class="pillar__text">Individuelle B2B-Shop-Systeme mit ERP-Integration, Bestandsmanagement und automatisierten Bestellprozessen. Keine Standard-Lösungen — maßgeschneidert für komplexe Anforderungen.</p>
+        <ul class="pillar__features">
+          <li>Individuelle Shop-Frontends</li>
+          <li>ERP-/Warenwirtschafts-Anbindung</li>
+          <li>Bestandsmanagement</li>
+          <li>Automatische Nachbestellung</li>
+        </ul>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar__num">03 — KI-DEVELOPMENT</div>
+        <h3 class="pillar__title">Intelligenz, die arbeitet</h3>
+        <p class="pillar__text">KI ist bei uns kein Marketing-Buzzword. Wir entwickeln maßgeschneiderte KI-Anwendungen, die in Produktionsprozesse integriert sind — von der Dokumentenerkennung bis zur Cashback-Automatisierung.</p>
+        <ul class="pillar__features">
+          <li>Document AI & OCR</li>
+          <li>Workflow-Automatisierung</li>
+          <li>Predictive Analytics</li>
+          <li>Custom AI-Lösungen</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WEB-TO-PUBLISH DETAIL ═══════════ -->
+<section class="section section--light">
+  <div class="container">
+    <div class="split reveal">
+      <div>
+        <span class="label">Web-to-Publish Technologie</span>
+        <h2 class="section__title" style="margin-top:16px">CAY PUBLISH: Ihr zentrales Medienportal.</h2>
+        <p class="section__text">Mitarbeiter erstellen Drucksachen, Speisekarten und Werbemittel selbstständig — immer im Corporate Design. Über 20 Jahre Erfahrung im Bereich Web-to-Publish, kombiniert mit modernem UI-Design und intuitiver Bedienbarkeit.</p>
+        <p class="section__text">Branchenlösungen für Gastronomie (Speisekarten, Aufsteller, Bierdeckel), Versicherungen (Makler-Portale, Formulare) und den Handel (POS-Materialien, Etiketten).</p>
+        <a href="#kontakt" class="btn btn--dark" style="margin-top:32px">Demo anfordern <span class="btn__arrow">→</span></a>
+      </div>
+      <div class="split__visual split__visual--code">
+<span class="dim">// CAY PUBLISH — Template Engine</span>
+<br><br><span class="wht">template</span>.<span class="hl">render</span>({
+<br>&nbsp;&nbsp;brand: <span class="hl">"EGGER"</span>,
+<br>&nbsp;&nbsp;type: <span class="hl">"Speisekarte"</span>,
+<br>&nbsp;&nbsp;format: <span class="hl">"DIN A4"</span>,
+<br>&nbsp;&nbsp;compliance: <span class="hl">true</span>,
+<br>&nbsp;&nbsp;output: [<span class="hl">"print"</span>, <span class="hl">"pdf"</span>, <span class="hl">"web"</span>]
+<br>});
+<br><br><span class="dim">// → Brand-konform generiert in 0.3s</span>
+<br><span class="dim">// → PDF, Print-ready, Web-optimiert</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FULFILLMENT ═══════════ -->
+<section class="section" id="fulfillment">
+  <div class="container">
+    <div class="split reveal" style="direction:rtl">
+      <div style="direction:ltr">
+        <span class="label">Marketing Fulfillment</span>
+        <h2 class="section__title" style="margin-top:16px">Lager. Kommissionierung. Versand. Komplett.</h2>
+        <p class="section__text">Webbasiertes Marketing-Fulfillment für Ihre gesamte Werbemittellogistik. Von der Einlagerung über die Konfektionierung bis zum Einzelversand — gesteuert über unser zentrales Portal.</p>
+        <p class="section__text">Spezialisiert auf Messelogistik, Werbemittellogistik und On-Demand-Produktion mit integriertem Bestandsmanagement und automatischer Nachbestellung.</p>
+        <a href="#kontakt" class="btn btn--primary" style="margin-top:32px">Fulfillment anfragen <span class="btn__arrow">→</span></a>
+      </div>
+      <div style="direction:ltr" class="split__visual split__visual--code">
+<span class="dim">// Fulfillment Pipeline</span>
+<br><br><span class="wht">order</span>.<span class="hl">process</span>({
+<br>&nbsp;&nbsp;type: <span class="hl">"Messelogistik"</span>,
+<br>&nbsp;&nbsp;items: <span class="hl">342</span>,
+<br>&nbsp;&nbsp;destination: <span class="hl">"Hannover Messe"</span>,
+<br>&nbsp;&nbsp;tracking: <span class="hl">true</span>,
+<br>&nbsp;&nbsp;onDemand: <span class="hl">true</span>
+<br>});
+<br><br><span class="dim">// → Kommissioniert & versandt</span>
+<br><span class="dim">// → Live-Tracking aktiv</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ KI-CAPABILITIES ═══════════ -->
+<section class="section section--light" id="ki">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="label">KI-gestützte Webentwicklung</span>
+      <h2 class="section__title">Maßgeschneiderte KI-Lösungen. Keine Experimente.</h2>
+      <p class="section__text">Wir entwickeln individuelle Software-Lösungen, die Design-Expertise mit KI-Technologie und Softwareentwicklung verbinden. Zukunftsorientiert. Innovativ. Produktionsreif.</p>
+    </div>
+    <div class="cap__grid stagger">
+      <div class="cap reveal">
+        <div class="cap__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg></div>
+        <h3 class="cap__title">Document AI</h3>
+        <p class="cap__text">Automatische Dokumentenerkennung, Rechnungsvalidierung und intelligente Datenextraktion — integriert in bestehende Workflows.</p>
+      </div>
+      <div class="cap reveal">
+        <div class="cap__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div>
+        <h3 class="cap__title">Brand Compliance AI</h3>
+        <p class="cap__text">KI-gestützte Einhaltung von Corporate-Design-Richtlinien bei der Medienindividualisierung. Fehler erkennen, bevor sie entstehen.</p>
+      </div>
+      <div class="cap reveal">
+        <div class="cap__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
+        <h3 class="cap__title">Predictive Analytics</h3>
+        <p class="cap__text">Bedarfsprognosen und Bestandsoptimierung für Ihre Werbemittellogistik. Datengetrieben statt bauchgesteuert.</p>
+      </div>
+      <div class="cap reveal">
+        <div class="cap__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/><path d="M21 3v5h-5"/></svg></div>
+        <h3 class="cap__title">Workflow Automation</h3>
+        <p class="cap__text">Automatisierte Genehmigungs-, Bestell- und Fulfillment-Prozesse. Vom Trigger bis zur Auslieferung — ohne manuelle Eingriffe.</p>
+      </div>
+      <div class="cap reveal">
+        <div class="cap__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+        <h3 class="cap__title">Custom Web-Apps</h3>
+        <p class="cap__text">Individuelle Webanwendungen und Portale. Von B2B-Kundenportalen über Cashback-Systeme bis hin zu internen Management-Tools.</p>
+      </div>
+      <div class="cap reveal">
+        <div class="cap__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3 class="cap__title">DSGVO & Datensouveränität</h3>
+        <p class="cap__text">Alle Daten auf europäischer Infrastruktur. DSGVO-konform. Keine Drittanbieter-KI-Clouds. Maximale Kontrolle über Ihre Daten.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LAB ═══════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="label">3DCAY LAB</span>
+      <h2 class="section__title">Aktuelle Projekte aus unserem Innovationslabor.</h2>
+    </div>
+    <div class="lab__grid stagger">
+      <div class="lab__card reveal">
+        <div class="lab__card-status"><span class="tag">Produktion</span><span class="status-dot">Live</span></div>
+        <h3 class="lab__card-title">EGGER AI Cashback</h3>
+        <p class="lab__card-text">KI-gestützte Cashback-Automatisierung: Rechnungserkennung, Punkteberechnung und automatische Gutschrift für den europäischen Holzwerkstoffhersteller.</p>
+      </div>
+      <div class="lab__card reveal">
+        <div class="lab__card-status"><span class="tag">Entwicklung</span><span class="status-dot">Aktiv</span></div>
+        <h3 class="lab__card-title">Smart Fulfillment</h3>
+        <p class="lab__card-text">Prädiktive Bestandssteuerung und KI-gestützte Nachbestellung für Marketing-Materialien mit Echtzeit-Monitoring.</p>
+      </div>
+      <div class="lab__card reveal">
+        <div class="lab__card-status"><span class="tag">Forschung</span><span class="status-dot">Aktiv</span></div>
+        <h3 class="lab__card-title">Publish Intelligence</h3>
+        <p class="lab__card-text">KI-gesteuerte Content-Generierung und Layout-Optimierung für Web-to-Publish — kontextbewusste Vorlagen der nächsten Generation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ REFERENZ ═══════════ -->
+<section class="section" id="referenzen">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="label">Success Story</span>
+      <h2 class="section__title">EGGER AI Cashback Portal</h2>
+    </div>
+    <div class="ref reveal">
+      <div class="ref__header">
+        <span class="ref__client">EGGER Group</span>
+        <div class="ref__tags"><span class="tag">KI</span><span class="tag">B2B Portal</span><span class="tag">Automatisierung</span><span class="tag">Web-App</span></div>
+      </div>
+      <div class="ref__body">
+        <div>
+          <h3 class="ref__title">KI-gestützte Cashback-Automatisierung</h3>
+          <p class="ref__text">Für den europäischen Holzwerkstoffhersteller EGGER entwickelten wir ein vollautomatisches Cashback-Portal. Von der KI-gestützten Rechnungserkennung über die automatische Punkteberechnung bis zur Auszahlung — ein durchgängig digitalisierter Prozess, der manuelle Arbeit drastisch reduziert und rund um die Uhr verfügbar ist.</p>
+        </div>
+        <div class="ref__stats">
+          <div><div class="ref__stat-val">85%</div><div class="ref__stat-lbl">Weniger manueller Aufwand</div></div>
+          <div><div class="ref__stat-val">&lt;3s</div><div class="ref__stat-lbl">Rechnungs&shy;erkennung</div></div>
+          <div><div class="ref__stat-val">99.2%</div><div class="ref__stat-lbl">Erkennungs&shy;genauigkeit</div></div>
+          <div><div class="ref__stat-val">24/7</div><div class="ref__stat-lbl">Automatisiert</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TRUST ═══════════ -->
+<section class="section section--light" id="unternehmen">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="label">Warum 3DCAY</span>
+      <h2 class="section__title">20+ Jahre Synergien aus Design, IT & Fulfillment.</h2>
+      <p class="section__text">3DCAY entstand aus der Verschmelzung von DREI-D (Design-Agentur) und CAY SOLUTIONS (IT & Web-to-Publish). Das Ergebnis: eine Einheit, die beide Welten versteht und verbindet.</p>
+    </div>
+    <div class="trust__grid stagger">
+      <div class="trust__item reveal"><div class="trust__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div><span class="trust__text">DSGVO-konforme Infrastruktur</span></div>
+      <div class="trust__item reveal"><div class="trust__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></div><span class="trust__text">Intuitive Bedienbarkeit</span></div>
+      <div class="trust__item reveal"><div class="trust__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><span class="trust__text">Skalierbare Architektur</span></div>
+      <div class="trust__item reveal"><div class="trust__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><span class="trust__text">Persönliche Ansprechpartner</span></div>
+      <div class="trust__item reveal"><div class="trust__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 20h0a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h0"/><path d="m2 14 8-8 4 4 8-8"/></svg></div><span class="trust__text">Modernes, lösungsorientiertes Design</span></div>
+      <div class="trust__item reveal"><div class="trust__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="m2 12 5.1 5.1"/><path d="m22 12-5.1 5.1"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><span class="trust__text">Standort Deutschland — EU-Hosting</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="cta-section" id="kontakt">
+  <div class="container">
+    <span class="label reveal">Lassen Sie uns sprechen</span>
+    <h2 class="cta__title reveal">Ihr nächstes Projekt. Unsere Expertise.</h2>
+    <p class="cta__text reveal">Web-to-Publish, B2B-Shop, Fulfillment oder KI-Lösung — erzählen Sie uns von Ihren Anforderungen. Wir finden die richtige Lösung.</p>
+    <div class="cta__actions reveal">
+      <a href="mailto:info@3DCAY.de" class="btn btn--primary">Projekt besprechen <span class="btn__arrow">→</span></a>
+      <a href="tel:+494121476111" class="btn btn--outline">+49 4121 476 111</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <svg viewBox="120 130 600 185" xmlns="http://www.w3.org/2000/svg" style="height:20px;width:auto;"><g><path d="M132,299.3v-1.1l7.1-28.4c2.6.7,4.5,2.3,6.7,3.4,4.3,2,8.7,3.1,13.3,4.5,8.2,2.6,17.4,2.8,25.8.6s2.8-1.6,4.3-2.1c3-1,5.3-3.1,7.3-5.7,6.5-8.7,5.3-21.6-2.8-29s-13.9-7.3-22-7.3h-14.7c0,0,0-28.1,0-28.1,6.9-.1,13.3.1,19.9-.5s4.6-1.3,6.9-2.1c6-2.1,10.8-6.6,12.2-12.3s-.2-13-5.2-17.2-6.2-2.9-9.6-3.9-9.1-1.1-13.2,0-11.6,2.3-16.7,5.2-4.8,2.6-7.4,3.9l-6.9-27.4c-.2-1,1.4-1.9,2-2.2l7.9-3.9c4.6-2.3,9.7-3,14.6-4.6,7.1-2.3,14.5-2.1,22-2.1s12.1,0,17.7,2.1,7.5,2.5,11,4.6c12.6,7.4,20,20.3,19.8,35.1s-2.8,18.6-9,25.8-6.1,5.6-11.3,9.2-4.9,1.5-7.1,3.4c4.4,1.6,8.9,2,12.3,4.6s4.2,2.5,6,4.2l3.5,3.4c16.5,16.1,15.3,54.5-14.2,71s-6.8,3-10.4,4.5c-7.8,3.2-23.4,4.2-31.9,3.5s-14.3-.9-20.9-3.6c-3.7-1.5-7.5-2.2-11-4.1s-3.8-2.5-5.8-3.3Z" fill="#e3101a"/><path d="M353.2,281.3c-2.2,2.2-9.1,8.1-11.5,9s-3.1,1.9-4.7,2.8c-3.4,1.8-7,2.7-10.6,4.3-5.9,2.6-12.4,3-18.8,4.4s-3.7,1-5.9,1.2c-16.9,1.1-36.9,1.3-53.3-2.3v-157.4s14.3-2.2,14.3-2.2c12.3-1.9,40.3-2.6,52.5.3s11.8,1.7,17.1,4.4,6.4,2.5,9.3,4.3l4.9,3.1c30.5,19.4,33.8,65.6,24.3,97.6-3.4,11.7-9.3,22-17.6,30.6ZM339.3,201.8c-3-14.2-12.1-27.1-26.4-31.2-6.6-3.9-24.3-3.3-31.8-1.6v105.5c9.2,1,18.4,1,27.2-1.3s4.2-2.1,6.4-2.5c25.3-10.8,29.6-45.4,24.6-68.9Z" fill="#e3101a"/><path d="M470.8,138.5c6.1,0,22.1,3.5,28.3,6.8l-6.8,28.9c-4.3-1.5-8.1-2.9-12.5-4-14.5-3.7-31.8-2-43.6,8.1s-11.8,14.3-14.2,23.5c-6.5,24.9-1.5,59.8,26.8,69.3l5.7,1.9c6.6,2.2,21.7.6,28.7-1l-8.5,31.6c-11.5.9-23.2,1.6-34.1-1.5-4.9-1.4-9.9-2.2-14.1-4.7s-5.6-2.5-8-4.2l-4.5-3.1c-11.8-8.3-19.4-20.7-23.8-34.7-6.4-20.5-6.3-42.6-.3-63.2s11.6-25.7,22.1-35.2,11-8.1,17.8-11.6,8.6-2.6,12.8-4.4,9.8-1.3,14.5-2.5h13.9Z" fill="#e3101a"/><path d="M565.4,260.6h-41.2s-10,40.9-10,40.9h-33.7s43.8-160.9,43.8-160.9h42.4s44.7,160.9,44.7,160.9h-35c0,0-11-40.9-11-40.9ZM560.3,233l-9.3-35.7-6.8-29.7-6.1,29-9.2,36.5h31.3Z" fill="#e3101a"/><polygon points="678.6 140.7 715.2 140.6 667.8 234.8 667.8 301.5 635.4 301.5 635.4 236.2 589.9 140.6 627.3 140.6 640.5 176 653.1 210.7 667.7 169.9 678.6 140.7" fill="#e3101a"/></g></svg>
+        <p>Synergien aus Design & IT. Web-to-Publish, Shop-Systeme, Fulfillment und KI-gestützte Webentwicklung aus einer Hand.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Leistungen</p>
+        <ul class="footer__links">
+          <li><a href="#w2p">Web-to-Publish</a></li>
+          <li><a href="#fulfillment">Fulfillment</a></li>
+          <li><a href="#ki">KI-Entwicklung</a></li>
+          <li><a href="#leistungen">Shop-Systeme</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Unternehmen</p>
+        <ul class="footer__links">
+          <li><a href="#unternehmen">Über 3DCAY</a></li>
+          <li><a href="#referenzen">Referenzen</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Kontakt</p>
+        <ul class="footer__links">
+          <li><a href="mailto:info@3DCAY.de">info@3DCAY.de</a></li>
+          <li><a href="tel:+494121476111">+49 4121 476 111</a></li>
+          <li><a href="https://www.linkedin.com/company/3dcay" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.youtube.com/@3DCAY" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 3DCAY Marketing Solutions GmbH. Alle Rechte vorbehalten.</span>
+      <div class="footer__legal">
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="impressum.html">Impressum</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)},{passive:true});
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+</script>
+</body>
+</html>

@@ -1,0 +1,2204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="3DCAY Marketing IT Solutions by drei-d – Die IT-Marke für smartes Marketing Fulfillment. 20 Jahre POS/W2P + 30 Jahre B2B Webshops.">
+    <meta property="og:title" content="3DCAY – Marketing IT Solutions">
+    <meta property="og:description" content="Die IT-Marke für smartes Marketing Fulfillment – Weniger Aufwand. Mehr Kontrolle. Mehr Performance.">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:type" content="website">
+    <title>3DCAY – Marketing IT Solutions by drei-d</title>
+    
+    <link rel="preload" as="image" href="images/dashboard-office.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========================================
+           DESIGN SYSTEM
+           ======================================== */
+        :root {
+            --black: #0A0A0A;
+            --red: #e3101a;
+            --red-hover: #ff1a25;
+            --white: #FFF;
+            --gray-50: #FAFAFA;
+            --gray-100: #F0F0F0;
+            --gray-200: #E5E5E5;
+            --gray-500: #737373;
+            --gray-700: #404040;
+            --gray-900: #171717;
+            
+            --font-sans: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            --container-max: 1280px;
+            --container-px: 32px;
+            
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--gray-700);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           TYPOGRAPHY
+           ======================================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.04;
+            color: var(--black);
+        }
+
+        h1 { font-size: clamp(36px, 6.5vw, 72px); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        h4 { font-size: 1.25rem; }
+        h5 { font-size: 1rem; }
+
+        p {
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+
+        em {
+            color: var(--red);
+            font-style: normal;
+        }
+
+        .label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--red);
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .label--light {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ========================================
+           BUTTONS
+           ======================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 32px;
+            border-radius: 100px;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            gap: 8px;
+        }
+
+        .btn--primary {
+            background-color: var(--red);
+            color: var(--white);
+        }
+
+        .btn--primary:hover {
+            background-color: var(--red-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(227, 16, 26, 0.3);
+        }
+
+        .btn--outline-white {
+            border: 2px solid var(--white);
+            color: var(--white);
+            background-color: transparent;
+        }
+
+        .btn--outline-white:hover {
+            background-color: var(--white);
+            color: var(--red);
+            transform: translateY(-2px);
+        }
+
+        .btn--outline {
+            border: 2px solid var(--gray-200);
+            color: var(--black);
+            background-color: transparent;
+        }
+
+        .btn--outline:hover {
+            border-color: var(--red);
+            color: var(--red);
+            transform: translateY(-2px);
+        }
+
+        .btn--dark {
+            background-color: var(--black);
+            color: var(--white);
+        }
+
+        .btn--dark:hover {
+            background-color: var(--gray-900);
+            transform: translateY(-2px);
+        }
+
+        /* ========================================
+           LAYOUT UTILITIES
+           ======================================== */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--container-px);
+        }
+
+        section {
+            padding: 80px var(--container-px);
+        }
+
+        .grid {
+            display: grid;
+            gap: 32px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .flex-between {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-white {
+            color: var(--white);
+        }
+
+        /* ========================================
+           NAVIGATION (V2 Style)
+           ======================================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+
+        .nav--dark {
+            color: var(--white);
+        }
+
+        .nav.scrolled {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-200);
+            color: var(--black);
+        }
+
+        .nav__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--container-px);
+        }
+
+        .nav__logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .nav__logo svg {
+            height: 22px;
+            width: auto;
+            transition: all 0.3s;
+        }
+
+        .nav--dark .nav__logo svg path,
+        .nav--dark .nav__logo svg polygon {
+            fill: var(--white);
+        }
+
+        .nav.scrolled .nav__logo svg path,
+        .nav.scrolled .nav__logo svg polygon {
+            fill: var(--red);
+        }
+
+        .nav__links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav__links a {
+            font-size: 14px;
+            font-weight: 400;
+            text-decoration: none;
+            color: inherit;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .nav__links a:hover {
+            opacity: 1;
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            margin-left: 4px;
+        }
+
+        .lang-toggle button {
+            font-family: var(--font-sans);
+            font-size: 12px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            padding: 4px 10px;
+            border-radius: 100px;
+            transition: all 0.2s;
+            background: transparent;
+            color: inherit;
+            opacity: 0.5;
+        }
+
+        .lang-toggle button.active {
+            background: var(--red);
+            color: var(--white);
+            opacity: 1;
+        }
+
+        .nav.scrolled .lang-toggle button.active {
+            background: var(--red);
+            color: var(--white);
+        }
+
+        .nav__cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 20px;
+            border-radius: 100px;
+            transition: all 0.2s;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .nav--dark .nav__cta {
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .nav.scrolled .nav__cta {
+            color: var(--black);
+            border: 1px solid var(--gray-200);
+        }
+
+        .nav__cta:hover {
+            background: var(--red);
+            color: var(--white);
+            border-color: var(--red);
+        }
+
+        .nav__mobile {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 4px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .nav__mobile span {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: currentColor;
+            transition: all 0.3s;
+        }
+
+        /* Mobile Nav Panel */
+        .nav__mobile-panel {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            padding: 32px;
+        }
+
+        .nav__mobile-panel.open {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .nav__mobile-panel a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .nav__mobile-panel a:hover {
+            opacity: 1;
+        }
+
+        /* Nav Dropdown */
+        .nav__dropdown {
+            position: relative;
+        }
+
+        .nav__dropdown > a {
+            cursor: pointer;
+        }
+
+        .nav__dropdown > a::after {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            border-right: 1.5px solid currentColor;
+            border-bottom: 1.5px solid currentColor;
+            transform: rotate(45deg);
+            margin-left: 6px;
+            margin-bottom: 2px;
+            opacity: 0.5;
+            transition: transform 0.2s;
+        }
+
+        .nav__dropdown-menu {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: -16px;
+            background: var(--white);
+            border-radius: 8px;
+            min-width: 200px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            border: 1px solid var(--gray-200);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all 0.25s ease;
+            overflow: hidden;
+            z-index: 1001;
+        }
+
+        .nav__dropdown:hover .nav__dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .nav__dropdown:hover > a::after {
+            transform: rotate(-135deg);
+        }
+
+        .nav__dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--gray-700) !important;
+            opacity: 1 !important;
+            border-bottom: 1px solid var(--gray-100);
+            transition: all 0.15s;
+        }
+
+        .nav__dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .nav__dropdown-menu a:hover {
+            background: var(--gray-50);
+            color: var(--red) !important;
+            padding-left: 24px;
+        }
+
+        /* Dark nav dropdown override */
+        .nav--dark .nav__dropdown-menu {
+            background: rgba(23, 23, 23, 0.95);
+            backdrop-filter: blur(20px);
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .nav--dark .nav__dropdown-menu a {
+            color: rgba(255,255,255,0.7) !important;
+            border-bottom-color: rgba(255,255,255,0.08);
+        }
+
+        .nav--dark .nav__dropdown-menu a:hover {
+            background: rgba(227,16,26,0.15);
+            color: var(--red) !important;
+        }
+
+        .nav.scrolled .nav__dropdown-menu {
+            background: var(--white);
+            border-color: var(--gray-200);
+        }
+
+        .nav.scrolled .nav__dropdown-menu a {
+            color: var(--gray-700) !important;
+            border-bottom-color: var(--gray-100);
+        }
+
+        .nav.scrolled .nav__dropdown-menu a:hover {
+            background: var(--gray-50);
+            color: var(--red) !important;
+        }
+
+        @media (max-width: 1024px) {
+            .products-section .grid[style*="repeat(3"] {
+                grid-template-columns: 1fr 1fr !important;
+            }
+            .products-section .grid[style*="1fr 2fr"] {
+                grid-template-columns: 1fr !important;
+            }
+            .product-showcase {
+                flex-direction: column !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav__links { display: none; }
+            .nav__cta { display: none; }
+            .nav__mobile { display: flex; }
+            .products-section .grid[style*="repeat(3"] {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* ========================================
+           HERO SECTION
+           ======================================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--black) 0%, var(--gray-900) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/dashboard-office.png');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, 
+                rgba(0, 0, 0, 0.4) 0%, 
+                rgba(0, 0, 0, 0.5) 50%, 
+                rgba(0, 0, 0, 0.75) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--container-px);
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 em {
+            color: var(--red);
+        }
+
+        .hero p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ========================================
+           CLIENT LOGOS SECTION (V2 Style)
+           ======================================== */
+        .clients {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .clients__label {
+            text-align: center;
+            margin-bottom: 28px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--gray-500);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .clients__track {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .clients__track-inner {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            animation: marquee 20s linear infinite;
+            flex-shrink: 0;
+        }
+
+        .clients__logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .clients__logo img {
+            max-height: 32px;
+            width: auto;
+            max-width: 160px;
+            object-fit: contain;
+            filter: grayscale(1) opacity(0.45);
+            transition: filter 0.2s;
+        }
+
+        .clients__logo img:hover {
+            filter: grayscale(1) opacity(0.75);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ========================================
+           PRODUCTS SECTION
+           ======================================== */
+        .products-section {
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 32px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            border-color: var(--gray-200);
+        }
+
+        .product-card.highlight {
+            border-left: 4px solid var(--red);
+            border-left-width: 4px;
+        }
+
+        .product-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--gray-50);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .product-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--red);
+        }
+
+        .product-card h3 {
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .product-card p {
+            flex: 1;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        .product-card a {
+            color: var(--red);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .product-card a:hover {
+            gap: 12px;
+        }
+
+        /* ========================================
+           KI DIFFERENTIATOR SECTION
+           ======================================== */
+        .ki-section {
+            background: var(--black);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            padding: 120px var(--container-px);
+        }
+
+        .ki-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('images/smartphone-macro.png');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+
+        .ki-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.55) 0%,
+                rgba(0, 0, 0, 0.5) 50%,
+                rgba(0, 0, 0, 0.65) 100%);
+            z-index: 1;
+        }
+
+        .ki-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .ki-section .section-header {
+            color: var(--white);
+        }
+
+        .ki-section .section-header h2 {
+            color: var(--white);
+            font-size: clamp(32px, 5vw, 56px);
+        }
+
+        .ki-section .section-header p {
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ki-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .ki-stat {
+            padding: 40px 24px;
+            text-align: left;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .ki-stat + .ki-stat {
+            border-left: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .ki-stat-value {
+            font-size: clamp(40px, 5vw, 56px);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 8px;
+            line-height: 1.1;
+        }
+
+        .ki-stat-value em {
+            color: var(--red);
+            font-style: normal;
+        }
+
+        .ki-stat-label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.45);
+            font-weight: 500;
+        }
+
+        .ki-cta {
+            margin-top: 48px;
+            text-align: center;
+        }
+
+        .ki-cta a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 12px 32px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 100px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .ki-cta a:hover {
+            background: var(--red);
+            border-color: var(--red);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(227,16,26,0.3);
+        }
+
+        @media (max-width: 1024px) {
+            .ki-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .ki-stat:nth-child(3) {
+                border-left: none;
+                border-top: 1px solid rgba(255,255,255,0.08);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ki-stats {
+                grid-template-columns: 1fr;
+            }
+            .ki-stat + .ki-stat {
+                border-left: none;
+                border-top: 1px solid rgba(255,255,255,0.08);
+            }
+        }
+
+        /* ========================================
+           CASE STUDY SECTION
+           ======================================== */
+        .case-study {
+            background-color: var(--white);
+            border-left: 4px solid var(--red);
+            border-radius: 8px;
+            padding: 48px;
+            margin: 60px 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .case-study .label {
+            margin-bottom: 16px;
+        }
+
+        .case-study h2 {
+            margin-bottom: 20px;
+        }
+
+        .case-study > p {
+            font-size: 16px;
+            color: var(--gray-500);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px 48px;
+            margin-bottom: 48px;
+        }
+
+        .metric {
+            text-align: left;
+            padding: 0;
+            background: none;
+        }
+
+        .metric-value {
+            font-size: clamp(40px, 5vw, 56px);
+            font-weight: 800;
+            color: var(--black);
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .metric-value em {
+            color: var(--red);
+            font-style: normal;
+        }
+
+        .metric-label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gray-500);
+            font-weight: 500;
+        }
+
+        .case-study-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ========================================
+           SERVICES SECTION
+           ======================================== */
+        .services-section {
+            background-color: var(--gray-50);
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--gray-200);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            border-color: var(--red);
+        }
+
+        .service-card h3 {
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .services-all-link {
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .services-all-link a {
+            color: var(--red);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .services-all-link a:hover {
+            gap: 12px;
+        }
+
+        /* ========================================
+           NEWSLETTER SECTION
+           ======================================== */
+        .newsletter-section {
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-content h2 {
+            margin-bottom: 12px;
+        }
+
+        .newsletter-content > p {
+            color: var(--gray-500);
+            font-size: 16px;
+            margin-bottom: 32px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 16px;
+            border: 1px solid var(--gray-200);
+            border-radius: 100px;
+            font-family: var(--font-sans);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--red);
+            box-shadow: 0 0 0 3px rgba(227, 16, 26, 0.1);
+        }
+
+        .newsletter-form .btn {
+            flex-shrink: 0;
+        }
+
+        .newsletter-success {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .newsletter-success.show {
+            display: block;
+        }
+
+        .newsletter-success-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        /* ========================================
+           CTA SECTION
+           ======================================== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--red) 0%, #ff2d33 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 80px var(--container-px);
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .cta-section > p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px var(--container-px) 30px;
+        }
+
+        .footer-content {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-brand .logo {
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .footer-column h4 {
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 13px;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: var(--red);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
+        }
+
+        /* ========================================
+           MODAL / DEMO REQUEST
+           ======================================== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gray-500);
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--black);
+        }
+
+        .modal h2 {
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--black);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--gray-200);
+            border-radius: 6px;
+            font-family: var(--font-sans);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--red);
+            box-shadow: 0 0 0 3px rgba(227, 16, 26, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .modal-success {
+            display: none;
+            text-align: center;
+        }
+
+        .modal-success.show {
+            display: block;
+        }
+
+        .modal-success-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .modal-success h3 {
+            margin-bottom: 12px;
+        }
+
+        .modal-success p {
+            color: var(--gray-500);
+            margin-bottom: 24px;
+        }
+
+        /* ========================================
+           ANIMATIONS
+           ======================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 1024px) {
+            section {
+                padding: 60px var(--container-px);
+            }
+
+            .nav-menu {
+                gap: 32px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+
+            .metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .ki-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --container-px: 20px;
+            }
+
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+
+            section {
+                padding: 48px var(--container-px);
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background-color: rgba(10, 10, 10, 0.95);
+                padding: 20px 0;
+                margin-top: 10px;
+                border-radius: 8px;
+                z-index: 999;
+            }
+
+            .nav-menu.mobile-open {
+                display: flex;
+            }
+
+            .nav-menu li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-menu li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 12px var(--container-px);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                background-color: rgba(255, 255, 255, 0.05);
+                margin-top: 0;
+                box-shadow: none;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .nav-dropdown.active .dropdown-menu {
+                max-height: 300px;
+            }
+
+            .dropdown-menu li {
+                border-bottom: none;
+            }
+
+            .dropdown-menu a {
+                padding: 10px 20px;
+                padding-left: 40px;
+            }
+
+            .nav-content {
+                gap: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .case-study {
+                padding: 32px 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .modal {
+                padding: 32px 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.5rem; }
+            h2 { font-size: 1.25rem; }
+
+            section {
+                padding: 40px 16px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+
+            .product-card {
+                padding: 20px;
+            }
+
+            .service-card {
+                padding: 20px;
+            }
+
+            .marquee-item {
+                min-width: 120px;
+            }
+
+            .marquee-content {
+                gap: 40px;
+            }
+
+            .case-study {
+                border-left: none;
+                border-top: 4px solid var(--red);
+                margin: 40px 0;
+                padding: 24px 16px;
+            }
+
+            .hero-content {
+                padding: 0 16px;
+            }
+
+            .modal {
+                padding: 24px 16px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                min-width: 100%;
+            }
+
+            .cta-section-buttons {
+                flex-direction: column;
+            }
+
+            .case-study-buttons {
+                flex-direction: column;
+            }
+
+            .case-study-buttons .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION (V2 Style) -->
+    <nav class="nav nav--dark" id="nav">
+        <div class="nav__inner">
+            <a href="index-v4.html" class="nav__logo">
+                <svg viewBox="120 130 600 185" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M132,299.3v-1.1l7.1-28.4c2.6.7,4.5,2.3,6.7,3.4,4.3,2,8.7,3.1,13.3,4.5,8.2,2.6,17.4,2.8,25.8.6s2.8-1.6,4.3-2.1c3-1,5.3-3.1,7.3-5.7,6.5-8.7,5.3-21.6-2.8-29s-13.9-7.3-22-7.3h-14.7c0,0,0-28.1,0-28.1,6.9-.1,13.3.1,19.9-.5s4.6-1.3,6.9-2.1c6-2.1,10.8-6.6,12.2-12.3s-.2-13-5.2-17.2-6.2-2.9-9.6-3.9-9.1-1.1-13.2,0-11.6,2.3-16.7,5.2-4.8,2.6-7.4,3.9l-6.9-27.4c-.2-1,1.4-1.9,2-2.2l7.9-3.9c4.6-2.3,9.7-3,14.6-4.6,7.1-2.3,14.5-2.1,22-2.1s12.1,0,17.7,2.1,7.5,2.5,11,4.6c12.6,7.4,20,20.3,19.8,35.1s-2.8,18.6-9,25.8-6.1,5.6-11.3,9.2-4.9,1.5-7.1,3.4c4.4,1.6,8.9,2,12.3,4.6s4.2,2.5,6,4.2l3.5,3.4c16.5,16.1,15.3,54.5-14.2,71s-6.8,3-10.4,4.5c-7.8,3.2-23.4,4.2-31.9,3.5s-14.3-.9-20.9-3.6c-3.7-1.5-7.5-2.2-11-4.1s-3.8-2.5-5.8-3.3Z" fill="#e3101a"/>
+                    <path d="M353.2,281.3c-2.2,2.2-9.1,8.1-11.5,9s-3.1,1.9-4.7,2.8c-3.4,1.8-7,2.7-10.6,4.3-5.9,2.6-12.4,3-18.8,4.4s-3.7,1-5.9,1.2c-16.9,1.1-36.9,1.3-53.3-2.3v-157.4s14.3-2.2,14.3-2.2c12.3-1.9,40.3-2.6,52.5.3s11.8,1.7,17.1,4.4,6.4,2.5,9.3,4.3l4.9,3.1c30.5,19.4,33.8,65.6,24.3,97.6-3.4,11.7-9.3,22-17.6,30.6ZM339.3,201.8c-3-14.2-12.1-27.1-26.4-31.2-6.6-3.9-24.3-3.3-31.8-1.6v105.5c9.2,1,18.4,1,27.2-1.3s4.2-2.1,6.4-2.5c25.3-10.8,29.6-45.4,24.6-68.9Z" fill="#e3101a"/>
+                    <path d="M470.8,138.5c6.1,0,22.1,3.5,28.3,6.8l-6.8,28.9c-4.3-1.5-8.1-2.9-12.5-4-14.5-3.7-31.8-2-43.6,8.1s-11.8,14.3-14.2,23.5c-6.5,24.9-1.5,59.8,26.8,69.3l5.7,1.9c6.6,2.2,21.7.6,28.7-1l-8.5,31.6c-11.5.9-23.2,1.6-34.1-1.5-4.9-1.4-9.9-2.2-14.1-4.7s-5.6-2.5-8-4.2l-4.5-3.1c-11.8-8.3-19.4-20.7-23.8-34.7-6.4-20.5-6.3-42.6-.3-63.2s11.6-25.7,22.1-35.2,11-8.1,17.8-11.6,8.6-2.6,12.8-4.4,9.8-1.3,14.5-2.5h13.9Z" fill="#e3101a"/>
+                    <path d="M565.4,260.6h-41.2s-10,40.9-10,40.9h-33.7s43.8-160.9,43.8-160.9h42.4s44.7,160.9,44.7,160.9h-35c0,0-11-40.9-11-40.9ZM560.3,233l-9.3-35.7-6.8-29.7-6.1,29-9.2,36.5h31.3Z" fill="#e3101a"/>
+                    <polygon points="678.6 140.7 715.2 140.6 667.8 234.8 667.8 301.5 635.4 301.5 635.4 236.2 589.9 140.6 627.3 140.6 640.5 176 653.1 210.7 667.7 169.9 678.6 140.7" fill="#e3101a"/>
+                </svg>
+            </a>
+
+            <ul class="nav__links">
+                <li class="nav__dropdown">
+                    <a href="#produkte" data-i18n="nav.produkte">Produkte</a>
+                    <div class="nav__dropdown-menu">
+                        <a href="shop.html">Shop</a>
+                        <a href="web-to-publish.html">Web-to-Publish</a>
+                        <a href="cashback.html">Cashback</a>
+                        <a href="3dcay-app.html">App</a>
+                    </div>
+                </li>
+                <li><a href="#fulfillment" data-i18n="nav.fulfillment">Fulfillment</a></li>
+                <li><a href="#ki" data-i18n="nav.ki">KI-Lab</a></li>
+                <li><a href="referenzen.html" data-i18n="nav.referenzen">Referenzen</a></li>
+                <li class="lang-toggle">
+                    <button id="btnLangDE" class="active" onclick="setLang('de')">DE</button>
+                    <button id="btnLangEN" onclick="setLang('en')">EN</button>
+                </li>
+            </ul>
+
+            <a href="#kontakt" class="nav__cta" data-i18n="nav.kontakt">Kontakt &rarr;</a>
+
+            <button class="nav__mobile" aria-label="Menu" onclick="toggleMobileNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Panel -->
+    <div class="nav__mobile-panel" id="mobileNav">
+        <a href="shop.html">Shop</a>
+        <a href="web-to-publish.html">Web-to-Publish</a>
+        <a href="cashback.html">Cashback</a>
+        <a href="3dcay-app.html">App</a>
+        <a href="#fulfillment" data-i18n="nav.fulfillment">Fulfillment</a>
+        <a href="#ki" data-i18n="nav.ki">KI-Lab</a>
+        <a href="referenzen.html" data-i18n="nav.referenzen">Referenzen</a>
+        <a href="#kontakt" class="nav__cta" style="margin-top:16px" data-i18n="nav.kontakt">Kontakt &rarr;</a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="label" data-i18n="hero.eyebrow">3DCAY MARKETING IT SOLUTIONS BY DREI-D</div>
+            <h1>Die IT-Marke für smartes <em>Marketing Fulfillment</em></h1>
+            <p>20 Jahre Erfahrung in Marketing-POS-Software und Web-to-Print. 30 Jahre Expertise in B2B Werbemittel-Webshops und Marketing Fulfillment. Werbemittel, Kampagnen und Versandaktionen — zentral und effizient.</p>
+            <p style="margin-top:8px; opacity:0.85;">Von B2B Webshops über Aktionswebseiten bis hin zu automatisierten Promotion- und Cashback-Lösungen.</p>
+            <div class="hero-buttons">
+                <a href="#produkte" class="btn btn--primary">Produkte entdecken</a>
+                <button class="btn btn--outline-white" onclick="openDemo()">Demo anfragen</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENT LOGOS (V2 Style) -->
+    <section class="clients">
+        <p class="clients__label" data-i18n="clients.label">Vertrauen führender Unternehmen</p>
+        <div class="clients__track">
+            <div class="clients__track-inner">
+                <div class="clients__logo"><img src="images/Logos/Fritz_Egger_Logo.svg-1.png" alt="EGGER"></div>
+                <div class="clients__logo"><img src="images/Logos/Volkswagen-New-Logo-Vector.svg-.png" alt="Volkswagen"></div>
+                <div class="clients__logo"><img src="images/Logos/BARMER_Logo.svg.png" alt="Barmer"></div>
+                <div class="clients__logo"><img src="images/Logos/Cornelsen_Verlag_Logo.svg.png" alt="Cornelsen"></div>
+                <div class="clients__logo"><img src="images/Logos/Tuev-nord.svg.png" alt="TÜV Nord"></div>
+                <div class="clients__logo"><img src="images/Logos/Coca-Cola_logo.svg.png" alt="Coca-Cola"></div>
+                <div class="clients__logo"><img src="images/Logos/Logo_VGH_Versicherungen.svg" alt="VGH"></div>
+                <div class="clients__logo"><img src="images/Logos/heimbs-C-FLcerJ.svg" alt="Heimbs"></div>
+                <!-- Duplicate for seamless marquee -->
+                <div class="clients__logo"><img src="images/Logos/Fritz_Egger_Logo.svg-1.png" alt="EGGER"></div>
+                <div class="clients__logo"><img src="images/Logos/Volkswagen-New-Logo-Vector.svg-.png" alt="Volkswagen"></div>
+                <div class="clients__logo"><img src="images/Logos/BARMER_Logo.svg.png" alt="Barmer"></div>
+                <div class="clients__logo"><img src="images/Logos/Cornelsen_Verlag_Logo.svg.png" alt="Cornelsen"></div>
+                <div class="clients__logo"><img src="images/Logos/Tuev-nord.svg.png" alt="TÜV Nord"></div>
+                <div class="clients__logo"><img src="images/Logos/Coca-Cola_logo.svg.png" alt="Coca-Cola"></div>
+                <div class="clients__logo"><img src="images/Logos/Logo_VGH_Versicherungen.svg" alt="VGH"></div>
+                <div class="clients__logo"><img src="images/Logos/heimbs-C-FLcerJ.svg" alt="Heimbs"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section" id="produkte">
+        <div class="container">
+            <div class="section-header">
+                <div class="label">Produkte</div>
+                <h2>Unsere Lösungen — flexibel, skalierbar, zukunftssicher</h2>
+                <p>Mit 3DCAY bieten wir Ihnen ein modulares Portfolio an leistungsstarken Tools und individuellen Entwicklungen.</p>
+            </div>
+
+            <!-- Row 1: 3 product cards -->
+            <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 24px;">
+            <div class="product-card reveal">
+            <div class="product-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+            </div>
+            <h3>3DCAY Shop</h3>
+            <p>Die zentrale Plattform für Ihren Marketing Fulfillment Webshop.</p>
+                <a href="shop.html">Mehr erfahren →</a>
+            </div>
+
+            <div class="product-card reveal">
+            <div class="product-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M2 12h20"></path>
+                <path d="M12 2a10 10 0 0 1 10 10m-10-10a10 10 0 0 0-10 10"></path>
+                </svg>
+            </div>
+            <h3>3DCAY Web-to-Publish</h3>
+            <p>Erstellen und personalisieren Sie Marketingmaterialien einfach und CI-konform.</p>
+                <a href="web-to-publish.html">Mehr erfahren →</a>
+            </div>
+
+            <div class="product-card highlight reveal">
+            <div class="product-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path>
+                <path d="M12 17v-6M9 12h6"></path>
+                </svg>
+            </div>
+            <h3>3DCAY Cashback</h3>
+            <p>Intelligente Cashback- und Promotionslösungen mit KI-gestützter Belegerkennung.</p>
+                <a href="cashback.html">Mehr erfahren →</a>
+            </div>
+            </div>
+
+            <!-- Row 2: App card + MacBook showcase + BSFZ seal -->
+            <div class="grid" style="grid-template-columns: 1fr 2fr; gap: 24px; align-items: stretch;">
+            <div class="product-card reveal">
+            <div class="product-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M12 17v4M4 21h16"></path>
+                </svg>
+                </div>
+                    <h3>3DCAY App</h3>
+                <p>Die mobile Lösung für Ihren Vertrieb — alle Unterlagen jederzeit griffbereit.</p>
+                <a href="3dcay-app.html">Mehr erfahren →</a>
+            </div>
+
+            <div class="product-showcase reveal" style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 12px; padding: 40px; display: flex; align-items: center; gap: 40px; overflow: hidden;">
+                <!-- MacBook Mockup -->
+                <div style="flex: 1.4;">
+                    <img src="images/3dcay_mockup_laptop1.png" alt="3DCAY Dashboard auf MacBook" style="width:100%; display:block; filter: drop-shadow(0 16px 48px rgba(0,0,0,0.1));">
+                </div>
+                <!-- BSFZ Seal + Text -->
+                <div style="flex: 0.8; text-align: left;">
+                    <img src="images/BSFZ_Siegel_RGB_2x.png" alt="BSFZ Forschungszulage Siegel 2026" style="width:100px; height:auto; margin-bottom:16px;">
+                    <h4 style="font-size:18px; font-weight:800; margin-bottom:8px; color:var(--black);">Forschungszulage 2026</h4>
+                    <p style="font-size:14px; color:var(--gray-500); line-height:1.6;">Unsere B2B-Commerce-Entwicklung ist staatlich als förderungswürdig anerkannt — zertifiziert durch die Bescheinigungsstelle Forschungszulage (BSFZ).</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- WAS UNS BESONDERS MACHT -->
+    <section class="products-section" style="padding: 80px 0 0;">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="label">Was uns besonders macht</div>
+                <h2>Individuelle Systeme für komplexe Marketing- und Logistikprozesse</h2>
+                <p>Neben leistungsstarken Standardlösungen entwickeln wir seit jeher individuelle Systeme für komplexe Marketing- und Logistikprozesse. Genau dieses Know-how macht 3DCAY flexibel, skalierbar und passgenau für Ihre Anforderungen.</p>
+            </div>
+            <div class="grid grid-3" style="margin-top:40px;">
+                <div class="service-card reveal" style="text-align:center;">
+                    <h3 style="font-size:1.1rem;">Künstliche Intelligenz</h3>
+                    <p style="font-size:14px;">Wir setzen gezielt auf KI — z. B. durch automatisierte Belegerkennung, intelligente Datenverarbeitung und skalierbare Kampagnensteuerung.</p>
+                </div>
+                <div class="service-card reveal" style="text-align:center;">
+                    <h3 style="font-size:1.1rem;">Breites Lösungsspektrum</h3>
+                    <p style="font-size:14px;">Von B2B Webshops über Aktionswebseiten bis hin zu automatisierten Promotion- und Cashback-Lösungen.</p>
+                </div>
+                <div class="service-card reveal" style="text-align:center;">
+                    <h3 style="font-size:1.1rem;">Weniger Aufwand</h3>
+                    <p style="font-size:14px;">Mehr Kontrolle. Mehr Performance — mit smarter Technologie und AI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KI DIFFERENTIATOR SECTION -->
+    <section class="ki-section" id="ki">
+        <div class="container">
+            <div class="ki-content">
+                <div class="section-header">
+                    <div class="label" style="color:var(--red);">KI-POWERED</div>
+                    <h2>Smarter durch Künstliche Intelligenz</h2>
+                    <p>Dabei setzen wir gezielt auf Künstliche Intelligenz, um Prozesse weiter zu optimieren – z. B. durch automatisierte Belegerkennung, intelligente Datenverarbeitung und skalierbare Kampagnensteuerung.</p>
+                </div>
+
+                <div class="ki-stats">
+                    <div class="ki-stat reveal">
+                        <div class="ki-stat-value" data-count="25" data-suffix="+">0+</div>
+                        <div class="ki-stat-label">Jahre Software-Expertise</div>
+                    </div>
+                    <div class="ki-stat reveal">
+                        <div class="ki-stat-value" data-count="90" data-suffix="%">0%</div>
+                        <div class="ki-stat-label">Prozess- & Zeitreduktion durch Automatisierung</div>
+                    </div>
+                    <div class="ki-stat reveal">
+                        <div class="ki-stat-value" style="font-size:clamp(28px,4vw,42px);">Individual</div>
+                        <div class="ki-stat-label">Maßgeschneiderte KI-Lösungen</div>
+                    </div>
+                    <div class="ki-stat reveal">
+                        <div class="ki-stat-value" data-count="100" data-suffix="%">0%</div>
+                        <div class="ki-stat-label">DSGVO-konforme Datenverarbeitung</div>
+                    </div>
+                </div>
+
+                <!-- KI-Lab: Maßgeschneiderte KI-Lösungen -->
+                <div style="margin-top:56px; padding-top:48px; border-top:1px solid rgba(255,255,255,0.1);" class="reveal">
+                    <h3 style="color:#fff; font-size:clamp(1.3rem,2.5vw,1.8rem); text-align:center; margin-bottom:8px;">Maßgeschneiderte KI-Lösungen. Produktionsreif.</h3>
+                    <p style="color:rgba(255,255,255,0.65); text-align:center; max-width:700px; margin:0 auto 40px; font-size:15px;">Aus Forschung & Entwicklung zur Marktreife — unsere KI-Projekte starten als Prototypen und werden zu produktionsreifen Lösungen weiterentwickelt.</p>
+
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; max-width:800px; margin:0 auto;">
+                        <!-- Akquise-Agent -->
+                        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:28px;">
+                            <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+                                <div style="width:40px; height:40px; background:rgba(227,16,26,0.15); border-radius:10px; display:flex; align-items:center; justify-content:center;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e3101a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                </div>
+                                <div>
+                                    <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--red);">F&E Projekt</div>
+                                    <h4 style="color:#fff; font-size:16px; font-weight:700;">KI-Akquise-Agent</h4>
+                                </div>
+                            </div>
+                            <p style="color:rgba(255,255,255,0.6); font-size:13px; line-height:1.6;">Intelligenter Sales-Agent, der automatisiert Leads qualifiziert, personalisierte Ansprachen generiert und den Vertriebsprozess von der Recherche bis zum Erstkontakt optimiert.</p>
+                            <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
+                                <span style="font-size:11px; padding:3px 8px; background:rgba(227,16,26,0.12); color:var(--red); border-radius:4px;">Lead-Qualifizierung</span>
+                                <span style="font-size:11px; padding:3px 8px; background:rgba(227,16,26,0.12); color:var(--red); border-radius:4px;">Personalisierung</span>
+                                <span style="font-size:11px; padding:3px 8px; background:rgba(227,16,26,0.12); color:var(--red); border-radius:4px;">Automatisierung</span>
+                            </div>
+                        </div>
+                        <!-- Brand AI Suite -->
+                        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:28px;">
+                            <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+                                <div style="width:40px; height:40px; background:rgba(227,16,26,0.15); border-radius:10px; display:flex; align-items:center; justify-content:center;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e3101a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                                </div>
+                                <div>
+                                    <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--red);">F&E Projekt</div>
+                                    <h4 style="color:#fff; font-size:16px; font-weight:700;">Brand AI Suite</h4>
+                                </div>
+                            </div>
+                            <p style="color:rgba(255,255,255,0.6); font-size:13px; line-height:1.6;">KI-gestützte Marken-Analyse und Content-Generierung: von automatisierter CI-Prüfung über Brand-Voice-Monitoring bis zur intelligenten Erstellung markenkonformer Inhalte.</p>
+                            <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
+                                <span style="font-size:11px; padding:3px 8px; background:rgba(227,16,26,0.12); color:var(--red); border-radius:4px;">Brand Compliance</span>
+                                <span style="font-size:11px; padding:3px 8px; background:rgba(227,16,26,0.12); color:var(--red); border-radius:4px;">Content-KI</span>
+                                <span style="font-size:11px; padding:3px 8px; background:rgba(227,16,26,0.12); color:var(--red); border-radius:4px;">CI-Monitoring</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ki-cta" style="margin-top:40px;">
+                    <a href="ki-lab-newsletter.html">KI-Lab entdecken →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE STUDY SECTION -->
+    <section class="products-section">
+        <div class="container">
+            <div class="case-study reveal">
+                <div class="label">ENTERPRISE CASE STUDY</div>
+                <h2>EGGER: KI-gestütztes Cashback-Portal für die Industrie</h2>
+                <p>Ein Industrieunternehmen in Österreich wollte sein Cashback-Programm effizienter gestalten. Mit 3DCAY Cashback wurde der gesamte Prozess von der Rechnungserfassung bis zur Auszahlung automatisiert.</p>
+
+                <div class="metrics">
+                <div class="metric">
+                <div class="metric-value">85<em>%</em></div>
+                <div class="metric-label">Weniger manueller Aufwand</div>
+                </div>
+                <div class="metric">
+                <div class="metric-value">&lt;3<em>s</em></div>
+                <div class="metric-label">Rechnungserkennung</div>
+                </div>
+                <div class="metric">
+                <div class="metric-value">99.2<em>%</em></div>
+                <div class="metric-label">Erkennungsgenauigkeit</div>
+                </div>
+                    <div class="metric">
+                    <div class="metric-value">24/<em>7</em></div>
+                    <div class="metric-label">Automatisiert</div>
+                </div>
+            </div>
+
+                <div class="case-study-buttons">
+                    <a href="#" class="btn btn--outline">Case Study lesen →</a>
+                    <button class="btn btn--primary" onclick="openDemo()">Cashback-Demo anfragen</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="label">DIGITALE SERVICES</div>
+                <h2>Digitale Services, die weiterdenken</h2>
+                <p>Neben unseren Produkten entwickeln wir maßgeschneiderte Lösungen für Ihre Anforderungen.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="service-card reveal">
+                    <h3>Landingpages & Aktions-Webseiten</h3>
+                </div>
+                <div class="service-card reveal">
+                    <h3>Individuelle Softwareentwicklung</h3>
+                </div>
+                <div class="service-card reveal">
+                    <h3>API & Systemintegration</h3>
+                </div>
+            </div>
+
+            <div class="services-all-link">
+                <a href="services.html">Alle Services →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER SECTION -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>KI-Lab Insights — monatlich in Ihr Postfach</h2>
+                <p>Praxiswissen zu KI, Marketing-Automation und Fulfillment-Digitalisierung.</p>
+
+                <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="newsletter">
+                    <input type="email" name="email" placeholder="E-Mail eingeben" required>
+                    <button type="submit" class="btn btn--primary">Abonnieren</button>
+                </form>
+
+                <div class="newsletter-success" id="newsletterSuccess">
+                    <div class="newsletter-success-icon">✓</div>
+                    <p>Danke! Sie erhalten bald unsere Insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Weniger Aufwand. Mehr Kontrolle. Mehr Performance.</h2>
+            <p>Mit smarter Technologie und AI.</p>
+            <button class="btn btn--dark" onclick="openDemo()" style="background-color: var(--white); color: var(--red);">Projekt besprechen →</button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <svg viewBox="120 130 600 185" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M132,299.3v-1.1l7.1-28.4c2.6.7,4.5,2.3,6.7,3.4,4.3,2,8.7,3.1,13.3,4.5,8.2,2.6,17.4,2.8,25.8.6s2.8-1.6,4.3-2.1c3-1,5.3-3.1,7.3-5.7,6.5-8.7,5.3-21.6-2.8-29s-13.9-7.3-22-7.3h-14.7c0,0,0-28.1,0-28.1,6.9-.1,13.3.1,19.9-.5s4.6-1.3,6.9-2.1c6-2.1,10.8-6.6,12.2-12.3s-.2-13-5.2-17.2-6.2-2.9-9.6-3.9-9.1-1.1-13.2,0-11.6,2.3-16.7,5.2-4.8,2.6-7.4,3.9l-6.9-27.4c-.2-1,1.4-1.9,2-2.2l7.9-3.9c4.6-2.3,9.7-3,14.6-4.6,7.1-2.3,14.5-2.1,22-2.1s12.1,0,17.7,2.1,7.5,2.5,11,4.6c12.6,7.4,20,20.3,19.8,35.1s-2.8,18.6-9,25.8-6.1,5.6-11.3,9.2-4.9,1.5-7.1,3.4c4.4,1.6,8.9,2,12.3,4.6s4.2,2.5,6,4.2l3.5,3.4c16.5,16.1,15.3,54.5-14.2,71s-6.8,3-10.4,4.5c-7.8,3.2-23.4,4.2-31.9,3.5s-14.3-.9-20.9-3.6c-3.7-1.5-7.5-2.2-11-4.1s-3.8-2.5-5.8-3.3Z" fill="#e3101a"/>
+                            <path d="M353.2,281.3c-2.2,2.2-9.1,8.1-11.5,9s-3.1,1.9-4.7,2.8c-3.4,1.8-7,2.7-10.6,4.3-5.9,2.6-12.4,3-18.8,4.4s-3.7,1-5.9,1.2c-16.9,1.1-36.9,1.3-53.3-2.3v-157.4s14.3-2.2,14.3-2.2c12.3-1.9,40.3-2.6,52.5.3s11.8,1.7,17.1,4.4,6.4,2.5,9.3,4.3l4.9,3.1c30.5,19.4,33.8,65.6,24.3,97.6-3.4,11.7-9.3,22-17.6,30.6ZM339.3,201.8c-3-14.2-12.1-27.1-26.4-31.2-6.6-3.9-24.3-3.3-31.8-1.6v105.5c9.2,1,18.4,1,27.2-1.3s4.2-2.1,6.4-2.5c25.3-10.8,29.6-45.4,24.6-68.9Z" fill="#e3101a"/>
+                            <path d="M470.8,138.5c6.1,0,22.1,3.5,28.3,6.8l-6.8,28.9c-4.3-1.5-8.1-2.9-12.5-4-14.5-3.7-31.8-2-43.6,8.1s-11.8,14.3-14.2,23.5c-6.5,24.9-1.5,59.8,26.8,69.3l5.7,1.9c6.6,2.2,21.7.6,28.7-1l-8.5,31.6c-11.5.9-23.2,1.6-34.1-1.5-4.9-1.4-9.9-2.2-14.1-4.7s-5.6-2.5-8-4.2l-4.5-3.1c-11.8-8.3-19.4-20.7-23.8-34.7-6.4-20.5-6.3-42.6-.3-63.2s11.6-25.7,22.1-35.2,11-8.1,17.8-11.6,8.6-2.6,12.8-4.4,9.8-1.3,14.5-2.5h13.9Z" fill="#e3101a"/>
+                            <path d="M565.4,260.6h-41.2s-10,40.9-10,40.9h-33.7s43.8-160.9,43.8-160.9h42.4s44.7,160.9,44.7,160.9h-35c0,0-11-40.9-11-40.9ZM560.3,233l-9.3-35.7-6.8-29.7-6.1,29-9.2,36.5h31.3Z" fill="#e3101a"/>
+                            <polygon points="678.6 140.7 715.2 140.6 667.8 234.8 667.8 301.5 635.4 301.5 635.4 236.2 589.9 140.6 627.3 140.6 640.5 176 653.1 210.7 667.7 169.9 678.6 140.7" fill="#e3101a"/>
+                        </svg>
+                    </a>
+                    <p>3DCAY Marketing IT Solutions by drei-d — Die IT-Marke für smartes Marketing Fulfillment.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Produkte</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="web-to-publish.html">Web-to-Publish</a></li>
+                        <li><a href="cashback.html">Cashback</a></li>
+                        <li><a href="3dcay-app.html">App</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Landingpages</a></li>
+                        <li><a href="services.html">Softwareentwicklung</a></li>
+                        <li><a href="services.html">API & Integration</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Ressourcen</h4>
+                    <ul>
+                        <li><a href="whitepaper.html">Whitepaper</a></li>
+                        <li><a href="assessment.html">Fit-Check</a></li>
+                        <li><a href="ki-lab-newsletter.html">KI-Lab Newsletter</a></li>
+                        <li><a href="referenzen.html">Referenzen</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 3DCAY Marketing IT Solutions by drei-d | <a href="impressum.html" style="color: inherit; text-decoration: none;">Impressum</a> | <a href="datenschutz.html" style="color: inherit; text-decoration: none;">Datenschutz</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- DEMO REQUEST MODAL -->
+    <div class="modal-overlay" id="demoModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeDemo()">&times;</button>
+
+            <div id="demoForm">
+                <h2>Demo anfragen</h2>
+                <form name="demo-request" method="POST" data-netlify="true" onsubmit="handleDemoSubmit(event)">
+                    <input type="hidden" name="form-name" value="demo-request">
+
+                    <div class="form-group">
+                        <label for="firstName">Vorname</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Nachname</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Unternehmen</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-Mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefon</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interest">Interesse</label>
+                        <select id="interest" name="interest" required>
+                            <option value="">Bitte auswählen</option>
+                            <option value="Shop">Shop</option>
+                            <option value="Web-to-Publish">Web-to-Publish</option>
+                            <option value="Cashback">Cashback</option>
+                            <option value="App">App</option>
+                            <option value="Services">Services</option>
+                            <option value="Sonstiges">Sonstiges</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Nachricht (optional)</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary" style="width: 100%;">Demo anfragen</button>
+                </form>
+            </div>
+
+            <div class="modal-success" id="demoSuccess">
+                <div class="modal-success-icon">✓</div>
+                <h3>Danke!</h3>
+                <p>Wir kontaktieren Sie in Kürze. Freuen Sie sich auf eine persönliche Demo.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* ========================================
+           NAVIGATION & SCROLL DETECTION (V2 Style)
+           ======================================== */
+        const nav = document.getElementById('nav');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        /* Mobile Nav Toggle */
+        function toggleMobileNav() {
+            const panel = document.getElementById('mobileNav');
+            panel.classList.toggle('open');
+        }
+
+        /* Close mobile nav on link click */
+        document.querySelectorAll('.nav__mobile-panel a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileNav').classList.remove('open');
+            });
+        });
+
+        /* ========================================
+           i18n / BILINGUAL SYSTEM
+           ======================================== */
+        const translations = {
+            de: {
+                'nav.produkte': 'Produkte',
+                'nav.fulfillment': 'Fulfillment',
+                'nav.ki': 'KI-Lab',
+                'nav.referenzen': 'Referenzen',
+                'nav.kontakt': 'Kontakt \u2192',
+                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS BY DREI-D',
+                'clients.label': 'Vertrauen f\u00fchrender Unternehmen'
+            },
+            en: {
+                'nav.produkte': 'Products',
+                'nav.fulfillment': 'Fulfillment',
+                'nav.ki': 'AI Lab',
+                'nav.referenzen': 'References',
+                'nav.kontakt': 'Contact \u2192',
+                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS BY DREI-D',
+                'clients.label': 'Trusted by leading companies'
+            }
+        };
+
+        let currentLang = localStorage.getItem('3dcay-lang') || 'de';
+
+        function setLang(lang) {
+            currentLang = lang;
+            localStorage.setItem('3dcay-lang', lang);
+            document.documentElement.lang = lang;
+
+            // Update toggle buttons
+            document.getElementById('btnLangDE').classList.toggle('active', lang === 'de');
+            document.getElementById('btnLangEN').classList.toggle('active', lang === 'en');
+
+            // Apply translations
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        // Initialize language on load
+        document.addEventListener('DOMContentLoaded', () => {
+            setLang(currentLang);
+        });
+
+        /* ========================================
+           INTERSECTION OBSERVER FOR ANIMATIONS
+           ======================================== */
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        /* ========================================
+           COUNT-UP ANIMATION FOR KI STATS
+           ======================================== */
+        function animateCount(el) {
+            const target = parseFloat(el.getAttribute('data-count'));
+            const suffix = el.getAttribute('data-suffix') || '';
+            const duration = 2000;
+            const isDecimal = String(target).includes('.');
+            const start = performance.now();
+
+            function easeOutCubic(t) {
+                return 1 - Math.pow(1 - t, 3);
+            }
+
+            function update(now) {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = easeOutCubic(progress);
+                const current = eased * target;
+
+                if (isDecimal) {
+                    el.innerHTML = current.toFixed(1) + '<em>' + suffix + '</em>';
+                } else {
+                    el.innerHTML = Math.round(current) + '<em>' + suffix + '</em>';
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        const countObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('[data-count]');
+                    counters.forEach((el, i) => {
+                        setTimeout(() => animateCount(el), i * 200);
+                    });
+                    countObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        // Observe both KI stats and case study metrics
+        document.querySelectorAll('.ki-stats, .metrics').forEach(el => {
+            countObserver.observe(el);
+        });
+
+        /* ========================================
+           DEMO MODAL
+           ======================================== */
+        const demoModal = document.getElementById('demoModal');
+        const demoForm = document.getElementById('demoForm');
+        const demoSuccess = document.getElementById('demoSuccess');
+
+        function openDemo() {
+            demoModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDemo() {
+            demoModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+            demoForm.style.display = 'block';
+            demoSuccess.classList.remove('show');
+        }
+
+        function handleDemoSubmit(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData)
+            }).then(() => {
+                demoForm.style.display = 'none';
+                demoSuccess.classList.add('show');
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('Es gab einen Fehler. Bitte versuchen Sie es sp\u00e4ter erneut.');
+            });
+        }
+
+        demoModal.addEventListener('click', (e) => {
+            if (e.target === demoModal) {
+                closeDemo();
+            }
+        });
+
+        /* ========================================
+           NEWSLETTER FORM
+           ======================================== */
+        const newsletterForm = document.querySelector('.newsletter-form');
+        const newsletterSuccess = document.getElementById('newsletterSuccess');
+
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const formData = new FormData(newsletterForm);
+
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData)
+                }).then(() => {
+                    newsletterForm.style.display = 'none';
+                    newsletterSuccess.classList.add('show');
+                }).catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

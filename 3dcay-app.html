@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="3DCAY App – Die mobile Lösung für Ihren Vertrieb. Alle Marketing- und Vertriebsunterlagen jederzeit griffbereit.">
+    <meta property="og:title" content="3DCAY App – Mobile Sales Solution">
+    <meta property="og:description" content="Die mobile Lösung für Ihren Vertrieb — alle Unterlagen jederzeit griffbereit">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:type" content="website">
+    <title>3DCAY App – Mobile Sales Solution by drei-d</title>
+    
+    <link rel="preload" as="image" href="images/dashboard-office.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========================================
+           DESIGN SYSTEM
+           ======================================== */
+        :root {
+            --black: #0A0A0A;
+            --red: #e3101a;
+            --red-hover: #ff1a25;
+            --white: #FFF;
+            --gray-50: #FAFAFA;
+            --gray-100: #F0F0F0;
+            --gray-200: #E5E5E5;
+            --gray-500: #737373;
+            --gray-700: #404040;
+            --gray-900: #171717;
+            
+            --font-sans: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            --container-max: 1280px;
+            --container-px: 32px;
+            
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--gray-700);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           TYPOGRAPHY
+           ======================================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 800;
+            letter-spacing: -0.035em;
+            line-height: 1.04;
+            color: var(--black);
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        h4 { font-size: 1.25rem; }
+        h5 { font-size: 1rem; }
+
+        p {
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        em {
+            color: var(--red);
+            font-style: normal;
+        }
+
+        .label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--red);
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* ========================================
+           BUTTONS
+           ======================================== */
+        .btn {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border: 2px solid var(--red);
+            border-radius: 0;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .btn--primary {
+            background-color: var(--red);
+            color: var(--white);
+        }
+
+        .btn--primary:hover {
+            background-color: var(--red-hover);
+            border-color: var(--red-hover);
+        }
+
+        .btn--outline {
+            background-color: transparent;
+            color: var(--red);
+        }
+
+        .btn--outline:hover {
+            background-color: var(--red);
+            color: var(--white);
+        }
+
+        .btn--dark {
+            background-color: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+
+        .btn--dark:hover {
+            background-color: var(--gray-900);
+            border-color: var(--gray-900);
+        }
+
+        /* ========================================
+           LAYOUT
+           ======================================== */
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--container-px);
+        }
+
+        section {
+            padding: 4rem var(--container-px);
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 2rem var(--container-px);
+            }
+        }
+
+        /* ========================================
+           NAVIGATION
+           ======================================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background-color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--container-px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--gray-100);
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .logo svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--red);
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown-toggle {
+            background: none;
+            border: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .nav-dropdown-toggle:hover {
+            color: var(--red);
+        }
+
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 0;
+            min-width: 200px;
+            margin-top: 0.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-dropdown.active .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .nav-dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-dropdown-menu a:hover {
+            background-color: var(--gray-50);
+            color: var(--red);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--black);
+            transition: var(--transition);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                height: 60px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background-color: var(--white);
+                border-bottom: 1px solid var(--gray-200);
+                max-height: calc(100vh - 60px);
+                overflow-y: auto;
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+            }
+
+            .nav-menu.mobile-open {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 1rem var(--container-px);
+                border-bottom: 1px solid var(--gray-100);
+            }
+
+            .nav-dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                background-color: var(--gray-50);
+                border: none;
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+
+        /* ========================================
+           HERO SECTION
+           ======================================== */
+        .hero {
+            margin-top: 80px;
+            background-color: var(--black);
+            color: var(--white);
+            padding: 5rem var(--container-px);
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .label {
+            color: var(--red);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            color: var(--gray-200);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-cta .btn {
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: auto;
+                padding: 2rem var(--container-px);
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-cta {
+                gap: 0.5rem;
+            }
+
+            .hero-cta .btn {
+                font-size: 1rem;
+                padding: 0.75rem 1.5rem;
+            }
+        }
+
+        /* ========================================
+           REVEAL ANIMATIONS
+           ======================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========================================
+           PROBLEM SECTION
+           ======================================== */
+        .problem-section {
+            background-color: var(--white);
+        }
+
+        .problem-content {
+            max-width: 800px;
+        }
+
+        .problem-content h2 {
+            margin-bottom: 2rem;
+        }
+
+        .problem-challenges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .challenge {
+            padding: 1.5rem;
+            background-color: var(--gray-50);
+            border-left: 4px solid var(--red);
+        }
+
+        .challenge h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .challenge p {
+            font-size: 0.95rem;
+        }
+
+        /* ========================================
+           SOLUTION SECTION
+           ======================================== */
+        .solution-section {
+            background-color: var(--gray-100);
+        }
+
+        .solution-header {
+            max-width: 800px;
+            margin-bottom: 3rem;
+        }
+
+        .solution-header h2 {
+            margin-bottom: 1rem;
+        }
+
+        .solution-subheading {
+            font-size: 1.5rem;
+            color: var(--red);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .solution-intro {
+            font-size: 1.1rem;
+            color: var(--gray-700);
+            margin-bottom: 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 0;
+            transition: var(--transition);
+        }
+
+        .feature:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--black);
+        }
+
+        .feature p {
+            font-size: 0.95rem;
+            color: var(--gray-700);
+        }
+
+        .solution-highlight {
+            background-color: var(--white);
+            padding: 2rem;
+            margin-top: 2rem;
+            border-left: 4px solid var(--red);
+        }
+
+        .solution-highlight p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .solution-highlight strong {
+            color: var(--red);
+        }
+
+        .solution-tagline {
+            font-size: 1.25rem;
+            color: var(--black);
+            font-weight: 600;
+            margin-top: 2rem;
+            line-height: 1.4;
+        }
+
+        /* ========================================
+           CASE STUDY SECTION
+           ======================================== */
+        .case-study-section {
+            background-color: var(--white);
+        }
+
+        .case-study-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .case-study-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .case-study-header .label {
+            justify-content: center;
+        }
+
+        .case-study-header h2 {
+            margin-bottom: 1rem;
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .case-study-block {
+            background-color: var(--gray-50);
+            padding: 2rem;
+            border-radius: 0;
+        }
+
+        .case-study-block h3 {
+            font-size: 1.1rem;
+            color: var(--red);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .case-study-block p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .case-study-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-study-block strong {
+            color: var(--black);
+            font-weight: 700;
+        }
+
+        .case-study-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-item strong {
+            display: block;
+            font-size: 1.25rem;
+            color: var(--red);
+            margin-bottom: 0.5rem;
+        }
+
+        .case-study-block .case-study-highlight {
+            background-color: var(--white);
+            border-left: 4px solid var(--red);
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        /* ========================================
+           CTA SECTION
+           ======================================== */
+        .cta-final-section {
+            background-color: var(--red);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem var(--container-px);
+        }
+
+        .cta-final-section h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-final-section p {
+            color: var(--gray-100);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-final-section .btn {
+            background-color: var(--white);
+            color: var(--red);
+            border-color: var(--white);
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+        }
+
+        .cta-final-section .btn:hover {
+            background-color: var(--gray-100);
+            border-color: var(--gray-100);
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 3rem var(--container-px) 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            max-width: var(--container-max);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-brand {
+            grid-column: 1;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .footer-column h4 {
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column ul li a {
+            color: var(--gray-500);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--red);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-900);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray-500);
+            font-size: 0.85rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .footer-bottom a {
+            color: var(--gray-500);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--red);
+        }
+
+        /* ========================================
+           MODAL
+           ======================================== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal {
+            background-color: var(--white);
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+            border-radius: 0;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--gray-700);
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--red);
+        }
+
+        .modal h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 0;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--red);
+            box-shadow: 0 0 0 3px rgba(227, 16, 26, 0.1);
+        }
+
+        .modal-success {
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-success.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-success-icon {
+            font-size: 3rem;
+            color: var(--red);
+            margin-bottom: 1rem;
+        }
+
+        .modal-success h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-success p {
+            color: var(--gray-700);
+        }
+
+        /* ========================================
+           NEWSLETTER
+           ======================================== */
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 0;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 0.75rem 1.5rem;
+        }
+
+        .newsletter-success {
+            text-align: center;
+            margin-top: 1rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .newsletter-success.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .newsletter-success-icon {
+            font-size: 2rem;
+            color: var(--red);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-brand {
+                grid-column: auto;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .modal {
+                width: 95%;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="index-v4.html" class="logo">
+            <svg viewBox="120 130 600 185" xmlns="http://www.w3.org/2000/svg">
+                <path d="M132,299.3v-1.1l7.1-28.4c2.6.7,4.5,2.3,6.7,3.4,4.3,2,8.7,3.1,13.3,4.5,8.2,2.6,17.4,2.8,25.8.6s2.8-1.6,4.3-2.1c3-1,5.3-3.1,7.3-5.7,6.5-8.7,5.3-21.6-2.8-29s-13.9-7.3-22-7.3h-14.7c0,0,0-28.1,0-28.1,6.9-.1,13.3.1,19.9-.5s4.6-1.3,6.9-2.1c6-2.1,10.8-6.6,12.2-12.3s-.2-13-5.2-17.2-6.2-2.9-9.6-3.9-9.1-1.1-13.2,0-11.6,2.3-16.7,5.2-4.8,2.6-7.4,3.9l-6.9-27.4c-.2-1,1.4-1.9,2-2.2l7.9-3.9c4.6-2.3,9.7-3,14.6-4.6,7.1-2.3,14.5-2.1,22-2.1s12.1,0,17.7,2.1,7.5,2.5,11,4.6c12.6,7.4,20,20.3,19.8,35.1s-2.8,18.6-9,25.8-6.1,5.6-11.3,9.2-4.9,1.5-7.1,3.4c4.4,1.6,8.9,2,12.3,4.6s4.2,2.5,6,4.2l3.5,3.4c16.5,16.1,15.3,54.5-14.2,71s-6.8,3-10.4,4.5c-7.8,3.2-23.4,4.2-31.9,3.5s-14.3-.9-20.9-3.6c-3.7-1.5-7.5-2.2-11-4.1s-3.8-2.5-5.8-3.3Z" fill="#e3101a"/>
+                <path d="M353.2,281.3c-2.2,2.2-9.1,8.1-11.5,9s-3.1,1.9-4.7,2.8c-3.4,1.8-7,2.7-10.6,4.3-5.9,2.6-12.4,3-18.8,4.4s-3.7,1-5.9,1.2c-16.9,1.1-36.9,1.3-53.3-2.3v-157.4s14.3-2.2,14.3-2.2c12.3-1.9,40.3-2.6,52.5.3s11.8,1.7,17.1,4.4,6.4,2.5,9.3,4.3l4.9,3.1c30.5,19.4,33.8,65.6,24.3,97.6-3.4,11.7-9.3,22-17.6,30.6ZM339.3,201.8c-3-14.2-12.1-27.1-26.4-31.2-6.6-3.9-24.3-3.3-31.8-1.6v105.5c9.2,1,18.4,1,27.2-1.3s4.2-2.1,6.4-2.5c25.3-10.8,29.6-45.4,24.6-68.9Z" fill="#e3101a"/>
+                <path d="M470.8,138.5c6.1,0,22.1,3.5,28.3,6.8l-6.8,28.9c-4.3-1.5-8.1-2.9-12.5-4-14.5-3.7-31.8-2-43.6,8.1s-11.8,14.3-14.2,23.5c-6.5,24.9-1.5,59.8,26.8,69.3l5.7,1.9c6.6,2.2,21.7.6,28.7-1l-8.5,31.6c-11.5.9-23.2,1.6-34.1-1.5-4.9-1.4-9.9-2.2-14.1-4.7s-5.6-2.5-8-4.2l-4.5-3.1c-11.8-8.3-19.4-20.7-23.8-34.7-6.4-20.5-6.3-42.6-.3-63.2s11.6-25.7,22.1-35.2,11-8.1,17.8-11.6,8.6-2.6,12.8-4.4,9.8-1.3,14.5-2.5h13.9Z" fill="#e3101a"/>
+                <path d="M565.4,260.6h-41.2s-10,40.9-10,40.9h-33.7s43.8-160.9,43.8-160.9h42.4s44.7,160.9,44.7,160.9h-35c0,0-11-40.9-11-40.9ZM560.3,233l-9.3-35.7-6.8-29.7-6.1,29-9.2,36.5h31.3Z" fill="#e3101a"/>
+                <polygon points="678.6 140.7 715.2 140.6 667.8 234.8 667.8 301.5 635.4 301.5 635.4 236.2 589.9 140.6 627.3 140.6 640.5 176 653.1 210.7 667.7 169.9 678.6 140.7" fill="#e3101a"/>
+            </svg>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="index-v4.html">Startseite</a></li>
+            <li class="nav-dropdown">
+                <button class="nav-dropdown-toggle" aria-expanded="false">Produkte</button>
+                <div class="nav-dropdown-menu">
+                    <a href="web-to-publish.html">Web-to-Publish</a>
+                    <a href="3dcay-app.html">App</a>
+                    <a href="cashback.html">Cashback</a>
+                    <a href="shop.html">Shop</a>
+                </div>
+            </li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="referenzen.html">Referenzen</a></li>
+            <li><button class="btn btn--primary" onclick="openDemo()">Demo anfragen</button></li>
+        </ul>
+
+        <button class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="label">3DCAY APP</span>
+            <h1 class="reveal">Die mobile Lösung für Ihren Vertrieb — alle Unterlagen jederzeit griffbereit</h1>
+            <p class="hero-subtitle reveal">Mit der 3DCAY App bringen Sie Ihre Marketing- und Vertriebsprozesse direkt zum Kunden vor Ort.</p>
+            <div class="hero-cta reveal">
+                <button class="btn btn--primary" onclick="openDemo()">App-Demo anfragen</button>
+                <button class="btn btn--outline" onclick="document.getElementById('case-study-section').scrollIntoView({behavior:'smooth'})">Case Study: BARMER</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="reveal">Warum Ihr Außendienst bessere Tools braucht</h2>
+            
+            <div class="problem-challenges reveal">
+                <div class="challenge">
+                    <h3>Dezentralisierte Teams</h3>
+                    <p>Vertriebsteams vor Ort benötigen aktuelle Marketing- und Verkaufsunterlagen in Echtzeit.</p>
+                </div>
+                <div class="challenge">
+                    <h3>Offline-Zugang</h3>
+                    <p>Netzwerkunterbrechungen dürfen keine Arbeit blockieren. Offline-Fähigkeit ist essentiell.</p>
+                </div>
+                <div class="challenge">
+                    <h3>Markenkonformität</h3>
+                    <p>Alle Materialien müssen zentral gesteuert und CI-konform sein, ohne dabei an Flexibilität zu verlieren.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTION SECTION -->
+    <section class="solution-section">
+        <div class="container">
+            <div class="solution-header reveal">
+                <h2>Basierend auf einem Medienkatalog stehen dem Außendienst alle relevanten Materialien zentral zur Verfügung</h2>
+                <p class="solution-subheading">Online und offline.</p>
+                <p class="solution-intro">Die 3DCAY App verbindet zentrale Steuerung mit dezentraler Nutzung — maximale Effizienz für Ihren Vertrieb.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature reveal">
+                    <h3>Umfassender Medienkatalog</h3>
+                    <p>Alle Vertriebsunterlagen, Videos und Medien an einem zentralen Ort. Einfach abrufbar, immer aktuell.</p>
+                </div>
+                <div class="feature reveal">
+                    <h3>Ausfüllbare PDFs</h3>
+                    <p>Direkt im Kundengespräch ausfüllbare Formulare und Angebote — professionell und effizient.</p>
+                </div>
+                <div class="feature reveal">
+                    <h3>Offline-Fähigkeit</h3>
+                    <p>Maximale Flexibilität im Außendienst. Alle Materialien sind auch ohne Internetverbindung verfügbar.</p>
+                </div>
+                <div class="feature reveal">
+                    <h3>Zentrale CI-Steuerung</h3>
+                    <p>Inhalte bleiben CI-konform. Ein Update für alle — zentral gesteuert, dezentral genutzt.</p>
+                </div>
+                <div class="feature reveal">
+                    <h3>Interaktive Inhalte</h3>
+                    <p>Videos, animierte Präsentationen und ausfüllbare Formulare für professionelle Kundenberatung.</p>
+                </div>
+                <div class="feature reveal">
+                    <h3>Dezentrale Nutzung</h3>
+                    <p>Ihr Vertrieb arbeitet maximal flexibel — wann, wo und wie es Ihren Prozessen entspricht.</p>
+                </div>
+            </div>
+
+            <div class="solution-highlight reveal">
+                <p><strong>Besonders im Einsatz bei dezentralen Organisationen wie Versicherungen</strong> zeigt die App ihre Stärke. Sie kombiniert zentrale Kontrolle mit der Flexibilität, die moderne Vertriebsteams benötigen.</p>
+            </div>
+
+            <p class="solution-tagline reveal">Mehr Effizienz im Außendienst. Bessere Beratung beim Kunden. Digitale Prozesse ohne Medienbruch.</p>
+        </div>
+    </section>
+
+    <!-- CASE STUDY SECTION -->
+    <section class="case-study-section" id="case-study-section">
+        <div class="case-study-container">
+            <div class="case-study-header">
+                <span class="label">CASE STUDY</span>
+                <h2 class="reveal">BARMER</h2>
+                <p class="reveal">Digitale Vertriebsunterstützung für eine Krankenversicherung</p>
+            </div>
+
+            <div class="case-study-grid">
+                <div class="case-study-block reveal">
+                    <h3>Ausgangssituation</h3>
+                    <p>Eine große Krankenversicherung stand vor der Herausforderung, ihren dezentral organisierten Außendienst effizient mit aktuellen Marketing- und Vertriebsunterlagen zu versorgen. Die bisherigen Prozesse waren zeitaufwändig und medienbruchreich.</p>
+                </div>
+
+                <div class="case-study-block reveal">
+                    <h3>Anforderungen</h3>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Zentrale Bereitstellung aller Vertriebsmaterialien</li>
+                        <li>Individualisierbare Inhalte durch Web-to-Publish (W2P)</li>
+                        <li>Vollständiger Medienkatalog mit Videos, PDFs und Dokumenten</li>
+                        <li>Offline-Nutzung für Feldarbeit ohne Unterbrechungen</li>
+                        <li>Einheitlicher Markenauftritt CI-konform</li>
+                    </ul>
+                </div>
+
+                <div class="case-study-block reveal">
+                    <h3>Lösung</h3>
+                    <p>Kombination aus <strong>3DCAY Web-to-Publish</strong> und <strong>3DCAY App</strong>:</p>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>Web-to-Publish:</strong> Individualisierbare Templates im zentralen Medienkatalog</li>
+                        <li><strong>App:</strong> Vollständiger Zugriff auf Vertriebsunterlagen, Videos, Medien und ausfüllbare PDFs mit Offline-Fähigkeit</li>
+                    </ul>
+                </div>
+
+                <div class="case-study-block reveal">
+                    <h3>Ergebnis</h3>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Effizientere Vertriebsprozesse — schneller und zielgerichteter</li>
+                        <li>CI-konformer Markenauftritt über alle Vertriebskanäle</li>
+                        <li>Höhere Geschwindigkeit bei der Kundenberatung</li>
+                        <li>Verbesserte Beratungsqualität durch professionelle, aktuelle Materialien</li>
+                        <li>Medienbruchfreie Prozesse von der Vorbereitung bis zur Nachbereitung</li>
+                    </ul>
+                </div>
+
+                <div class="case-study-block reveal">
+                    <h3>Fazit</h3>
+                    <p>Mit 3DCAY wurde eine skalierbare Lösung geschaffen, die <strong>zentrale Steuerung und dezentrale Nutzung optimal verbindet</strong> — und den Vertrieb nachhaltig digitalisiert.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section class="cta-final-section">
+        <div class="container">
+            <h2 class="reveal">Mehr Effizienz im Außendienst. Bessere Beratung beim Kunden.</h2>
+            <button class="btn btn--primary" onclick="openDemo()" style="background-color: var(--white); color: var(--red); border-color: var(--white);">App-Demo anfragen →</button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <svg viewBox="120 130 600 185" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M132,299.3v-1.1l7.1-28.4c2.6.7,4.5,2.3,6.7,3.4,4.3,2,8.7,3.1,13.3,4.5,8.2,2.6,17.4,2.8,25.8.6s2.8-1.6,4.3-2.1c3-1,5.3-3.1,7.3-5.7,6.5-8.7,5.3-21.6-2.8-29s-13.9-7.3-22-7.3h-14.7c0,0,0-28.1,0-28.1,6.9-.1,13.3.1,19.9-.5s4.6-1.3,6.9-2.1c6-2.1,10.8-6.6,12.2-12.3s-.2-13-5.2-17.2-6.2-2.9-9.6-3.9-9.1-1.1-13.2,0-11.6,2.3-16.7,5.2-4.8,2.6-7.4,3.9l-6.9-27.4c-.2-1,1.4-1.9,2-2.2l7.9-3.9c4.6-2.3,9.7-3,14.6-4.6,7.1-2.3,14.5-2.1,22-2.1s12.1,0,17.7,2.1,7.5,2.5,11,4.6c12.6,7.4,20,20.3,19.8,35.1s-2.8,18.6-9,25.8-6.1,5.6-11.3,9.2-4.9,1.5-7.1,3.4c4.4,1.6,8.9,2,12.3,4.6s4.2,2.5,6,4.2l3.5,3.4c16.5,16.1,15.3,54.5-14.2,71s-6.8,3-10.4,4.5c-7.8,3.2-23.4,4.2-31.9,3.5s-14.3-.9-20.9-3.6c-3.7-1.5-7.5-2.2-11-4.1s-3.8-2.5-5.8-3.3Z" fill="#e3101a"/>
+                            <path d="M353.2,281.3c-2.2,2.2-9.1,8.1-11.5,9s-3.1,1.9-4.7,2.8c-3.4,1.8-7,2.7-10.6,4.3-5.9,2.6-12.4,3-18.8,4.4s-3.7,1-5.9,1.2c-16.9,1.1-36.9,1.3-53.3-2.3v-157.4s14.3-2.2,14.3-2.2c12.3-1.9,40.3-2.6,52.5.3s11.8,1.7,17.1,4.4,6.4,2.5,9.3,4.3l4.9,3.1c30.5,19.4,33.8,65.6,24.3,97.6-3.4,11.7-9.3,22-17.6,30.6ZM339.3,201.8c-3-14.2-12.1-27.1-26.4-31.2-6.6-3.9-24.3-3.3-31.8-1.6v105.5c9.2,1,18.4,1,27.2-1.3s4.2-2.1,6.4-2.5c25.3-10.8,29.6-45.4,24.6-68.9Z" fill="#e3101a"/>
+                            <path d="M470.8,138.5c6.1,0,22.1,3.5,28.3,6.8l-6.8,28.9c-4.3-1.5-8.1-2.9-12.5-4-14.5-3.7-31.8-2-43.6,8.1s-11.8,14.3-14.2,23.5c-6.5,24.9-1.5,59.8,26.8,69.3l5.7,1.9c6.6,2.2,21.7.6,28.7-1l-8.5,31.6c-11.5.9-23.2,1.6-34.1-1.5-4.9-1.4-9.9-2.2-14.1-4.7s-5.6-2.5-8-4.2l-4.5-3.1c-11.8-8.3-19.4-20.7-23.8-34.7-6.4-20.5-6.3-42.6-.3-63.2s11.6-25.7,22.1-35.2,11-8.1,17.8-11.6,8.6-2.6,12.8-4.4,9.8-1.3,14.5-2.5h13.9Z" fill="#e3101a"/>
+                            <path d="M565.4,260.6h-41.2s-10,40.9-10,40.9h-33.7s43.8-160.9,43.8-160.9h42.4s44.7,160.9,44.7,160.9h-35c0,0-11-40.9-11-40.9ZM560.3,233l-9.3-35.7-6.8-29.7-6.1,29-9.2,36.5h31.3Z" fill="#e3101a"/>
+                            <polygon points="678.6 140.7 715.2 140.6 667.8 234.8 667.8 301.5 635.4 301.5 635.4 236.2 589.9 140.6 627.3 140.6 640.5 176 653.1 210.7 667.7 169.9 678.6 140.7" fill="#e3101a"/>
+                        </svg>
+                    </a>
+                    <p>3DCAY Marketing IT Solutions by drei-d — Die IT-Marke für smartes Marketing Fulfillment.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Produkte</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="web-to-publish.html">Web-to-Publish</a></li>
+                        <li><a href="cashback.html">Cashback</a></li>
+                        <li><a href="3dcay-app.html">App</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Landingpages</a></li>
+                        <li><a href="services.html">Softwareentwicklung</a></li>
+                        <li><a href="services.html">API & Integration</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Ressourcen</h4>
+                    <ul>
+                        <li><a href="whitepaper.html">Whitepaper</a></li>
+                        <li><a href="assessment.html">Fit-Check</a></li>
+                        <li><a href="ki-lab-newsletter.html">KI-Lab Newsletter</a></li>
+                        <li><a href="referenzen.html">Referenzen</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 3DCAY Marketing IT Solutions by drei-d | <a href="impressum.html" style="color: inherit; text-decoration: none;">Impressum</a> | <a href="datenschutz.html" style="color: inherit; text-decoration: none;">Datenschutz</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- DEMO REQUEST MODAL -->
+    <div class="modal-overlay" id="demoModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeDemo()">&times;</button>
+
+            <div id="demoForm">
+                <h2>Demo anfragen</h2>
+                <form name="demo-request" method="POST" data-netlify="true" onsubmit="handleDemoSubmit(event)">
+                    <input type="hidden" name="form-name" value="demo-request">
+
+                    <div class="form-group">
+                        <label for="firstName">Vorname</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Nachname</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Unternehmen</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-Mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefon</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interest">Interesse</label>
+                        <select id="interest" name="interest" required>
+                            <option value="">Bitte auswählen</option>
+                            <option value="Shop">Shop</option>
+                            <option value="Web-to-Publish">Web-to-Publish</option>
+                            <option value="Cashback">Cashback</option>
+                            <option value="App">App</option>
+                            <option value="Services">Services</option>
+                            <option value="Sonstiges">Sonstiges</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Nachricht (optional)</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary" style="width: 100%;">Demo anfragen</button>
+                </form>
+            </div>
+
+            <div class="modal-success" id="demoSuccess">
+                <div class="modal-success-icon">✓</div>
+                <h3>Danke!</h3>
+                <p>Wir kontaktieren Sie in Kürze. Freuen Sie sich auf eine persönliche Demo.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* ========================================
+           NAVIGATION & SCROLL DETECTION
+           ======================================== */
+        const nav = document.querySelector('nav');
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+        const dropdown = document.querySelector('.nav-dropdown');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('mobile-open');
+        });
+
+        if (dropdownToggle) {
+            dropdownToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+                dropdownToggle.setAttribute('aria-expanded', 
+                    dropdownToggle.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'
+                );
+            });
+        }
+
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        /* ========================================
+           INTERSECTION OBSERVER FOR ANIMATIONS
+           ======================================== */
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        /* ========================================
+           DEMO MODAL
+           ======================================== */
+        const demoModal = document.getElementById('demoModal');
+        const demoForm = document.getElementById('demoForm');
+        const demoSuccess = document.getElementById('demoSuccess');
+
+        function openDemo() {
+            demoModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDemo() {
+            demoModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+            demoForm.style.display = 'block';
+            demoSuccess.classList.remove('show');
+        }
+
+        function handleDemoSubmit(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData)
+            }).then(() => {
+                demoForm.style.display = 'none';
+                demoSuccess.classList.add('show');
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('Es gab einen Fehler. Bitte versuchen Sie es später erneut.');
+            });
+        }
+
+        demoModal.addEventListener('click', (e) => {
+            if (e.target === demoModal) {
+                closeDemo();
+            }
+        });
+
+        /* ========================================
+           MOBILE MENU CLOSE ON LINK CLICK
+           ======================================== */
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('mobile-open');
+            });
+        });
+    </script>
+</body>
+
+</html>

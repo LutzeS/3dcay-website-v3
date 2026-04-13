@@ -1,0 +1,54 @@
+[
+  {
+    "date": "2026-02-18",
+    "category": { "de": "Enterprise KI", "en": "Enterprise AI" },
+    "title": {
+      "de": "Agentic AI im B2B-Commerce: Warum autonome Systeme die nächste Stufe der Automatisierung einleiten",
+      "en": "Agentic AI in B2B Commerce: Why autonomous systems initiate the next level of automation"
+    },
+    "summary": {
+      "de": "Autonome KI-Agenten übernehmen komplexe Workflows — von der Bestellauslösung bis zur dynamischen Preisgestaltung. Was das für Enterprise-Architekturen bedeutet.",
+      "en": "Autonomous AI agents take over complex workflows — from order triggering to dynamic pricing. What this means for enterprise architectures."
+    },
+    "source": "3DCAY Intelligence Research"
+  },
+  {
+    "date": "2026-02-12",
+    "category": { "de": "Infrastruktur", "en": "Infrastructure" },
+    "title": {
+      "de": "EU AI Act in der Praxis: Compliance-Anforderungen für KI-gestützte Commerce-Plattformen",
+      "en": "EU AI Act in Practice: Compliance requirements for AI-powered commerce platforms"
+    },
+    "summary": {
+      "de": "Der EU AI Act tritt in Kraft. Welche konkreten Maßnahmen B2B-Plattformbetreiber jetzt ergreifen müssen — und wie 3DCAY Compliance by Design umsetzt.",
+      "en": "The EU AI Act takes effect. What concrete measures B2B platform operators must take now — and how 3DCAY implements compliance by design."
+    },
+    "source": "3DCAY Intelligence Regulatory"
+  },
+  {
+    "date": "2026-02-05",
+    "category": { "de": "Technologie", "en": "Technology" },
+    "title": {
+      "de": "Multimodale KI-Pipelines: Produktdaten automatisiert in marktreife Assets verwandeln",
+      "en": "Multimodal AI Pipelines: Transforming product data into market-ready assets automatically"
+    },
+    "summary": {
+      "de": "Von strukturierten ERP-Daten zu fertigen Produkttexten, Bildbeschreibungen und SEO-Content — vollständig automatisiert durch multimodale Modelle.",
+      "en": "From structured ERP data to finished product copy, image descriptions, and SEO content — fully automated through multimodal models."
+    },
+    "source": "3DCAY Intelligence Lab"
+  },
+  {
+    "date": "2026-01-28",
+    "category": { "de": "Analyse", "en": "Analysis" },
+    "title": {
+      "de": "Predictive Commerce: Wie vorausschauende Analytik Lagerkosten um 35% reduziert",
+      "en": "Predictive Commerce: How predictive analytics reduces inventory costs by 35%"
+    },
+    "summary": {
+      "de": "Fallstudie: Integration von Demand-Prediction-Modellen in bestehende ERP-Systeme. Ergebnisse nach 6 Monaten Produktivbetrieb.",
+      "en": "Case study: Integration of demand prediction models into existing ERP systems. Results after 6 months in production."
+    },
+    "source": "3DCAY Intelligence Analytics"
+  }
+]

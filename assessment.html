@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fulfillment Fit-Check &mdash; 3DCAY Assessment</title>
+<meta name="description" content="Kostenloses Assessment: Ermitteln Sie in 2 Minuten Ihr Digitalisierungspotenzial im Marketing-Fulfillment. Individueller ROI-Score und Pilot-Vorschlag.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/jpeg" sizes="32x32" href="favicon.jpg">
+<link rel="apple-touch-icon" href="favicon.jpg">
+<link rel="canonical" href="https://www.3dcay.de/assessment">
+<link rel="alternate" hreflang="de" href="https://www.3dcay.de/assessment">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fulfillment Fit-Check — 3DCAY">
+<meta property="og:description" content="Kostenloses Assessment: Ermitteln Sie in 2 Minuten Ihr Digitalisierungspotenzial im Marketing-Fulfillment. Individueller ROI-Score und Pilot-Vorschlag.">
+<meta property="og:url" content="https://www.3dcay.de/assessment">
+<meta property="og:image" content="https://www.3dcay.de/images/og-preview.jpg">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="3DCAY">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fulfillment Fit-Check — 3DCAY">
+<meta name="twitter:description" content="Kostenloses Assessment: Ihr Digitalisierungspotenzial im Marketing-Fulfillment in 2 Minuten ermitteln.">
+<meta name="twitter:image" content="https://www.3dcay.de/images/og-preview.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--red:#e3101a;--red-hover:#ff1a25;--white:#FFF;--gray-50:#FAFAFA;--gray-100:#F0F0F0;--gray-200:#E5E5E5;--gray-500:#737373;--gray-700:#404040;--gray-900:#171717;--font-sans:'Inter',-apple-system,sans-serif;--font-mono:'JetBrains Mono',monospace}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-sans);background:var(--gray-50);color:var(--black);line-height:1.6;overflow-x:hidden;min-height:100vh}
+a{color:inherit;text-decoration:none}
+
+.as-nav{height:64px;display:flex;align-items:center;border-bottom:1px solid var(--gray-200);padding:0 32px;background:var(--white)}
+.as-nav__logo svg{height:22px;width:auto}
+.as-nav__back{margin-left:auto;font-size:14px;color:var(--gray-500);transition:color 0.2s}
+.as-nav__back:hover{color:var(--black)}
+
+.as-hero{background:var(--black);color:var(--white);padding:64px 32px;text-align:center}
+.as-hero__badge{display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.as-hero__title{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-0.035em;line-height:1.1;margin-bottom:12px;max-width:650px;margin-left:auto;margin-right:auto}
+.as-hero__sub{font-size:16px;color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto 28px;line-height:1.7}
+.as-hero__meta{display:flex;gap:32px;justify-content:center;font-size:13px;color:rgba(255,255,255,0.4);font-family:var(--font-mono)}
+.as-hero__meta span::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--red);margin-right:8px;vertical-align:middle}
+
+.as-main{max-width:700px;margin:0 auto;padding:48px 32px}
+
+.as-card{background:var(--white);border-radius:16px;border:1px solid var(--gray-200);padding:40px;box-shadow:0 4px 24px rgba(0,0,0,0.04);margin-bottom:32px}
+.as-card__step{font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:16px}
+.as-card__title{font-size:22px;font-weight:800;letter-spacing:-0.02em;margin-bottom:8px}
+.as-card__sub{font-size:14px;color:var(--gray-500);margin-bottom:24px;line-height:1.6}
+
+.as-options{display:grid;gap:12px;margin-bottom:24px}
+.as-opt{padding:16px 20px;border:1px solid var(--gray-200);border-radius:12px;cursor:pointer;transition:all 0.2s;font-size:15px}
+.as-opt:hover{border-color:var(--gray-500)}
+.as-opt.selected{border-color:var(--red);background:rgba(227,16,26,0.04)}
+.as-opt__title{font-weight:600;margin-bottom:2px}
+.as-opt__desc{font-size:13px;color:var(--gray-500)}
+
+.as-select{width:100%;padding:14px 16px;border:1px solid var(--gray-200);border-radius:12px;font-size:15px;font-family:var(--font-sans);background:var(--white);outline:none;transition:border-color 0.2s;appearance:none;cursor:pointer}
+.as-select:focus{border-color:var(--red)}
+
+.as-slider-group{margin-bottom:24px}
+.as-slider-label{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px}
+.as-slider-label span:last-child{font-weight:700;color:var(--red);font-family:var(--font-mono)}
+.as-slider{width:100%;-webkit-appearance:none;height:6px;background:var(--gray-200);border-radius:3px;outline:none}
+.as-slider::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--red);cursor:pointer;border:3px solid var(--white);box-shadow:0 2px 8px rgba(0,0,0,0.15)}
+
+.as-toggles{display:flex;gap:8px;margin-bottom:24px}
+.as-toggle{flex:1;padding:12px;border:1px solid var(--gray-200);border-radius:10px;text-align:center;cursor:pointer;font-size:14px;font-weight:500;transition:all 0.2s}
+.as-toggle:hover{border-color:var(--gray-500)}
+.as-toggle.selected{border-color:var(--red);background:rgba(227,16,26,0.04);color:var(--red)}
+
+.as-check{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--gray-200);border-radius:12px;cursor:pointer;transition:all 0.2s;font-size:14px;margin-bottom:24px}
+.as-check:hover{border-color:var(--gray-500)}
+.as-check.checked{border-color:var(--red);background:rgba(227,16,26,0.04)}
+.as-check__box{width:20px;height:20px;min-width:20px;border:2px solid var(--gray-200);border-radius:6px;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.as-check.checked .as-check__box{background:var(--red);border-color:var(--red)}
+.as-check.checked .as-check__box::after{content:'';display:block;width:6px;height:10px;border:2px solid var(--white);border-top:none;border-left:none;transform:rotate(45deg);margin-top:-2px}
+
+.as-goals{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:24px}
+.as-goal{padding:20px 12px;border:1px solid var(--gray-200);border-radius:12px;text-align:center;cursor:pointer;transition:all 0.2s}
+.as-goal:hover{border-color:var(--gray-500)}
+.as-goal.selected{border-color:var(--red);background:rgba(227,16,26,0.04)}
+.as-goal__icon{font-size:24px;margin-bottom:8px}
+.as-goal__label{font-size:13px;font-weight:600}
+
+.as-btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;padding:14px 28px;border-radius:100px;border:none;cursor:pointer;transition:all 0.2s}
+.as-btn--primary{background:var(--red);color:var(--white)}
+.as-btn--primary:hover{background:var(--red-hover);transform:translateY(-1px);box-shadow:0 8px 32px rgba(227,16,26,0.3)}
+.as-btn--outline{background:transparent;color:var(--gray-500);border:1px solid var(--gray-200)}
+.as-btn--outline:hover{border-color:var(--black);color:var(--black)}
+.as-actions{display:flex;gap:12px;justify-content:space-between;margin-top:32px}
+
+.as-progress{display:flex;gap:8px;max-width:200px;margin:0 auto 32px}
+.as-progress__bar{flex:1;height:4px;background:var(--gray-200);border-radius:2px;transition:background 0.3s}
+.as-progress__bar.active{background:var(--red)}
+
+/* Result */
+.as-result{display:none}
+.as-result.active{display:block}
+.as-result__score{text-align:center;padding:40px;background:var(--black);color:var(--white);border-radius:16px;margin-bottom:24px}
+.as-result__number{font-size:72px;font-weight:900;letter-spacing:-0.04em;line-height:1}
+.as-result__number span{font-size:36px;color:var(--red)}
+.as-result__badge{display:inline-block;padding:6px 16px;background:rgba(227,16,26,0.15);color:var(--red);border-radius:100px;font-size:13px;font-weight:600;margin-top:16px}
+.as-result__desc{font-size:14px;color:rgba(255,255,255,0.6);margin-top:12px;max-width:400px;margin-left:auto;margin-right:auto;line-height:1.6}
+.as-result__grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.as-result__stat{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:20px;text-align:center}
+.as-result__stat-num{font-size:28px;font-weight:800;color:var(--red);letter-spacing:-0.02em}
+.as-result__stat-label{font-size:12px;color:var(--gray-500);margin-top:4px;text-transform:uppercase;letter-spacing:0.05em;font-family:var(--font-mono)}
+.as-result__analysis{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:24px;margin-bottom:24px}
+.as-result__analysis-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--gray-500);margin-bottom:12px}
+.as-result__analysis-text{font-size:14px;color:var(--gray-700);line-height:1.7}
+.as-result__cta{text-align:center;margin-top:32px}
+.as-result__cta .as-btn{width:100%;justify-content:center;padding:18px;font-size:16px}
+
+/* Lead capture on result */
+.as-lead{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:24px;margin-top:24px}
+.as-lead__title{font-size:15px;font-weight:700;margin-bottom:4px}
+.as-lead__sub{font-size:13px;color:var(--gray-500);margin-bottom:16px}
+.as-lead__form{display:flex;gap:8px}
+.as-lead__input{flex:1;padding:12px 16px;border:1px solid var(--gray-200);border-radius:10px;font-size:14px;font-family:var(--font-sans);outline:none}
+.as-lead__input:focus{border-color:var(--red)}
+.as-lead__btn{padding:12px 20px;background:var(--red);color:var(--white);border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all 0.2s}
+.as-lead__btn:hover{background:var(--red-hover)}
+.as-lead__success{display:none;padding:12px;background:rgba(40,200,64,0.1);border-radius:10px;color:#1a7a2e;font-size:14px;font-weight:500;text-align:center}
+
+/* Loading */
+.as-loading{display:none;text-align:center;padding:60px 20px}
+.as-loading.active{display:block}
+.as-loading__spinner{width:48px;height:48px;border:3px solid var(--gray-200);border-top:3px solid var(--red);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 20px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.as-loading__text{font-size:16px;font-weight:600}
+.as-loading__sub{font-size:14px;color:var(--gray-500);margin-top:4px}
+
+.as-stage{display:none}
+.as-stage.active{display:block}
+
+@media(max-width:600px){.as-card{padding:28px 20px}.as-goals{grid-template-columns:repeat(2,1fr)}.as-result__grid{grid-template-columns:1fr}.as-lead__form{flex-direction:column}.as-hero__meta{flex-direction:column;gap:8px}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+</style>
+</head>
+<body>
+
+<nav class="as-nav">
+  <a href="index-v4.html" class="as-nav__logo"><svg viewBox="120 130 600 185" xmlns="http://www.w3.org/2000/svg"><g><path d="M132,299.3v-1.1l7.1-28.4c2.6.7,4.5,2.3,6.7,3.4,4.3,2,8.7,3.1,13.3,4.5,8.2,2.6,17.4,2.8,25.8.6s2.8-1.6,4.3-2.1c3-1,5.3-3.1,7.3-5.7,6.5-8.7,5.3-21.6-2.8-29s-13.9-7.3-22-7.3h-14.7c0,0,0-28.1,0-28.1,6.9-.1,13.3.1,19.9-.5s4.6-1.3,6.9-2.1c6-2.1,10.8-6.6,12.2-12.3s-.2-13-5.2-17.2-6.2-2.9-9.6-3.9-9.1-1.1-13.2,0-11.6,2.3-16.7,5.2-4.8,2.6-7.4,3.9l-6.9-27.4c-.2-1,1.4-1.9,2-2.2l7.9-3.9c4.6-2.3,9.7-3,14.6-4.6,7.1-2.3,14.5-2.1,22-2.1s12.1,0,17.7,2.1,7.5,2.5,11,4.6c12.6,7.4,20,20.3,19.8,35.1s-2.8,18.6-9,25.8-6.1,5.6-11.3,9.2-4.9,1.5-7.1,3.4c4.4,1.6,8.9,2,12.3,4.6s4.2,2.5,6,4.2l3.5,3.4c16.5,16.1,15.3,54.5-14.2,71s-6.8,3-10.4,4.5c-7.8,3.2-23.4,4.2-31.9,3.5s-14.3-.9-20.9-3.6c-3.7-1.5-7.5-2.2-11-4.1s-3.8-2.5-5.8-3.3Z" fill="#e3101a"/><path d="M353.2,281.3c-2.2,2.2-9.1,8.1-11.5,9s-3.1,1.9-4.7,2.8c-3.4,1.8-7,2.7-10.6,4.3-5.9,2.6-12.4,3-18.8,4.4s-3.7,1-5.9,1.2c-16.9,1.1-36.9,1.3-53.3-2.3v-157.4s14.3-2.2,14.3-2.2c12.3-1.9,40.3-2.6,52.5.3s11.8,1.7,17.1,4.4,6.4,2.5,9.3,4.3l4.9,3.1c30.5,19.4,33.8,65.6,24.3,97.6-3.4,11.7-9.3,22-17.6,30.6ZM339.3,201.8c-3-14.2-12.1-27.1-26.4-31.2-6.6-3.9-24.3-3.3-31.8-1.6v105.5c9.2,1,18.4,1,27.2-1.3s4.2-2.1,6.4-2.5c25.3-10.8,29.6-45.4,24.6-68.9Z" fill="#e3101a"/><path d="M470.8,138.5c6.1,0,22.1,3.5,28.3,6.8l-6.8,28.9c-4.3-1.5-8.1-2.9-12.5-4-14.5-3.7-31.8-2-43.6,8.1s-11.8,14.3-14.2,23.5c-6.5,24.9-1.5,59.8,26.8,69.3l5.7,1.9c6.6,2.2,21.7.6,28.7-1l-8.5,31.6c-11.5.9-23.2,1.6-34.1-1.5-4.9-1.4-9.9-2.2-14.1-4.7s-5.6-2.5-8-4.2l-4.5-3.1c-11.8-8.3-19.4-20.7-23.8-34.7-6.4-20.5-6.3-42.6-.3-63.2s11.6-25.7,22.1-35.2,11-8.1,17.8-11.6,8.6-2.6,12.8-4.4,9.8-1.3,14.5-2.5h13.9Z" fill="#e3101a"/><path d="M565.4,260.6h-41.2s-10,40.9-10,40.9h-33.7s43.8-160.9,43.8-160.9h42.4s44.7,160.9,44.7,160.9h-35c0,0-11-40.9-11-40.9ZM560.3,233l-9.3-35.7-6.8-29.7-6.1,29-9.2,36.5h31.3Z" fill="#e3101a"/><polygon points="678.6 140.7 715.2 140.6 667.8 234.8 667.8 301.5 635.4 301.5 635.4 236.2 589.9 140.6 627.3 140.6 640.5 176 653.1 210.7 667.7 169.9 678.6 140.7" fill="#e3101a"/></g></svg></a>
+  <a href="index-v4.html" class="as-nav__back">&larr; Zur&uuml;ck zur Website</a>
+</nav>
+
+<section class="as-hero">
+  <p class="as-hero__badge">Kostenloser Fit-Check</p>
+  <h1 class="as-hero__title">Wie digital ist Ihr Marketing-Fulfillment?</h1>
+  <p class="as-hero__sub">Beantworten Sie 3 kurze Fragen und erhalten Sie Ihren individuellen Digitalisierungs-Score mit ROI-Prognose.</p>
+  <div class="as-hero__meta">
+    <span>2 Minuten</span>
+    <span>Keine Registrierung</span>
+    <span>Sofort-Ergebnis</span>
+  </div>
+</section>
+
+<div class="as-main">
+  <div class="as-progress" id="asProgress" style="display:none">
+    <div class="as-progress__bar" id="pb1"></div>
+    <div class="as-progress__bar" id="pb2"></div>
+    <div class="as-progress__bar" id="pb3"></div>
+  </div>
+
+  <!-- STAGE 1 -->
+  <div class="as-stage active" id="asStage1">
+    <div class="as-card">
+      <p class="as-card__step">Phase 1 / 3</p>
+      <h2 class="as-card__title">Prozess-Status</h2>
+      <p class="as-card__sub">Wie werden Ihre Werbemittel aktuell bestellt und verwaltet?</p>
+
+      <p style="font-size:13px;font-weight:600;color:var(--gray-700);margin-bottom:8px">Prim&auml;re Bestellmethode</p>
+      <div class="as-options" id="asMethod">
+        <div class="as-opt" onclick="asSelect(this,'asMethod')" data-value="email">
+          <p class="as-opt__title">E-Mail / Telefon</p>
+          <p class="as-opt__desc">Manuelle Koordination per E-Mail oder Anruf</p>
+        </div>
+        <div class="as-opt" onclick="asSelect(this,'asMethod')" data-value="excel">
+          <p class="as-opt__title">Excel / Formulare</p>
+          <p class="as-opt__desc">Tabellen, PDFs oder Word-Vorlagen</p>
+        </div>
+        <div class="as-opt" onclick="asSelect(this,'asMethod')" data-value="shop">
+          <p class="as-opt__title">Bestell-Portal / Shop</p>
+          <p class="as-opt__desc">Bereits ein digitales Bestellsystem vorhanden</p>
+        </div>
+      </div>
+
+      <label for="asLocations" style="font-size:13px;font-weight:600;color:var(--gray-700);margin-bottom:8px;display:block">Standort-Gr&ouml;&szlig;e</label>
+      <select class="as-select" id="asLocations">
+        <option value="1-10">1 &ndash; 10 Standorte</option>
+        <option value="11-50">11 &ndash; 50 Standorte</option>
+        <option value="51-200">51 &ndash; 200 Standorte</option>
+        <option value="200+">200+ Standorte</option>
+      </select>
+
+      <p style="font-size:13px;font-weight:600;color:var(--gray-700);margin:24px 0 8px" id="asErrorLabel">Fehlerquote / Retouren</p>
+      <div class="as-toggles" id="asError" role="radiogroup" aria-labelledby="asErrorLabel">
+        <div class="as-toggle" onclick="asToggle(this,'asError')" data-value="low">Niedrig</div>
+        <div class="as-toggle selected" onclick="asToggle(this,'asError')" data-value="medium">Mittel</div>
+        <div class="as-toggle" onclick="asToggle(this,'asError')" data-value="high">Hoch</div>
+      </div>
+
+      <div class="as-check" id="asBudget" onclick="this.classList.toggle('checked')">
+        <div class="as-check__box"></div>
+        <span>Budgetfreigaben / Genehmigungsprozesse vorhanden</span>
+      </div>
+
+      <div class="as-actions" style="justify-content:flex-end">
+        <button class="as-btn as-btn--primary" onclick="asGo(2)">Weiter &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 2 -->
+  <div class="as-stage" id="asStage2">
+    <div class="as-card">
+      <p class="as-card__step">Phase 2 / 3</p>
+      <h2 class="as-card__title">Volumen-Profile</h2>
+      <p class="as-card__sub">Bitte quantifizieren Sie Ihr monatliches Volumen.</p>
+
+      <div class="as-slider-group">
+        <div class="as-slider-label"><span>Bestellungen p.M.</span><span id="asOrdersVal">80</span></div>
+        <label for="asOrders" class="sr-only">Bestellungen pro Monat</label>
+        <input type="range" class="as-slider" id="asOrders" min="10" max="500" value="80" aria-label="Bestellungen pro Monat" oninput="document.getElementById('asOrdersVal').textContent=this.value">
+      </div>
+
+      <div class="as-slider-group">
+        <div class="as-slider-label"><span>Aktive SKUs</span><span id="asSkusVal">50</span></div>
+        <label for="asSkus" class="sr-only">Aktive SKUs</label>
+        <input type="range" class="as-slider" id="asSkus" min="5" max="500" value="50" aria-label="Aktive SKUs" oninput="document.getElementById('asSkusVal').textContent=this.value">
+      </div>
+
+      <div class="as-slider-group">
+        <div class="as-slider-label"><span>Admin-Aufwand (Tage/Monat)</span><span id="asAdminVal">3</span></div>
+        <label for="asAdmin" class="sr-only">Admin-Aufwand in Tagen pro Monat</label>
+        <input type="range" class="as-slider" id="asAdmin" min="0" max="20" value="3" aria-label="Admin-Aufwand in Tagen pro Monat" oninput="document.getElementById('asAdminVal').textContent=this.value">
+      </div>
+
+      <div class="as-slider-group">
+        <div class="as-slider-label"><span>Kampagnen p.A.</span><span id="asCampaignsVal">6</span></div>
+        <label for="asCampaigns" class="sr-only">Kampagnen pro Jahr</label>
+        <input type="range" class="as-slider" id="asCampaigns" min="0" max="50" value="6" aria-label="Kampagnen pro Jahr" oninput="document.getElementById('asCampaignsVal').textContent=this.value">
+      </div>
+
+      <div class="as-actions">
+        <button class="as-btn as-btn--outline" onclick="asGo(1)">&larr; Zur&uuml;ck</button>
+        <button class="as-btn as-btn--primary" onclick="asGo(3)">Weiter &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 3 -->
+  <div class="as-stage" id="asStage3">
+    <div class="as-card">
+      <p class="as-card__step">Phase 3 / 3</p>
+      <h2 class="as-card__title">Prim&auml;res Ziel</h2>
+      <p class="as-card__sub">Was hat f&uuml;r Sie die h&ouml;chste Priorit&auml;t bei der Umstellung?</p>
+
+      <div class="as-goals" id="asGoals">
+        <div class="as-goal" onclick="asGoal(this)" data-value="kosten"><div class="as-goal__icon">&#128176;</div><p class="as-goal__label">Kosten</p></div>
+        <div class="as-goal" onclick="asGoal(this)" data-value="kontrolle"><div class="as-goal__icon">&#128274;</div><p class="as-goal__label">Kontrolle</p></div>
+        <div class="as-goal" onclick="asGoal(this)" data-value="tempo"><div class="as-goal__icon">&#9889;</div><p class="as-goal__label">Tempo</p></div>
+        <div class="as-goal" onclick="asGoal(this)" data-value="transparenz"><div class="as-goal__icon">&#128200;</div><p class="as-goal__label">Transparenz</p></div>
+        <div class="as-goal" onclick="asGoal(this)" data-value="skalierung"><div class="as-goal__icon">&#128640;</div><p class="as-goal__label">Skalierung</p></div>
+      </div>
+
+      <div class="as-actions">
+        <button class="as-btn as-btn--outline" onclick="asGo(2)">&larr; Zur&uuml;ck</button>
+        <button class="as-btn as-btn--primary" onclick="asShowResults()">Ergebnis anzeigen &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOADING -->
+  <div class="as-loading" id="asLoading">
+    <div class="as-loading__spinner"></div>
+    <p class="as-loading__text">ROI wird berechnet...</p>
+    <p class="as-loading__sub">Ihr individueller Fahrplan wird erstellt.</p>
+  </div>
+
+  <!-- RESULT -->
+  <div class="as-result" id="asResult">
+    <div class="as-result__score">
+      <div class="as-result__number" id="resScore">72<span>%</span></div>
+      <div class="as-result__badge" id="resBadge">Hohes Optimierungspotenzial</div>
+      <p class="as-result__desc" id="resDesc"></p>
+    </div>
+
+    <div class="as-result__grid">
+      <div class="as-result__stat"><div class="as-result__stat-num" id="resROI">~18.000 &euro;</div><div class="as-result__stat-label">Gesch&auml;tzter ROI p.A.</div></div>
+      <div class="as-result__stat"><div class="as-result__stat-num" id="resReduction">-47%</div><div class="as-result__stat-label">Admin-Reduktion</div></div>
+    </div>
+
+    <div class="as-result__analysis">
+      <p class="as-result__analysis-title">Strategische Analyse</p>
+      <p class="as-result__analysis-text" id="resAnalysis"></p>
+    </div>
+
+    <!-- Lead capture -->
+    <div class="as-lead">
+      <p class="as-lead__title">Detaillierten Report per E-Mail erhalten</p>
+      <p class="as-lead__sub">Inklusive Pilot-Vorschlag und individuellem Modul-Plan.</p>
+      <form class="as-lead__form" name="assessment-lead" method="POST" data-netlify="true" id="asLeadForm">
+        <input type="hidden" name="form-name" value="assessment-lead">
+        <input type="hidden" name="score" id="asLeadScore" value="">
+        <label for="asLeadEmail" class="sr-only">E-Mail-Adresse</label>
+        <input type="email" name="email" id="asLeadEmail" class="as-lead__input" placeholder="Ihre E-Mail-Adresse" aria-label="E-Mail-Adresse" required>
+        <button type="submit" class="as-lead__btn">Senden</button>
+      </form>
+      <div class="as-lead__success" id="asLeadSuccess">&#10003; Report wird in K&uuml;rze zugestellt!</div>
+    </div>
+
+    <div class="as-result__cta" style="margin-top:24px">
+      <a href="index-v4.html" class="as-btn as-btn--primary" onclick="return openDemoFromAssess()">Pilot-Workshop buchen &rarr;</a>
+      <p style="font-size:13px;color:var(--gray-500);margin-top:12px;cursor:pointer" onclick="asReset()">Assessment wiederholen</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function asSelect(el,gId){document.querySelectorAll('#'+gId+' .as-opt').forEach(function(o){o.classList.remove('selected')});el.classList.add('selected')}
+function asToggle(el,gId){document.querySelectorAll('#'+gId+' .as-toggle').forEach(function(o){o.classList.remove('selected')});el.classList.add('selected')}
+function asGoal(el){document.querySelectorAll('.as-goal').forEach(function(g){g.classList.remove('selected')});el.classList.add('selected')}
+
+function asGo(n){
+  document.querySelectorAll('.as-stage').forEach(function(s){s.classList.remove('active')});
+  document.getElementById('asStage'+n).classList.add('active');
+  document.getElementById('asProgress').style.display='flex';
+  for(var i=1;i<=3;i++){document.getElementById('pb'+i).classList.toggle('active',i<=n)}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function asShowResults(){
+  document.querySelectorAll('.as-stage').forEach(function(s){s.classList.remove('active')});
+  document.getElementById('asLoading').classList.add('active');
+  document.getElementById('asProgress').style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  setTimeout(function(){
+    document.getElementById('asLoading').classList.remove('active');
+    asCalc();
+    document.getElementById('asResult').classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  },2200);
+}
+
+function asCalc(){
+  var orders=parseInt(document.getElementById('asOrders').value);
+  var admin=parseInt(document.getElementById('asAdmin').value);
+  var loc=document.getElementById('asLocations').value;
+  var method=document.querySelector('#asMethod .as-opt.selected');
+  var methodVal=method?method.dataset.value:'email';
+  var errorEl=document.querySelector('#asError .as-toggle.selected');
+  var errorVal=errorEl?errorEl.dataset.value:'medium';
+  var hasBudget=document.getElementById('asBudget').classList.contains('checked');
+  var goalEl=document.querySelector('.as-goal.selected');
+  var goalVal=goalEl?goalEl.dataset.value:'transparenz';
+
+  var score=30;
+  if(methodVal==='email')score+=20;else if(methodVal==='excel')score+=15;else if(methodVal==='shop')score+=5;
+  if(errorVal==='high')score+=15;else if(errorVal==='medium')score+=8;
+  if(admin>=5)score+=10;else if(admin>=2)score+=5;
+  if(orders>=200)score+=8;else if(orders>=50)score+=4;
+  if(loc==='51-200'||loc==='200+')score+=7;
+  if(hasBudget)score+=5;
+  score=Math.min(score,95);
+
+  var roi=Math.round(admin*40*12*(score/100)*0.8);
+  var reduction=Math.round(score*0.65);
+
+  document.getElementById('resScore').innerHTML=score+'<span>%</span>';
+  document.getElementById('resROI').textContent='~'+roi.toLocaleString('de-DE')+' \u20AC';
+  document.getElementById('resReduction').textContent='-'+reduction+'%';
+  document.getElementById('asLeadScore').value=score;
+
+  var badge='Solides Potenzial',desc='Ihr System bietet Raum f\u00fcr gezielte Optimierungen.';
+  if(score>=70){badge='Hohes Optimierungspotenzial';desc='Ihr individueller Fit-Score zeigt deutliches Optimierungspotenzial.';}
+  if(score>=85){badge='Maximales Potenzial';desc='Ihre Prozesse sind ideal f\u00fcr eine vollst\u00e4ndige Digitalisierung.';}
+  desc+=' Basierend auf '+orders+' monatlichen Orders und '+loc.replace('-',' \u2013 ')+' Standorten.';
+  document.getElementById('resBadge').textContent=badge;
+  document.getElementById('resDesc').textContent=desc;
+
+  var goalTexts={kosten:'Kostenreduktion steht im Fokus. Durch Automatisierung und Zentralisierung k\u00f6nnen manuelle Aufwandstage drastisch gesenkt werden.',kontrolle:'Mehr Kontrolle \u00fcber Bestellprozesse und Freigaben. Ein zentrales Portal mit Rechtemanagement schafft volle \u00dcbersicht.',tempo:'Schnellere Durchlaufzeiten von der Bestellung bis zur Auslieferung. Automatisierte Workflows eliminieren Warteschleifen.',transparenz:'Volle Transparenz \u00fcber Lagerbestand, Bestellstatus und Kosten \u00fcber alle Standorte hinweg \u2014 in Echtzeit.',skalierung:'Skalierbare Infrastruktur f\u00fcr wachsende Anforderungen. Mehr Standorte, mehr SKUs \u2014 ohne proportionalen Aufwandszuwachs.'};
+  var mLabel=methodVal==='email'?'manuelle E-Mail-Prozesse':'tabellenbasierte Prozesse';
+  document.getElementById('resAnalysis').textContent='Aktuell binden '+mLabel+' und ein Koordinationsaufwand von '+admin+' Tagen pro Monat wertvolle Ressourcen. '+(goalTexts[goalVal]||goalTexts.transparenz)+' 3DCAY setzt genau hier an.';
+}
+
+function asReset(){
+  document.getElementById('asResult').classList.remove('active');
+  document.querySelectorAll('.as-stage').forEach(function(s){s.classList.remove('active')});
+  document.getElementById('asStage1').classList.add('active');
+  document.getElementById('asProgress').style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function openDemoFromAssess(){
+  window.location.href='index-v4.html#kontakt';
+  return true;
+}
+
+document.getElementById('asLeadForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var fd=new FormData(this);
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()})
+  .then(function(){document.getElementById('asLeadForm').style.display='none';document.getElementById('asLeadSuccess').style.display='block';})
+  .catch(function(){alert('Fehler beim Senden.');});
+});
+</script>
+
+<!-- ═══ COOKIE-BANNER (DSGVO) ═══ -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:var(--gray-900);color:var(--white);padding:20px 24px;box-shadow:0 -4px 24px rgba(0,0,0,0.2);font-size:14px;line-height:1.6">
+  <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+    <p style="flex:1;min-width:280px;margin:0">Diese Website verwendet Cookies, um Ihnen die bestm&ouml;gliche Nutzung zu erm&ouml;glichen. Weitere Informationen finden Sie in unserer <a href="datenschutz.html" style="color:#e3101a;text-decoration:underline">Datenschutzerkl&auml;rung</a>.</p>
+    <div style="display:flex;gap:10px;flex-shrink:0">
+      <button onclick="setCookieConsent('essential')" style="padding:10px 20px;border-radius:100px;font-size:14px;font-weight:500;background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);cursor:pointer">Nur Essenzielle</button>
+      <button onclick="setCookieConsent('all')" style="padding:10px 20px;border-radius:100px;font-size:14px;font-weight:600;background:#e3101a;color:#fff;border:none;cursor:pointer">Alle akzeptieren</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){if(!localStorage.getItem('cookie_consent')){document.getElementById('cookieBanner').style.display='block';}})();
+function setCookieConsent(level){localStorage.setItem('cookie_consent',level);localStorage.setItem('cookie_consent_date',new Date().toISOString());document.getElementById('cookieBanner').style.display='none';}
+</script>
+</body>
+</html>

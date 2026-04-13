@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datenschutz — 3DCAY</title>
+<meta name="description" content="Datenschutzerklärung der 3DCAY Marketing Solutions GmbH. Informationen zur Verarbeitung Ihrer Daten.">
+<meta property="og:title" content="Datenschutz — 3DCAY">
+<meta property="og:description" content="Datenschutzerklärung der 3DCAY Marketing Solutions GmbH.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://3dcay-website.netlify.app/datenschutz.html">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="3DCAY">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.3dcay.de/datenschutz">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/jpeg" sizes="32x32" href="favicon.jpg">
+<link rel="apple-touch-icon" href="favicon.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════════════════════
+   3DCAY — Enterprise Commerce Infrastructure
+   Visual System: Confident · Quiet · Architectural
+   ═══════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --red: #e3101a;
+  --black: #0a0a0a;
+  --white: #ffffff;
+  --gray-50: #fafafa;
+  --gray-100: #f4f4f5;
+  --gray-200: #e4e4e7;
+  --gray-300: #d4d4d8;
+  --gray-400: #a1a1aa;
+  --gray-500: #71717a;
+  --gray-600: #52525b;
+  --gray-700: #3f3f46;
+  --gray-800: #27272a;
+  --gray-900: #18181b;
+  --max-w: 1200px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--white);
+  color: var(--gray-900);
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding-top: 64px;
+}
+
+::selection { background: #e3101a20; color: var(--gray-900); }
+
+/* ── Typography ──────────────────────────────────────────── */
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ── Container ───────────────────────────────────────────── */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 4vw, 48px);
+}
+
+/* ── Section Tag ─────────────────────────────────────────── */
+.tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  display: block;
+  margin-bottom: 24px;
+}
+.tag.light { color: var(--gray-600); }
+
+/* ── Divider ─────────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gray-200) 15%, var(--gray-200) 85%, transparent);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: all 0.5s var(--ease);
+  background: transparent;
+}
+nav.scrolled {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--gray-100);
+}
+.nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 4vw, 48px);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo svg { height: 22px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a {
+  font-size: 13px;
+  color: var(--gray-400);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gray-900); }
+.nav-sep { width: 1px; height: 16px; background: var(--gray-200); }
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 18px;
+  background: var(--gray-900);
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+.nav-btn:hover { background: var(--gray-700); }
+.lang-toggle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--gray-400);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.lang-toggle:hover { color: var(--gray-900); }
+
+/* ═══════════════════════════════════════════════════════════
+   CONTENT
+   ═══════════════════════════════════════════════════════════ */
+.legal-section {
+  padding: 80px 0;
+}
+
+.legal-section h1 {
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 48px;
+  color: var(--gray-900);
+}
+
+.legal-section h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-top: 48px;
+  margin-bottom: 24px;
+  color: var(--gray-900);
+}
+
+.legal-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  color: var(--gray-900);
+}
+
+.legal-section p {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.legal-section ul,
+.legal-section ol {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 1.8;
+  margin-left: 24px;
+  margin-bottom: 16px;
+}
+
+.legal-section li {
+  margin-bottom: 12px;
+}
+
+.legal-section a {
+  color: var(--red);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.legal-section a:hover {
+  color: var(--gray-900);
+  text-decoration: underline;
+}
+
+.legal-info-box {
+  background: var(--gray-50);
+  border-left: 4px solid var(--red);
+  padding: 24px;
+  margin: 32px 0;
+  border-radius: 8px;
+}
+
+.legal-info-box p {
+  margin-bottom: 8px;
+}
+
+.legal-info-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════ */
+footer {
+  border-top: 1px solid var(--gray-100);
+  padding: 32px 0;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.footer-left svg { height: 11px; width: auto; opacity: 0.3; }
+.footer-sep { width: 1px; height: 12px; background: var(--gray-200); }
+.footer-text { font-size: 13px; color: var(--gray-400); }
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer-links a {
+  font-size: 13px;
+  color: var(--gray-400);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--gray-900); }
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .nav-links a:not(:last-of-type) { display: none; }
+  .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+  .legal-section {
+    padding: 48px 0;
+  }
+  .legal-section h1 {
+    margin-bottom: 32px;
+  }
+  .legal-section h2 {
+    margin-top: 36px;
+    margin-bottom: 18px;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    padding-top: 60px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg viewBox="120 130 600 185" xmlns="http://www.w3.org/2000/svg" aria-label="3DCAY"><g><path d="M132,299.3v-1.1l7.1-28.4c2.6.7,4.5,2.3,6.7,3.4,4.3,2,8.7,3.1,13.3,4.5,8.2,2.6,17.4,2.8,25.8.6s2.8-1.6,4.3-2.1c3-1,5.3-3.1,7.3-5.7,6.5-8.7,5.3-21.6-2.8-29s-13.9-7.3-22-7.3h-14.7c0,0,0-28.1,0-28.1,6.9-.1,13.3.1,19.9-.5s4.6-1.3,6.9-2.1c6-2.1,10.8-6.6,12.2-12.3s-.2-13-5.2-17.2-6.2-2.9-9.6-3.9-9.1-1.1-13.2,0-11.6,2.3-16.7,5.2-4.8,2.6-7.4,3.9l-6.9-27.4c-.2-1,1.4-1.9,2-2.2l7.9-3.9c4.6-2.3,9.7-3,14.6-4.6,7.1-2.3,14.5-2.1,22-2.1s12.1,0,17.7,2.1,7.5,2.5,11,4.6c12.6,7.4,20,20.3,19.8,35.1s-2.8,18.6-9,25.8-6.1,5.6-11.3,9.2-4.9,1.5-7.1,3.4c4.4,1.6,8.9,2,12.3,4.6s4.2,2.5,6,4.2l3.5,3.4c16.5,16.1,15.3,54.5-14.2,71s-6.8,3-10.4,4.5c-7.8,3.2-23.4,4.2-31.9,3.5s-14.3-.9-20.9-3.6c-3.7-1.5-7.5-2.2-11-4.1s-3.8-2.5-5.8-3.3Z" fill="#e3101a"/><path d="M353.2,281.3c-2.2,2.2-9.1,8.1-11.5,9s-3.1,1.9-4.7,2.8c-3.4,1.8-7,2.7-10.6,4.3-5.9,2.6-12.4,3-18.8,4.4s-3.7,1-5.9,1.2c-16.9,1.1-36.9,1.3-53.3-2.3v-157.4s14.3-2.2,14.3-2.2c12.3-1.9,40.3-2.6,52.5.3s11.8,1.7,17.1,4.4,6.4,2.5,9.3,4.3l4.9,3.1c30.5,19.4,33.8,65.6,24.3,97.6-3.4,11.7-9.3,22-17.6,30.6ZM339.3,201.8c-3-14.2-12.1-27.1-26.4-31.2-6.6-3.9-24.3-3.3-31.8-1.6v105.5c9.2,1,18.4,1,27.2-1.3s4.2-2.1,6.4-2.5c25.3-10.8,29.6-45.4,24.6-68.9Z" fill="#e3101a"/><path d="M470.8,138.5c6.1,0,22.1,3.5,28.3,6.8l-6.8,28.9c-4.3-1.5-8.1-2.9-12.5-4-14.5-3.7-31.8-2-43.6,8.1s-11.8,14.3-14.2,23.5c-6.5,24.9-1.5,59.8,26.8,69.3l5.7,1.9c6.6,2.2,21.7.6,28.7-1l-8.5,31.6c-11.5.9-23.2,1.6-34.1-1.5-4.9-1.4-9.9-2.2-14.1-4.7s-5.6-2.5-8-4.2l-4.5-3.1c-11.8-8.3-19.4-20.7-23.8-34.7-6.4-20.5-6.3-42.6-.3-63.2s11.6-25.7,22.1-35.2,11-8.1,17.8-11.6,8.6-2.6,12.8-4.4,9.8-1.3,14.5-2.5h13.9Z" fill="#e3101a"/><path d="M565.4,260.6h-41.2s-10,40.9-10,40.9h-33.7s43.8-160.9,43.8-160.9h42.4s44.7,160.9,44.7,160.9h-35c0,0-11-40.9-11-40.9ZM560.3,233l-9.3-35.7-6.8-29.7-6.1,29-9.2,36.5h31.3Z" fill="#e3101a"/><polygon points="678.6 140.7 715.2 140.6 667.8 234.8 667.8 301.5 635.4 301.5 635.4 236.2 589.9 140.6 627.3 140.6 640.5 176 653.1 210.7 667.7 169.9 678.6 140.7" fill="#e3101a"/></g></svg>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#platform" class="hide-mobile">Plattform</a>
+      <a href="index.html#intelligence" class="hide-mobile">Intelligence</a>
+      <a href="index.html#lab" class="hide-mobile">LAB</a>
+      <a href="index.html#case" class="hide-mobile">Referenz</a>
+      <a href="index.html#ki-dialog" class="hide-mobile">KI-Dialog</a>
+      <button class="lang-toggle" id="langBtn">EN</button>
+      <div class="nav-sep hide-mobile"></div>
+      <a href="index.html#cta" class="nav-btn">Kontakt</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CONTENT
+     ═══════════════════════════════════════════════════════════ -->
+<section class="legal-section">
+  <div class="container">
+    <h1>Datenschutzerklärung</h1>
+    <p><strong>Gültig seit: 09.10.2023</strong></p>
+
+    <h2>1. Verantwortlichkeit</h2>
+    <p>
+      Verantwortlich für die Verarbeitung personenbezogener Daten ist die:
+    </p>
+    <div class="legal-info-box">
+      <p><strong>3DCAY Marketing Solutions GmbH</strong></p>
+      <p>Fuchsberger Damm 2<br>25335 Elmshorn<br>Deutschland</p>
+      <p><strong>E-Mail:</strong> kontakt@3DCAY.de</p>
+    </div>
+
+    <h2>2. Personenbezogene Daten und Webseiten</h2>
+    <p>
+      Bei der Nutzung dieser Website werden automatisch Informationen erfasst, die in Verbindung mit der Inanspruchnahme des Angebots entstehen. Die erfassten Informationen werden in Server-Logdateien gespeichert und für die folgenden Zwecke verarbeitet:
+    </p>
+    <ul>
+      <li>Bereitstellung und Aufrechterhaltung des Webseiten-Angebots</li>
+      <li>Verbesserung der Website und Benutzererfahrung</li>
+      <li>Analyse des Nutzerverhaltens</li>
+      <li>Sicherheit und Schutz vor Missbrauch</li>
+    </ul>
+    <p>
+      Die Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. f DS-GVO (berechtigte Interessen).
+    </p>
+
+    <h2>3. Kontaktformular</h2>
+    <p>
+      Bei Nutzung des Kontaktformulars auf dieser Website werden Ihre personenbezogenen Daten (Name, E-Mail-Adresse, Nachrichteninhalt) übermittelt und gespeichert. Diese Daten werden ausschließlich zur Beantwortung Ihrer Anfrage verwendet.
+    </p>
+    <p>
+      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DS-GVO (Einwilligung)
+    </p>
+
+    <h2>4. Cookies</h2>
+    <p>
+      Diese Website verwendet Cookies, um die Benutzerfreundlichkeit zu verbessern und das Nutzungserlebnis zu optimieren. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Sie enthalten keine persönlichen Informationen.
+    </p>
+    <p>
+      Sie können Cookies in Ihren Browser-Einstellungen verwalten oder ablehnen. Das Ablehnen von Cookies kann jedoch die Funktionalität der Website beeinträchtigen.
+    </p>
+
+    <h2>5. Google Services</h2>
+
+    <h3>5.1 Google Analytics</h3>
+    <p>
+      Diese Website nutzt Google Analytics, einen Web-Analysedienst der Google Inc. (1600 Amphitheatre Parkway, Mountain View, CA 94043, USA). Google Analytics verwendet Cookies, um die Nutzung der Website durch die Nutzer analysieren zu können. Die durch den Cookie erzeugten Informationen über die Benutzung dieser Website werden in der Regel an einen Server von Google übertragen und dort gespeichert.
+    </p>
+    <p>
+      Auf dieser Website ist die IP-Anonymisierung aktiviert. Ihre IP-Adresse wird von Google innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum gekürzt. Nur in Ausnahmefällen wird die volle IP-Adresse an einen Server von Google in den USA übertragen und dort gekürzt.
+    </p>
+    <p>
+      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DS-GVO (Einwilligung)
+    </p>
+
+    <h3>5.2 Google Tag Manager</h3>
+    <p>
+      Diese Website verwendet Google Tag Manager, einen Tag-Management-Service der Google Inc. Google Tag Manager selbst setzt keine Cookies und erfasst keine personenbezogenen Daten. Google Tag Manager ermöglicht die Verwaltung von Tags und die Implementierung von Tracking-Codes.
+    </p>
+
+    <h3>5.3 Google Web Fonts</h3>
+    <p>
+      Diese Website nutzt Google Web Fonts zur Bereitstellung von Schriftarten. Google Web Fonts werden von Google bereitgestellt. Der Abruf der Schriftarten erfolgt von den Servern von Google. Dabei werden Ihre IP-Adressen erfasst, um die Schriftarten bereitstellen zu können.
+    </p>
+    <p>
+      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DS-GVO (berechtigte Interessen)
+    </p>
+
+    <h3>5.4 Google Ads / Google Conversion Tracking</h3>
+    <p>
+      Diese Website nutzt Google Ads und das Google Conversion Tracking zur Erfolgsmessung von Marketingkampagnen. Google setzt Cookies, um Ihre Interaktion mit dieser Website und mit Google-Anzeigen zu verfolgen. Die erfassten Daten werden zu Ihrer Google-Werbekonto übertragen und dort analysiert.
+    </p>
+    <p>
+      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DS-GVO (Einwilligung)
+    </p>
+
+    <h3>5.5 Google Maps</h3>
+    <p>
+      Diese Website bindet Karten der Google Maps API ein. Bei der Nutzung von Google Maps werden Daten an Google übertragen, insbesondere Ihre IP-Adresse und Ihr Standort (soweit aktiviert).
+    </p>
+    <p>
+      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DS-GVO (Einwilligung)
+    </p>
+
+    <h2>6. YouTube-Videos</h2>
+    <p>
+      Diese Website bindet YouTube-Videos ein. YouTube wird betrieben von Google Inc. (1600 Amphitheatre Parkway, Mountain View, CA 94043, USA). Die Videos werden im erweiterten Datenschutzmodus eingebunden. Das bedeutet, dass YouTube keine Cookies setzt und keine Nutzerinformationen speichert, es sei denn, Sie spielen das Video ab.
+    </p>
+    <p>
+      Beim Abspielen eines Videos werden Daten an YouTube übertragen, insbesondere Ihre IP-Adresse und Ihre Nutzerkennung (soweit Sie in Ihrem YouTube-Konto angemeldet sind).
+    </p>
+    <p>
+      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DS-GVO (Einwilligung)
+    </p>
+
+    <h2>7. Social-Plug-Ins</h2>
+    <p>
+      Diese Website enthält Social-Plug-Ins von verschiedenen Sozialen Medien-Plattformen. Die Plug-Ins ermöglichen Ihnen, Inhalte direkt in sozialen Medien zu teilen und mit anderen Nutzern zu interagieren.
+    </p>
+
+    <h3>7.1 Facebook</h3>
+    <p>
+      Diese Website enthält Plug-Ins von Facebook Inc. (1 Hacker Way, Menlo Park, CA 94025, USA). Wenn Sie auf einem Facebook-Plug-In klicken oder interagieren, werden Daten an Facebook übertragen.
+    </p>
+
+    <h3>7.2 LinkedIn</h3>
+    <p>
+      Diese Website enthält Plug-Ins von LinkedIn Corporation (2029 Stierlin Court, Mountain View, CA 94043, USA). Wenn Sie auf einem LinkedIn-Plug-In klicken oder interagieren, werden Daten an LinkedIn übertragen.
+    </p>
+
+    <h3>7.3 Xing</h3>
+    <p>
+      Diese Website enthält Plug-Ins von Xing SE (Dammtorstraße 29-31, 20354 Hamburg, Deutschland). Wenn Sie auf einem Xing-Plug-In klicken oder interagieren, werden Daten an Xing übertragen.
+    </p>
+    <p>
+      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DS-GVO (Einwilligung)
+    </p>
+
+    <h2>8. Datensicherheit</h2>
+    <p>
+      Wir setzen technische und organisatorische Maßnahmen ein, um Ihre personenbezogenen Daten vor unbefugtem Zugriff, Verlust und Manipulation zu schützen. Diese Maßnahmen umfassen:
+    </p>
+    <ul>
+      <li>Verschlüsselte Datenübertragung (SSL/TLS)</li>
+      <li>Sichere Speicherung in Rechenzentren mit Zugriffskontrolle</li>
+      <li>Regelmäßige Sicherheitsupdates und Penetrationstests</li>
+      <li>Beschränkung des Zugriffs auf autorisierte Mitarbeiter</li>
+    </ul>
+
+    <h2>9. Betroffenenrechte (Art. 15-22 DS-GVO)</h2>
+    <p>
+      Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:
+    </p>
+    <ul>
+      <li><strong>Auskunftsrecht (Art. 15 DS-GVO):</strong> Sie können Auskunft darüber erhalten, ob und welche personenbezogenen Daten wir über Sie speichern.</li>
+      <li><strong>Recht auf Berichtigung (Art. 16 DS-GVO):</strong> Sie können fehlerhafte oder unvollständige Daten korrigieren lassen.</li>
+      <li><strong>Recht auf Löschung (Art. 17 DS-GVO):</strong> Sie können die Löschung Ihrer Daten verlangen (unter bestimmten Bedingungen).</li>
+      <li><strong>Recht auf Einschränkung der Verarbeitung (Art. 18 DS-GVO):</strong> Sie können verlangen, dass die Verarbeitung Ihrer Daten eingeschränkt wird.</li>
+      <li><strong>Recht auf Datenportabilität (Art. 20 DS-GVO):</strong> Sie können Ihre Daten in einem strukturierten, gängigen Format erhalten.</li>
+      <li><strong>Widerspruchsrecht (Art. 21 DS-GVO):</strong> Sie können der Verarbeitung Ihrer Daten widersprechen.</li>
+      <li><strong>Recht, keine automatisierten Entscheidungen zu unterliegen (Art. 22 DS-GVO):</strong> Sie können verlangen, dass Entscheidungen nicht ausschließlich auf automatisierten Verfahren beruhen.</li>
+    </ul>
+    <p>
+      Um eines dieser Rechte auszuüben, kontaktieren Sie bitte den Datenschutzbeauftragten (siehe Punkt 10).
+    </p>
+
+    <h2>10. Datenschutzbeauftragter</h2>
+    <div class="legal-info-box">
+      <p><strong>Datenschutzbeauftragter:</strong></p>
+      <p>Nils Christoph Reinl<br>Hans-Henny-Jahn-Weg 15<br>22085 Hamburg<br>Deutschland</p>
+      <p><strong>E-Mail:</strong> kontakt@3DCAY.de</p>
+    </div>
+
+    <h2>11. Aufsichtsbehörde</h2>
+    <p>
+      Sie haben das Recht, sich bei der zuständigen Aufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen die Datenschutz-Grundverordnung verstößt:
+    </p>
+    <div class="legal-info-box">
+      <p><strong>Unabhängiges Landeszentrum für Datenschutz Schleswig-Holstein</strong></p>
+      <p>Holstenstraße 98<br>24103 Kiel<br>Deutschland</p>
+    </div>
+
+    <h2>12. Änderungen dieser Datenschutzerklärung</h2>
+    <p>
+      Wir behalten uns das Recht vor, diese Datenschutzerklärung jederzeit zu ändern. Änderungen werden auf dieser Seite veröffentlicht. Das Datum der letzten Änderung finden Sie oben auf dieser Seite.
+    </p>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <svg viewBox="0 0 841.9 595.3" aria-label="3DCAY">
+          <path fill="#a1a1aa" d="M470.8,138.5c6.1,0,22.1,3.5,28.3,6.8l-6.8,28.9c-4.3-1.5-8.1-2.9-12.5-4-14.5-3.7-31.8-2-43.6,8.1s-11.8,14.3-14.2,23.5c-6.5,24.9-1.5,59.8,26.8,69.3l5.7,1.9c6.6,2.2,21.7.6,28.7-1l-8.5,31.6c-11.5.9-23.2,1.6-34.1-1.5-4.9-1.4-9.9-2.2-14.1-4.7s-5.6-2.5-8-4.2l-4.5-3.1c-11.8-8.3-19.4-20.7-23.8-34.7-6.4-20.5-6.3-42.6-.3-63.2s11.6-25.7,22.1-35.2,11-8.1,17.8-11.6,8.6-2.6,12.8-4.4,9.8-1.3,14.5-2.5h13.9Z"/>
+          <path fill="#a1a1aa" d="M353.2,281.3c-2.2,2.2-9.1,8.1-11.5,9s-3.1,1.9-4.7,2.8c-3.4,1.8-7,2.7-10.6,4.3-5.9,2.6-12.4,3-18.8,4.4s-3.7,1-5.9,1.2c-16.9,1.1-36.9,1.3-53.3-2.3v-157.4s14.3-2.2,14.3-2.2c12.3-1.9,40.3-2.6,52.5.3s11.8,1.7,17.1,4.4,6.4,2.5,9.3,4.3l4.9,3.1c30.5,19.4,33.8,65.6,24.3,97.6-3.4,11.7-9.3,22-17.6,30.6ZM339.3,201.8c-3-14.2-12.1-27.1-26.4-31.2-6.6-3.9-24.3-3.3-31.8-1.6v105.5c9.2,1,18.4,1,27.2-1.3s4.2-2.1,6.4-2.5c25.3-10.8,29.6-45.4,24.6-68.9Z"/>
+          <path fill="#a1a1aa" d="M565.4,260.6h-41.2s-10,40.9-10,40.9h-33.7s43.8-160.9,43.8-160.9h42.4s44.7,160.9,44.7,160.9h-35c0,0-11-40.9-11-40.9ZM560.3,233l-9.3-35.7-6.8-29.7-6.1,29-9.2,36.5h31.3Z"/>
+          <polygon fill="#a1a1aa" points="678.6 140.7 715.2 140.6 667.8 234.8 667.8 301.5 635.4 301.5 635.4 236.2 589.9 140.6 627.3 140.6 640.5 176 653.1 210.7 667.7 169.9 678.6 140.7"/>
+        </svg>
+        <div class="footer-sep"></div>
+        <span class="footer-text">Enterprise Commerce Infrastructure</span>
+      </div>
+      <div class="footer-links">
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="impressum.html">Impressum</a>
+        <span class="footer-text">© 2026 3DCAY</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Sticky nav on scroll ─────────────────────────────── */
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 10) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+</script>
+
+<!-- ═══ COOKIE-BANNER (DSGVO) ═══ -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:var(--black);color:var(--white);padding:20px 24px;box-shadow:0 -4px 24px rgba(0,0,0,0.2);font-size:14px;line-height:1.6">
+  <div style="max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+    <p style="flex:1;min-width:280px;margin:0">Diese Website verwendet Cookies, um Ihnen die bestm&ouml;gliche Nutzung zu erm&ouml;glichen. Weitere Informationen finden Sie in unserer <a href="datenschutz.html" style="color:var(--red);text-decoration:underline">Datenschutzerkl&auml;rung</a>.</p>
+    <div style="display:flex;gap:10px;flex-shrink:0">
+      <button onclick="setCookieConsent('essential')" style="padding:10px 20px;border-radius:100px;font-size:14px;font-weight:500;background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.3);cursor:pointer">Nur Essenzielle</button>
+      <button onclick="setCookieConsent('all')" style="padding:10px 20px;border-radius:100px;font-size:14px;font-weight:600;background:var(--red);color:var(--white);border:none;cursor:pointer">Alle akzeptieren</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  if(!localStorage.getItem('cookie_consent')){
+    document.getElementById('cookieBanner').style.display='block';
+  }
+})();
+function setCookieConsent(level){
+  localStorage.setItem('cookie_consent',level);
+  localStorage.setItem('cookie_consent_date',new Date().toISOString());
+  document.getElementById('cookieBanner').style.display='none';
+}
+</script>
+</body>
+</html>

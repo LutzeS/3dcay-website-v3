@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3DCAY — Synergien aus Design & IT</title>
+<meta name="description" content="3DCAY vereint Design, IT und KI: Web-to-Publish, B2B Shop-Systeme, Marketing-Fulfillment und KI-gestützte Entwicklung.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/jpeg" sizes="32x32" href="favicon.jpg">
+<link rel="apple-touch-icon" href="favicon.jpg">
+
+<!-- Canonical + Hreflang -->
+<link rel="canonical" href="https://www.3dcay.de/">
+<link rel="alternate" hreflang="de" href="https://www.3dcay.de/">
+<link rel="alternate" hreflang="x-default" href="https://www.3dcay.de/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="3DCAY — Synergien aus Design & IT">
+<meta property="og:description" content="3DCAY vereint Design, IT und KI: Web-to-Publish, B2B Shop-Systeme, Marketing-Fulfillment und KI-gestützte Entwicklung.">
+<meta property="og:url" content="https://www.3dcay.de/">
+<meta property="og:image" content="https://www.3dcay.de/images/og-preview.jpg">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="3DCAY">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="3DCAY — Synergien aus Design & IT">
+<meta name="twitter:description" content="Web-to-Publish, B2B Shop-Systeme, Marketing-Fulfillment und KI-gestützte Entwicklung aus einer Hand.">
+<meta name="twitter:image" content="https://www.3dcay.de/images/og-preview.jpg">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.3dcay.de/#organization",
+      "name": "3DCAY Marketing Solutions GmbH",
+      "url": "https://www.3dcay.de",
+      "logo": "https://www.3dcay.de/images/3dcay-logo.svg",
+      "description": "3DCAY vereint Design, IT und KI: Web-to-Publish, B2B Shop-Systeme, Marketing-Fulfillment und KI-gestützte Entwicklung.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Fuchsberger Damm 2",
+        "addressLocality": "Elmshorn",
+        "postalCode": "25335",
+        "addressCountry": "DE"
+      },
+      "telephone": "+494121476111",
+      "email": "info@3DCAY.de",
+      "sameAs": [
+        "https://www.linkedin.com/company/3dcay"
+      ],
+      "foundingDate": "2004",
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "minValue": 10,
+        "maxValue": 50
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.3dcay.de/#website",
+      "url": "https://www.3dcay.de",
+      "name": "3DCAY",
+      "description": "Synergien aus Design & IT",
+      "publisher": { "@id": "https://www.3dcay.de/#organization" },
+      "inLanguage": "de-DE"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.3dcay.de/#webpage",
+      "url": "https://www.3dcay.de",
+      "name": "3DCAY — Synergien aus Design & IT",
+      "isPartOf": { "@id": "https://www.3dcay.de/#website" },
+      "about": { "@id": "https://www.3dcay.de/#organization" },
+      "description": "Web-to-Publish, B2B Shop-Systeme, Marketing-Fulfillment und KI-gestützte Entwicklung aus einer Hand.",
+      "inLanguage": "de-DE"
+    }
+  ]
+}
+</script>
+
+<!-- Preload hero image for LCP -->
+<link rel="preload" as="image" href="images/dashboard-office.png" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--red:#e3101a;--red-hover:#ff1a25;--white:#FFF;--gray-50:#FAFAFA;--gray-100:#F0F0F0;--gray-200:#E5E5E5;--gray-500:#737373;--gray-700:#404040;--gray-900:#171717;--font-sans:'Inter',-apple-system,sans-serif;--font-mono:'JetBrains Mono',monospace;--container:1280px;--gutter:32px}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-sans);background:var(--white);color:var(--black);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{font-family:inherit;cursor:pointer;border:none;background:none}
+.container{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+.label{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--red)}
+.label--light{color:rgba(255,255,255,0.5)}
+
+/* ══ NAV ══ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;align-items:center;transition:all 0.4s ease}
+.nav--dark{color:var(--white)}
+.nav.scrolled{background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--gray-200);color:var(--black)}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+.nav__logo svg{height:22px;width:auto;transition:all 0.3s}
+.nav--dark .nav__logo svg path,.nav--dark .nav__logo svg polygon{fill:var(--white)}
+.nav.scrolled .nav__logo svg path,.nav.scrolled .nav__logo svg polygon{fill:var(--red)}
+.nav__links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav__links a{font-size:14px;font-weight:400;opacity:0.6;transition:opacity 0.2s}
+.nav__links a:hover{opacity:1}
+.nav__cta{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;padding:8px 20px;border-radius:100px;transition:all 0.2s}
+.nav--dark .nav__cta{color:var(--white);border:1px solid rgba(255,255,255,0.3)}
+.nav.scrolled .nav__cta{color:var(--black);border:1px solid var(--gray-200)}
+.nav__cta:hover{background:var(--red);color:var(--white);border-color:var(--red)}
+.nav__mobile{display:none;flex-direction:column;gap:5px;padding:4px}
+.nav__mobile span{display:block;width:24px;height:1.5px;background:currentColor}
+
+/* ══ HERO — Full Bleed Photo ══ */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;color:var(--white)}
+.hero__bg{position:absolute;inset:0;z-index:0}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.75) 100%);z-index:1}
+.hero__content{position:relative;z-index:2;max-width:900px;padding:0 var(--gutter)}
+.hero__eyebrow{margin-bottom:24px}
+.hero__title{font-size:clamp(36px,6.5vw,72px);font-weight:800;line-height:1.04;letter-spacing:-0.035em;margin-bottom:24px}
+.hero__title em{font-style:normal;color:var(--red)}
+.hero__sub{font-size:clamp(15px,1.3vw,18px);font-weight:400;color:rgba(255,255,255,0.7);max-width:560px;margin:0 auto 40px;line-height:1.7}
+.hero__actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* Floating device mockup */
+.hero__device{position:absolute;right:5%;bottom:8%;z-index:3;width:45%;max-width:560px;perspective:1000px}
+.hero__device-frame{background:var(--gray-900);border-radius:12px;border:1px solid rgba(255,255,255,0.1);overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.5);transform:rotateY(-5deg) rotateX(2deg)}
+.hero__device-bar{height:28px;background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;padding:0 12px;gap:6px}
+.hero__device-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.1)}
+.hero__device-dot--red{background:#ff5f57}
+.hero__device-dot--yellow{background:#ffbd2e}
+.hero__device-dot--green{background:#28c840}
+.hero__device-screen{padding:20px;min-height:280px;font-family:var(--font-mono);font-size:12px;color:var(--gray-500);line-height:2}
+.hero__device-screen .hl{color:var(--red)}
+.hero__device-screen .wht{color:var(--white)}
+
+/* ══ BUTTONS ══ */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;padding:14px 28px;border-radius:100px;transition:all 0.2s cubic-bezier(0.4,0,0.2,1);letter-spacing:-0.01em}
+.btn--primary{background:var(--red);color:var(--white)}
+.btn--primary:hover{background:var(--red-hover);transform:translateY(-1px);box-shadow:0 8px 32px rgba(227,16,26,0.3)}
+.btn--white{background:var(--white);color:var(--black)}
+.btn--white:hover{background:var(--gray-100);transform:translateY(-1px)}
+.btn--outline-white{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.3)}
+.btn--outline-white:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.6)}
+.btn--outline{background:transparent;color:var(--black);border:1px solid var(--gray-200)}
+.btn--outline:hover{border-color:var(--black)}
+.btn--dark{background:var(--black);color:var(--white)}
+.btn--dark:hover{background:var(--gray-900)}
+.btn__arrow{transition:transform 0.2s}.btn:hover .btn__arrow{transform:translateX(3px)}
+
+/* ══ CLIENTS ══ */
+.clients{padding:48px 0;border-bottom:1px solid var(--gray-200)}
+.clients__label{text-align:center;margin-bottom:28px;font-family:var(--font-mono);font-size:11px;color:var(--gray-500);letter-spacing:0.08em;text-transform:uppercase}
+.clients__track{display:flex;align-items:center;gap:48px;overflow:hidden;position:relative;mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent)}
+.clients__track-inner{display:flex;align-items:center;gap:48px;animation:marquee 20s linear infinite;flex-shrink:0}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.clients__logo{display:flex;align-items:center}
+.clients__logo img{max-height:32px;width:auto;max-width:160px;object-fit:contain;filter:grayscale(1) opacity(0.45);transition:filter 0.2s}
+.clients__logo img:hover{filter:grayscale(1) opacity(0.75)}
+
+/* ══ STATEMENT — Giant Typography ══ */
+.statement{padding:128px 0;background:var(--white)}
+.statement__text{font-size:clamp(28px,5vw,64px);font-weight:800;letter-spacing:-0.035em;line-height:1.1;max-width:1100px;color:var(--black)}
+.statement__text em{font-style:normal;color:var(--red)}
+.statement__sub{font-size:16px;color:var(--gray-500);margin-top:28px;max-width:500px;line-height:1.7}
+
+/* ══ PHOTO SECTION (Full Bleed) ══ */
+.photo-section{position:relative;min-height:600px;display:flex;align-items:flex-end;padding:64px 0;color:var(--white);overflow:hidden}
+.photo-section__bg{position:absolute;inset:0}
+.photo-section__bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.photo-section__overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.3) 40%,rgba(0,0,0,0.15) 100%);z-index:1}
+.photo-section__content{position:relative;z-index:2;width:100%}
+.photo-section__grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end}
+.photo-section__title{font-size:clamp(28px,3.5vw,40px);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:16px}
+.photo-section__text{font-size:15px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:24px}
+.photo-section__features{list-style:none;display:flex;flex-direction:column;gap:10px}
+.photo-section__features li{font-size:14px;color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:10px}
+.photo-section__features li::before{content:'\2192';color:var(--red);font-weight:700}
+.photo-section--light{color:var(--black)}
+.photo-section--light .photo-section__features li{color:var(--gray-700)}
+.photo-section--light .photo-section__features li::before{color:var(--red)}
+
+/* Phone mockup */
+.phone-mockup{width:260px;margin-left:auto;background:var(--black);border-radius:28px;border:2px solid rgba(255,255,255,0.15);overflow:hidden;box-shadow:0 32px 64px rgba(0,0,0,0.4)}
+.phone-mockup__notch{height:28px;background:var(--black);display:flex;justify-content:center;align-items:center}
+.phone-mockup__notch-inner{width:80px;height:6px;background:rgba(255,255,255,0.1);border-radius:3px}
+.phone-mockup__screen{padding:16px;min-height:320px;background:var(--gray-900);font-family:var(--font-mono);font-size:11px;color:var(--gray-500);line-height:1.8}
+.phone-mockup__screen .hl{color:var(--red)}
+
+/* ══ SPLIT — Clean Light ══ */
+.split-section{padding:128px 0}
+.split-section--gray{background:var(--gray-50)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.split__content .label{margin-bottom:16px;display:block}
+.split__title{font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:16px}
+.split__text{font-size:15px;color:var(--gray-500);line-height:1.7;margin-bottom:24px}
+.split__list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.split__list li{font-size:14px;display:flex;align-items:flex-start;gap:10px;color:var(--gray-700)}
+.split__list li::before{content:'\2192';color:var(--red);font-weight:700;flex-shrink:0;margin-top:1px}
+
+/* Image card with real photo */
+.img-card{border-radius:8px;overflow:hidden;position:relative;aspect-ratio:4/3}
+.img-card img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.6s cubic-bezier(0.4,0,0.2,1)}
+.img-card:hover img{transform:scale(1.03)}
+
+/* ══ TESTIMONIAL ══ */
+.testimonial{position:relative;min-height:500px;display:flex;align-items:center;color:var(--white);overflow:hidden}
+.testimonial__bg{position:absolute;inset:0}
+.testimonial__bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.testimonial__overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.45) 100%);z-index:1}
+.testimonial__content{position:relative;z-index:2}
+.testimonial__quote{font-size:clamp(22px,3vw,32px);font-weight:700;letter-spacing:-0.02em;line-height:1.3;max-width:600px;margin-bottom:24px}
+.testimonial__author{font-family:var(--font-mono);font-size:12px;letter-spacing:0.05em;text-transform:uppercase;color:rgba(255,255,255,0.6)}
+
+/* ══ KI CAPABILITIES ══ */
+.cap__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gray-200);border-radius:2px;overflow:hidden}
+.cap{background:var(--white);padding:40px 32px;transition:background 0.3s;position:relative;overflow:hidden}
+.cap:hover{background:var(--gray-50)}
+.cap__screen{position:absolute;inset:0;opacity:0;transition:opacity 0.45s ease;pointer-events:none;z-index:0}
+.cap__screen img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+.cap:hover .cap__screen{opacity:0.7}
+.cap__icon{width:44px;height:44px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:all 0.3s;position:relative;z-index:1}
+.cap:hover .cap__icon{background:var(--red);border-color:var(--red)}
+.cap__icon svg{width:20px;height:20px;color:var(--gray-700);transition:color 0.3s}
+.cap:hover .cap__icon svg{color:var(--white)}
+.cap__title{font-size:17px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;position:relative;z-index:1}
+.cap__text{font-size:14px;color:var(--gray-500);line-height:1.7;position:relative;z-index:1}
+
+/* ══ METRICS (Dark Bar) ══ */
+.metrics{padding:80px 0;background:var(--black);color:var(--white)}
+.metrics__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.metric__number{font-size:clamp(36px,4.5vw,56px);font-weight:800;letter-spacing:-0.03em;line-height:1}
+.metric__number span{color:var(--red)}
+.metric__label{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-500);margin-top:8px}
+
+/* ══ REFERENCE ══ */
+.ref{border:1px solid var(--gray-200);border-radius:4px;overflow:hidden}
+.ref__header{padding:28px 32px;border-bottom:1px solid var(--gray-200);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ref__client{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-500)}
+.ref__tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--gray-200);border-radius:2px;color:var(--gray-500)}
+.ref__body{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:32px}
+.ref__title{font-size:26px;font-weight:700;letter-spacing:-0.025em;margin-bottom:12px}
+.ref__text{font-size:15px;color:var(--gray-500);line-height:1.7}
+.ref__stats{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.ref__stat-val{font-size:36px;font-weight:800;letter-spacing:-0.03em;color:var(--black)}
+.ref__stat-val span{color:var(--red)}
+.ref__stat-lbl{font-family:var(--font-mono);font-size:11px;color:var(--gray-500);letter-spacing:0.05em;text-transform:uppercase;margin-top:4px}
+
+/* ══ CTA ══ */
+.cta-section{position:relative;min-height:480px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--white);overflow:hidden}
+.cta-section__bg{position:absolute;inset:0;background:var(--black)}
+.cta-section__bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(227,16,26,0.08) 0%,transparent 70%)}
+.cta-section__content{position:relative;z-index:2}
+.cta__title{font-size:clamp(32px,5vw,56px);font-weight:800;letter-spacing:-0.035em;line-height:1.08;max-width:700px;margin:16px auto 20px}
+.cta__text{font-size:16px;color:var(--gray-500);max-width:480px;margin:0 auto 32px}
+.cta__actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+
+/* ══ FOOTER ══ */
+.footer{background:var(--black);color:var(--white);padding:64px 0 24px;border-top:1px solid rgba(255,255,255,0.06)}
+.footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer__brand p{font-size:14px;color:var(--gray-500);line-height:1.7;margin-top:16px;max-width:300px}
+.footer__col-title{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-500);margin-bottom:20px}
+.footer__links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer__links a{font-size:14px;color:var(--gray-500);transition:color 0.2s}
+.footer__links a:hover{color:var(--white)}
+.footer__bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06)}
+.footer__copy{font-family:var(--font-mono);font-size:11px;color:var(--gray-700)}
+.erp-seal-row{display:flex;align-items:stretch;gap:32px;margin-top:8px}
+.erp-seal{display:grid;grid-template-columns:auto 1fr;align-items:stretch;gap:20px;flex-shrink:0;padding:0 24px 0 0;background:transparent;border-radius:0;max-width:360px}
+.erp-seal img{height:100%;width:auto;flex-shrink:0;object-fit:contain;max-height:120px}
+.erp-seal__body{display:flex;flex-direction:column;justify-content:center}
+.erp-seal__title{display:block;color:var(--black);font-size:13px;font-weight:700;margin-bottom:6px}
+.erp-seal__text{font-size:11px;color:var(--gray-600);line-height:1.5}
+.footer__legal{display:flex;gap:24px}
+.footer__legal a{font-size:13px;color:var(--gray-500);transition:color 0.2s}
+.footer__legal a:hover{color:var(--white)}
+
+/* ══ ASSESSMENT MODAL ══ */
+.assess-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all 0.4s cubic-bezier(0.4,0,0.2,1)}
+.assess-overlay.active{opacity:1;visibility:visible}
+.assess-modal{background:var(--white);border-radius:16px;width:94%;max-width:860px;max-height:90vh;overflow-y:auto;position:relative;transform:translateY(30px) scale(0.97);transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);box-shadow:0 40px 120px rgba(0,0,0,0.4)}
+.assess-overlay.active .assess-modal{transform:translateY(0) scale(1)}
+.assess-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:var(--gray-100);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:background 0.2s;border:none;font-size:18px;color:var(--gray-700)}
+.assess-close:hover{background:var(--gray-200)}
+
+/* Modal Header */
+.assess-header{padding:32px 40px 0;display:flex;align-items:center;justify-content:space-between}
+.assess-logo{display:flex;align-items:center;gap:10px;font-family:var(--font-sans);font-size:18px;font-weight:800;letter-spacing:-0.02em}
+.assess-logo__icon{width:28px;height:28px;background:var(--red);border-radius:6px;display:flex;align-items:center;justify-content:center}
+.assess-logo__icon svg{width:16px;height:16px;fill:var(--white)}
+.assess-badge{font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;background:var(--red);color:var(--white);padding:4px 12px;border-radius:100px}
+
+/* Progress */
+.assess-progress{display:flex;gap:6px;padding:24px 40px 0}
+.assess-progress__bar{flex:1;height:4px;border-radius:2px;background:var(--gray-200);transition:background 0.4s}
+.assess-progress__bar.active{background:var(--red)}
+.assess-stage-label{font-family:var(--font-mono);font-size:11px;color:var(--gray-500);letter-spacing:0.06em;text-transform:uppercase;text-align:right;padding:8px 40px 0}
+
+/* Content Area */
+.assess-body{padding:24px 40px 40px}
+.assess-title{font-size:clamp(24px,3vw,32px);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:8px}
+.assess-subtitle{font-size:14px;color:var(--gray-500);line-height:1.6;margin-bottom:32px}
+
+/* Stage containers */
+.assess-stage{display:none}
+.assess-stage.active{display:block}
+
+/* Option Buttons (Stage 1 Bestellweg) */
+.assess-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px}
+.assess-opt{padding:16px 20px;border:2px solid var(--gray-200);border-radius:12px;background:var(--white);font-size:14px;font-weight:600;color:var(--gray-700);text-align:center;cursor:pointer;transition:all 0.2s}
+.assess-opt:hover{border-color:var(--gray-500)}
+.assess-opt.selected{border-color:var(--red);background:rgba(227,16,26,0.04);color:var(--red)}
+
+/* Select Dropdown */
+.assess-select-wrap{margin-bottom:28px}
+.assess-select-wrap label{display:block;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-500);margin-bottom:8px}
+.assess-select{width:100%;padding:14px 16px;border:2px solid var(--gray-200);border-radius:12px;font-family:var(--font-sans);font-size:14px;font-weight:500;color:var(--gray-700);background:var(--white);appearance:none;cursor:pointer;transition:border-color 0.2s}
+.assess-select:focus{outline:none;border-color:var(--red)}
+
+/* Toggle buttons (Fehlerrate) */
+.assess-toggles{display:flex;gap:8px;margin-bottom:28px}
+.assess-toggle{flex:1;padding:12px;border:2px solid var(--gray-200);border-radius:12px;font-size:13px;font-weight:600;color:var(--gray-500);background:var(--white);cursor:pointer;text-align:center;transition:all 0.2s}
+.assess-toggle:hover{border-color:var(--gray-500)}
+.assess-toggle.selected{border-color:var(--red);color:var(--red);background:rgba(227,16,26,0.04)}
+
+/* Checkbox row */
+.assess-check{display:flex;align-items:center;gap:10px;padding:14px 16px;border:2px solid var(--gray-200);border-radius:12px;cursor:pointer;margin-bottom:28px;transition:border-color 0.2s}
+.assess-check:hover{border-color:var(--gray-500)}
+.assess-check.checked{border-color:var(--red)}
+.assess-check__box{width:20px;height:20px;border:2px solid var(--gray-300);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s}
+.assess-check.checked .assess-check__box{background:var(--red);border-color:var(--red)}
+.assess-check__box svg{width:12px;height:12px;fill:var(--white);opacity:0;transition:opacity 0.2s}
+.assess-check.checked .assess-check__box svg{opacity:1}
+.assess-check span{font-size:14px;font-weight:500;color:var(--gray-700)}
+
+/* Slider */
+.assess-slider-group{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:12px}
+.assess-slider-item{margin-bottom:16px}
+.assess-slider-item label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.assess-slider-item label span:first-child{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--gray-500)}
+.assess-slider-item label .assess-val{font-size:24px;font-weight:800;color:var(--red);letter-spacing:-0.02em}
+.assess-slider-item input[type=range]{width:100%;height:6px;-webkit-appearance:none;appearance:none;background:var(--gray-200);border-radius:3px;outline:none}
+.assess-slider-item input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--red);cursor:pointer;box-shadow:0 2px 8px rgba(227,16,26,0.3)}
+.assess-slider-item .assess-slider-hint{font-family:var(--font-mono);font-size:10px;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.04em;margin-top:4px}
+
+/* Goal Cards (Stage 3) */
+.assess-goals{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.assess-goal{padding:24px 16px;border:2px solid var(--gray-200);border-radius:16px;text-align:center;cursor:pointer;transition:all 0.25s;position:relative}
+.assess-goal:hover{border-color:var(--gray-500);transform:translateY(-2px)}
+.assess-goal.selected{border-color:var(--red);background:rgba(227,16,26,0.03)}
+.assess-goal.selected::after{content:'SELECTED';position:absolute;top:8px;right:12px;font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:0.08em;color:var(--red)}
+.assess-goal__icon{margin-bottom:8px;display:flex;justify-content:center}
+.assess-goal__icon svg{width:36px;height:36px}
+.assess-goal__label{font-size:12px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--gray-700)}
+.assess-goals--odd{grid-template-columns:1fr}
+.assess-goals--odd .assess-goal{max-width:50%;margin:0 auto}
+
+/* Navigation Buttons */
+.assess-nav{display:flex;justify-content:space-between;align-items:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--gray-200)}
+.assess-btn-back{font-size:13px;font-weight:600;color:var(--gray-500);cursor:pointer;display:flex;align-items:center;gap:6px;padding:10px 0;background:none;border:none;transition:color 0.2s}
+.assess-btn-back:hover{color:var(--black)}
+.assess-btn-next{font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:16px 40px;background:var(--red);color:var(--white);border:none;border-radius:100px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:8px}
+.assess-btn-next:hover{background:var(--red-hover);transform:translateY(-1px);box-shadow:0 8px 24px rgba(227,16,26,0.3)}
+
+/* Loading State */
+.assess-loading{text-align:center;padding:80px 40px}
+.assess-loading__spinner{width:80px;height:80px;border:4px solid var(--gray-200);border-top:4px solid var(--red);border-radius:50%;margin:0 auto 24px;animation:assessSpin 1s linear infinite}
+@keyframes assessSpin{to{transform:rotate(360deg)}}
+.assess-loading__text{font-size:24px;font-weight:800;letter-spacing:-0.02em;margin-bottom:8px}
+.assess-loading__sub{font-size:14px;color:var(--gray-500)}
+.assess-loading__spinner-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:14px;font-weight:800;color:var(--gray-500)}
+.assess-loading__spinner-wrap{position:relative;width:80px;height:80px;margin:0 auto 24px}
+
+/* Result Dashboard */
+.assess-result{display:none}
+.assess-result.active{display:block}
+
+.assess-result__hero{background:linear-gradient(135deg,#0a0a0a 0%,#1a1a2e 100%);border-radius:16px;padding:48px 40px;text-align:center;color:var(--white);margin-bottom:24px}
+.assess-result__hero-label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:16px}
+.assess-result__score{font-size:clamp(72px,10vw,96px);font-weight:900;letter-spacing:-0.04em;line-height:1}
+.assess-result__score span{color:var(--red)}
+.assess-result__score-sub{font-size:13px;font-weight:700;display:inline-block}
+.assess-result__badge{display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:6px 16px;border-radius:100px;background:var(--red);color:var(--white);margin:16px 0 20px}
+.assess-result__desc{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;max-width:480px;margin:0 auto}
+
+.assess-result__grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+.assess-result__card{border:1px solid var(--gray-200);border-radius:12px;padding:24px}
+.assess-result__card-label{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-500);margin-bottom:12px}
+.assess-result__card-value{font-size:36px;font-weight:900;letter-spacing:-0.03em;color:var(--black)}
+.assess-result__card-hint{font-size:13px;color:var(--gray-500);margin-top:4px}
+.assess-result__card--analysis{font-size:13px;color:var(--gray-700);line-height:1.7;border-left:3px solid var(--red);padding-left:20px}
+.assess-result__card--analysis .assess-result__card-label{color:var(--red)}
+.assess-result__card--analysis .assess-badge-engine{font-family:var(--font-mono);font-size:10px;color:var(--red);letter-spacing:0.06em;margin-top:12px;display:flex;align-items:center;gap:6px}
+.assess-badge-engine::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red)}
+
+/* Pilot Section */
+.assess-pilot{border:1px solid var(--gray-200);border-radius:12px;padding:28px;margin-bottom:24px}
+.assess-pilot__header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px}
+.assess-pilot__label{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+.assess-pilot__title{font-size:24px;font-weight:800;letter-spacing:-0.02em}
+.assess-pilot__phase{font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:6px 14px;background:var(--black);color:var(--white);border-radius:100px}
+.assess-pilot__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.assess-pilot__modules{list-style:none;display:flex;flex-direction:column;gap:8px}
+.assess-pilot__modules li{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500}
+.assess-pilot__modules li::before{content:'\2713';display:flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--red);color:var(--white);font-size:11px;font-weight:700;flex-shrink:0}
+.assess-pilot__targets{display:flex;flex-direction:column;gap:14px}
+.assess-pilot__target-item{display:flex;justify-content:space-between;align-items:center}
+.assess-pilot__target-item span:first-child{font-size:14px;font-weight:700}
+.assess-pilot__target-item .target-tag{font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.06em;color:var(--red)}
+.assess-pilot__target-bar{height:4px;background:var(--gray-200);border-radius:2px;margin-top:4px}
+.assess-pilot__target-bar-fill{height:100%;background:var(--black);border-radius:2px}
+.assess-pilot__timeline{font-family:var(--font-mono);font-size:11px;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.06em;margin-top:4px}
+.assess-pilot__timeline-val{font-size:24px;font-weight:800;color:var(--black);letter-spacing:-0.02em;display:block;margin-top:4px}
+
+.assess-result__actions{display:flex;gap:12px}
+.assess-result__actions .assess-btn-next{flex:1;justify-content:center}
+.assess-btn-outline{flex:0 0 auto;font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:16px 28px;background:var(--white);color:var(--gray-700);border:2px solid var(--gray-200);border-radius:100px;cursor:pointer;transition:all 0.2s}
+.assess-btn-outline:hover{border-color:var(--black);color:var(--black)}
+
+/* Responsive Modal */
+@media(max-width:768px){.assess-modal{width:100%;max-width:100%;max-height:100vh;border-radius:0}.assess-header,.assess-body{padding-left:20px;padding-right:20px}.assess-progress{padding-left:20px;padding-right:20px}.assess-stage-label{padding-right:20px}.assess-options{grid-template-columns:1fr}.assess-slider-group{grid-template-columns:1fr}.assess-goals{grid-template-columns:1fr}.assess-result__grid{grid-template-columns:1fr}.assess-pilot__grid{grid-template-columns:1fr}.assess-result__actions{flex-direction:column}.assess-goals--odd .assess-goal{max-width:100%}}
+
+/* ══ ANIMATIONS ══ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.4,0,0.2,1),transform 0.7s cubic-bezier(0.4,0,0.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.stagger>.reveal:nth-child(1){transition-delay:0ms}.stagger>.reveal:nth-child(2){transition-delay:100ms}.stagger>.reveal:nth-child(3){transition-delay:200ms}.stagger>.reveal:nth-child(4){transition-delay:300ms}.stagger>.reveal:nth-child(5){transition-delay:400ms}.stagger>.reveal:nth-child(6){transition-delay:500ms}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:1024px){.split{grid-template-columns:1fr;gap:48px}.cap__grid{grid-template-columns:1fr 1fr}.photo-section__grid{grid-template-columns:1fr}.phone-mockup{margin:32px auto 0}.ref__body{grid-template-columns:1fr}.footer__grid{grid-template-columns:1fr 1fr;gap:32px}.metrics__grid{grid-template-columns:repeat(2,1fr)}.hero__device{display:none}}
+@media(max-width:768px){:root{--gutter:20px}.nav__links{display:none}.nav__mobile{display:flex}.cap__grid{grid-template-columns:1fr}.metrics__grid{grid-template-columns:1fr 1fr;gap:24px}.footer__grid{grid-template-columns:1fr}.footer__bottom{flex-direction:column;gap:16px;text-align:center}.hero__actions{flex-direction:column;align-items:center}.cta__actions{flex-direction:column;align-items:center}.ref__stats{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.metrics__grid{grid-template-columns:1fr}.ref__stats{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* ══ W2P MENU BOARD ANIMATION ══ */
+.w2p-anim{display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 1s ease}
+.w2p-anim.visible{opacity:1}
+.w2p-anim svg{width:100%;max-width:340px;height:auto;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.15))}
+.w2p-anim .draw{fill:none;stroke:rgba(255,255,255,0.45);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+.w2p-anim .draw-thin{fill:none;stroke:rgba(255,255,255,0.25);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+.w2p-anim .draw-accent{fill:none;stroke:rgba(227,16,26,0.5);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+.w2p-anim .fade-in{opacity:0}
+.w2p-anim.visible .draw{animation:drawLine 2.2s cubic-bezier(0.4,0,0.2,1) forwards}
+.w2p-anim.visible .draw-thin{animation:drawLine 2s cubic-bezier(0.4,0,0.2,1) forwards}
+.w2p-anim.visible .draw-accent{animation:drawLine 2s cubic-bezier(0.4,0,0.2,1) forwards}
+.w2p-anim.visible .fade-in{animation:fadeEl 1.2s ease forwards}
+.w2p-anim.visible .d1{animation-delay:0.3s}.w2p-anim.visible .d2{animation-delay:0.7s}.w2p-anim.visible .d3{animation-delay:1.1s}.w2p-anim.visible .d4{animation-delay:1.5s}.w2p-anim.visible .d5{animation-delay:1.9s}.w2p-anim.visible .d6{animation-delay:2.3s}.w2p-anim.visible .d7{animation-delay:2.7s}.w2p-anim.visible .d8{animation-delay:3.1s}.w2p-anim.visible .d9{animation-delay:3.5s}.w2p-anim.visible .d10{animation-delay:3.9s}
+@keyframes drawLine{to{stroke-dashoffset:0}}
+@keyframes fadeEl{to{opacity:1}}
+@media(max-width:1024px){.w2p-anim{margin-top:32px;justify-content:center}.w2p-anim svg{max-width:280px}}
+
+/* ══ FULFILLMENT PIPELINE ANIMATION ══ */
+.ff-anim{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;opacity:0;transition:opacity 1s ease}
+.ff-anim.visible{opacity:1}
+.ff-anim svg{width:100%;max-width:340px;height:auto}
+.ff-anim .dk{fill:none;stroke:rgba(10,10,10,0.35);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+.ff-anim .dk-thin{fill:none;stroke:rgba(10,10,10,0.18);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+.ff-anim .dk-accent{fill:none;stroke:rgba(227,16,26,0.45);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+.ff-anim .dk-dash{fill:none;stroke:rgba(10,10,10,0.15);stroke-width:1.4;stroke-linecap:round;stroke-dasharray:6 4;stroke-dashoffset:0;opacity:0}
+.ff-anim .fade-dk{opacity:0}
+.ff-anim.visible .dk{animation:drawLine 2.2s cubic-bezier(0.4,0,0.2,1) forwards}
+.ff-anim.visible .dk-thin{animation:drawLine 2s cubic-bezier(0.4,0,0.2,1) forwards}
+.ff-anim.visible .dk-accent{animation:drawLine 2s cubic-bezier(0.4,0,0.2,1) forwards}
+.ff-anim.visible .dk-dash{animation:fadeEl 1s ease forwards}
+.ff-anim.visible .fade-dk{animation:fadeEl 1.2s ease forwards}
+.ff-anim.visible .d1{animation-delay:0.3s}.ff-anim.visible .d2{animation-delay:0.7s}.ff-anim.visible .d3{animation-delay:1.1s}.ff-anim.visible .d4{animation-delay:1.5s}.ff-anim.visible .d5{animation-delay:1.9s}.ff-anim.visible .d6{animation-delay:2.3s}.ff-anim.visible .d7{animation-delay:2.7s}.ff-anim.visible .d8{animation-delay:3.1s}.ff-anim.visible .d9{animation-delay:3.5s}.ff-anim.visible .d10{animation-delay:3.9s}.ff-anim.visible .d11{animation-delay:4.3s}
+
+/* ══ ERP ANALYTICS ANIM ══ */
+.erp-anim{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 1s ease}
+.erp-anim.visible{opacity:1}
+.erp-anim svg{width:100%;max-width:720px;height:auto;filter:drop-shadow(0 2px 12px rgba(0,0,0,0.06))}
+.erp-anim .dk{fill:none;stroke:rgba(10,10,10,0.35);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+.erp-anim .dk-thin{fill:none;stroke:rgba(10,10,10,0.18);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+.erp-anim .dk-accent{fill:none;stroke:rgba(227,16,26,0.45);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+.erp-anim .dk-fill{fill:none;stroke:rgba(10,10,10,0.10);stroke-width:8;stroke-linecap:butt;stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+.erp-anim .dk-fill-accent{fill:none;stroke:rgba(227,16,26,0.18);stroke-width:8;stroke-linecap:butt;stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+.erp-anim .fade-dk{opacity:0}
+.erp-anim.visible .dk,.erp-anim.visible .dk-fill{animation:drawLine 2.2s cubic-bezier(0.4,0,0.2,1) forwards}
+.erp-anim.visible .dk-thin{animation:drawLine 2s cubic-bezier(0.4,0,0.2,1) forwards}
+.erp-anim.visible .dk-accent,.erp-anim.visible .dk-fill-accent{animation:drawLine 2.4s cubic-bezier(0.4,0,0.2,1) forwards}
+.erp-anim.visible .fade-dk{animation:fadeEl 1.5s ease forwards}
+.erp-anim.visible .d1{animation-delay:0.2s}
+.erp-anim.visible .d2{animation-delay:0.5s}
+.erp-anim.visible .d3{animation-delay:0.8s}
+.erp-anim.visible .d4{animation-delay:1.1s}
+.erp-anim.visible .d5{animation-delay:1.4s}
+.erp-anim.visible .d6{animation-delay:1.7s}
+.erp-anim.visible .d7{animation-delay:2.0s}
+.erp-anim.visible .d8{animation-delay:2.3s}
+.erp-anim.visible .d9{animation-delay:2.6s}
+.erp-anim.visible .d10{animation-delay:2.9s}
+.erp-anim.visible .d11{animation-delay:3.2s}
+.erp-anim.visible .d12{animation-delay:3.5s}
+
+
+@media(max-width:1024px){.ff-anim{align-items:center;margin-top:32px}.ff-anim svg{max-width:280px}}
+
+/* ══ NEWSLETTER SECTION ══ */
+.newsletter{padding:80px 0;background:var(--gray-50);border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
+.newsletter__inner{display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap}
+.newsletter__text{max-width:480px}
+.newsletter__title{font-size:clamp(22px,2.5vw,28px);font-weight:800;letter-spacing:-0.03em;margin-bottom:8px}
+.newsletter__sub{font-size:15px;color:var(--gray-500);line-height:1.6}
+.newsletter__form{display:flex;gap:12px;flex:1;max-width:480px;min-width:280px}
+.newsletter__input{flex:1;padding:14px 20px;border:1px solid var(--gray-200);border-radius:100px;font-size:15px;font-family:var(--font-sans);background:var(--white);transition:border-color 0.2s;outline:none}
+.newsletter__input:focus{border-color:var(--red)}
+.newsletter__input::placeholder{color:var(--gray-500)}
+.newsletter__btn{padding:14px 28px;background:var(--red);color:var(--white);font-size:15px;font-weight:600;border:none;border-radius:100px;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.newsletter__btn:hover{background:var(--red-hover);transform:translateY(-1px);box-shadow:0 8px 32px rgba(227,16,26,0.3)}
+.newsletter__hint{font-size:12px;color:var(--gray-500);margin-top:8px}
+.newsletter__success{display:none;padding:16px 24px;background:rgba(40,200,64,0.1);border:1px solid rgba(40,200,64,0.3);border-radius:12px;color:#1a7a2e;font-size:15px;font-weight:500}
+@media(max-width:768px){.newsletter__inner{flex-direction:column;text-align:center}.newsletter__form{width:100%;flex-direction:column}.newsletter__btn{width:100%}}
+
+/* ══ DEMO REQUEST MODAL ══ */
+.demo-overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.demo-overlay.active{opacity:1;pointer-events:all}
+.demo-modal{background:var(--white);border-radius:20px;max-width:560px;width:92%;max-height:90vh;overflow-y:auto;padding:48px 40px;position:relative;transform:translateY(20px);transition:transform 0.3s}
+.demo-overlay.active .demo-modal{transform:translateY(0)}
+.demo-modal__close{position:absolute;top:20px;right:20px;width:36px;height:36px;border-radius:50%;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;background:var(--white)}
+.demo-modal__close:hover{border-color:var(--black);background:var(--gray-50)}
+.demo-modal__close svg{width:16px;height:16px}
+.demo-modal__badge{display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.demo-modal__title{font-size:28px;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px}
+.demo-modal__sub{font-size:15px;color:var(--gray-500);line-height:1.6;margin-bottom:32px}
+.demo-form__group{margin-bottom:20px}
+.demo-form__label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--gray-700)}
+.demo-form__input,.demo-form__select,.demo-form__textarea{width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:10px;font-size:15px;font-family:var(--font-sans);background:var(--white);transition:border-color 0.2s;outline:none}
+.demo-form__input:focus,.demo-form__select:focus,.demo-form__textarea:focus{border-color:var(--red)}
+.demo-form__textarea{min-height:100px;resize:vertical}
+.demo-form__row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.demo-form__submit{width:100%;padding:16px;background:var(--red);color:var(--white);font-size:16px;font-weight:700;border:none;border-radius:100px;cursor:pointer;transition:all 0.2s;margin-top:8px}
+.demo-form__submit:hover{background:var(--red-hover);transform:translateY(-1px);box-shadow:0 8px 32px rgba(227,16,26,0.3)}
+.demo-form__footer{text-align:center;font-size:12px;color:var(--gray-500);margin-top:16px}
+.demo-form__input--error,.demo-form__select--error{border-color:#e3101a!important;box-shadow:0 0 0 3px rgba(227,16,26,0.12)!important}
+.demo-form__error-msg{display:none;color:#e3101a;font-size:12px;margin-top:5px;font-weight:500}
+.demo-form__error-msg.visible{display:block}
+.newsletter__input--error{border-color:#e3101a!important;box-shadow:0 0 0 3px rgba(227,16,26,0.12)!important}
+.newsletter__error-msg{display:none;color:#e3101a;font-size:12px;margin-top:6px;font-weight:500}
+.newsletter__error-msg.visible{display:block}
+.demo-success{display:none;text-align:center;padding:40px 20px}
+.demo-success__icon{width:64px;height:64px;background:rgba(40,200,64,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.demo-success__icon svg{width:32px;height:32px;color:#28c840}
+.demo-success__title{font-size:24px;font-weight:800;margin-bottom:8px}
+.demo-success__text{font-size:15px;color:var(--gray-500);line-height:1.6}
+@media(max-width:600px){.demo-modal{padding:32px 24px}.demo-form__row{grid-template-columns:1fr}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav nav--dark" id="nav">
+  <div class="nav__inner">
+    <a href="#hero" class="nav__logo" aria-label="3DCAY Home">
+      <svg viewBox="120 130 600 185" xmlns="http://www.w3.org/2000/svg"><g><path d="M132,299.3v-1.1l7.1-28.4c2.6.7,4.5,2.3,6.7,3.4,4.3,2,8.7,3.1,13.3,4.5,8.2,2.6,17.4,2.8,25.8.6s2.8-1.6,4.3-2.1c3-1,5.3-3.1,7.3-5.7,6.5-8.7,5.3-21.6-2.8-29s-13.9-7.3-22-7.3h-14.7c0,0,0-28.1,0-28.1,6.9-.1,13.3.1,19.9-.5s4.6-1.3,6.9-2.1c6-2.1,10.8-6.6,12.2-12.3s-.2-13-5.2-17.2-6.2-2.9-9.6-3.9-9.1-1.1-13.2,0-11.6,2.3-16.7,5.2-4.8,2.6-7.4,3.9l-6.9-27.4c-.2-1,1.4-1.9,2-2.2l7.9-3.9c4.6-2.3,9.7-3,14.6-4.6,7.1-2.3,14.5-2.1,22-2.1s12.1,0,17.7,2.1,7.5,2.5,11,4.6c12.6,7.4,20,20.3,19.8,35.1s-2.8,18.6-9,25.8-6.1,5.6-11.3,9.2-4.9,1.5-7.1,3.4c4.4,1.6,8.9,2,12.3,4.6s4.2,2.5,6,4.2l3.5,3.4c16.5,16.1,15.3,54.5-14.2,71s-6.8,3-10.4,4.5c-7.8,3.2-23.4,4.2-31.9,3.5s-14.3-.9-20.9-3.6c-3.7-1.5-7.5-2.2-11-4.1s-3.8-2.5-5.8-3.3Z" fill="#e3101a"/><path d="M353.2,281.3c-2.2,2.2-9.1,8.1-11.5,9s-3.1,1.9-4.7,2.8c-3.4,1.8-7,2.7-10.6,4.3-5.9,2.6-12.4,3-18.8,4.4s-3.7,1-5.9,1.2c-16.9,1.1-36.9,1.3-53.3-2.3v-157.4s14.3-2.2,14.3-2.2c12.3-1.9,40.3-2.6,52.5.3s11.8,1.7,17.1,4.4,6.4,2.5,9.3,4.3l4.9,3.1c30.5,19.4,33.8,65.6,24.3,97.6-3.4,11.7-9.3,22-17.6,30.6ZM339.3,201.8c-3-14.2-12.1-27.1-26.4-31.2-6.6-3.9-24.3-3.3-31.8-1.6v105.5c9.2,1,18.4,1,27.2-1.3s4.2-2.1,6.4-2.5c25.3-10.8,29.6-45.4,24.6-68.9Z" fill="#e3101a"/><path d="M470.8,138.5c6.1,0,22.1,3.5,28.3,6.8l-6.8,28.9c-4.3-1.5-8.1-2.9-12.5-4-14.5-3.7-31.8-2-43.6,8.1s-11.8,14.3-14.2,23.5c-6.5,24.9-1.5,59.8,26.8,69.3l5.7,1.9c6.6,2.2,21.7.6,28.7-1l-8.5,31.6c-11.5.9-23.2,1.6-34.1-1.5-4.9-1.4-9.9-2.2-14.1-4.7s-5.6-2.5-8-4.2l-4.5-3.1c-11.8-8.3-19.4-20.7-23.8-34.7-6.4-20.5-6.3-42.6-.3-63.2s11.6-25.7,22.1-35.2,11-8.1,17.8-11.6,8.6-2.6,12.8-4.4,9.8-1.3,14.5-2.5h13.9Z" fill="#e3101a"/><path d="M565.4,260.6h-41.2s-10,40.9-10,40.9h-33.7s43.8-160.9,43.8-160.9h42.4s44.7,160.9,44.7,160.9h-35c0,0-11-40.9-11-40.9ZM560.3,233l-9.3-35.7-6.8-29.7-6.1,29-9.2,36.5h31.3Z" fill="#e3101a"/><polygon points="678.6 140.7 715.2 140.6 667.8 234.8 667.8 301.5 635.4 301.5 635.4 236.2 589.9 140.6 627.3 140.6 640.5 176 653.1 210.7 667.7 169.9 678.6 140.7" fill="#e3101a"/></g></svg>
+    </a>
+    <ul class="nav__links"><li><a href="#leistungen">Leistungen</a></li><li><a href="#w2p">Web-to-Publish</a></li><li><a href="#fulfillment">Fulfillment</a></li><li><a href="#ki">KI-Lab</a></li><li><a href="#referenzen">Referenzen</a></li></ul>
+    <div style="display:flex;align-items:center;gap:2px;margin-right:12px"><button id="btnLangDE" onclick="setAssessLang('DE')" style="font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.06em;padding:4px 10px;border-radius:100px;border:1.5px solid var(--red);background:var(--red);color:var(--white);cursor:pointer;transition:all 0.2s">DE</button><button id="btnLangEN" onclick="setAssessLang('EN')" style="font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.06em;padding:4px 10px;border-radius:100px;border:1.5px solid var(--gray-200);background:transparent;color:var(--gray-500);cursor:pointer;transition:all 0.2s">EN</button></div>
+    <a href="#kontakt" class="nav__cta">Kontakt <span class="btn__arrow">&rarr;</span></a>
+    <button class="nav__mobile" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<main id="main-content">
+<!-- HERO — Full Bleed Photo: Dark World Map with Red Network Lines -->
+<section class="hero" id="hero">
+  <div class="hero__bg">
+    <picture>
+      <source type="image/webp" srcset="/.netlify/images?url=/images/dashboard-office.png&w=1920&q=85&fm=webp">
+      <img src="images/dashboard-office.png" alt="Dunkles Büro mit leuchtendem Dashboard-Monitor — deep teal und electric blue Töne" loading="eager" width="1920" height="1280">
+    </picture>
+  </div>
+  <div class="hero__overlay"></div>
+
+  <div class="hero__content">
+    <div class="hero__eyebrow"><span class="label label--light">Synergien aus Design & IT</span></div>
+    <h1 class="hero__title reveal">Web-to-Publish.<br>Shop & ERP.<br><em>AI-driven Development.</em></h1>
+    <p class="hero__sub reveal">3DCAY vereint &uuml;ber 20 Jahre Expertise in Design, IT-Entwicklung und Fulfillment zu einer Plattform. Wir bauen skalierbare B2B-L&ouml;sungen &mdash; von der Medienindividualisierung bis zum vollautomatischen Marketing-Fulfillment.</p>
+    <div class="hero__actions reveal">
+      <button type="button" onclick="openDemo()" class="btn btn--primary">Projekt besprechen <span class="btn__arrow">&rarr;</span></button>
+      <a href="assessment.html" class="btn btn--outline-white">Kostenloser Fit-Check <span class="btn__arrow">&rarr;</span></a>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- CLIENTS -->
+<section class="clients">
+  <div class="container">
+    <p class="clients__label">Vertrauen f&uuml;hrender Unternehmen</p>
+    <div class="clients__track">
+      <div class="clients__track-inner">
+        <span class="clients__logo"><img src="images/Logos/Fritz_Egger_Logo.svg-1.png" alt="EGGER" loading="lazy"></span>
+        <span class="clients__logo"><img src="images/Logos/Volkswagen-New-Logo-Vector.svg-.png" alt="Volkswagen" loading="lazy"></span>
+        <span class="clients__logo"><img src="images/Logos/BARMER_Logo.svg.png" alt="Barmer" loading="lazy"></span>
+        <span class="clients__logo"><img src="images/Logos/Cornelsen_Verlag_Logo.svg.png" alt="Cornelsen" loading="lazy"></span>
+        <span class="clients__logo"><img src="images/Logos/Tuev-nord.svg.png" alt="TÜV Nord" loading="lazy"></span>
+        <span class="clients__logo"><img src="images/Logos/Coca-Cola_logo.svg.png" alt="Coca-Cola" loading="lazy"></span>
+        <span class="clients__logo"><img src="images/Logos/Logo_VGH_Versicherungen.svg" alt="VGH" loading="lazy"></span>
+        <span class="clients__logo"><img src="images/Logos/heimbs-C-FLcerJ.svg" alt="Heimbs" loading="lazy"></span>
+      </div>
+      <div class="clients__track-inner" aria-hidden="true">
+        <span class="clients__logo"><img src="images/Logos/Fritz_Egger_Logo.svg-1.png" alt="EGGER" loading="lazy"></span>
+        <span class="clients__logo"><img src="images/Logos/Volkswagen-New-Logo-Vector.svg-.png" alt="Volkswagen" loading="lazy"></span>
+        <span class="clients__logo"><img src="images/Logos/BARMER_Logo.svg.png" alt="Barmer" loading="lazy"></span>
+        <span class="clients__logo"><img src="images/Logos/Cornelsen_Verlag_Logo.svg.png" alt="Cornelsen" loading="lazy"></span>
+        <span class="clients__logo"><img src="images/Logos/Tuev-nord.svg.png" alt="TÜV Nord" loading="lazy"></span>
+        <span class="clients__logo"><img src="images/Logos/Coca-Cola_logo.svg.png" alt="Coca-Cola" loading="lazy"></span>
+        <span class="clients__logo"><img src="images/Logos/Logo_VGH_Versicherungen.svg" alt="VGH" loading="lazy"></span>
+        <span class="clients__logo"><img src="images/Logos/heimbs-C-FLcerJ.svg" alt="Heimbs" loading="lazy"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT — Giant Typography -->
+<section class="statement" id="leistungen">
+  <div class="container">
+    <p class="statement__text reveal">
+      3DCAY steuert Ihre Marketing-Materialien <em>von der Konzeption bis zur Lieferung</em> &mdash; mit einer Plattform, die Design, IT und Fulfillment in einer Einheit verbindet.
+    </p>
+    <p class="statement__sub reveal">Beratung. Web-to-Publish. Shop-Systeme. Marketing-Aktionen. Fulfillment. Reporting. Alles aus einer Hand.</p>
+  </div>
+</section>
+
+<!-- WEB-TO-PUBLISH — Photo Section: Caravaggio Chiaroscuro Flatlay -->
+<section class="photo-section" id="w2p">
+  <div class="photo-section__bg">
+    <picture>
+      <source type="image/webp" srcset="/.netlify/images?url=/images/foto2-w2p.png&w=1600&q=85&fm=webp">
+      <img src="images/foto2-w2p.png" alt="Web-to-Publish Drucksachen und Printmaterialien" loading="lazy" width="1600" height="1067">
+    </picture>
+  </div>
+  <div class="photo-section__overlay"></div>
+  <div class="container photo-section__content">
+    <div class="photo-section__grid">
+      <div class="reveal">
+        <span class="label label--light">Web-to-Publish</span>
+        <h2 class="photo-section__title">CAY PUBLISH: Markensteuerung in Echtzeit.</h2>
+        <p class="photo-section__text">Mitarbeiter erstellen Drucksachen, Speisekarten und Werbemittel selbstst&auml;ndig &mdash; immer im Corporate Design. &Uuml;ber 20 Jahre Erfahrung, kombiniert mit intuitiver Bedienbarkeit.</p>
+        <ul class="photo-section__features">
+          <li>Template-basierte Editoren</li>
+          <li>Automatische Brand-Compliance</li>
+          <li>Gastronomie, Versicherung, Handel</li>
+          <li>Multi-Mandanten &amp; White-Label</li>
+        </ul>
+        <a href="#kontakt" class="btn btn--primary" style="margin-top:24px">Demo anfordern <span class="btn__arrow">&rarr;</span></a>
+      </div>
+
+      <!-- W2P Menu Board Animation -->
+      <div class="w2p-anim reveal">
+        <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+          <!-- Menu Board outer frame -->
+          <rect class="draw d1" x="20" y="10" width="260" height="380" rx="8" style="--len:1300"/>
+          <!-- Header bar -->
+          <line class="draw d1" x1="20" y1="56" x2="280" y2="56" style="--len:260"/>
+          <!-- Title text lines -->
+          <line class="draw-thin d2" x1="40" y1="30" x2="160" y2="30" style="--len:120"/>
+          <line class="draw-thin d2" x1="40" y1="44" x2="120" y2="44" style="--len:80"/>
+          <!-- Restaurant name accent -->
+          <line class="draw-accent d2" x1="200" y1="34" x2="260" y2="34" style="--len:60"/>
+
+          <!-- Food image placeholder -->
+          <rect class="draw d3" x="36" y="72" width="130" height="100" rx="6" style="--len:460"/>
+          <!-- Food image icon (plate + steam) -->
+          <ellipse class="draw-thin d4" cx="101" cy="138" rx="36" ry="12" style="--len:150"/>
+          <path class="draw-thin d4" d="M80,128 Q85,108 90,118 Q95,102 101,116 Q107,100 112,118 Q117,106 122,128" style="--len:100"/>
+          <!-- Food label lines -->
+          <line class="draw-thin d5" x1="36" y1="184" x2="140" y2="184" style="--len:104"/>
+          <line class="draw-thin d5" x1="36" y1="196" x2="110" y2="196" style="--len:74"/>
+
+          <!-- Drink illustration -->
+          <rect class="draw d4" x="186" y="72" width="78" height="100" rx="6" style="--len:356"/>
+          <!-- Glass shape -->
+          <path class="draw-thin d5" d="M210,90 L206,155 L246,155 L242,90 Z" style="--len:200"/>
+          <!-- Straw -->
+          <line class="draw-thin d5" x1="220" y1="80" x2="232" y2="120" style="--len:44"/>
+          <!-- Ice cubes -->
+          <rect class="draw-thin d6" x="214" y="110" width="10" height="8" rx="1" style="--len:36"/>
+          <rect class="draw-thin d6" x="228" y="118" width="10" height="8" rx="1" style="--len:36"/>
+          <!-- Drink label -->
+          <line class="draw-thin d6" x1="186" y1="184" x2="250" y2="184" style="--len:64"/>
+
+          <!-- BUNDLE banner -->
+          <rect class="draw-accent d7" x="36" y="214" width="228" height="40" rx="6" style="--len:536"/>
+          <!-- Bundle text lines -->
+          <line class="draw d8" x1="56" y1="230" x2="140" y2="230" style="--len:84"/>
+          <line class="draw-accent d8" x1="180" y1="230" x2="244" y2="230" style="--len:64"/>
+          <!-- Euro price -->
+          <text class="fade-in d8" x="192" y="244" font-family="var(--font-mono)" font-size="16" font-weight="700" fill="rgba(227,16,26,0.5)" letter-spacing="0.04em">12,90 &euro;</text>
+
+          <!-- Additional items section -->
+          <line class="draw-thin d9" x1="36" y1="274" x2="264" y2="274" style="--len:228"/>
+          <!-- Item row 1 -->
+          <rect class="draw-thin d9" x="36" y="286" width="32" height="24" rx="4" style="--len:112"/>
+          <line class="draw-thin d9" x1="78" y1="294" x2="170" y2="294" style="--len:92"/>
+          <line class="draw-thin d9" x1="78" y1="306" x2="140" y2="306" style="--len:62"/>
+          <line class="draw-accent d9" x1="220" y1="298" x2="264" y2="298" style="--len:44"/>
+          <!-- Item row 2 -->
+          <rect class="draw-thin d10" x="36" y="322" width="32" height="24" rx="4" style="--len:112"/>
+          <line class="draw-thin d10" x1="78" y1="330" x2="160" y2="330" style="--len:82"/>
+          <line class="draw-thin d10" x1="78" y1="342" x2="130" y2="342" style="--len:52"/>
+          <line class="draw-accent d10" x1="220" y1="334" x2="264" y2="334" style="--len:44"/>
+
+          <!-- Footer bar -->
+          <line class="draw-thin d10" x1="36" y1="366" x2="264" y2="366" style="--len:228"/>
+          <line class="draw-thin d10" x1="100" y1="378" x2="200" y2="378" style="--len:100"/>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FULFILLMENT — Full Bleed Photo: Würfel Hell -->
+<section class="photo-section photo-section--light" id="fulfillment" style="align-items:center">
+  <div class="photo-section__bg">
+    <picture>
+      <source type="image/webp" srcset="/.netlify/images?url=/images/wuerfel-hell.png&w=1600&q=85&fm=webp">
+      <img src="images/wuerfel-hell.png" alt="3D-W&uuml;rfel — kristalline Produktvisualisierung auf hellem Hintergrund" loading="lazy" width="1600" height="1067">
+    </picture>
+  </div>
+  <div class="container photo-section__content">
+    <div class="photo-section__grid" style="align-items:center">
+      <div class="reveal">
+        <span class="label">Marketing Fulfillment</span>
+        <h2 class="photo-section__title" style="color:var(--black)">Lager. Kommissionierung. Versand. Komplett.</h2>
+        <p class="photo-section__text" style="color:var(--gray-700)">Webbasiertes Marketing-Fulfillment f&uuml;r Ihre gesamte Werbemittellogistik. Von der Einlagerung &uuml;ber die Konfektionierung bis zum Einzelversand &mdash; alles &uuml;ber ein zentrales Portal.</p>
+        <ul class="photo-section__features" style="color:var(--gray-700)">
+          <li>Werbemittellogistik mit Bestandsmanagement</li>
+          <li>Messelogistik &mdash; termingerecht, zuverl&auml;ssig</li>
+          <li>On-Demand-Produktion &amp; Personalisierung</li>
+          <li>Live-Tracking &amp; Echtzeit-Reporting</li>
+        </ul>
+        <button class="btn btn--primary" style="margin-top:24px" onclick="openAssessment()">Efficiency Potential <span class="btn__arrow">&rarr;</span></button>
+      </div>
+      <!-- Fulfillment Pipeline Animation -->
+      <div class="ff-anim reveal">
+        <svg viewBox="0 0 320 494" xmlns="http://www.w3.org/2000/svg">
+          <!-- STEP 1: Warehouse Shelf -->
+          <!-- Shelf frame -->
+          <rect class="dk d1" x="10" y="10" width="120" height="120" rx="6" style="--len:480"/>
+          <!-- Shelf boards -->
+          <line class="dk-thin d1" x1="10" y1="50" x2="130" y2="50" style="--len:120"/>
+          <line class="dk-thin d1" x1="10" y1="90" x2="130" y2="90" style="--len:120"/>
+          <!-- Items on shelves -->
+          <rect class="dk-thin d2" x="22" y="20" width="22" height="24" rx="3" style="--len:92"/>
+          <rect class="dk-thin d2" x="52" y="22" width="18" height="22" rx="3" style="--len:80"/>
+          <rect class="dk-thin d2" x="80" y="18" width="26" height="26" rx="3" style="--len:104"/>
+          <rect class="dk-thin d2" x="22" y="58" width="20" height="26" rx="3" style="--len:92"/>
+          <rect class="dk-thin d2" x="50" y="60" width="24" height="24" rx="3" style="--len:96"/>
+          <rect class="dk-thin d2" x="84" y="56" width="20" height="28" rx="3" style="--len:96"/>
+          <!-- Picking highlight -->
+          <rect class="dk-accent d3" x="48" y="58" width="28" height="28" rx="4" style="--len:112"/>
+          <!-- Label: LAGER -->
+          <text class="fade-dk d2" x="70" y="144" font-family="var(--font-mono)" font-size="9" font-weight="700" fill="rgba(10,10,10,0.3)" text-anchor="middle" letter-spacing="0.12em">LAGER</text>
+
+          <!-- Arrow 1: Shelf to Box -->
+          <line class="dk-dash d4" x1="140" y1="70" x2="180" y2="70" style="--len:40"/>
+          <polyline class="dk-thin d4" points="175,64 182,70 175,76" style="--len:20"/>
+
+          <!-- STEP 2: Picking / Box -->
+          <rect class="dk d4" x="190" y="30" width="110" height="80" rx="6" style="--len:380"/>
+          <!-- Box flaps -->
+          <path class="dk-thin d5" d="M190,50 L220,30 L260,30 L300,50" style="--len:130"/>
+          <!-- Items inside box -->
+          <rect class="dk-thin d5" x="204" y="58" width="20" height="18" rx="2" style="--len:76"/>
+          <rect class="dk-thin d5" x="230" y="56" width="16" height="20" rx="2" style="--len:72"/>
+          <rect class="dk-thin d5" x="252" y="60" width="22" height="16" rx="2" style="--len:76"/>
+          <!-- Checkmark -->
+          <circle class="dk-accent d6" cx="285" cy="40" r="10" style="--len:63"/>
+          <polyline class="dk-accent d6" points="279,40 283,44 291,36" style="--len:18"/>
+          <!-- Label: PICKING -->
+          <text class="fade-dk d5" x="245" y="126" font-family="var(--font-mono)" font-size="9" font-weight="700" fill="rgba(10,10,10,0.3)" text-anchor="middle" letter-spacing="0.12em">PICKING</text>
+
+          <!-- Arrow 2: Box to Label -->
+          <path class="dk-dash d7" d="M245,120 L245,150 L160,150 L160,180" style="--len:110"/>
+          <polyline class="dk-thin d7" points="154,175 160,183 166,175" style="--len:18"/>
+
+          <!-- STEP 3: Labeled Package -->
+          <rect class="dk d7" x="60" y="190" width="200" height="70" rx="6" style="--len:540"/>
+          <!-- Address label area -->
+          <rect class="dk-thin d8" x="76" y="202" width="80" height="46" rx="4" style="--len:252"/>
+          <!-- Address lines -->
+          <line class="dk-thin d8" x1="84" y1="214" x2="140" y2="214" style="--len:56"/>
+          <line class="dk-thin d8" x1="84" y1="226" x2="130" y2="226" style="--len:46"/>
+          <line class="dk-thin d8" x1="84" y1="238" x2="120" y2="238" style="--len:36"/>
+          <!-- Barcode -->
+          <rect class="dk-thin d9" x="174" y="204" width="70" height="40" rx="3" style="--len:220"/>
+          <line class="dk-thin d9" x1="182" y1="212" x2="182" y2="234" style="--len:22"/>
+          <line class="dk-thin d9" x1="188" y1="212" x2="188" y2="234" style="--len:22"/>
+          <line class="dk-thin d9" x1="193" y1="212" x2="193" y2="234" style="--len:22"/>
+          <line class="dk-thin d9" x1="200" y1="212" x2="200" y2="234" style="--len:22"/>
+          <line class="dk-thin d9" x1="204" y1="212" x2="204" y2="234" style="--len:22"/>
+          <line class="dk-thin d9" x1="210" y1="212" x2="210" y2="234" style="--len:22"/>
+          <line class="dk-thin d9" x1="216" y1="212" x2="216" y2="234" style="--len:22"/>
+          <line class="dk-thin d9" x1="222" y1="212" x2="222" y2="234" style="--len:22"/>
+          <line class="dk-thin d9" x1="228" y1="212" x2="228" y2="234" style="--len:22"/>
+          <line class="dk-thin d9" x1="234" y1="212" x2="234" y2="234" style="--len:22"/>
+          <!-- Label: VERSAND -->
+          <text class="fade-dk d8" x="160" y="278" font-family="var(--font-mono)" font-size="9" font-weight="700" fill="rgba(10,10,10,0.3)" text-anchor="middle" letter-spacing="0.12em">VERSAND</text>
+
+          <!-- Arrow 3: Package to Dashboard -->
+          <path class="dk-dash d10" d="M160,280 L160,296" style="--len:16"/>
+          <polyline class="dk-thin d10" points="154,292 160,300 166,292" style="--len:18"/>
+
+          <!-- STEP 4: Software Dashboard -->
+          <!-- Monitor frame -->
+          <rect class="dk d10" x="30" y="304" width="260" height="148" rx="6" style="--len:816"/>
+          <!-- Screen area -->
+          <rect class="dk-thin d10" x="38" y="312" width="244" height="118" rx="3" style="--len:724"/>
+          <!-- Monitor stand -->
+          <line class="dk-thin d11" x1="160" y1="452" x2="160" y2="464" style="--len:12"/>
+          <line class="dk d11" x1="120" y1="464" x2="200" y2="464" style="--len:80"/>
+          <!-- Dashboard top bar -->
+          <line class="dk-thin d10" x1="38" y1="328" x2="282" y2="328" style="--len:244"/>
+          <!-- Nav dots -->
+          <circle class="dk-accent d10" cx="50" cy="320" r="3" style="--len:19"/>
+          <circle class="dk-thin d10" cx="60" cy="320" r="3" style="--len:19"/>
+          <circle class="dk-thin d10" cx="70" cy="320" r="3" style="--len:19"/>
+          <!-- Dashboard: KPI cards row -->
+          <rect class="dk-thin d11" x="46" y="336" width="56" height="32" rx="3" style="--len:176"/>
+          <line class="dk-accent d11" x1="54" y1="348" x2="82" y2="348" style="--len:28"/>
+          <line class="dk-thin d11" x1="54" y1="358" x2="74" y2="358" style="--len:20"/>
+          <rect class="dk-thin d11" x="110" y="336" width="56" height="32" rx="3" style="--len:176"/>
+          <line class="dk-accent d11" x1="118" y1="348" x2="148" y2="348" style="--len:30"/>
+          <line class="dk-thin d11" x1="118" y1="358" x2="140" y2="358" style="--len:22"/>
+          <rect class="dk-thin d11" x="174" y="336" width="56" height="32" rx="3" style="--len:176"/>
+          <line class="dk-accent d11" x1="182" y1="348" x2="214" y2="348" style="--len:32"/>
+          <line class="dk-thin d11" x1="182" y1="358" x2="206" y2="358" style="--len:24"/>
+          <!-- Status badge -->
+          <rect class="dk-accent d11" x="240" y="338" width="32" height="14" rx="7" style="--len:92"/>
+          <!-- Dashboard: Chart area -->
+          <rect class="dk-thin d11" x="46" y="376" width="120" height="46" rx="3" style="--len:332"/>
+          <!-- Bar chart bars -->
+          <line class="dk-thin d11" x1="58" y1="412" x2="58" y2="396" style="--len:16"/>
+          <line class="dk-thin d11" x1="70" y1="412" x2="70" y2="390" style="--len:22"/>
+          <line class="dk-accent d11" x1="82" y1="412" x2="82" y2="386" style="--len:26"/>
+          <line class="dk-thin d11" x1="94" y1="412" x2="94" y2="392" style="--len:20"/>
+          <line class="dk-accent d11" x1="106" y1="412" x2="106" y2="384" style="--len:28"/>
+          <line class="dk-thin d11" x1="118" y1="412" x2="118" y2="388" style="--len:24"/>
+          <line class="dk-accent d11" x1="130" y1="412" x2="130" y2="382" style="--len:30"/>
+          <line class="dk-thin d11" x1="142" y1="412" x2="142" y2="394" style="--len:18"/>
+          <line class="dk-thin d11" x1="154" y1="412" x2="154" y2="388" style="--len:24"/>
+          <!-- Dashboard: List / Table -->
+          <rect class="dk-thin d11" x="174" y="376" width="100" height="46" rx="3" style="--len:292"/>
+          <line class="dk-thin d11" x1="182" y1="388" x2="258" y2="388" style="--len:76"/>
+          <line class="dk-thin d11" x1="182" y1="398" x2="244" y2="398" style="--len:62"/>
+          <line class="dk-thin d11" x1="182" y1="408" x2="250" y2="408" style="--len:68"/>
+          <!-- Live dot -->
+          <circle class="dk-accent d11" cx="266" cy="384" r="3" style="--len:19"/>
+          <!-- Label: DASHBOARD -->
+          <text class="fade-dk d11" x="160" y="484" font-family="var(--font-mono)" font-size="9" font-weight="700" fill="rgba(10,10,10,0.3)" text-anchor="middle" letter-spacing="0.12em">DASHBOARD</text>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SHOP & ERP — Split Reversed: Fincher-Style Dashboard Office -->
+<section class="split-section split-section--gray">
+  <div class="container">
+    <div class="split" style="direction:rtl;grid-template-columns:4fr 6fr;overflow:visible;align-items:center">
+      <div style="direction:ltr;overflow:visible;transform:scale(1.55);transform-origin:right center" class="reveal">
+        <picture>
+          <source type="image/webp" srcset="/.netlify/images?url=/images/3dcay_mockup_laptop1.png&w=1800&q=85&fm=webp">
+          <img src="images/3dcay_mockup_laptop1.png" alt="3DCAY B2B-Shop Mockup auf Laptop" loading="lazy" style="width:100%;height:auto;display:block">
+        </picture>
+      </div>
+      <div style="direction:ltr" class="split__content reveal">
+        <span class="label">Shop- & ERP-Systeme</span>
+        <h2 class="split__title">B2B-Commerce mit Tiefgang.</h2>
+        <p class="split__text">Individuelle Shop-Systeme mit ERP-Integration, Bestandsmanagement und automatisierten Bestellprozessen. Ma&szlig;geschneidert f&uuml;r komplexe Anforderungen &mdash; nicht von der Stange.</p>
+        <ul class="split__list">
+          <li>Individuelle Shop-Frontends</li>
+          <li>ERP-/Warenwirtschafts-Anbindung</li>
+          <li>Automatische Nachbestellung</li>
+          <li>Multi-User &amp; Rechtemanagement</li>
+        </ul>
+        <a href="#kontakt" class="btn btn--dark">Shop anfragen <span class="btn__arrow">&rarr;</span></a>
+      </div>
+    </div>
+    <div class="erp-seal-row reveal">
+    <div class="erp-anim reveal">
+      <svg viewBox="0 0 760 72" xmlns="http://www.w3.org/2000/svg">
+        <!-- KPI 1: Orders -->
+        <line x1="6" y1="14" x2="46" y2="14" class="dk-thin d1" style="--len:40"/>
+        <text x="6" y="40" font-family="var(--font-mono)" font-size="22" font-weight="700" class="fade-dk d2" fill="rgba(10,10,10,0.4)">1.247</text>
+        <line x1="6" y1="50" x2="76" y2="50" class="dk-thin d2" style="--len:70"/>
+        <!-- KPI 2: Revenue -->
+        <line x1="108" y1="14" x2="158" y2="14" class="dk-thin d1" style="--len:50"/>
+        <text x="108" y="40" font-family="var(--font-mono)" font-size="22" font-weight="700" class="fade-dk d3" fill="rgba(227,16,26,0.45)">89.4k</text>
+        <line x1="108" y1="50" x2="186" y2="50" class="dk-accent d3" style="--len:78"/>
+        <!-- KPI 3: Conversion -->
+        <line x1="216" y1="14" x2="266" y2="14" class="dk-thin d2" style="--len:50"/>
+        <text x="216" y="40" font-family="var(--font-mono)" font-size="22" font-weight="700" class="fade-dk d4" fill="rgba(10,10,10,0.4)">3.8%</text>
+        <polyline points="272,42 282,35 292,38 302,28 312,32" class="dk-accent d5" style="--len:60"/>
+        <!-- KPI 4: Active -->
+        <line x1="340" y1="14" x2="380" y2="14" class="dk-thin d2" style="--len:40"/>
+        <text x="340" y="40" font-family="var(--font-mono)" font-size="22" font-weight="700" class="fade-dk d4" fill="rgba(10,10,10,0.4)">42</text>
+        <polyline points="376,42 388,34 400,36 412,26 424,22 436,18" class="dk-accent d5" style="--len:80"/>
+        <!-- Bar Chart -->
+        <line x1="468" y1="10" x2="468" y2="68" class="dk-thin d3" style="--len:58"/>
+        <line x1="468" y1="68" x2="600" y2="68" class="dk-thin d3" style="--len:132"/>
+        <line x1="478" y1="68" x2="478" y2="50" class="dk-fill d4" style="--len:18"/>
+        <line x1="492" y1="68" x2="492" y2="40" class="dk-fill d5" style="--len:28"/>
+        <line x1="506" y1="68" x2="506" y2="32" class="dk-fill-accent d5" style="--len:36"/>
+        <line x1="520" y1="68" x2="520" y2="38" class="dk-fill d6" style="--len:30"/>
+        <line x1="534" y1="68" x2="534" y2="26" class="dk-fill d6" style="--len:42"/>
+        <line x1="548" y1="68" x2="548" y2="18" class="dk-fill-accent d7" style="--len:50"/>
+        <line x1="562" y1="68" x2="562" y2="24" class="dk-fill d7" style="--len:44"/>
+        <line x1="576" y1="68" x2="576" y2="14" class="dk-fill-accent d8" style="--len:54"/>
+        <line x1="590" y1="68" x2="590" y2="20" class="dk-fill d8" style="--len:48"/>
+        <!-- Line Chart -->
+        <line x1="622" y1="10" x2="622" y2="68" class="dk-thin d4" style="--len:58"/>
+        <line x1="622" y1="68" x2="756" y2="68" class="dk-thin d4" style="--len:134"/>
+        <polyline points="628,58 646,52 664,44 682,46 700,36 718,28 736,22 750,16" class="dk d6" style="--len:150"/>
+        <polyline points="628,62 646,58 664,52 682,50 700,42 718,38 736,32 750,26" class="dk-accent d7" style="--len:150"/>
+        <circle cx="700" cy="36" r="3" class="dk d8" style="--len:19"/>
+        <circle cx="750" cy="16" r="3" class="dk-accent d9" style="--len:19"/>
+        <text x="738" y="12" font-family="var(--font-mono)" font-size="9" class="fade-dk d10" fill="rgba(227,16,26,0.5)">+12%</text>
+      </svg>
+    </div>
+    <div class="erp-seal">
+      <img src="images/BSFZ_Siegel_RGB_2x.png" alt="BSFZ-Siegel — Bescheinigungsstelle Forschungszulage" loading="lazy">
+      <div class="erp-seal__body">
+        <strong class="erp-seal__title">Forschungszulage 2026</strong>
+        <div class="erp-seal__text">Unsere B2B-Commerce-Entwicklung ist staatlich als f&ouml;rderungsw&uuml;rdig anerkannt &mdash; zertifiziert durch die Bescheinigungsstelle Forschungszulage (BSFZ).</div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL — Full Bleed: Smartphone Macro on Wet Concrete -->
+<section class="testimonial">
+  <div class="testimonial__bg">
+    <picture>
+      <source type="image/webp" srcset="/.netlify/images?url=/images/smartphone-macro.png&w=1600&q=85&fm=webp">
+      <img src="images/smartphone-macro.png" alt="Makro-Aufnahme eines Smartphones auf nassem Beton mit Regentropfen — Blade Runner 2049 Farbpalette" loading="lazy" width="1600" height="1067">
+    </picture>
+  </div>
+  <div class="testimonial__overlay"></div>
+  <div class="container testimonial__content">
+    <div class="reveal">
+      <span class="label label--light">Kundenstimme</span>
+      <blockquote class="testimonial__quote" style="margin-top:16px">
+        &bdquo;3DCAY hat unsere komplette Werbemittellogistik digitalisiert. Vom chaotischen E-Mail-Prozess zu einem zentralen Portal &mdash; unsere Mitarbeiter bestellen jetzt selbstst&auml;ndig und markensicher.&ldquo;
+      </blockquote>
+      <p class="testimonial__author">Marketing-Leitung &mdash; Enterprise-Kunde</p>
+    </div>
+  </div>
+</section>
+
+<!-- KI CAPABILITIES -->
+<section class="split-section" id="ki">
+  <div class="container">
+    <div style="max-width:700px;margin-bottom:64px" class="reveal">
+      <span class="label">KI-gest&uuml;tzte Entwicklung &mdash; Neues aus unserem KI-Lab</span>
+      <h2 class="split__title" style="margin-top:16px">Ma&szlig;geschneiderte KI-L&ouml;sungen. Produktionsreif.</h2>
+      <p class="split__text" style="margin-bottom:0">Wir entwickeln individuelle Software, die Design-Expertise mit KI und Softwareentwicklung verbindet. Keine Buzzwords &mdash; funktionierende Systeme.</p>
+    </div>
+    
+    <div class="cap__grid stagger">
+      <div class="cap reveal">
+        <div class="cap__screen"><img src="images/ki-screens/ki-document-ai.png" alt="Document AI Interface" loading="lazy"></div>
+        <div class="cap__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg></div>
+        <h3 class="cap__title">Document AI</h3>
+        <p class="cap__text">Automatische Rechnungserkennung, Validierung und Datenextraktion &mdash; integriert in bestehende Workflows.</p>
+      </div>
+      <div class="cap reveal">
+        <div class="cap__screen"><img src="images/ki-screens/ki-brand-compliance.png" alt="Brand Compliance AI Interface" loading="lazy"></div>
+        <div class="cap__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div>
+        <h3 class="cap__title">Brand Compliance AI</h3>
+        <p class="cap__text">KI-gest&uuml;tzte Einhaltung von Corporate-Design-Richtlinien. Fehler erkennen, bevor sie entstehen.</p>
+      </div>
+      <div class="cap reveal">
+        <div class="cap__screen"><img src="images/ki-screens/ki-predictive.png" alt="Predictive Analytics Interface" loading="lazy"></div>
+        <div class="cap__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
+        <h3 class="cap__title">Predictive Analytics</h3>
+        <p class="cap__text">Bedarfsprognosen und Bestandsoptimierung f&uuml;r Ihre Werbemittellogistik.</p>
+      </div>
+      <div class="cap reveal">
+        <div class="cap__screen"><img src="images/ki-screens/ki-workflow.png" alt="Workflow Automation Interface" loading="lazy"></div>
+        <div class="cap__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/><path d="M21 3v5h-5"/></svg></div>
+        <h3 class="cap__title">Workflow Automation</h3>
+        <p class="cap__text">Automatisierte Genehmigungs-, Bestell- und Fulfillment-Prozesse. Komplett.</p>
+      </div>
+      <div class="cap reveal">
+        <div class="cap__screen"><img src="images/ki-screens/ki-custom-apps.png" alt="Custom Web-Apps Interface" loading="lazy"></div>
+        <div class="cap__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+        <h3 class="cap__title">Custom Web-Apps</h3>
+        <p class="cap__text">Individuelle Portale, Cashback-Systeme, Kunden-Dashboards &mdash; ma&szlig;geschneidert.</p>
+      </div>
+      <div class="cap reveal">
+        <div class="cap__screen"><img src="images/ki-screens/ki-dsgvo.png" alt="DSGVO-konform Interface" loading="lazy"></div>
+        <div class="cap__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3 class="cap__title">DSGVO-konform</h3>
+        <p class="cap__text">EU-Hosting. Keine Drittanbieter-KI-Clouds. Maximale Datensouver&auml;nit&auml;t.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section class="metrics">
+  <div class="container">
+    <div class="metrics__grid stagger">
+      <div class="reveal"><div class="metric__number">20<span>+</span></div><div class="metric__label">Jahre Erfahrung</div></div>
+      <div class="reveal"><div class="metric__number">150<span>k</span></div><div class="metric__label">Sendungen / Jahr</div></div>
+      <div class="reveal"><div class="metric__number">35<span>+</span></div><div class="metric__label">Enterprise-Kunden</div></div>
+      <div class="reveal"><div class="metric__number">6</div><div class="metric__label">Aktive KI-Module</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENZ -->
+<section class="split-section" id="referenzen">
+  <div class="container">
+    <div style="max-width:700px;margin-bottom:64px" class="reveal">
+      <span class="label">Success Story</span>
+      <h2 class="split__title" style="margin-top:16px">EGGER AI Cashback Portal</h2>
+    </div>
+    <div class="ref reveal">
+      <div class="ref__header">
+        <span class="ref__client">EGGER Group</span>
+        <div class="ref__tags"><span class="tag">KI</span><span class="tag">B2B Portal</span><span class="tag">Automatisierung</span></div>
+      </div>
+      <div class="ref__body">
+        <div>
+          <h3 class="ref__title">KI-gest&uuml;tzte Cashback-Automatisierung</h3>
+          <p class="ref__text">F&uuml;r den europ&auml;ischen Holzwerkstoffhersteller EGGER entwickelten wir ein vollautomatisches Cashback-Portal &mdash; von der KI-gest&uuml;tzten Rechnungserkennung &uuml;ber die automatische Punkteberechnung bis zur Auszahlung. Durchg&auml;ngig digitalisiert.</p>
+        </div>
+        <div class="ref__stats">
+          <div><div class="ref__stat-val">85<span>%</span></div><div class="ref__stat-lbl">Weniger manueller Aufwand</div></div>
+          <div><div class="ref__stat-val">&lt;3<span>s</span></div><div class="ref__stat-lbl">Rechnungserkennung</div></div>
+          <div><div class="ref__stat-val">99.2<span>%</span></div><div class="ref__stat-lbl">Erkennungsgenauigkeit</div></div>
+          <div><div class="ref__stat-val">24<span>/7</span></div><div class="ref__stat-lbl">Automatisiert</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter" id="newsletter">
+  <div class="container">
+    <div class="newsletter__inner reveal">
+      <div class="newsletter__text">
+        <p class="newsletter__title">Insights f&uuml;r Marketing-Entscheider</p>
+        <p class="newsletter__sub">Praxiswissen zu Web-to-Publish, Fulfillment-Automatisierung und KI &mdash; alle 2 Wochen direkt ins Postfach.</p>
+      </div>
+      <div>
+        <form class="newsletter__form" name="newsletter" method="POST" data-netlify="true" id="newsletterForm">
+          <input type="hidden" name="form-name" value="newsletter">
+          <label for="newsletterEmail" class="sr-only">E-Mail-Adresse</label>
+          <input type="email" name="email" id="newsletterEmail" class="newsletter__input" placeholder="Ihre E-Mail-Adresse" required aria-describedby="err-newsletter">
+          <button type="submit" class="newsletter__btn">Anmelden</button>
+        </form>
+        <span class="newsletter__error-msg" id="err-newsletter" role="alert"></span>
+        <p class="newsletter__hint">Kein Spam. Jederzeit abbestellbar. Maximal 2&times; pro Monat.</p>
+        <div class="newsletter__success" id="newsletterSuccess">
+          &#10003; Vielen Dank! Best&auml;tigen Sie bitte Ihre E-Mail-Adresse.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="kontakt">
+  <div class="cta-section__bg"></div>
+  <div class="cta-section__content">
+    <span class="label label--light reveal">Lassen Sie uns sprechen</span>
+    <h2 class="cta__title reveal">Ihr n&auml;chstes Projekt.<br>Unsere Expertise.</h2>
+    <p class="cta__text reveal">Web-to-Publish, B2B-Shop, Fulfillment oder KI-L&ouml;sung &mdash; erz&auml;hlen Sie uns davon.</p>
+    <div class="cta__actions reveal">
+      <button type="button" onclick="openDemo()" class="btn btn--primary">Projekt besprechen <span class="btn__arrow">&rarr;</span></button>
+      <a href="tel:+494121476111" class="btn btn--outline-white">+49 4121 476 111</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <svg viewBox="120 130 600 185" xmlns="http://www.w3.org/2000/svg" style="height:20px;width:auto"><g><path d="M132,299.3v-1.1l7.1-28.4c2.6.7,4.5,2.3,6.7,3.4,4.3,2,8.7,3.1,13.3,4.5,8.2,2.6,17.4,2.8,25.8.6s2.8-1.6,4.3-2.1c3-1,5.3-3.1,7.3-5.7,6.5-8.7,5.3-21.6-2.8-29s-13.9-7.3-22-7.3h-14.7c0,0,0-28.1,0-28.1,6.9-.1,13.3.1,19.9-.5s4.6-1.3,6.9-2.1c6-2.1,10.8-6.6,12.2-12.3s-.2-13-5.2-17.2-6.2-2.9-9.6-3.9-9.1-1.1-13.2,0-11.6,2.3-16.7,5.2-4.8,2.6-7.4,3.9l-6.9-27.4c-.2-1,1.4-1.9,2-2.2l7.9-3.9c4.6-2.3,9.7-3,14.6-4.6,7.1-2.3,14.5-2.1,22-2.1s12.1,0,17.7,2.1,7.5,2.5,11,4.6c12.6,7.4,20,20.3,19.8,35.1s-2.8,18.6-9,25.8-6.1,5.6-11.3,9.2-4.9,1.5-7.1,3.4c4.4,1.6,8.9,2,12.3,4.6s4.2,2.5,6,4.2l3.5,3.4c16.5,16.1,15.3,54.5-14.2,71s-6.8,3-10.4,4.5c-7.8,3.2-23.4,4.2-31.9,3.5s-14.3-.9-20.9-3.6c-3.7-1.5-7.5-2.2-11-4.1s-3.8-2.5-5.8-3.3Z" fill="#e3101a"/><path d="M353.2,281.3c-2.2,2.2-9.1,8.1-11.5,9s-3.1,1.9-4.7,2.8c-3.4,1.8-7,2.7-10.6,4.3-5.9,2.6-12.4,3-18.8,4.4s-3.7,1-5.9,1.2c-16.9,1.1-36.9,1.3-53.3-2.3v-157.4s14.3-2.2,14.3-2.2c12.3-1.9,40.3-2.6,52.5.3s11.8,1.7,17.1,4.4,6.4,2.5,9.3,4.3l4.9,3.1c30.5,19.4,33.8,65.6,24.3,97.6-3.4,11.7-9.3,22-17.6,30.6ZM339.3,201.8c-3-14.2-12.1-27.1-26.4-31.2-6.6-3.9-24.3-3.3-31.8-1.6v105.5c9.2,1,18.4,1,27.2-1.3s4.2-2.1,6.4-2.5c25.3-10.8,29.6-45.4,24.6-68.9Z" fill="#e3101a"/><path d="M470.8,138.5c6.1,0,22.1,3.5,28.3,6.8l-6.8,28.9c-4.3-1.5-8.1-2.9-12.5-4-14.5-3.7-31.8-2-43.6,8.1s-11.8,14.3-14.2,23.5c-6.5,24.9-1.5,59.8,26.8,69.3l5.7,1.9c6.6,2.2,21.7.6,28.7-1l-8.5,31.6c-11.5.9-23.2,1.6-34.1-1.5-4.9-1.4-9.9-2.2-14.1-4.7s-5.6-2.5-8-4.2l-4.5-3.1c-11.8-8.3-19.4-20.7-23.8-34.7-6.4-20.5-6.3-42.6-.3-63.2s11.6-25.7,22.1-35.2,11-8.1,17.8-11.6,8.6-2.6,12.8-4.4,9.8-1.3,14.5-2.5h13.9Z" fill="#e3101a"/><path d="M565.4,260.6h-41.2s-10,40.9-10,40.9h-33.7s43.8-160.9,43.8-160.9h42.4s44.7,160.9,44.7,160.9h-35c0,0-11-40.9-11-40.9ZM560.3,233l-9.3-35.7-6.8-29.7-6.1,29-9.2,36.5h31.3Z" fill="#e3101a"/><polygon points="678.6 140.7 715.2 140.6 667.8 234.8 667.8 301.5 635.4 301.5 635.4 236.2 589.9 140.6 627.3 140.6 640.5 176 653.1 210.7 667.7 169.9 678.6 140.7" fill="#e3101a"/></g></svg>
+        <p>Synergien aus Design & IT. Web-to-Publish, Shop-Systeme, Fulfillment und KI-gest&uuml;tzte Entwicklung.</p>
+      </div>
+      <div><p class="footer__col-title">Leistungen</p><ul class="footer__links"><li><a href="#w2p">Web-to-Publish</a></li><li><a href="#fulfillment">Fulfillment</a></li><li><a href="#ki">KI-Entwicklung</a></li><li><a href="#leistungen">Shop-Systeme</a></li></ul></div>
+      <div><p class="footer__col-title">Unternehmen</p><ul class="footer__links"><li><a href="#leistungen">&Uuml;ber 3DCAY</a></li><li><a href="#referenzen">Referenzen</a></li><li><a href="#ki">Blog / KI-Lab</a></li><li><a href="#kontakt">Kontakt</a></li></ul></div>
+      <div><p class="footer__col-title">Ressourcen</p><ul class="footer__links"><li><a href="whitepaper.html">Whitepaper</a></li><li><a href="assessment.html">Fit-Check</a></li><li><a href="#newsletter">Newsletter</a></li></ul></div>
+      <div><p class="footer__col-title">Kontakt</p><ul class="footer__links"><li><a href="mailto:info@3DCAY.de">info@3DCAY.de</a></li><li><a href="tel:+494121476111">+49 4121 476 111</a></li><li><a href="https://www.linkedin.com/company/3dcay" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">&copy; 2026 3DCAY Marketing Solutions GmbH</span>
+      <div class="footer__legal"><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ASSESSMENT MODAL -->
+<div class="assess-overlay" id="assessOverlay">
+  <div class="assess-modal">
+    <button class="assess-close" onclick="closeAssessment()">&times;</button>
+
+    <!-- Header -->
+    <div class="assess-header">
+      <div class="assess-logo">
+        <svg viewBox="120 130 600 185" xmlns="http://www.w3.org/2000/svg" style="height:22px;width:auto"><g><path d="M132,299.3v-1.1l7.1-28.4c2.6.7,4.5,2.3,6.7,3.4,4.3,2,8.7,3.1,13.3,4.5,8.2,2.6,17.4,2.8,25.8.6s2.8-1.6,4.3-2.1c3-1,5.3-3.1,7.3-5.7,6.5-8.7,5.3-21.6-2.8-29s-13.9-7.3-22-7.3h-14.7c0,0,0-28.1,0-28.1,6.9-.1,13.3.1,19.9-.5s4.6-1.3,6.9-2.1c6-2.1,10.8-6.6,12.2-12.3s-.2-13-5.2-17.2-6.2-2.9-9.6-3.9-9.1-1.1-13.2,0-11.6,2.3-16.7,5.2-4.8,2.6-7.4,3.9l-6.9-27.4c-.2-1,1.4-1.9,2-2.2l7.9-3.9c4.6-2.3,9.7-3,14.6-4.6,7.1-2.3,14.5-2.1,22-2.1s12.1,0,17.7,2.1,7.5,2.5,11,4.6c12.6,7.4,20,20.3,19.8,35.1s-2.8,18.6-9,25.8-6.1,5.6-11.3,9.2-4.9,1.5-7.1,3.4c4.4,1.6,8.9,2,12.3,4.6s4.2,2.5,6,4.2l3.5,3.4c16.5,16.1,15.3,54.5-14.2,71s-6.8,3-10.4,4.5c-7.8,3.2-23.4,4.2-31.9,3.5s-14.3-.9-20.9-3.6c-3.7-1.5-7.5-2.2-11-4.1s-3.8-2.5-5.8-3.3Z" fill="#e3101a"/><path d="M353.2,281.3c-2.2,2.2-9.1,8.1-11.5,9s-3.1,1.9-4.7,2.8c-3.4,1.8-7,2.7-10.6,4.3-5.9,2.6-12.4,3-18.8,4.4s-3.7,1-5.9,1.2c-16.9,1.1-36.9,1.3-53.3-2.3v-157.4s14.3-2.2,14.3-2.2c12.3-1.9,40.3-2.6,52.5.3s11.8,1.7,17.1,4.4,6.4,2.5,9.3,4.3l4.9,3.1c30.5,19.4,33.8,65.6,24.3,97.6-3.4,11.7-9.3,22-17.6,30.6ZM339.3,201.8c-3-14.2-12.1-27.1-26.4-31.2-6.6-3.9-24.3-3.3-31.8-1.6v105.5c9.2,1,18.4,1,27.2-1.3s4.2-2.1,6.4-2.5c25.3-10.8,29.6-45.4,24.6-68.9Z" fill="#e3101a"/><path d="M470.8,138.5c6.1,0,22.1,3.5,28.3,6.8l-6.8,28.9c-4.3-1.5-8.1-2.9-12.5-4-14.5-3.7-31.8-2-43.6,8.1s-11.8,14.3-14.2,23.5c-6.5,24.9-1.5,59.8,26.8,69.3l5.7,1.9c6.6,2.2,21.7.6,28.7-1l-8.5,31.6c-11.5.9-23.2,1.6-34.1-1.5-4.9-1.4-9.9-2.2-14.1-4.7s-5.6-2.5-8-4.2l-4.5-3.1c-11.8-8.3-19.4-20.7-23.8-34.7-6.4-20.5-6.3-42.6-.3-63.2s11.6-25.7,22.1-35.2,11-8.1,17.8-11.6,8.6-2.6,12.8-4.4,9.8-1.3,14.5-2.5h13.9Z" fill="#e3101a"/><path d="M565.4,260.6h-41.2s-10,40.9-10,40.9h-33.7s43.8-160.9,43.8-160.9h42.4s44.7,160.9,44.7,160.9h-35c0,0-11-40.9-11-40.9ZM560.3,233l-9.3-35.7-6.8-29.7-6.1,29-9.2,36.5h31.3Z" fill="#e3101a"/><polygon points="678.6 140.7 715.2 140.6 667.8 234.8 667.8 301.5 635.4 301.5 635.4 236.2 589.9 140.6 627.3 140.6 640.5 176 653.1 210.7 667.7 169.9 678.6 140.7" fill="#e3101a"/></g></svg>
+      </div>
+      <span class="assess-badge">Assessment Engine</span>
+    </div>
+
+    <!-- Progress -->
+    <div class="assess-progress" id="assessProgress">
+      <div class="assess-progress__bar active"></div>
+      <div class="assess-progress__bar"></div>
+      <div class="assess-progress__bar"></div>
+    </div>
+    <div class="assess-stage-label" id="assessStageLabel">Stage 1 / 3</div>
+
+    <!-- Body -->
+    <div class="assess-body">
+
+      <!-- INTRO -->
+      <div class="assess-stage active" id="stageIntro">
+        <div style="text-align:center;padding:24px 0 16px">
+          <div style="display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;background:rgba(227,16,26,0.08);border-radius:16px;margin-bottom:24px">
+            <svg viewBox="0 0 32 32" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px"><path d="M5 27L13 13l5 6 9-14"/><path d="M22 5h5v5"/></svg>
+          </div>
+          <h2 class="assess-title" style="text-align:center">Einspar- &amp; Optimierungs-Potential</h2>
+
+          <!-- DE -->
+          <div id="assessLangDE" style="text-align:left;max-width:560px;margin:0 auto 24px">
+            <p style="font-size:15px;color:var(--gray-500);line-height:1.7;margin-bottom:12px">In drei kurzen Schritten analysieren wir Ihren aktuellen Fulfillment-Prozess &mdash; und zeigen Ihnen, wo konkretes Optimierungspotenzial liegt. Am Ende erhalten Sie eine erste ROI-Sch&auml;tzung und einen konkreten Pilot-Vorschlag.</p>
+            <p style="font-size:13px;color:var(--gray-500);line-height:1.7">Bitte beachten Sie: Dieser Quick-Check ist eine allgemein gehaltene Simulation auf Basis weniger Eckdaten &mdash; die Ergebnisse dienen als Orientierung, nicht als verbindliche Analyse. Eine detaillierte Untersuchung Ihres individuellen Optimierungs- und Einsparpotenzials f&uuml;hren wir selbstverst&auml;ndlich gerne f&uuml;r Sie durch. <a href="#kontakt" style="color:var(--red);font-weight:600;text-decoration:underline" onclick="closeAssessment()">Sprechen Sie uns an.</a></p>
+          </div>
+
+          <!-- EN -->
+          <div id="assessLangEN" style="text-align:left;max-width:560px;margin:0 auto 24px;display:none">
+            <p style="font-size:15px;color:var(--gray-500);line-height:1.7;margin-bottom:12px">In three quick steps, we analyze your current fulfillment process &mdash; and show you where real optimization potential lies. At the end, you&rsquo;ll receive an initial ROI estimate and a concrete pilot proposal.</p>
+            <p style="font-size:13px;color:var(--gray-500);line-height:1.7">Please note: This Quick-Check is a general simulation based on a few key data points &mdash; results serve as guidance, not as a binding analysis. We&rsquo;d be happy to conduct a detailed assessment of your individual optimization and savings potential. <a href="#kontakt" style="color:var(--red);font-weight:600;text-decoration:underline" onclick="closeAssessment()">Get in touch.</a></p>
+          </div>
+
+
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:40px;text-align:center">
+            <div style="padding:20px 12px;background:var(--gray-50);border-radius:12px">
+              <div style="font-family:var(--font-mono);font-size:20px;font-weight:800;color:var(--red);margin-bottom:6px">01</div>
+              <div style="font-size:13px;font-weight:600;color:var(--black);margin-bottom:4px" data-i18n="intro-s1-title">Prozess-Status</div>
+              <div style="font-size:12px;color:var(--gray-500)" data-i18n="intro-s1-sub">Bestellwege &amp; Fehlerquoten</div>
+            </div>
+            <div style="padding:20px 12px;background:var(--gray-50);border-radius:12px">
+              <div style="font-family:var(--font-mono);font-size:20px;font-weight:800;color:var(--red);margin-bottom:6px">02</div>
+              <div style="font-size:13px;font-weight:600;color:var(--black);margin-bottom:4px" data-i18n="intro-s2-title">Mengen-Profile</div>
+              <div style="font-size:12px;color:var(--gray-500)" data-i18n="intro-s2-sub">Volumen &amp; Aufwand</div>
+            </div>
+            <div style="padding:20px 12px;background:var(--gray-50);border-radius:12px">
+              <div style="font-family:var(--font-mono);font-size:20px;font-weight:800;color:var(--red);margin-bottom:6px">03</div>
+              <div style="font-size:13px;font-weight:600;color:var(--black);margin-bottom:4px" data-i18n="intro-s3-title">Hauptziel</div>
+              <div style="font-size:12px;color:var(--gray-500)" data-i18n="intro-s3-sub">Ihre Priorit&auml;t w&auml;hlen</div>
+            </div>
+          </div>
+          <button class="assess-btn-next" style="margin:0 auto" onclick="goStage(1)">Efficiency Potential <span>&rarr;</span></button>
+          <p style="font-family:var(--font-mono);font-size:11px;color:var(--gray-500);letter-spacing:0.04em;margin-top:16px" data-i18n="intro-footer">Dauert ca. 2 Minuten &bull; Keine Anmeldung n&ouml;tig &bull; Kostenlos</p>
+        </div>
+      </div>
+
+      <!-- STAGE 1: Prozess-Status -->
+      <div class="assess-stage" id="stage1">
+        <h2 class="assess-title">Prozess-Status</h2>
+        <p class="assess-subtitle">Wie werden Ihre Werbemittel aktuell bestellt und verwaltet?</p>
+
+        <div class="assess-select-wrap">
+          <label data-i18n="s1-order-label">Prim&auml;rer Bestellweg</label>
+          <div class="assess-options" id="orderMethod">
+            <button class="assess-opt selected" data-value="email" onclick="selectOpt(this,'orderMethod')">Email</button>
+            <button class="assess-opt" data-value="excel" onclick="selectOpt(this,'orderMethod')">Excel</button>
+            <button class="assess-opt" data-value="shop" onclick="selectOpt(this,'orderMethod')">Shop</button>
+            <button class="assess-opt" data-value="erp" onclick="selectOpt(this,'orderMethod')">ERP</button>
+          </div>
+        </div>
+
+        <div class="assess-select-wrap">
+          <label data-i18n="s1-loc-label">Standort-Skalierung</label>
+          <select class="assess-select" id="locations">
+            <option value="1-10">1 &ndash; 10 Standorte</option>
+            <option value="11-50">11 &ndash; 50 Standorte</option>
+            <option value="51-200">51 &ndash; 200 Standorte</option>
+            <option value="200+">200+ Standorte</option>
+          </select>
+        </div>
+
+        <div class="assess-select-wrap">
+          <label data-i18n="s1-error-label">Fehlerrate / Retouren</label>
+          <div class="assess-toggles" id="errorRate">
+            <button class="assess-toggle" data-value="low" data-i18n="s1-err-low" onclick="selectToggle(this,'errorRate')">Gering</button>
+            <button class="assess-toggle selected" data-value="medium" data-i18n="s1-err-med" onclick="selectToggle(this,'errorRate')">Mittel</button>
+            <button class="assess-toggle" data-value="high" data-i18n="s1-err-high" onclick="selectToggle(this,'errorRate')">Hoch</button>
+          </div>
+        </div>
+
+        <div class="assess-check" id="budgetCheck" onclick="toggleCheck(this)">
+          <div class="assess-check__box"><svg viewBox="0 0 12 12"><path d="M10 3L4.5 8.5 2 6"/></svg></div>
+          <span data-i18n="s1-budget">Budgetlimits / Freigaben</span>
+        </div>
+
+        <div class="assess-nav">
+          <div></div>
+          <button class="assess-btn-next" data-i18n="s1-next" onclick="goStage(2)">N&auml;chste Phase <span>&rarr;</span></button>
+        </div>
+      </div>
+
+      <!-- STAGE 2: Mengen-Profile -->
+      <div class="assess-stage" id="stage2">
+        <h2 class="assess-title">Mengen-Profile</h2>
+        <p class="assess-subtitle">Bitte quantifizieren Sie Ihr monatliches Volumen.</p>
+
+        <div class="assess-slider-group">
+          <div class="assess-slider-item">
+            <label><span data-i18n="s2-orders">Orders p.M.</span><span class="assess-val" id="ordersVal">100</span></label>
+            <input type="range" min="10" max="1000" value="100" step="10" id="ordersSlider" oninput="updateSlider('orders')">
+          </div>
+          <div class="assess-slider-item">
+            <label><span data-i18n="s2-skus">Aktive SKUs</span><span class="assess-val" id="skusVal">50</span></label>
+            <input type="range" min="5" max="500" value="50" step="5" id="skusSlider" oninput="updateSlider('skus')">
+          </div>
+          <div class="assess-slider-item">
+            <label><span data-i18n="s2-admin">Admin-Aufwand</span><span class="assess-val" id="adminVal">2d</span></label>
+            <input type="range" min="0" max="20" value="2" step="1" id="adminSlider" oninput="updateSlider('admin')">
+            <div class="assess-slider-hint" data-i18n="s2-hint">Manuelle Bearbeitungstage pro Monat</div>
+          </div>
+          <div class="assess-slider-item">
+            <label><span data-i18n="s2-campaigns">Kampagnen p.A.</span><span class="assess-val" id="campaignsVal">4</span></label>
+            <input type="range" min="0" max="24" value="4" step="1" id="campaignsSlider" oninput="updateSlider('campaigns')">
+          </div>
+        </div>
+
+        <div class="assess-nav">
+          <button class="assess-btn-back" data-i18n="back-1" onclick="goStage(1)">&larr; Zur&uuml;ck</button>
+          <button class="assess-btn-next" data-i18n="s2-next" onclick="goStage(3)">N&auml;chste Phase <span>&rarr;</span></button>
+        </div>
+      </div>
+
+      <!-- STAGE 3: Hauptziel -->
+      <div class="assess-stage" id="stage3">
+        <h2 class="assess-title">Hauptziel</h2>
+        <p class="assess-subtitle">Wo liegt Ihre h&ouml;chste Priorit&auml;t bei der Umstellung?</p>
+
+        <div class="assess-goals" id="goalSelect">
+          <div class="assess-goal" data-value="kosten" onclick="selectGoal(this)">
+            <div class="assess-goal__icon"><svg viewBox="0 0 32 32" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="13"/><path d="M16 7v18"/><path d="M20 11.5c0-1.38-1.79-2.5-4-2.5s-4 1.12-4 2.5 1.79 2.5 4 2.5 4 1.12 4 2.5-1.79 2.5-4 2.5-4-1.12-4-2.5"/></svg></div>
+            <div class="assess-goal__label" data-i18n="goal-kosten">Kosten</div>
+          </div>
+          <div class="assess-goal" data-value="kontrolle" onclick="selectGoal(this)">
+            <div class="assess-goal__icon"><svg viewBox="0 0 32 32" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3L4 8v7c0 7.73 5.12 14.96 12 17 6.88-2.04 12-9.27 12-17V8L16 3z"/><path d="M11 16l3 3 7-7"/></svg></div>
+            <div class="assess-goal__label" data-i18n="goal-kontrolle">Kontrolle</div>
+          </div>
+          <div class="assess-goal" data-value="tempo" onclick="selectGoal(this)">
+            <div class="assess-goal__icon"><svg viewBox="0 0 32 32" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 3L9 18h7l-2 11 10-15h-7L19 3z"/></svg></div>
+            <div class="assess-goal__label" data-i18n="goal-tempo">Tempo</div>
+          </div>
+          <div class="assess-goal selected" data-value="transparenz" onclick="selectGoal(this)">
+            <div class="assess-goal__icon"><svg viewBox="0 0 32 32" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16s5-10 14-10 14 10 14 10-5 10-14 10S2 16 2 16z"/><circle cx="16" cy="16" r="4"/></svg></div>
+            <div class="assess-goal__label" data-i18n="goal-transparenz">Transparenz</div>
+          </div>
+        </div>
+        <div class="assess-goals assess-goals--odd">
+          <div class="assess-goal" data-value="skalierung" onclick="selectGoal(this)">
+            <div class="assess-goal__icon"><svg viewBox="0 0 32 32" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 27L13 13l5 6 9-14"/><path d="M22 5h5v5"/></svg></div>
+            <div class="assess-goal__label" data-i18n="goal-skalierung">Skalierung</div>
+          </div>
+        </div>
+
+        <div class="assess-nav">
+          <button class="assess-btn-back" data-i18n="back-2" onclick="goStage(2)">&larr; Zur&uuml;ck</button>
+          <button class="assess-btn-next" data-i18n="s3-show" onclick="showResults()">Ergebnis anzeigen <span>&rarr;</span></button>
+        </div>
+      </div>
+
+      <!-- LOADING -->
+      <div class="assess-stage" id="stageLoading">
+        <div class="assess-loading">
+          <div class="assess-loading__spinner-wrap">
+            <div class="assess-loading__spinner"></div>
+            <div class="assess-loading__spinner-label">3D</div>
+          </div>
+          <div class="assess-loading__text">Berechne ROI...</div>
+          <div class="assess-loading__sub">Ihre individuelle Roadmap wird erstellt.</div>
+        </div>
+      </div>
+
+      <!-- RESULT DASHBOARD -->
+      <div class="assess-result" id="resultDashboard">
+        <div class="assess-result__hero">
+          <div class="assess-result__hero-label">Efficiency Potential &rarr;</div>
+          <div class="assess-result__score" id="resultScore">60<span>%</span></div>
+          <div class="assess-result__badge" id="resultBadge">Hohes Optimierungspotenzial</div>
+          <div class="assess-result__desc" id="resultDesc">Ihr individueller Fit-Score basiert auf Ihren Angaben.</div>
+        </div>
+
+        <div class="assess-result__grid">
+          <div class="assess-result__card">
+            <div class="assess-result__card-label" data-i18n="result-roi-label">Estimated ROI p.A.</div>
+            <div class="assess-result__card-value" id="resultROI">~960 &euro;</div>
+            <div class="assess-result__card-hint" data-i18n="result-hint">Berechnete Einsparung durch Prozess-Automatisierung.</div>
+          </div>
+          <div class="assess-result__card assess-result__card--analysis">
+            <div class="assess-result__card-label" data-i18n="result-analysis-label">Strategische Analyse</div>
+            <p id="resultAnalysis">Aktuell binden manuelle E-Mail-Prozesse und ein Koordinationsaufwand wertvolle Ressourcen. Mit einem zentralen Portal digitalisieren wir Ihre Abl&auml;ufe und schaffen Transparenz &uuml;ber alle Standorte hinweg.</p>
+            <div class="assess-badge-engine" data-i18n="result-engine">Analysiert von 3DCAY Engine</div>
+          </div>
+        </div>
+
+        <!-- Pilot Vorschlag -->
+        <div class="assess-pilot">
+          <div class="assess-pilot__header">
+            <div>
+              <div class="assess-pilot__label" data-i18n="pilot-label">Ihr Pilot-Vorschlag</div>
+              <div class="assess-pilot__title" id="pilotTitle">3DCAY Growth-Pilot</div>
+            </div>
+            <span class="assess-pilot__phase">Phase 01 Ready</span>
+          </div>
+          <div class="assess-pilot__grid">
+            <div>
+              <div class="assess-result__card-label" style="margin-bottom:12px" data-i18n="pilot-mod-label">Empfohlene Module</div>
+              <ul class="assess-pilot__modules" id="pilotModules">
+                <li>B2B Branding Shop</li>
+                <li>Automatisierte Genehmigungsworkflows</li>
+                <li>Zentrale Budget-Verwaltung</li>
+                <li>Priorisierte Logistik</li>
+              </ul>
+              <div class="assess-pilot__timeline" style="margin-top:16px"><span data-i18n="pilot-timeline-label">Zeitplan</span><span class="assess-pilot__timeline-val" id="pilotTimeline">5&ndash;6 Wochen</span></div>
+            </div>
+            <div>
+              <div class="assess-result__card-label" style="margin-bottom:12px" data-i18n="pilot-tgt-label">Geplante Zielwerte</div>
+              <div class="assess-pilot__targets" id="pilotTargets">
+                <div>
+                  <div class="assess-pilot__target-item"><span>-39% Admin-Aufwand</span><span class="target-tag">TARGET</span></div>
+                  <div class="assess-pilot__target-bar"><div class="assess-pilot__target-bar-fill" style="width:78%"></div></div>
+                </div>
+                <div>
+                  <div class="assess-pilot__target-item"><span>100% SKU-Transparenz</span><span class="target-tag">TARGET</span></div>
+                  <div class="assess-pilot__target-bar"><div class="assess-pilot__target-bar-fill" style="width:100%"></div></div>
+                </div>
+                <div>
+                  <div class="assess-pilot__target-item"><span>Fehlerquote gegen Null</span><span class="target-tag">TARGET</span></div>
+                  <div class="assess-pilot__target-bar"><div class="assess-pilot__target-bar-fill" style="width:90%"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="assess-result__actions">
+          <a href="mailto:info@3DCAY.de?subject=Pilot-Workshop%20buchen%20%E2%80%93%20Quick-Check%20Assessment" class="assess-btn-next" style="flex:1;justify-content:center" data-i18n="result-cta">Pilot-Workshop buchen</a>
+          <button class="assess-btn-outline" data-i18n="result-restart" onclick="resetAssessment()">Check wiederholen</button>
+        </div>
+      </div>
+
+    </div><!-- /assess-body -->
+  </div><!-- /assess-modal -->
+</div><!-- /assess-overlay -->
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)},{passive:true});
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+
+/* ══ LANGUAGE TOGGLE ══ */
+var currentLang='DE';
+var deOriginals={};
+var enSite={
+'.hero__eyebrow':'Synergies of Design &amp; IT',
+'.hero__sub':'3DCAY combines over 20 years of expertise in design, IT development, and fulfillment into one platform. We build scalable B2B solutions &mdash; from media customization to fully automated marketing fulfillment.',
+'.hero__actions .btn--outline-white':'Explore Services <span class="btn__arrow">&rarr;</span>',
+'.clients__label':'Trusted by Leading Companies',
+'.statement__text':'3DCAY manages your marketing materials <em>from concept to delivery</em> &mdash; with one platform combining design, IT, and fulfillment.',
+'.statement__sub':'Consulting. Web-to-Publish. Shop Systems. Marketing Campaigns. Fulfillment. Reporting. All from one source.',
+'#w2p .photo-section__title':'CAY PUBLISH: Real-Time Brand Control.',
+'#w2p .photo-section__text':'Employees create printed materials, menus, and promotional items independently &mdash; always on brand. Over 20 years of experience, combined with intuitive usability.',
+'#w2p .photo-section__features':'<li>Template-Based Editors</li><li>Automatic Brand Compliance</li><li>Gastronomy, Insurance, Retail</li><li>Multi-Tenant &amp; White-Label</li>',
+'#w2p .btn--primary':'Request Demo <span class="btn__arrow">&rarr;</span>',
+'#fulfillment .photo-section__title':'Storage. Picking. Shipping. Complete.',
+'#fulfillment .photo-section__text':'Web-based marketing fulfillment for your entire promotional logistics. From warehousing through assembly to individual shipping &mdash; all via one central portal.',
+'#fulfillment .photo-section__features':'<li>Promotional Logistics with Inventory Management</li><li>Trade Show Logistics &mdash; On Time, Reliable</li><li>On-Demand Production &amp; Personalization</li><li>Live Tracking &amp; Real-Time Reporting</li>',
+'.split-section--gray .label':'Shop &amp; ERP Systems',
+'.split-section--gray .split__title':'B2B Commerce with Depth.',
+'.split-section--gray .split__text':'Custom shop systems with ERP integration, inventory management, and automated ordering processes. Tailored for complex requirements &mdash; not off the shelf.',
+'.split-section--gray .split__list':'<li>Custom Shop Frontends</li><li>ERP/Inventory System Integration</li><li>Automatic Reordering</li><li>Multi-User &amp; Access Management</li>',
+'.split-section--gray .btn--dark':'Request Shop <span class="btn__arrow">&rarr;</span>',
+'.testimonial .label':'Client Voice',
+'.testimonial__quote':'&ldquo;3DCAY digitalized our entire promotional logistics. From a chaotic email process to a centralized portal &mdash; our employees now order independently and brand-safe.&rdquo;',
+'.testimonial__author':'Head of Marketing &mdash; Enterprise Client',
+'#ki > .container > div:first-child .label':'AI-Powered Development &mdash; News from Our AI Lab',
+'#ki .split__title':'Custom AI Solutions. Production-Ready.',
+'#ki > .container > div:first-child .split__text':'We develop custom software combining design expertise with AI and software engineering. No buzzwords &mdash; working systems.',
+'.cap__grid .cap:nth-child(1) .cap__text':'Automatic invoice recognition, validation, and data extraction &mdash; integrated into existing workflows.',
+'.cap__grid .cap:nth-child(2) .cap__text':'AI-powered enforcement of corporate design guidelines. Detect errors before they happen.',
+'.cap__grid .cap:nth-child(3) .cap__text':'Demand forecasting and inventory optimization for your promotional logistics.',
+'.cap__grid .cap:nth-child(4) .cap__text':'Automated approval, ordering, and fulfillment processes. Complete.',
+'.cap__grid .cap:nth-child(5) .cap__title':'Custom Web Apps',
+'.cap__grid .cap:nth-child(5) .cap__text':'Custom portals, cashback systems, client dashboards &mdash; tailored.',
+'.cap__grid .cap:nth-child(6) .cap__title':'GDPR-Compliant',
+'.cap__grid .cap:nth-child(6) .cap__text':'EU hosting. No third-party AI clouds. Maximum data sovereignty.',
+'.metrics__grid > div:nth-child(1) .metric__label':'Years Experience',
+'.metrics__grid > div:nth-child(2) .metric__label':'Shipments / Year',
+'.metrics__grid > div:nth-child(3) .metric__label':'Enterprise Clients',
+'.metrics__grid > div:nth-child(4) .metric__label':'Active AI Modules',
+'#referenzen .ref__tags':'<span class="tag">AI</span><span class="tag">B2B Portal</span><span class="tag">Automation</span>',
+'.ref__title':'AI-Powered Cashback Automation',
+'.ref__text':'For the European wood-based materials manufacturer EGGER, we developed a fully automated cashback portal &mdash; from AI-powered invoice recognition through automatic point calculation to payout. Fully digitized.',
+'.ref__stats > div:nth-child(1) .ref__stat-lbl':'Less Manual Effort',
+'.ref__stats > div:nth-child(2) .ref__stat-lbl':'Invoice Recognition',
+'.ref__stats > div:nth-child(3) .ref__stat-lbl':'Recognition Accuracy',
+'.ref__stats > div:nth-child(4) .ref__stat-lbl':'Automated',
+'#kontakt .label':'Let\'s Talk',
+'.cta__title':'Your Next Project.<br>Our Expertise.',
+'.cta__text':'Web-to-Publish, B2B shop, fulfillment, or AI solution &mdash; tell us about it.',
+'.cta__actions .btn--primary':'Discuss Project <span class="btn__arrow">&rarr;</span>',
+'.footer__brand p':'Synergies of Design &amp; IT. Web-to-Publish, shop systems, fulfillment, and AI-powered development.',
+'.footer__grid > div:nth-child(2) .footer__col-title':'Services',
+'.footer__grid > div:nth-child(2) .footer__links':'<li><a href="#w2p">Web-to-Publish</a></li><li><a href="#fulfillment">Fulfillment</a></li><li><a href="#ki">AI Development</a></li><li><a href="#leistungen">Shop Systems</a></li>',
+'.footer__grid > div:nth-child(3) .footer__col-title':'Company',
+'.footer__grid > div:nth-child(3) .footer__links':'<li><a href="#leistungen">About 3DCAY</a></li><li><a href="#referenzen">References</a></li><li><a href="#ki">Blog / KI-Lab</a></li><li><a href="#kontakt">Contact</a></li>',
+'.footer__grid > div:nth-child(4) .footer__col-title':'Contact',
+'.footer__legal a:first-child':'Privacy Policy',
+'.footer__legal a:last-child':'Legal Notice',
+'.nav__links li:nth-child(1) a':'Services',
+'.nav__links li:nth-child(4) a':'AI Lab',
+'.nav__links li:nth-child(5) a':'References',
+'.nav__cta':'Contact <span class="btn__arrow">&rarr;</span>',
+'#stage1 .assess-title':'Process Status',
+'#stage1 .assess-subtitle':'How are your promotional materials currently ordered and managed?',
+'#stage2 .assess-title':'Volume Profiles',
+'#stage2 .assess-subtitle':'Please quantify your monthly volume.',
+'#stage3 .assess-title':'Primary Goal',
+'#stage3 .assess-subtitle':'What is your highest priority for the transition?',
+'.assess-loading__text':'Calculating ROI...',
+'.assess-loading__sub':'Your individual roadmap is being created.'
+};
+var enI18n={
+'intro-s1-title':'Process Status','intro-s1-sub':'Order Methods &amp; Error Rates',
+'intro-s2-title':'Volume Profiles','intro-s2-sub':'Volume &amp; Effort',
+'intro-s3-title':'Primary Goal','intro-s3-sub':'Choose Your Priority',
+'intro-footer':'Takes about 2 minutes &bull; No registration needed &bull; Free',
+'s1-order-label':'Primary Order Method','s1-loc-label':'Location Scale','s1-error-label':'Error Rate / Returns',
+'s1-err-low':'Low','s1-err-med':'Medium','s1-err-high':'High',
+'s1-budget':'Budget Limits / Approvals',
+'s1-next':'Next Phase <span>&rarr;</span>',
+'s2-orders':'Orders p.M.','s2-skus':'Active SKUs','s2-admin':'Admin Effort','s2-campaigns':'Campaigns p.A.',
+'s2-hint':'Manual processing days per month',
+'back-1':'&larr; Back','s2-next':'Next Phase <span>&rarr;</span>',
+'goal-kosten':'Cost','goal-kontrolle':'Control','goal-tempo':'Speed','goal-transparenz':'Transparency','goal-skalierung':'Scalability',
+'back-2':'&larr; Back','s3-show':'Show Results <span>&rarr;</span>',
+'result-hint':'Calculated savings through process automation.',
+'result-engine':'Analyzed by 3DCAY Engine',
+'pilot-label':'Your Pilot Proposal',
+'pilot-mod-label':'Recommended Modules','pilot-tgt-label':'Planned Targets',
+'pilot-timeline-label':'Timeline',
+'result-cta':'Book Pilot Workshop','result-restart':'Repeat Check',
+'result-roi-label':'Estimated ROI p.A.','result-analysis-label':'Strategic Analysis'
+};
+var enLocOpts={'1-10':'1 &ndash; 10 Locations','11-50':'11 &ndash; 50 Locations','51-200':'51 &ndash; 200 Locations','200+':'200+ Locations'};
+var deLocOpts={};
+function setAssessLang(lang){
+  currentLang=lang;
+  var de=document.getElementById('btnLangDE'),en=document.getElementById('btnLangEN');
+  if(lang==='DE'){de.style.background='var(--red)';de.style.borderColor='var(--red)';de.style.color='var(--white)';en.style.background='var(--white)';en.style.borderColor='var(--gray-200)';en.style.color='var(--gray-500)';}
+  else{en.style.background='var(--red)';en.style.borderColor='var(--red)';en.style.color='var(--white)';de.style.background='var(--white)';de.style.borderColor='var(--gray-200)';de.style.color='var(--gray-500)';}
+  document.getElementById('assessLangDE').style.display=lang==='DE'?'block':'none';
+  document.getElementById('assessLangEN').style.display=lang==='EN'?'block':'none';
+  if(lang==='EN'){
+    Object.keys(enSite).forEach(function(sel){var el=document.querySelector(sel);if(el){if(!deOriginals['s:'+sel])deOriginals['s:'+sel]=el.innerHTML;el.innerHTML=enSite[sel];}});
+  }else{
+    Object.keys(deOriginals).forEach(function(k){if(k.indexOf('s:')===0){var el=document.querySelector(k.substring(2));if(el)el.innerHTML=deOriginals[k];}});
+  }
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(lang==='EN'&&enI18n[k]){if(!deOriginals['i:'+k])deOriginals['i:'+k]=el.innerHTML;el.innerHTML=enI18n[k];}
+    else if(lang==='DE'&&deOriginals['i:'+k]){el.innerHTML=deOriginals['i:'+k];}
+  });
+  var locSel=document.getElementById('locations');
+  if(locSel){if(lang==='EN'){Array.from(locSel.options).forEach(function(o){if(!deLocOpts[o.value])deLocOpts[o.value]=o.innerHTML;if(enLocOpts[o.value])o.innerHTML=enLocOpts[o.value];});}else{Array.from(locSel.options).forEach(function(o){if(deLocOpts[o.value])o.innerHTML=deLocOpts[o.value];});}}
+  document.documentElement.lang=lang==='DE'?'de':'en';
+  if(document.getElementById('resultDashboard').classList.contains('active'))calculateResults();
+}
+
+/* ══ ASSESSMENT ENGINE ══ */
+let currentStage=1;
+const overlay=document.getElementById('assessOverlay');
+
+function openAssessment(){
+  overlay.classList.add('active');
+  document.body.style.overflow='hidden';
+  document.getElementById('assessProgress').style.display='none';
+  document.getElementById('assessStageLabel').style.display='none';
+}
+function closeAssessment(){
+  overlay.classList.remove('active');
+  document.body.style.overflow='';
+}
+overlay.addEventListener('click',function(e){if(e.target===overlay)closeAssessment()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('active'))closeAssessment()});
+
+function goStage(n){
+  currentStage=n;
+  document.querySelectorAll('.assess-stage').forEach(s=>s.classList.remove('active'));
+  document.getElementById('stageIntro').classList.remove('active');
+  const target=document.getElementById('stage'+n);
+  if(target)target.classList.add('active');
+  document.getElementById('assessProgress').style.display='flex';
+  document.getElementById('assessStageLabel').style.display='block';
+  const bars=document.querySelectorAll('.assess-progress__bar');
+  bars.forEach((b,i)=>b.classList.toggle('active',i<n));
+  document.getElementById('assessStageLabel').textContent='Stage '+n+' / 3';
+  document.querySelector('.assess-modal').scrollTop=0;
+}
+
+function selectOpt(el,groupId){
+  document.querySelectorAll('#'+groupId+' .assess-opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function selectToggle(el,groupId){
+  document.querySelectorAll('#'+groupId+' .assess-toggle').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function toggleCheck(el){
+  el.classList.toggle('checked');
+}
+function selectGoal(el){
+  document.querySelectorAll('.assess-goal').forEach(g=>g.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function updateSlider(type){
+  const map={orders:{slider:'ordersSlider',val:'ordersVal',suffix:''},skus:{slider:'skusSlider',val:'skusVal',suffix:''},admin:{slider:'adminSlider',val:'adminVal',suffix:'d'},campaigns:{slider:'campaignsSlider',val:'campaignsVal',suffix:''}};
+  const cfg=map[type];
+  document.getElementById(cfg.val).textContent=document.getElementById(cfg.slider).value+cfg.suffix;
+}
+
+function showResults(){
+  document.querySelectorAll('.assess-stage').forEach(s=>s.classList.remove('active'));
+  document.getElementById('stageLoading').classList.add('active');
+  document.getElementById('resultDashboard').classList.remove('active');
+  document.getElementById('assessProgress').style.display='none';
+  document.getElementById('assessStageLabel').style.display='none';
+  document.querySelector('.assess-modal').scrollTop=0;
+
+  setTimeout(function(){
+    calculateResults();
+    document.getElementById('stageLoading').classList.remove('active');
+    document.getElementById('resultDashboard').classList.add('active');
+    document.querySelector('.assess-modal').scrollTop=0;
+  },2500);
+}
+
+function calculateResults(){
+  var T=currentLang==='EN';
+  var orders=parseInt(document.getElementById('ordersSlider').value);
+  var skus=parseInt(document.getElementById('skusSlider').value);
+  var admin=parseInt(document.getElementById('adminSlider').value);
+  var campaigns=parseInt(document.getElementById('campaignsSlider').value);
+  var method=document.querySelector('#orderMethod .assess-opt.selected');
+  var methodVal=method?method.dataset.value:'email';
+  var errorEl=document.querySelector('#errorRate .assess-toggle.selected');
+  var errorVal=errorEl?errorEl.dataset.value:'medium';
+  var hasBudget=document.getElementById('budgetCheck').classList.contains('checked');
+  var goalEl=document.querySelector('.assess-goal.selected');
+  var goalVal=goalEl?goalEl.dataset.value:'transparenz';
+  var loc=document.getElementById('locations').value;
+  var score=30;
+  if(methodVal==='email')score+=20;else if(methodVal==='excel')score+=15;else if(methodVal==='shop')score+=5;
+  if(errorVal==='high')score+=15;else if(errorVal==='medium')score+=8;
+  if(admin>=5)score+=10;else if(admin>=2)score+=5;
+  if(orders>=200)score+=8;else if(orders>=50)score+=4;
+  if(loc==='51-200'||loc==='200+')score+=7;
+  if(hasBudget)score+=5;
+  score=Math.min(score,95);
+  var dailyCost=40;
+  var roi=Math.round(admin*dailyCost*12*(score/100)*0.8);
+  var adminReduction=Math.round(score*0.65);
+  document.getElementById('resultScore').innerHTML=score+'<span>%</span>';
+  document.getElementById('resultROI').textContent='~'+roi.toLocaleString(T?'en-US':'de-DE')+' \u20AC';
+  var badge,badgeTxt;
+  if(T){badge='Solid Potential';badgeTxt='Your system offers room for targeted optimizations.';if(score>=70){badge='High Optimization Potential';badgeTxt='Your individual Fit Score shows significant optimization potential.';}if(score>=85){badge='Maximum Potential';badgeTxt='Your processes are ideal for full digitalization.';}}
+  else{badge='Solides Potenzial';badgeTxt='Ihr System bietet Raum f\u00fcr gezielte Optimierungen.';if(score>=70){badge='Hohes Optimierungspotenzial';badgeTxt='Ihr individueller Fit-Score zeigt deutliches Optimierungspotenzial.';}if(score>=85){badge='Maximales Potenzial';badgeTxt='Ihre Prozesse sind ideal f\u00fcr eine vollst\u00e4ndige Digitalisierung.';}}
+  document.getElementById('resultBadge').textContent=badge;
+  document.getElementById('resultDesc').textContent=badgeTxt+(T?' Based on '+orders+' monthly orders and '+loc.replace('-',' \u2013 ')+' locations.':' Basierend auf '+orders+' monatlichen Orders und '+loc.replace('-',' \u2013 ')+' Standorten.');
+  var goalTexts;
+  if(T){goalTexts={kosten:'Cost reduction is the focus. Through automation and centralization, manual effort days can be drastically reduced.',kontrolle:'More control over ordering processes and approvals. A central portal with access management provides full oversight.',tempo:'Faster turnaround times from order to delivery. Automated workflows eliminate bottlenecks.',transparenz:'Full transparency on inventory, order status, and costs across all locations \u2014 in real time.',skalierung:'Scalable infrastructure for growing demands. More locations, more SKUs \u2014 without proportional effort increase.'};}
+  else{goalTexts={kosten:'Kostenreduktion steht im Fokus. Durch Automatisierung und Zentralisierung k\u00f6nnen manuelle Aufwandstage drastisch gesenkt werden.',kontrolle:'Mehr Kontrolle \u00fcber Bestellprozesse und Freigaben. Ein zentrales Portal mit Rechtemanagement schafft volle \u00dcbersicht.',tempo:'Schnellere Durchlaufzeiten von der Bestellung bis zur Auslieferung. Automatisierte Workflows eliminieren Warteschleifen.',transparenz:'Volle Transparenz \u00fcber Lagerbestand, Bestellstatus und Kosten \u00fcber alle Standorte hinweg \u2014 in Echtzeit.',skalierung:'Skalierbare Infrastruktur f\u00fcr wachsende Anforderungen. Mehr Standorte, mehr SKUs \u2014 ohne proportionalen Aufwandszuwachs.'};}
+  var mLabel=T?(methodVal==='email'?'manual email processes':'spreadsheet-based processes'):(methodVal==='email'?'manuelle E-Mail-Prozesse':'tabellenbasierte Prozesse');
+  document.getElementById('resultAnalysis').textContent=(T?'Currently, '+mLabel+' and a coordination effort of '+admin+' days per month tie up valuable resources. ':'Aktuell binden '+mLabel+' und ein Koordinationsaufwand von '+admin+' Tagen pro Monat wertvolle Ressourcen. ')+(goalTexts[goalVal]||goalTexts.transparenz)+(T?' 3DCAY addresses exactly this.':' 3DCAY setzt genau hier an.');
+  var pilots;
+  if(T){pilots={kosten:{name:'3DCAY Cost-Pilot',modules:['Automated Ordering','Cost Center Management','Budget Monitoring','Savings Reporting']},kontrolle:{name:'3DCAY Control-Pilot',modules:['Approval Workflows','Roles & Access Management','Audit Trail','Compliance Dashboard']},tempo:{name:'3DCAY Speed-Pilot',modules:['Express Fulfillment','Workflow Automation','Push Notifications','SLA Monitoring']},transparenz:{name:'3DCAY Growth-Pilot',modules:['B2B Branding Shop','Automated Approval Workflows','Central Budget Management','Prioritized Logistics']},skalierung:{name:'3DCAY Scale-Pilot',modules:['Multi-Location Portal','Multi-Tenancy','API Integration','Inventory Optimization']}};}
+  else{pilots={kosten:{name:'3DCAY Cost-Pilot',modules:['Automatisierte Bestellprozesse','Kostenstellen-Management','Budget-Monitoring','Einsparungs-Reporting']},kontrolle:{name:'3DCAY Control-Pilot',modules:['Genehmigungs-Workflows','Rollen & Rechtemanagement','Audit-Trail','Compliance-Dashboard']},tempo:{name:'3DCAY Speed-Pilot',modules:['Express-Fulfillment','Workflow-Automatisierung','Push-Benachrichtigungen','SLA-Monitoring']},transparenz:{name:'3DCAY Growth-Pilot',modules:['B2B Branding Shop','Automatisierte Genehmigungsworkflows','Zentrale Budget-Verwaltung','Priorisierte Logistik']},skalierung:{name:'3DCAY Scale-Pilot',modules:['Multi-Standort-Portal','Mandantenf\u00e4higkeit','API-Integration','Bestandsoptimierung']}};}
+  var pilot=pilots[goalVal]||pilots.transparenz;
+  document.getElementById('pilotTitle').textContent=pilot.name;
+  document.getElementById('pilotModules').innerHTML=pilot.modules.map(function(m){return '<li>'+m+'</li>'}).join('');
+  var aLbl=T?'Admin Effort':'Admin-Aufwand',sLbl=T?'SKU Transparency':'SKU-Transparenz',eLbl=T?'Error rate approaching zero':'Fehlerquote gegen Null';
+  document.getElementById('pilotTargets').innerHTML='<div><div class="assess-pilot__target-item"><span>-'+adminReduction+'% '+aLbl+'</span><span class="target-tag">TARGET</span></div><div class="assess-pilot__target-bar"><div class="assess-pilot__target-bar-fill" style="width:'+Math.min(adminReduction*1.3,100)+'%"></div></div></div><div><div class="assess-pilot__target-item"><span>100% '+sLbl+'</span><span class="target-tag">TARGET</span></div><div class="assess-pilot__target-bar"><div class="assess-pilot__target-bar-fill" style="width:100%"></div></div></div><div><div class="assess-pilot__target-item"><span>'+eLbl+'</span><span class="target-tag">TARGET</span></div><div class="assess-pilot__target-bar"><div class="assess-pilot__target-bar-fill" style="width:'+(score>70?95:80)+'%"></div></div></div>';
+  var weeks=T?(score>=80?'4\u20135 Weeks':(score>=60?'5\u20136 Weeks':'6\u20138 Weeks')):(score>=80?'4\u20135 Wochen':(score>=60?'5\u20136 Wochen':'6\u20138 Wochen'));
+  document.getElementById('pilotTimeline').textContent=weeks;
+}
+
+function resetAssessment(){
+  currentStage=1;
+  document.querySelectorAll('.assess-stage').forEach(s=>s.classList.remove('active'));
+  document.getElementById('stageIntro').classList.add('active');
+  document.getElementById('resultDashboard').classList.remove('active');
+  document.getElementById('assessProgress').style.display='none';
+  document.getElementById('assessStageLabel').style.display='none';
+  document.querySelector('.assess-modal').scrollTop=0;
+}
+
+/* ══ DEMO MODAL ══ */
+function openDemo(){var o=document.getElementById('demoOverlay');o.classList.add('active');document.body.style.overflow='hidden';}
+function closeDemo(){var o=document.getElementById('demoOverlay');o.classList.remove('active');document.body.style.overflow='';}
+
+window.addEventListener('DOMContentLoaded',function(){
+  var demoOverlay=document.getElementById('demoOverlay');
+  if(demoOverlay){demoOverlay.addEventListener('click',function(e){if(e.target===demoOverlay)closeDemo()});}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var o=document.getElementById('demoOverlay');if(o&&o.classList.contains('active'))closeDemo();}});
+
+  // ── Demo Form Validation ──
+  var demoForm=document.getElementById('demoForm');
+  if(demoForm){
+    var demoFields=[
+      {id:'demoVorname',   msg:'Bitte Vorname eingeben.'},
+      {id:'demoNachname',  msg:'Bitte Nachname eingeben.'},
+      {id:'demoUnternehmen',msg:'Bitte Unternehmen eingeben.'},
+      {id:'demoEmail',     msg:'Bitte gültige E-Mail-Adresse eingeben.'}
+    ];
+    demoFields.forEach(function(f){
+      var el=document.getElementById(f.id);
+      if(el){el.addEventListener('input',function(){
+        this.classList.remove('demo-form__input--error');
+        var m=document.getElementById('err-'+this.id);
+        if(m)m.classList.remove('visible');
+      });}
+    });
+    demoForm.addEventListener('submit',function(e){
+      e.preventDefault();
+      var valid=true;var firstInvalid=null;
+      demoFields.forEach(function(f){
+        var el=document.getElementById(f.id);
+        var m=document.getElementById('err-'+f.id);
+        if(!el)return;
+        var val=el.value.trim();
+        var ok=val!=='';
+        if(f.id==='demoEmail')ok=val!==''&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+        if(!ok){
+          el.classList.add('demo-form__input--error');
+          if(m){m.textContent=f.msg;m.classList.add('visible');}
+          valid=false;if(!firstInvalid)firstInvalid=el;
+        }
+      });
+      if(!valid){if(firstInvalid)firstInvalid.focus();return;}
+      var fd=new FormData(this);
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()})
+      .then(function(){document.getElementById('demoFormContent').style.display='none';document.getElementById('demoSuccess').style.display='block';})
+      .catch(function(){alert('Fehler beim Senden. Bitte versuchen Sie es erneut.');});
+    });
+  }
+
+  // ── Newsletter Form Validation ──
+  var nlForm=document.getElementById('newsletterForm');
+  if(nlForm){
+    var nlInput=document.getElementById('newsletterEmail');
+    var nlErr=document.getElementById('err-newsletter');
+    if(nlInput){nlInput.addEventListener('input',function(){
+      this.classList.remove('newsletter__input--error');
+      if(nlErr)nlErr.classList.remove('visible');
+    });}
+    nlForm.addEventListener('submit',function(e){
+      e.preventDefault();
+      var val=nlInput?nlInput.value.trim():'';
+      var ok=val!==''&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+      if(!ok){
+        if(nlInput)nlInput.classList.add('newsletter__input--error');
+        if(nlErr){nlErr.textContent='Bitte gültige E-Mail-Adresse eingeben.';nlErr.classList.add('visible');}
+        if(nlInput)nlInput.focus();
+        return;
+      }
+      var fd=new FormData(this);
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()})
+      .then(function(){document.getElementById('newsletterForm').style.display='none';document.getElementById('newsletterSuccess').style.display='block';})
+      .catch(function(){alert('Fehler beim Senden. Bitte versuchen Sie es erneut.');});
+    });
+  }
+});
+</script>
+
+<!-- DEMO REQUEST MODAL -->
+<div class="demo-overlay" id="demoOverlay">
+  <div class="demo-modal">
+    <button class="demo-modal__close" onclick="closeDemo()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <div id="demoFormContent">
+      <span class="demo-modal__badge">Demo anfragen</span>
+      <h2 class="demo-modal__title">Sehen Sie 3DCAY in Aktion.</h2>
+      <p class="demo-modal__sub">Wir zeigen Ihnen in 30 Minuten, wie unsere Plattform Ihre Marketing-Prozesse transformiert &mdash; zugeschnitten auf Ihren Use Case.</p>
+      <form name="demo-request" method="POST" data-netlify="true" id="demoForm">
+        <input type="hidden" name="form-name" value="demo-request">
+        <div class="demo-form__row">
+          <div class="demo-form__group">
+            <label for="demoVorname" class="demo-form__label">Vorname *</label>
+            <input type="text" name="vorname" id="demoVorname" class="demo-form__input" required aria-describedby="err-demoVorname">
+            <span class="demo-form__error-msg" id="err-demoVorname" role="alert"></span>
+          </div>
+          <div class="demo-form__group">
+            <label for="demoNachname" class="demo-form__label">Nachname *</label>
+            <input type="text" name="nachname" id="demoNachname" class="demo-form__input" required aria-describedby="err-demoNachname">
+            <span class="demo-form__error-msg" id="err-demoNachname" role="alert"></span>
+          </div>
+        </div>
+        <div class="demo-form__group">
+          <label for="demoUnternehmen" class="demo-form__label">Unternehmen *</label>
+          <input type="text" name="unternehmen" id="demoUnternehmen" class="demo-form__input" required aria-describedby="err-demoUnternehmen">
+          <span class="demo-form__error-msg" id="err-demoUnternehmen" role="alert"></span>
+        </div>
+        <div class="demo-form__group">
+          <label for="demoEmail" class="demo-form__label">E-Mail *</label>
+          <input type="email" name="email" id="demoEmail" class="demo-form__input" required aria-describedby="err-demoEmail">
+          <span class="demo-form__error-msg" id="err-demoEmail" role="alert"></span>
+        </div>
+        <div class="demo-form__row">
+          <div class="demo-form__group">
+            <label for="demoTelefon" class="demo-form__label">Telefon</label>
+            <input type="tel" name="telefon" id="demoTelefon" class="demo-form__input">
+          </div>
+          <div class="demo-form__group">
+            <label for="demoInteresse" class="demo-form__label">Interesse</label>
+            <select name="interesse" id="demoInteresse" class="demo-form__select">
+              <option value="">Bitte w&auml;hlen</option>
+              <option value="Web-to-Publish">Web-to-Publish</option>
+              <option value="B2B Shop">B2B Shop &amp; ERP</option>
+              <option value="Fulfillment">Marketing Fulfillment</option>
+              <option value="KI-Entwicklung">KI-Entwicklung</option>
+              <option value="Alles">Gesamtl&ouml;sung</option>
+            </select>
+          </div>
+        </div>
+        <div class="demo-form__group">
+          <label for="demoNachricht" class="demo-form__label">Ihre Nachricht</label>
+          <textarea name="nachricht" id="demoNachricht" class="demo-form__textarea" placeholder="Beschreiben Sie kurz Ihren aktuellen Prozess oder Ihr Anliegen..."></textarea>
+        </div>
+        <button type="submit" class="demo-form__submit">Demo vereinbaren &rarr;</button>
+        <p class="demo-form__footer">Antwort innerhalb von 24 Stunden. Keine Verpflichtung.</p>
+      </form>
+    </div>
+    <div class="demo-success" id="demoSuccess">
+      <div class="demo-success__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h3 class="demo-success__title">Anfrage erhalten!</h3>
+      <p class="demo-success__text">Vielen Dank f&uuml;r Ihr Interesse. Wir melden uns innerhalb von 24 Stunden bei Ihnen, um einen passenden Termin zu finden.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ COOKIE-BANNER (DSGVO) ═══ -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#171717;color:#fff;padding:20px 24px;box-shadow:0 -4px 24px rgba(0,0,0,0.2);font-size:14px;line-height:1.6">
+  <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+    <p style="flex:1;min-width:280px;margin:0">Diese Website verwendet Cookies, um Ihnen die bestm&ouml;gliche Nutzung zu erm&ouml;glichen. Weitere Informationen finden Sie in unserer <a href="datenschutz.html" style="color:#e3101a;text-decoration:underline">Datenschutzerkl&auml;rung</a>.</p>
+    <div style="display:flex;gap:10px;flex-shrink:0">
+      <button onclick="setCookieConsent('essential')" style="padding:10px 20px;border-radius:100px;font-size:14px;font-weight:500;background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);cursor:pointer">Nur Essenzielle</button>
+      <button onclick="setCookieConsent('all')" style="padding:10px 20px;border-radius:100px;font-size:14px;font-weight:600;background:#e3101a;color:#fff;border:none;cursor:pointer">Alle akzeptieren</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  if(!localStorage.getItem('cookie_consent')){
+    document.getElementById('cookieBanner').style.display='block';
+  }
+})();
+function setCookieConsent(level){
+  localStorage.setItem('cookie_consent',level);
+  localStorage.setItem('cookie_consent_date',new Date().toISOString());
+  document.getElementById('cookieBanner').style.display='none';
+}
+</script>
+</body>
+</html>
