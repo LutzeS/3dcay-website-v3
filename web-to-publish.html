@@ -739,10 +739,11 @@
         }
         .w2p-anim.visible { opacity: 1; }
         .w2p-anim svg {
-            width: 100%;
-            max-width: 300px;
+            width: 75%;
+            max-width: 320px;
             height: auto;
-            filter: drop-shadow(0 4px 24px rgba(0,0,0,0.15));
+            margin: 0 auto;
+            display: block;
         }
         .w2p-anim .draw {
             fill: none;
@@ -1258,52 +1259,133 @@
                     <!-- Right: SVG Animation -->
                     <div class="case-study-visual">
                         <div class="w2p-anim reveal">
-                            <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Menu Board outer frame -->
-                                <rect class="draw d1" x="20" y="10" width="260" height="380" rx="8" style="--len:1300"></rect>
-                                <!-- Header bar -->
-                                <line class="draw d1" x1="20" y1="56" x2="280" y2="56" style="--len:260"></line>
-                                <!-- Title text lines -->
-                                <line class="draw-thin d2" x1="40" y1="30" x2="160" y2="30" style="--len:120"></line>
-                                <line class="draw-thin d2" x1="40" y1="44" x2="120" y2="44" style="--len:80"></line>
-                                <!-- Restaurant name accent -->
-                                <line class="draw-accent d2" x1="200" y1="34" x2="260" y2="34" style="--len:60"></line>
-                                <!-- Food image placeholder -->
-                                <rect class="draw d3" x="36" y="72" width="130" height="100" rx="6" style="--len:460"></rect>
-                                <!-- Food image icon (plate + steam) -->
-                                <ellipse class="draw-thin d4" cx="101" cy="138" rx="36" ry="12" style="--len:150"></ellipse>
-                                <path class="draw-thin d4" d="M82 118 Q86 108 90 118" style="--len:30"></path>
-                                <path class="draw-thin d4" d="M97 114 Q101 104 105 114" style="--len:30"></path>
-                                <path class="draw-thin d4" d="M112 118 Q116 108 120 118" style="--len:30"></path>
-                                <!-- Drink icon -->
-                                <rect class="draw d5" x="186" y="72" width="78" height="100" rx="6" style="--len:356"></rect>
-                                <rect class="draw-thin d5" x="208" y="90" width="34" height="64" rx="4" style="--len:196"></rect>
-                                <line class="draw-thin d6" x1="218" y1="82" x2="218" y2="90" style="--len:8"></line>
-                                <rect class="draw-accent d6" x="220" y="108" width="10" height="8" rx="1" style="--len:36"></rect>
-                                <!-- Drink label -->
-                                <line class="draw-thin d6" x1="186" y1="184" x2="250" y2="184" style="--len:64"></line>
-                                <!-- BUNDLE banner -->
-                                <rect class="draw-accent d7" x="36" y="214" width="228" height="40" rx="6" style="--len:536"></rect>
-                                <!-- Bundle text lines -->
-                                <line class="draw d8" x1="56" y1="230" x2="140" y2="230" style="--len:84"></line>
-                                <line class="draw-accent d8" x1="180" y1="230" x2="244" y2="230" style="--len:64"></line>
-                                <!-- Euro price -->
-                                <text class="fade-in d8" x="192" y="244" font-family="var(--font-mono)" font-size="16" font-weight="700" fill="rgba(227,16,26,0.5)" letter-spacing="0.04em">12,90 €</text>
-                                <!-- Additional items section -->
-                                <line class="draw-thin d9" x1="36" y1="274" x2="264" y2="274" style="--len:228"></line>
-                                <!-- Item row 1 -->
-                                <rect class="draw-thin d9" x="36" y="286" width="32" height="24" rx="4" style="--len:112"></rect>
-                                <line class="draw-thin d9" x1="78" y1="294" x2="170" y2="294" style="--len:92"></line>
-                                <line class="draw-thin d9" x1="78" y1="306" x2="140" y2="306" style="--len:62"></line>
-                                <line class="draw-accent d9" x1="220" y1="298" x2="264" y2="298" style="--len:44"></line>
-                                <!-- Item row 2 -->
-                                <rect class="draw-thin d10" x="36" y="322" width="32" height="24" rx="4" style="--len:112"></rect>
-                                <line class="draw-thin d10" x1="78" y1="330" x2="160" y2="330" style="--len:82"></line>
-                                <line class="draw-thin d10" x1="78" y1="342" x2="130" y2="342" style="--len:52"></line>
-                                <line class="draw-accent d10" x1="220" y1="334" x2="264" y2="334" style="--len:44"></line>
-                                <!-- Footer bar -->
-                                <line class="draw-thin d10" x1="36" y1="366" x2="264" y2="366" style="--len:228"></line>
-                                <line class="draw-thin d10" x1="100" y1="378" x2="200" y2="378" style="--len:100"></line>
+                            <svg viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <filter id="stepShadow">
+                                        <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#e3101a" flood-opacity="0.12"/>
+                                    </filter>
+                                </defs>
+
+                                <!-- STEP 1: Design-Vorlagen auswählen -->
+                                <g class="fade-in d1">
+                                    <!-- Step number -->
+                                    <circle cx="28" cy="38" r="16" fill="#e3101a"/>
+                                    <text x="28" y="43" text-anchor="middle" fill="#fff" font-family="'Inter', sans-serif" font-size="13" font-weight="700">1</text>
+                                    <text x="54" y="35" fill="#0A0A0A" font-family="'Inter', sans-serif" font-size="11" font-weight="700">Design-Vorlage</text>
+                                    <text x="54" y="48" fill="#737373" font-family="'Inter', sans-serif" font-size="9">Hintergrund auswählen</text>
+                                </g>
+                                <!-- Template cards -->
+                                <g class="fade-in d2">
+                                    <rect x="16" y="62" width="82" height="52" rx="6" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.2" filter="url(#stepShadow)"/>
+                                    <rect x="20" y="66" width="74" height="30" rx="3" fill="#f5f0eb"/>
+                                    <line x1="30" y1="103" x2="76" y2="103" stroke="#ccc" stroke-width="1.2" stroke-linecap="round"/>
+                                </g>
+                                <g class="fade-in d2">
+                                    <rect x="109" y="62" width="82" height="52" rx="6" fill="#ffffff" stroke="#e3101a" stroke-width="2" filter="url(#stepShadow)"/>
+                                    <rect x="113" y="66" width="74" height="30" rx="3" fill="#1a1a2e"/>
+                                    <line x1="123" y1="103" x2="169" y2="103" stroke="#ccc" stroke-width="1.2" stroke-linecap="round"/>
+                                    <circle cx="183" cy="80" r="6" fill="none" stroke="#e3101a" stroke-width="1.5"/>
+                                    <polyline points="179,80 182,83 188,77" fill="none" stroke="#e3101a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <g class="fade-in d2">
+                                    <rect x="202" y="62" width="82" height="52" rx="6" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.2" filter="url(#stepShadow)"/>
+                                    <rect x="206" y="66" width="74" height="30" rx="3" fill="#e8f0e8"/>
+                                    <line x1="216" y1="103" x2="262" y2="103" stroke="#ccc" stroke-width="1.2" stroke-linecap="round"/>
+                                </g>
+
+                                <!-- Connector line 1→2 -->
+                                <line class="draw d3" x1="150" y1="118" x2="150" y2="142" stroke="#e3101a" stroke-width="1.5" stroke-dasharray="4,3" style="--len:24"/>
+
+                                <!-- STEP 2: Speisen & Getränke hinzufügen -->
+                                <g class="fade-in d3">
+                                    <circle cx="28" cy="158" r="16" fill="#e3101a"/>
+                                    <text x="28" y="163" text-anchor="middle" fill="#fff" font-family="'Inter', sans-serif" font-size="13" font-weight="700">2</text>
+                                    <text x="54" y="155" fill="#0A0A0A" font-family="'Inter', sans-serif" font-size="11" font-weight="700">Speisen & Getränke</text>
+                                    <text x="54" y="168" fill="#737373" font-family="'Inter', sans-serif" font-size="9">Produkte des Partners einfügen</text>
+                                </g>
+                                <!-- Food items with icons -->
+                                <g class="fade-in d4">
+                                    <rect x="16" y="180" width="130" height="56" rx="6" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.2" filter="url(#stepShadow)"/>
+                                    <!-- Plate icon -->
+                                    <ellipse cx="44" cy="210" rx="14" ry="6" fill="none" stroke="#e3101a" stroke-width="1.2"/>
+                                    <path d="M36 204 Q38 198 40 204" fill="none" stroke="#ccc" stroke-width="1" stroke-linecap="round"/>
+                                    <path d="M43 202 Q45 196 47 202" fill="none" stroke="#ccc" stroke-width="1" stroke-linecap="round"/>
+                                    <text x="68" y="203" fill="#0A0A0A" font-family="'Inter', sans-serif" font-size="9" font-weight="600">Burger Menü</text>
+                                    <text x="68" y="216" fill="#737373" font-family="'Inter', sans-serif" font-size="8">+ Pommes, Getränk</text>
+                                </g>
+                                <g class="fade-in d4">
+                                    <rect x="156" y="180" width="130" height="56" rx="6" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.2" filter="url(#stepShadow)"/>
+                                    <!-- Drink icon -->
+                                    <rect x="170" y="196" width="16" height="24" rx="3" fill="none" stroke="#e3101a" stroke-width="1.2"/>
+                                    <line x1="176" y1="192" x2="176" y2="196" stroke="#e3101a" stroke-width="1.2" stroke-linecap="round"/>
+                                    <text x="196" y="203" fill="#0A0A0A" font-family="'Inter', sans-serif" font-size="9" font-weight="600">Cola 0,5l</text>
+                                    <text x="196" y="216" fill="#737373" font-family="'Inter', sans-serif" font-size="8">Softdrink</text>
+                                </g>
+
+                                <!-- Connector line 2→3 -->
+                                <line class="draw d5" x1="150" y1="240" x2="150" y2="264" stroke="#e3101a" stroke-width="1.5" stroke-dasharray="4,3" style="--len:24"/>
+
+                                <!-- STEP 3: Preise eingeben -->
+                                <g class="fade-in d5">
+                                    <circle cx="28" cy="280" r="16" fill="#e3101a"/>
+                                    <text x="28" y="285" text-anchor="middle" fill="#fff" font-family="'Inter', sans-serif" font-size="13" font-weight="700">3</text>
+                                    <text x="54" y="277" fill="#0A0A0A" font-family="'Inter', sans-serif" font-size="11" font-weight="700">Preise eingeben</text>
+                                    <text x="54" y="290" fill="#737373" font-family="'Inter', sans-serif" font-size="9">Aktuelle lokale Preise setzen</text>
+                                </g>
+                                <!-- Price input fields -->
+                                <g class="fade-in d6">
+                                    <rect x="16" y="302" width="268" height="44" rx="6" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.2" filter="url(#stepShadow)"/>
+                                    <text x="30" y="320" fill="#737373" font-family="'Inter', sans-serif" font-size="9">Burger Menü</text>
+                                    <rect x="140" y="310" width="60" height="22" rx="4" fill="#fafafa" stroke="#e5e5e5" stroke-width="1"/>
+                                    <text x="158" y="325" text-anchor="middle" fill="#e3101a" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">12,90</text>
+                                    <text x="208" y="325" fill="#737373" font-family="'Inter', sans-serif" font-size="11">€</text>
+                                    <text x="232" y="320" fill="#737373" font-family="'Inter', sans-serif" font-size="9">Cola 0,5l</text>
+                                    <text x="268" y="336" text-anchor="middle" fill="#e3101a" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600">2,50 €</text>
+                                </g>
+
+                                <!-- Connector line 3→4 -->
+                                <line class="draw d7" x1="150" y1="350" x2="150" y2="374" stroke="#e3101a" stroke-width="1.5" stroke-dasharray="4,3" style="--len:24"/>
+
+                                <!-- STEP 4: Logo hochladen -->
+                                <g class="fade-in d7">
+                                    <circle cx="28" cy="390" r="16" fill="#e3101a"/>
+                                    <text x="28" y="395" text-anchor="middle" fill="#fff" font-family="'Inter', sans-serif" font-size="13" font-weight="700">4</text>
+                                    <text x="54" y="387" fill="#0A0A0A" font-family="'Inter', sans-serif" font-size="11" font-weight="700">Partner-Logo</text>
+                                    <text x="54" y="400" fill="#737373" font-family="'Inter', sans-serif" font-size="9">Hochladen & positionieren</text>
+                                </g>
+                                <!-- Upload area -->
+                                <g class="fade-in d8">
+                                    <rect x="16" y="412" width="268" height="52" rx="6" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.2" stroke-dasharray="6,3" filter="url(#stepShadow)"/>
+                                    <!-- Upload icon -->
+                                    <line x1="150" y1="424" x2="150" y2="440" stroke="#e3101a" stroke-width="1.5" stroke-linecap="round"/>
+                                    <polyline points="144,430 150,424 156,430" fill="none" stroke="#e3101a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <text x="150" y="454" text-anchor="middle" fill="#999" font-family="'Inter', sans-serif" font-size="8">logo_restaurant.png hochgeladen</text>
+                                </g>
+
+                                <!-- Connector line 4→5 -->
+                                <line class="draw d9" x1="150" y1="468" x2="150" y2="492" stroke="#e3101a" stroke-width="1.5" stroke-dasharray="4,3" style="--len:24"/>
+
+                                <!-- STEP 5: Fertige POS-Materialien -->
+                                <g class="fade-in d9">
+                                    <circle cx="28" cy="508" r="16" fill="#e3101a"/>
+                                    <text x="28" y="513" text-anchor="middle" fill="#fff" font-family="'Inter', sans-serif" font-size="13" font-weight="700">5</text>
+                                    <text x="54" y="505" fill="#0A0A0A" font-family="'Inter', sans-serif" font-size="11" font-weight="700">Fertig in Minuten</text>
+                                    <text x="54" y="518" fill="#737373" font-family="'Inter', sans-serif" font-size="9">POS-Material direkt bestellen</text>
+                                </g>
+                                <!-- Result preview card -->
+                                <g class="fade-in d10">
+                                    <rect x="36" y="530" width="228" height="56" rx="8" fill="#ffffff" stroke="#e3101a" stroke-width="2" filter="url(#stepShadow)"/>
+                                    <!-- Mini preview of finished poster -->
+                                    <rect x="46" y="538" width="36" height="40" rx="3" fill="#1a1a2e"/>
+                                    <rect x="50" y="542" width="28" height="14" rx="2" fill="#333"/>
+                                    <line x1="52" y1="562" x2="74" y2="562" stroke="#e3101a" stroke-width="1.2" stroke-linecap="round"/>
+                                    <line x1="52" y1="568" x2="68" y2="568" stroke="#999" stroke-width="0.8" stroke-linecap="round"/>
+                                    <text x="94" y="553" fill="#0A0A0A" font-family="'Inter', sans-serif" font-size="10" font-weight="700">POS-Plakat A3</text>
+                                    <text x="94" y="566" fill="#737373" font-family="'Inter', sans-serif" font-size="8">Individuell · Druckfertig</text>
+                                    <!-- Checkmark -->
+                                    <circle cx="242" cy="558" r="10" fill="#22c55e"/>
+                                    <polyline points="236,558 240,562 248,554" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
                             </svg>
                         </div>
                     </div>
