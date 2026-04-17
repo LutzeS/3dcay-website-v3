@@ -164,185 +164,262 @@
         }
 
         /* ========================================
-           NAVIGATION
+           NAVIGATION (V2 Style)
            ======================================== */
-        nav {
+        .nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            height: 80px;
-            background-color: var(--white);
+            z-index: 1000;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+
+        .nav.scrolled {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-200);
+            color: var(--black);
+        }
+
+        .nav__inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
             padding: 0 var(--container-px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--gray-100);
-            transition: var(--transition);
         }
 
-        nav.scrolled {
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        .logo {
+        .nav__logo {
             display: flex;
             align-items: center;
             text-decoration: none;
             flex-shrink: 0;
         }
 
-        .logo svg {
+        .nav__logo svg {
             height: 28px;
             width: auto;
+            transition: all 0.3s;
         }
 
-        .nav-menu {
+        .nav__logo svg .nav__logo-mono {
+            fill: var(--red);
+        }
+
+        .nav.scrolled .nav__logo svg .nav__logo-mono {
+            fill: var(--red);
+        }
+
+        .nav__logo svg .nav__logo-accent {
+            fill: #B8181C;
+        }
+
+        .nav__links {
             display: flex;
-            list-style: none;
-            gap: 2rem;
             align-items: center;
+            gap: 28px;
+            list-style: none;
         }
 
-        .nav-menu a {
-            color: var(--gray-700);
+        .nav__links a {
+            font-size: 14px;
+            font-weight: 400;
             text-decoration: none;
+            color: inherit;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .nav__links a:hover {
+            opacity: 1;
+        }
+
+        .nav__cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
             font-weight: 500;
-            transition: var(--transition);
+            padding: 8px 20px;
+            border-radius: 100px;
+            transition: all 0.2s;
+            text-decoration: none;
+            flex-shrink: 0;
+            color: var(--black);
+            border: 1px solid var(--gray-200);
         }
 
-        .nav-menu a:hover {
-            color: var(--red);
+        .nav.scrolled .nav__cta {
+            color: var(--black);
+            border: 1px solid var(--gray-200);
         }
 
-        .nav-dropdown {
+        .nav__cta:hover {
+            background: var(--red);
+            color: var(--white);
+            border-color: var(--red);
+        }
+
+        .nav__mobile {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 4px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: inherit;
+        }
+
+        .nav__mobile span {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: currentColor;
+            transition: all 0.3s;
+        }
+
+        /* Mobile Nav Panel */
+        .nav__mobile-panel {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            padding: 32px;
+        }
+
+        .nav__mobile-panel.open {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .nav__mobile-panel a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .nav__mobile-panel a:hover {
+            opacity: 1;
+        }
+
+        /* Nav Dropdown */
+        .nav__dropdown {
             position: relative;
         }
 
-        .nav-dropdown-toggle {
-            background: none;
-            border: none;
-            color: var(--gray-700);
-            font-weight: 500;
+        .nav__dropdown > a {
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: var(--transition);
         }
 
-        .nav-dropdown-toggle:hover {
-            color: var(--red);
+        .nav__dropdown > a::after {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            border-right: 1.5px solid currentColor;
+            border-bottom: 1.5px solid currentColor;
+            transform: rotate(45deg);
+            margin-left: 6px;
+            margin-bottom: 2px;
+            opacity: 0.5;
+            transition: transform 0.2s;
         }
 
-        .nav-dropdown-menu {
+        .nav__dropdown-menu {
             position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: var(--white);
-            border: 1px solid var(--gray-200);
-            border-radius: 0;
+            top: calc(100% + 12px);
+            left: -16px;
+            background: var(--white);
+            border-radius: 8px;
             min-width: 200px;
-            margin-top: 0.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            border: 1px solid var(--gray-200);
             opacity: 0;
             visibility: hidden;
-            transform: translateY(-10px);
-            transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            transition: all 0.25s ease;
+            overflow: hidden;
+            z-index: 1001;
         }
 
-        .nav-dropdown.active .nav-dropdown-menu {
+        .nav__dropdown:hover .nav__dropdown-menu {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
 
-        .nav-dropdown-menu a {
+        .nav__dropdown:hover > a::after {
+            transform: rotate(-135deg);
+        }
+
+        .nav__dropdown-menu a {
             display: block;
-            padding: 0.75rem 1.5rem;
-            color: var(--gray-700);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--gray-700) !important;
+            opacity: 1 !important;
+            border-bottom: 1px solid var(--gray-100);
+            transition: all 0.15s;
         }
 
-        .nav-dropdown-menu a:hover {
-            background-color: var(--gray-50);
-            color: var(--red);
+        .nav__dropdown-menu a:last-child {
+            border-bottom: none;
         }
 
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 6px;
+        .nav__dropdown-menu a:hover {
+            background: var(--gray-50);
+            color: var(--red) !important;
+            padding-left: 24px;
         }
 
-        .hamburger span {
-            width: 24px;
-            height: 2px;
-            background-color: var(--black);
-            transition: var(--transition);
+        .nav.scrolled .nav__dropdown-menu {
+            background: var(--white);
+            border-color: var(--gray-200);
+        }
+
+        .nav.scrolled .nav__dropdown-menu a {
+            color: var(--gray-700) !important;
+            border-bottom-color: var(--gray-100);
+        }
+
+        .nav.scrolled .nav__dropdown-menu a:hover {
+            background: var(--gray-50);
+            color: var(--red) !important;
         }
 
         @media (max-width: 768px) {
-            nav {
-                height: 60px;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-menu {
-                position: fixed;
-                top: 60px;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                gap: 0;
-                background-color: var(--white);
-                border-bottom: 1px solid var(--gray-200);
-                max-height: calc(100vh - 60px);
-                overflow-y: auto;
-                opacity: 0;
-                visibility: hidden;
-                transition: var(--transition);
-            }
-
-            .nav-menu.mobile-open {
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .nav-menu a {
-                display: block;
-                padding: 1rem var(--container-px);
-                border-bottom: 1px solid var(--gray-100);
-            }
-
-            .nav-dropdown-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                background-color: var(--gray-50);
-                border: none;
-                margin: 0;
-                box-shadow: none;
-            }
+            .nav__links { display: none; }
+            .nav__cta { display: none; }
+            .nav__mobile { display: flex; }
         }
 
         /* ========================================
            HERO SECTION
            ======================================== */
         .hero {
-            margin-top: 80px;
+            margin-top: 64px;
             background-color: var(--black);
             color: var(--white);
             padding: 5rem var(--container-px);
-            min-height: calc(100vh - 80px);
+            min-height: calc(100vh - 64px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -909,39 +986,53 @@
 
 <body>
     <!-- NAVIGATION -->
-    <nav>
-        <a href="index-v4.html" class="logo">
-            <svg viewBox="113 222 1512 394" xmlns="http://www.w3.org/2000/svg">
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="index-v4.html" class="nav__logo">
+                <svg viewBox="113 222 1512 394" xmlns="http://www.w3.org/2000/svg">
                     <g transform="translate(113,220)">
-                        <path d="M 594.00 83.00 L 577.00 113.00 L 566.00 148.00 L 562.00 174.00 L 562.00 213.00 L 566.00 239.00 L 573.00 263.00 L 586.00 291.00 L 595.00 305.00 L 598.00 307.00 L 617.00 301.00 L 635.00 292.00 L 652.00 280.00 L 664.00 268.00 L 664.00 266.00 L 657.00 258.00 L 648.00 242.00 L 641.00 222.00 L 638.00 205.00 L 638.00 179.00 L 642.00 159.00 L 653.00 134.00 L 663.00 119.00 L 647.00 105.00 L 635.00 97.00 L 615.00 88.00 Z M 1092.00 5.00 L 1262.00 245.00 L 1262.00 383.00 L 1338.00 383.00 L 1338.00 244.00 L 1508.00 4.00 L 1416.00 4.00 L 1300.00 173.00 L 1184.00 4.00 Z M 688.00 373.00 L 710.00 379.00 L 736.00 383.00 L 870.00 383.00 L 1014.00 85.00 L 1019.00 93.00 L 1091.00 244.00 L 1061.00 246.00 L 996.00 246.00 L 962.00 316.00 L 1124.00 316.00 L 1157.00 383.00 L 1244.00 382.00 L 1060.00 4.00 L 969.00 4.00 L 821.00 307.00 L 819.00 309.00 L 780.00 308.00 L 754.00 335.00 L 740.00 346.00 L 721.00 358.00 Z M 691.00 13.00 L 703.00 17.00 L 721.00 26.00 L 740.00 38.00 L 762.00 56.00 L 781.00 78.00 L 896.00 78.00 L 934.00 4.00 L 740.00 4.00 L 710.00 8.00 Z" fill="#B8181C" fill-rule="evenodd"/>
-                        <path d="M 50.00 7.00 L 50.00 82.00 L 252.00 84.00 L 150.00 167.00 L 150.00 217.00 L 247.00 217.00 L 266.00 221.00 L 283.00 230.00 L 294.00 243.00 L 299.00 259.00 L 299.00 274.00 L 295.00 288.00 L 290.00 296.00 L 284.00 302.00 L 265.00 312.00 L 246.00 317.00 L 47.00 318.00 L 2.00 394.00 L 263.00 393.00 L 287.00 389.00 L 315.00 380.00 L 336.00 369.00 L 350.00 358.00 L 361.00 346.00 L 370.00 332.00 L 377.00 316.00 L 382.00 296.00 L 384.00 275.00 L 383.00 251.00 L 380.00 235.00 L 373.00 216.00 L 358.00 194.00 L 346.00 183.00 L 334.00 175.00 L 314.00 166.00 L 296.00 161.00 L 256.00 157.00 L 294.00 122.00 L 354.00 75.00 L 354.00 7.00 Z M 390.00 2.00 L 390.00 72.00 L 359.00 96.00 L 359.00 166.00 L 371.00 172.00 L 386.00 183.00 L 396.00 193.00 L 407.00 209.00 L 414.00 225.00 L 418.00 241.00 L 420.00 262.00 L 419.00 284.00 L 415.00 306.00 L 404.00 332.00 L 395.00 345.00 L 381.00 359.00 L 372.00 366.00 L 359.00 373.00 L 359.00 389.00 L 549.00 389.00 L 590.00 388.00 L 611.00 385.00 L 654.00 373.00 L 683.00 359.00 L 707.00 343.00 L 734.00 317.00 L 751.00 293.00 L 762.00 271.00 L 769.00 251.00 L 776.00 216.00 L 777.00 187.00 L 772.00 149.00 L 762.00 118.00 L 752.00 98.00 L 743.00 84.00 L 720.00 58.00 L 691.00 36.00 L 663.00 21.00 L 635.00 11.00 L 613.00 6.00 L 583.00 2.00 Z M 441.00 78.00 L 578.00 78.00 L 606.00 84.00 L 625.00 91.00 L 635.00 96.00 L 658.00 113.00 L 675.00 132.00 L 685.00 151.00 L 691.00 171.00 L 693.00 185.00 L 692.00 212.00 L 688.00 229.00 L 680.00 248.00 L 667.00 267.00 L 652.00 281.00 L 635.00 293.00 L 617.00 302.00 L 596.00 309.00 L 576.00 312.00 L 442.00 313.00 Z" fill="#B8181C" fill-rule="evenodd"/>
+                        <path class="nav__logo-mono" d="M 594.00 83.00 L 577.00 113.00 L 566.00 148.00 L 562.00 174.00 L 562.00 213.00 L 566.00 239.00 L 573.00 263.00 L 586.00 291.00 L 595.00 305.00 L 598.00 307.00 L 617.00 301.00 L 635.00 292.00 L 652.00 280.00 L 664.00 268.00 L 664.00 266.00 L 657.00 258.00 L 648.00 242.00 L 641.00 222.00 L 638.00 205.00 L 638.00 179.00 L 642.00 159.00 L 653.00 134.00 L 663.00 119.00 L 647.00 105.00 L 635.00 97.00 L 615.00 88.00 Z M 1092.00 5.00 L 1262.00 245.00 L 1262.00 383.00 L 1338.00 383.00 L 1338.00 244.00 L 1508.00 4.00 L 1416.00 4.00 L 1300.00 173.00 L 1184.00 4.00 Z M 688.00 373.00 L 710.00 379.00 L 736.00 383.00 L 870.00 383.00 L 1014.00 85.00 L 1019.00 93.00 L 1091.00 244.00 L 1061.00 246.00 L 996.00 246.00 L 962.00 316.00 L 1124.00 316.00 L 1157.00 383.00 L 1244.00 382.00 L 1060.00 4.00 L 969.00 4.00 L 821.00 307.00 L 819.00 309.00 L 780.00 308.00 L 754.00 335.00 L 740.00 346.00 L 721.00 358.00 Z M 691.00 13.00 L 703.00 17.00 L 721.00 26.00 L 740.00 38.00 L 762.00 56.00 L 781.00 78.00 L 896.00 78.00 L 934.00 4.00 L 740.00 4.00 L 710.00 8.00 Z" fill-rule="evenodd"/>
+                        <path class="nav__logo-accent" d="M 50.00 7.00 L 50.00 82.00 L 252.00 84.00 L 150.00 167.00 L 150.00 217.00 L 247.00 217.00 L 266.00 221.00 L 283.00 230.00 L 294.00 243.00 L 299.00 259.00 L 299.00 274.00 L 295.00 288.00 L 290.00 296.00 L 284.00 302.00 L 265.00 312.00 L 246.00 317.00 L 47.00 318.00 L 2.00 394.00 L 263.00 393.00 L 287.00 389.00 L 315.00 380.00 L 336.00 369.00 L 350.00 358.00 L 361.00 346.00 L 370.00 332.00 L 377.00 316.00 L 382.00 296.00 L 384.00 275.00 L 383.00 251.00 L 380.00 235.00 L 373.00 216.00 L 358.00 194.00 L 346.00 183.00 L 334.00 175.00 L 314.00 166.00 L 296.00 161.00 L 256.00 157.00 L 294.00 122.00 L 354.00 75.00 L 354.00 7.00 Z M 390.00 2.00 L 390.00 72.00 L 359.00 96.00 L 359.00 166.00 L 371.00 172.00 L 386.00 183.00 L 396.00 193.00 L 407.00 209.00 L 414.00 225.00 L 418.00 241.00 L 420.00 262.00 L 419.00 284.00 L 415.00 306.00 L 404.00 332.00 L 395.00 345.00 L 381.00 359.00 L 372.00 366.00 L 359.00 373.00 L 359.00 389.00 L 549.00 389.00 L 590.00 388.00 L 611.00 385.00 L 654.00 373.00 L 683.00 359.00 L 707.00 343.00 L 734.00 317.00 L 751.00 293.00 L 762.00 271.00 L 769.00 251.00 L 776.00 216.00 L 777.00 187.00 L 772.00 149.00 L 762.00 118.00 L 752.00 98.00 L 743.00 84.00 L 720.00 58.00 L 691.00 36.00 L 663.00 21.00 L 635.00 11.00 L 613.00 6.00 L 583.00 2.00 Z M 441.00 78.00 L 578.00 78.00 L 606.00 84.00 L 625.00 91.00 L 635.00 96.00 L 658.00 113.00 L 675.00 132.00 L 685.00 151.00 L 691.00 171.00 L 693.00 185.00 L 692.00 212.00 L 688.00 229.00 L 680.00 248.00 L 667.00 267.00 L 652.00 281.00 L 635.00 293.00 L 617.00 302.00 L 596.00 309.00 L 576.00 312.00 L 442.00 313.00 Z" fill-rule="evenodd"/>
                     </g>
                 </svg>
-        </a>
+            </a>
 
-        <ul class="nav-menu">
-            <li><a href="index-v4.html">Startseite</a></li>
-            <li class="nav-dropdown">
-                <button class="nav-dropdown-toggle" aria-expanded="false">Produkte</button>
-                <div class="nav-dropdown-menu">
-                    <a href="shop.html">Shop</a>
-                    <a href="web-to-publish.html">Web-to-Publish</a>
-                    <a href="cashback.html">Cashback</a>
-                    <a href="3dcay-app.html">App</a>
-                </div>
-            </li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="ki-lab-newsletter.html">KI Lab</a></li>
-            <li><a href="referenzen.html">Referenzen</a></li>
-            <li><button class="btn btn--primary" onclick="openDemo()">Demo anfragen</button></li>
-        </ul>
+            <ul class="nav__links">
+                <li class="nav__dropdown">
+                    <a href="#produkte">Produkte</a>
+                    <div class="nav__dropdown-menu">
+                        <a href="shop.html">Shop</a>
+                        <a href="web-to-publish.html">Web-to-Publish</a>
+                        <a href="cashback.html">Cashback</a>
+                        <a href="3dcay-app.html">App</a>
+                    </div>
+                </li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="#ki">KI-Lab</a></li>
+                <li><a href="referenzen.html">Referenzen</a></li>
+            </ul>
 
-        <button class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+            <a href="#kontakt" class="nav__cta">Kontakt &rarr;</a>
+
+            <button class="nav__mobile" aria-label="Menu" onclick="toggleMobileNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
+
+    <!-- Mobile Nav Panel -->
+    <div class="nav__mobile-panel" id="mobileNav">
+        <a href="shop.html">Shop</a>
+        <a href="web-to-publish.html">Web-to-Publish</a>
+        <a href="cashback.html">Cashback</a>
+        <a href="3dcay-app.html">App</a>
+        <a href="services.html">Services</a>
+        <a href="#ki">KI-Lab</a>
+        <a href="referenzen.html">Referenzen</a>
+        <a href="#kontakt" class="nav__cta" style="margin-top:16px">Kontakt &rarr;</a>
+    </div>
 
     <!-- HERO SECTION -->
     <section class="hero">
@@ -1205,11 +1296,7 @@
         /* ========================================
            NAVIGATION & SCROLL DETECTION
            ======================================== */
-        const nav = document.querySelector('nav');
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
-        const dropdown = document.querySelector('.nav-dropdown');
+        const nav = document.querySelector('.nav');
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -1219,25 +1306,17 @@
             }
         });
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('mobile-open');
-        });
-
-        if (dropdownToggle) {
-            dropdownToggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                dropdown.classList.toggle('active');
-                dropdownToggle.setAttribute('aria-expanded', 
-                    dropdownToggle.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'
-                );
-            });
+        /* Mobile Nav Toggle */
+        function toggleMobileNav() {
+            const panel = document.getElementById('mobileNav');
+            panel.classList.toggle('open');
         }
 
-        document.addEventListener('click', (e) => {
-            if (!dropdown.contains(e.target)) {
-                dropdown.classList.remove('active');
-            }
+        /* Close mobile nav on link click */
+        document.querySelectorAll('.nav__mobile-panel a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileNav').classList.remove('open');
+            });
         });
 
         /* ========================================
@@ -1305,15 +1384,6 @@
             }
         });
 
-        /* ========================================
-           MOBILE MENU CLOSE ON LINK CLICK
-           ======================================== */
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('mobile-open');
-            });
-        });
     </script>
 </body>
 
