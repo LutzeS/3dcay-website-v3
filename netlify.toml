@@ -43,6 +43,11 @@
   status = 200
 
 [[redirects]]
+  from = "/ki-playbook"
+  to = "/ki-playbook.html"
+  status = 200
+
+[[redirects]]
   from = "/whitepaper"
   to = "/whitepaper.html"
   status = 200

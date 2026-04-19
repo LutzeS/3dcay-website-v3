@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KI-Marketing-Playbook &mdash; 3DCAY Lab</title>
+<meta name="description" content="In 2 Minuten zum individuellen KI-Marketing-Playbook: 3 konkrete Quick Wins, 30-Tage-Plan und Benchmark-Einordnung f&uuml;r Ihr Marketing-Team.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/jpeg" sizes="32x32" href="favicon.jpg">
+<link rel="apple-touch-icon" href="favicon.jpg">
+<link rel="canonical" href="https://www.3dcay.de/ki-playbook">
+<link rel="alternate" hreflang="de" href="https://www.3dcay.de/ki-playbook">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KI-Marketing-Playbook — 3DCAY Lab">
+<meta property="og:description" content="In 2 Minuten zum individuellen KI-Marketing-Playbook: 3 konkrete Quick Wins, 30-Tage-Plan und Benchmark-Einordnung.">
+<meta property="og:url" content="https://www.3dcay.de/ki-playbook">
+<meta property="og:image" content="https://www.3dcay.de/images/og-preview.jpg">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="3DCAY">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KI-Marketing-Playbook — 3DCAY Lab">
+<meta name="twitter:description" content="Ihr individuelles KI-Marketing-Playbook in 2 Minuten: 3 Quick Wins + 30-Tage-Plan.">
+<meta name="twitter:image" content="https://www.3dcay.de/images/og-preview.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--red:#e3101a;--red-hover:#ff1a25;--white:#FFF;--gray-50:#FAFAFA;--gray-100:#F0F0F0;--gray-200:#E5E5E5;--gray-500:#737373;--gray-700:#404040;--gray-900:#171717;--font-sans:'Inter',-apple-system,sans-serif;--font-mono:'JetBrains Mono',monospace}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-sans);background:var(--gray-50);color:var(--black);line-height:1.6;overflow-x:hidden;min-height:100vh}
+a{color:inherit;text-decoration:none}
+
+.kp-nav{height:64px;display:flex;align-items:center;border-bottom:1px solid var(--gray-200);padding:0 32px;background:var(--white)}
+.kp-nav__logo svg{height:28px;width:auto}
+.kp-nav__logo img{height:28px;width:auto;display:block}
+.kp-nav__back{margin-left:auto;font-size:14px;color:var(--gray-500);transition:color 0.2s}
+.kp-nav__back:hover{color:var(--black)}
+
+.kp-hero{background:var(--black);color:var(--white);padding:64px 32px;text-align:center}
+.kp-hero__badge{display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.kp-hero__title{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-0.035em;line-height:1.1;margin-bottom:12px;max-width:720px;margin-left:auto;margin-right:auto}
+.kp-hero__sub{font-size:16px;color:rgba(255,255,255,0.6);max-width:520px;margin:0 auto 28px;line-height:1.7}
+.kp-hero__meta{display:flex;gap:32px;justify-content:center;font-size:13px;color:rgba(255,255,255,0.4);font-family:var(--font-mono);flex-wrap:wrap}
+.kp-hero__meta span::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--red);margin-right:8px;vertical-align:middle}
+
+.kp-main{max-width:760px;margin:0 auto;padding:48px 32px}
+
+.kp-card{background:var(--white);border-radius:16px;border:1px solid var(--gray-200);padding:40px;box-shadow:0 4px 24px rgba(0,0,0,0.04);margin-bottom:32px}
+.kp-card__step{font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:16px}
+.kp-card__title{font-size:22px;font-weight:800;letter-spacing:-0.02em;margin-bottom:8px}
+.kp-card__sub{font-size:14px;color:var(--gray-500);margin-bottom:24px;line-height:1.6}
+.kp-label{font-size:13px;font-weight:600;color:var(--gray-700);margin-bottom:8px;display:block}
+.kp-label--spaced{margin-top:24px}
+
+.kp-options{display:grid;gap:12px;margin-bottom:24px}
+.kp-opt{padding:16px 20px;border:1px solid var(--gray-200);border-radius:12px;cursor:pointer;transition:all 0.2s;font-size:15px}
+.kp-opt:hover{border-color:var(--gray-500)}
+.kp-opt.selected{border-color:var(--red);background:rgba(227,16,26,0.04)}
+.kp-opt__title{font-weight:600;margin-bottom:2px}
+.kp-opt__desc{font-size:13px;color:var(--gray-500)}
+
+.kp-select{width:100%;padding:14px 16px;border:1px solid var(--gray-200);border-radius:12px;font-size:15px;font-family:var(--font-sans);background:var(--white);outline:none;transition:border-color 0.2s;appearance:none;cursor:pointer;background-image:url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%228%22%20viewBox%3D%220%200%2014%208%22%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23737373%22%20stroke-width%3D%221.5%22%20d%3D%22M1%201l6%206%206-6%22%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:44px}
+.kp-select:focus{border-color:var(--red)}
+
+.kp-slider-group{margin-bottom:24px}
+.kp-slider-label{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px}
+.kp-slider-label span:last-child{font-weight:700;color:var(--red);font-family:var(--font-mono)}
+.kp-slider{width:100%;-webkit-appearance:none;height:6px;background:var(--gray-200);border-radius:3px;outline:none}
+.kp-slider::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--red);cursor:pointer;border:3px solid var(--white);box-shadow:0 2px 8px rgba(0,0,0,0.15)}
+
+.kp-toggles{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.kp-toggle{flex:1;min-width:90px;padding:12px;border:1px solid var(--gray-200);border-radius:10px;text-align:center;cursor:pointer;font-size:14px;font-weight:500;transition:all 0.2s}
+.kp-toggle:hover{border-color:var(--gray-500)}
+.kp-toggle.selected{border-color:var(--red);background:rgba(227,16,26,0.04);color:var(--red)}
+
+.kp-check{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--gray-200);border-radius:12px;cursor:pointer;transition:all 0.2s;font-size:14px;margin-bottom:16px}
+.kp-check:hover{border-color:var(--gray-500)}
+.kp-check.checked{border-color:var(--red);background:rgba(227,16,26,0.04)}
+.kp-check__box{width:20px;height:20px;min-width:20px;border:2px solid var(--gray-200);border-radius:6px;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.kp-check.checked .kp-check__box{background:var(--red);border-color:var(--red)}
+.kp-check.checked .kp-check__box::after{content:'';display:block;width:6px;height:10px;border:2px solid var(--white);border-top:none;border-left:none;transform:rotate(45deg);margin-top:-2px}
+
+.kp-goals{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:24px}
+.kp-goal{padding:20px 12px;border:1px solid var(--gray-200);border-radius:12px;text-align:center;cursor:pointer;transition:all 0.2s}
+.kp-goal:hover{border-color:var(--gray-500)}
+.kp-goal.selected{border-color:var(--red);background:rgba(227,16,26,0.04)}
+.kp-goal__icon{font-size:26px;margin-bottom:8px}
+.kp-goal__label{font-size:13px;font-weight:600}
+
+.kp-btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;padding:14px 28px;border-radius:100px;border:none;cursor:pointer;transition:all 0.2s}
+.kp-btn--primary{background:var(--red);color:var(--white)}
+.kp-btn--primary:hover{background:var(--red-hover);transform:translateY(-1px);box-shadow:0 8px 32px rgba(227,16,26,0.3)}
+.kp-btn--outline{background:transparent;color:var(--gray-500);border:1px solid var(--gray-200)}
+.kp-btn--outline:hover{border-color:var(--black);color:var(--black)}
+.kp-actions{display:flex;gap:12px;justify-content:space-between;margin-top:32px}
+
+.kp-progress{display:flex;gap:8px;max-width:200px;margin:0 auto 32px}
+.kp-progress__bar{flex:1;height:4px;background:var(--gray-200);border-radius:2px;transition:background 0.3s}
+.kp-progress__bar.active{background:var(--red)}
+
+/* Result */
+.kp-result{display:none}
+.kp-result.active{display:block}
+.kp-result__score{text-align:center;padding:40px;background:var(--black);color:var(--white);border-radius:16px;margin-bottom:24px}
+.kp-result__label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:14px}
+.kp-result__number{font-size:72px;font-weight:900;letter-spacing:-0.04em;line-height:1}
+.kp-result__number span{font-size:36px;color:var(--red)}
+.kp-result__badge{display:inline-block;padding:6px 16px;background:rgba(227,16,26,0.15);color:var(--red);border-radius:100px;font-size:13px;font-weight:600;margin-top:16px}
+.kp-result__desc{font-size:14px;color:rgba(255,255,255,0.6);margin-top:12px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.6}
+
+.kp-benchmark{margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1)}
+.kp-benchmark__label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:10px}
+.kp-benchmark__track{position:relative;height:8px;background:rgba(255,255,255,0.1);border-radius:4px;margin-bottom:10px}
+.kp-benchmark__avg{position:absolute;top:-4px;width:2px;height:16px;background:rgba(255,255,255,0.6)}
+.kp-benchmark__you{position:absolute;top:-4px;width:14px;height:16px;background:var(--red);border-radius:4px;transform:translateX(-50%)}
+.kp-benchmark__legend{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,0.5);font-family:var(--font-mono)}
+
+.kp-result__grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.kp-result__stat{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:20px;text-align:center}
+.kp-result__stat-num{font-size:28px;font-weight:800;color:var(--red);letter-spacing:-0.02em}
+.kp-result__stat-label{font-size:12px;color:var(--gray-500);margin-top:4px;text-transform:uppercase;letter-spacing:0.05em;font-family:var(--font-mono)}
+
+.kp-quickwins{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:28px;margin-bottom:24px}
+.kp-quickwins__title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-500);margin-bottom:6px;font-family:var(--font-mono)}
+.kp-quickwins__intro{font-size:14px;color:var(--gray-700);margin-bottom:20px;line-height:1.6}
+.kp-quickwin{display:flex;gap:16px;padding:20px 0;border-top:1px solid var(--gray-200)}
+.kp-quickwin:first-of-type{border-top:none;padding-top:4px}
+.kp-quickwin__num{min-width:32px;height:32px;background:var(--red);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;font-family:var(--font-mono)}
+.kp-quickwin__body{flex:1}
+.kp-quickwin__title{font-size:15px;font-weight:700;margin-bottom:6px;letter-spacing:-0.01em}
+.kp-quickwin__desc{font-size:14px;color:var(--gray-700);line-height:1.6;margin-bottom:8px}
+.kp-quickwin__meta{display:flex;gap:16px;font-size:12px;color:var(--gray-500);font-family:var(--font-mono);flex-wrap:wrap}
+.kp-quickwin__meta span strong{color:var(--black);font-weight:600}
+
+.kp-plan{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:28px;margin-bottom:24px}
+.kp-plan__title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-500);margin-bottom:6px;font-family:var(--font-mono)}
+.kp-plan__intro{font-size:14px;color:var(--gray-700);margin-bottom:20px;line-height:1.6}
+.kp-plan__list{list-style:none;padding:0;margin:0}
+.kp-plan__item{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--gray-200);align-items:flex-start}
+.kp-plan__item:first-child{border-top:none}
+.kp-plan__week{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--red);min-width:86px;padding-top:2px}
+.kp-plan__text{font-size:14px;color:var(--gray-700);line-height:1.6;flex:1}
+
+.kp-result__cta{text-align:center;margin-top:32px}
+.kp-result__cta .kp-btn{width:100%;justify-content:center;padding:18px;font-size:16px}
+
+/* Lead capture on result */
+.kp-lead{background:linear-gradient(180deg,#FFF 0%,#FAFAFA 100%);border:1px solid var(--gray-200);border-radius:12px;padding:28px;margin-top:24px}
+.kp-lead__title{font-size:16px;font-weight:800;margin-bottom:6px;letter-spacing:-0.01em}
+.kp-lead__sub{font-size:13px;color:var(--gray-500);margin-bottom:18px;line-height:1.6}
+.kp-lead__row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.kp-lead__form{display:flex;gap:8px;flex-direction:column}
+.kp-lead__input{width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:10px;font-size:14px;font-family:var(--font-sans);outline:none;background:var(--white)}
+.kp-lead__input:focus{border-color:var(--red)}
+.kp-lead__btn{padding:14px 20px;background:var(--red);color:var(--white);border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all 0.2s}
+.kp-lead__btn:hover{background:var(--red-hover)}
+.kp-lead__note{font-size:11px;color:var(--gray-500);margin-top:10px;line-height:1.5;font-family:var(--font-mono)}
+.kp-lead__success{display:none;padding:16px;background:rgba(40,200,64,0.1);border-radius:10px;color:#1a7a2e;font-size:14px;font-weight:500;text-align:center}
+
+/* Loading */
+.kp-loading{display:none;text-align:center;padding:60px 20px}
+.kp-loading.active{display:block}
+.kp-loading__spinner{width:48px;height:48px;border:3px solid var(--gray-200);border-top:3px solid var(--red);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 20px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.kp-loading__text{font-size:16px;font-weight:600}
+.kp-loading__sub{font-size:14px;color:var(--gray-500);margin-top:4px}
+
+.kp-stage{display:none}
+.kp-stage.active{display:block}
+
+@media(max-width:600px){.kp-card{padding:28px 20px}.kp-goals{grid-template-columns:repeat(2,1fr)}.kp-result__grid{grid-template-columns:1fr}.kp-lead__row{grid-template-columns:1fr}.kp-hero__meta{flex-direction:column;gap:8px}.kp-quickwin{flex-direction:column;gap:10px}.kp-plan__item{flex-direction:column;gap:4px}.kp-plan__week{min-width:0}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+</style>
+</head>
+<body>
+
+<nav class="kp-nav">
+  <a href="index-v4.html" class="kp-nav__logo"><img src="images/3dcay-logo.svg" alt="3DCAY"></a>
+  <a href="ki-lab-newsletter.html" class="kp-nav__back">&larr; Zur&uuml;ck zum Lab</a>
+</nav>
+
+<section class="kp-hero">
+  <p class="kp-hero__badge">KI-Playbook &middot; 3DCAY Lab</p>
+  <h1 class="kp-hero__title">Ihr KI-Marketing-Playbook in 2&nbsp;Minuten.</h1>
+  <p class="kp-hero__sub">Beantworten Sie drei kurze Fragen &mdash; und erhalten Sie 3 sofort umsetzbare Quick Wins, einen 30-Tage-Plan und Ihren KI-Reifegrad im Branchenvergleich.</p>
+  <div class="kp-hero__meta">
+    <span>2 Minuten</span>
+    <span>Keine Registrierung</span>
+    <span>Sofort-Ergebnis</span>
+  </div>
+</section>
+
+<div class="kp-main">
+  <div class="kp-progress" id="kpProgress" style="display:none">
+    <div class="kp-progress__bar" id="pb1"></div>
+    <div class="kp-progress__bar" id="pb2"></div>
+    <div class="kp-progress__bar" id="pb3"></div>
+  </div>
+
+  <!-- STAGE 1 -->
+  <div class="kp-stage active" id="kpStage1">
+    <div class="kp-card">
+      <p class="kp-card__step">Phase 1 / 3</p>
+      <h2 class="kp-card__title">Ihr Profil</h2>
+      <p class="kp-card__sub">Damit wir Ihren Playbook auf Ihre Branche zuschneiden k&ouml;nnen.</p>
+
+      <label for="kpIndustry" class="kp-label">Branche</label>
+      <select class="kp-select" id="kpIndustry">
+        <option value="pharma">Pharma / Medical</option>
+        <option value="insurance">Versicherung / Finanzen</option>
+        <option value="fmcg">FMCG / Handel</option>
+        <option value="franchise">Franchise / Filial-Netzwerk</option>
+        <option value="industry">Industrie / B2B</option>
+        <option value="other">Andere</option>
+      </select>
+
+      <label for="kpTeamSize" class="kp-label kp-label--spaced">Team-Gr&ouml;&szlig;e Marketing</label>
+      <select class="kp-select" id="kpTeamSize">
+        <option value="1-5">1 &ndash; 5 Personen</option>
+        <option value="6-20">6 &ndash; 20 Personen</option>
+        <option value="21-50">21 &ndash; 50 Personen</option>
+        <option value="50+">50+ Personen</option>
+      </select>
+
+      <p class="kp-label kp-label--spaced" id="kpStructureLabel">Organisation</p>
+      <div class="kp-toggles" id="kpStructure" role="radiogroup" aria-labelledby="kpStructureLabel">
+        <div class="kp-toggle selected" onclick="kpToggle(this,'kpStructure')" data-value="zentral">Zentral</div>
+        <div class="kp-toggle" onclick="kpToggle(this,'kpStructure')" data-value="hybrid">Hybrid</div>
+        <div class="kp-toggle" onclick="kpToggle(this,'kpStructure')" data-value="dezentral">Dezentral / Filialen</div>
+      </div>
+
+      <div class="kp-actions" style="justify-content:flex-end">
+        <button class="kp-btn kp-btn--primary" onclick="kpGo(2)">Weiter &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 2 -->
+  <div class="kp-stage" id="kpStage2">
+    <div class="kp-card">
+      <p class="kp-card__step">Phase 2 / 3</p>
+      <h2 class="kp-card__title">Status Quo</h2>
+      <p class="kp-card__sub">Wo steht Ihr Team heute &mdash; und wo dr&uuml;ckt der Schuh?</p>
+
+      <div class="kp-slider-group">
+        <div class="kp-slider-label"><span>KI-Tools im aktiven Einsatz</span><span id="kpToolsVal">2</span></div>
+        <label for="kpTools" class="sr-only">Anzahl KI-Tools im Einsatz</label>
+        <input type="range" class="kp-slider" id="kpTools" min="0" max="10" value="2" aria-label="Anzahl KI-Tools" oninput="document.getElementById('kpToolsVal').textContent=this.value">
+      </div>
+
+      <div class="kp-slider-group">
+        <div class="kp-slider-label"><span>Stunden f&uuml;r Routine-Aufgaben pro Woche</span><span id="kpRoutineVal">12</span></div>
+        <label for="kpRoutine" class="sr-only">Stunden f&uuml;r Routine-Aufgaben pro Woche</label>
+        <input type="range" class="kp-slider" id="kpRoutine" min="0" max="40" value="12" aria-label="Routine-Stunden pro Woche" oninput="document.getElementById('kpRoutineVal').textContent=this.value">
+      </div>
+
+      <p class="kp-label kp-label--spaced" id="kpPainLabel">Gr&ouml;&szlig;ter Pain-Point</p>
+      <div class="kp-options" id="kpPain" role="radiogroup" aria-labelledby="kpPainLabel">
+        <div class="kp-opt" onclick="kpSelect(this,'kpPain')" data-value="content">
+          <p class="kp-opt__title">Content-Erstellung skaliert nicht</p>
+          <p class="kp-opt__desc">Zu wenig Varianten, zu langsam, Engp&auml;sse in Produktion</p>
+        </div>
+        <div class="kp-opt selected" onclick="kpSelect(this,'kpPain')" data-value="personalisierung">
+          <p class="kp-opt__title">Personalisierung fehlt</p>
+          <p class="kp-opt__desc">One-size-fits-all statt Relevanz f&uuml;r Segmente &amp; Zielgruppen</p>
+        </div>
+        <div class="kp-opt" onclick="kpSelect(this,'kpPain')" data-value="reporting">
+          <p class="kp-opt__title">Reporting &amp; Insights</p>
+          <p class="kp-opt__desc">Daten liegen verteilt, Analysen kosten zu viel Zeit</p>
+        </div>
+        <div class="kp-opt" onclick="kpSelect(this,'kpPain')" data-value="compliance">
+          <p class="kp-opt__title">Compliance &amp; Kontrolle</p>
+          <p class="kp-opt__desc">Wildwuchs verhindern, DSGVO &amp; Corporate Design sichern</p>
+        </div>
+      </div>
+
+      <div class="kp-check" id="kpBudget" onclick="this.classList.toggle('checked')">
+        <div class="kp-check__box"></div>
+        <span>Wir haben f&uuml;r 2026 ein dediziertes KI-Budget.</span>
+      </div>
+
+      <div class="kp-check" id="kpGovernance" onclick="this.classList.toggle('checked')">
+        <div class="kp-check__box"></div>
+        <span>Es gibt eine verbindliche KI-Richtlinie im Unternehmen.</span>
+      </div>
+
+      <div class="kp-actions">
+        <button class="kp-btn kp-btn--outline" onclick="kpGo(1)">&larr; Zur&uuml;ck</button>
+        <button class="kp-btn kp-btn--primary" onclick="kpGo(3)">Weiter &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 3 -->
+  <div class="kp-stage" id="kpStage3">
+    <div class="kp-card">
+      <p class="kp-card__step">Phase 3 / 3</p>
+      <h2 class="kp-card__title">Top-Ziel f&uuml;r die n&auml;chsten 90&nbsp;Tage</h2>
+      <p class="kp-card__sub">Worauf soll Ihr KI-Playbook prim&auml;r einzahlen?</p>
+
+      <div class="kp-goals" id="kpGoals">
+        <div class="kp-goal" onclick="kpGoal(this)" data-value="zeit"><div class="kp-goal__icon">&#9201;</div><p class="kp-goal__label">Zeit sparen</p></div>
+        <div class="kp-goal" onclick="kpGoal(this)" data-value="output"><div class="kp-goal__icon">&#128200;</div><p class="kp-goal__label">Mehr Output</p></div>
+        <div class="kp-goal" onclick="kpGoal(this)" data-value="personalisierung"><div class="kp-goal__icon">&#127919;</div><p class="kp-goal__label">Personalisierung</p></div>
+        <div class="kp-goal" onclick="kpGoal(this)" data-value="kontrolle"><div class="kp-goal__icon">&#128737;&#65039;</div><p class="kp-goal__label">Kontrolle</p></div>
+        <div class="kp-goal" onclick="kpGoal(this)" data-value="kosten"><div class="kp-goal__icon">&#128176;</div><p class="kp-goal__label">Kosten senken</p></div>
+      </div>
+
+      <div class="kp-actions">
+        <button class="kp-btn kp-btn--outline" onclick="kpGo(2)">&larr; Zur&uuml;ck</button>
+        <button class="kp-btn kp-btn--primary" onclick="kpShowResults()">Playbook anzeigen &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOADING -->
+  <div class="kp-loading" id="kpLoading">
+    <div class="kp-loading__spinner"></div>
+    <p class="kp-loading__text">Playbook wird generiert&hellip;</p>
+    <p class="kp-loading__sub">Ihre drei Quick Wins und der 30-Tage-Plan werden zusammengestellt.</p>
+  </div>
+
+  <!-- RESULT -->
+  <div class="kp-result" id="kpResult">
+    <div class="kp-result__score">
+      <p class="kp-result__label">Ihr KI-Reifegrad</p>
+      <div class="kp-result__number" id="resScore">62<span>/100</span></div>
+      <div class="kp-result__badge" id="resBadge">Bereit f&uuml;r den n&auml;chsten Hebel</div>
+      <p class="kp-result__desc" id="resDesc"></p>
+
+      <div class="kp-benchmark">
+        <p class="kp-benchmark__label">Branchen-Benchmark</p>
+        <div class="kp-benchmark__track">
+          <div class="kp-benchmark__avg" id="resAvg" style="left:45%"></div>
+          <div class="kp-benchmark__you" id="resYou" style="left:62%"></div>
+        </div>
+        <div class="kp-benchmark__legend">
+          <span>0</span>
+          <span id="resBenchNote">&Oslash; Branche 45 &middot; Sie 62</span>
+          <span>100</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="kp-result__grid">
+      <div class="kp-result__stat"><div class="kp-result__stat-num" id="resHours">+9 h</div><div class="kp-result__stat-label">Zeit / Woche</div></div>
+      <div class="kp-result__stat"><div class="kp-result__stat-num" id="resOutput">3&times;</div><div class="kp-result__stat-label">Content-Frequenz</div></div>
+    </div>
+
+    <div class="kp-quickwins">
+      <p class="kp-quickwins__title">Ihre 3 Quick Wins</p>
+      <p class="kp-quickwins__intro" id="resIntro">Basierend auf Ihrer Branche, Team-Gr&ouml;&szlig;e und Ihrem Top-Ziel. Umsetzbar ohne neues Tooling.</p>
+      <div id="resQuickwins"></div>
+    </div>
+
+    <div class="kp-plan">
+      <p class="kp-plan__title">30-Tage-Plan</p>
+      <p class="kp-plan__intro">Ein schlanker, woechentlicher Rhythmus &mdash; von der Baseline bis zum ersten messbaren Output.</p>
+      <ul class="kp-plan__list" id="resPlan"></ul>
+    </div>
+
+    <!-- Lead capture -->
+    <div class="kp-lead">
+      <p class="kp-lead__title">Vollst&auml;ndiges Playbook als PDF erhalten</p>
+      <p class="kp-lead__sub">Inklusive Prompt-Vorlagen, Tool-Stack-Empfehlung und Governance-Checkliste &mdash; zugeschnitten auf Ihre Branche.</p>
+      <form class="kp-lead__form" name="ki-playbook-lead" method="POST" data-netlify="true" id="kpLeadForm">
+        <input type="hidden" name="form-name" value="ki-playbook-lead">
+        <input type="hidden" name="score" id="kpLeadScore" value="">
+        <input type="hidden" name="industry" id="kpLeadIndustry" value="">
+        <input type="hidden" name="pain" id="kpLeadPain" value="">
+        <input type="hidden" name="goal" id="kpLeadGoal" value="">
+
+        <div class="kp-lead__row">
+          <label for="kpLeadFirst" class="sr-only">Vorname</label>
+          <input type="text" name="first_name" id="kpLeadFirst" class="kp-lead__input" placeholder="Vorname" autocomplete="given-name" required>
+          <label for="kpLeadLast" class="sr-only">Nachname</label>
+          <input type="text" name="last_name" id="kpLeadLast" class="kp-lead__input" placeholder="Nachname" autocomplete="family-name" required>
+        </div>
+        <div class="kp-lead__row">
+          <label for="kpLeadCompany" class="sr-only">Unternehmen</label>
+          <input type="text" name="company" id="kpLeadCompany" class="kp-lead__input" placeholder="Unternehmen" autocomplete="organization" required>
+          <label for="kpLeadEmail" class="sr-only">Gesch&auml;ftliche E-Mail-Adresse</label>
+          <input type="email" name="email" id="kpLeadEmail" class="kp-lead__input" placeholder="Gesch&auml;ftliche E-Mail" autocomplete="email" required>
+        </div>
+        <button type="submit" class="kp-lead__btn">Playbook als PDF zusenden &rarr;</button>
+        <p class="kp-lead__note">Mit dem Absenden stimmen Sie unserer <a href="datenschutz.html" style="color:var(--red);text-decoration:underline">Datenschutzerkl&auml;rung</a> zu. Kein Newsletter-Zwang &mdash; jederzeit abbestellbar.</p>
+      </form>
+      <div class="kp-lead__success" id="kpLeadSuccess">&#10003; Ihr Playbook ist unterwegs! Pr&uuml;fen Sie Ihr Postfach in den n&auml;chsten Minuten.</div>
+    </div>
+
+    <div class="kp-result__cta" style="margin-top:24px">
+      <a href="index-v4.html#kontakt" class="kp-btn kp-btn--primary" onclick="return kpOpenContact()">30-Min Discovery-Call buchen &rarr;</a>
+      <p style="font-size:13px;color:var(--gray-500);margin-top:12px;cursor:pointer" onclick="kpReset()">Playbook neu erstellen</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ───── Interaction helpers ─────
+function kpSelect(el,gId){document.querySelectorAll('#'+gId+' .kp-opt').forEach(function(o){o.classList.remove('selected')});el.classList.add('selected')}
+function kpToggle(el,gId){document.querySelectorAll('#'+gId+' .kp-toggle').forEach(function(o){o.classList.remove('selected')});el.classList.add('selected')}
+function kpGoal(el){document.querySelectorAll('.kp-goal').forEach(function(g){g.classList.remove('selected')});el.classList.add('selected')}
+
+function kpGo(n){
+  document.querySelectorAll('.kp-stage').forEach(function(s){s.classList.remove('active')});
+  document.getElementById('kpStage'+n).classList.add('active');
+  document.getElementById('kpProgress').style.display='flex';
+  for(var i=1;i<=3;i++){document.getElementById('pb'+i).classList.toggle('active',i<=n)}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function kpShowResults(){
+  document.querySelectorAll('.kp-stage').forEach(function(s){s.classList.remove('active')});
+  document.getElementById('kpLoading').classList.add('active');
+  document.getElementById('kpProgress').style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  setTimeout(function(){
+    document.getElementById('kpLoading').classList.remove('active');
+    kpCalc();
+    document.getElementById('kpResult').classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  },2200);
+}
+
+// ───── Use-Case Library ─────
+// Each Quick Win: { title, desc, time (h saved / week), impact }
+// Selection: industry × pain × goal → 3 best matches
+var kpLibrary = {
+  content: {
+    pharma: [
+      {t:'Claim-Bank mit KI-Variantierung',d:'Zugelassene Textbausteine werden per Prompt in bis zu 12 Varianten je Kanal ausgespielt &mdash; alle medizinisch gepr&uuml;ft, Compliance-ready.',h:6,i:'Hoch'},
+      {t:'Fachartikel-Briefings in 20 Minuten',d:'Ein KI-Assistent destilliert Studien auf Key Messages, Zielgruppen-Take-aways und Graphic-Ideen &mdash; redaktionell fertig f&uuml;r den HCP-Kanal.',h:4,i:'Mittel'},
+      {t:'Patienten-Content Mehrsprachig',d:'Deutsch als Quelle, 6 Sprachen Output &mdash; mit medizinischem Review-Loop und versionierter History.',h:5,i:'Hoch'}
+    ],
+    insurance: [
+      {t:'Produkt-Einmaleins per GPT',d:'30 Seiten Produkt-PDF &rarr; 10 modulare Erkl&auml;r-Snippets f&uuml;r Landingpage, Vermittlerportal und Social &mdash; mit Tonfall-Guard.',h:5,i:'Hoch'},
+      {t:'Service-Mails automatisieren',d:'Antwortvorschl&auml;ge mit KI-Entwurf, freigegeben durch Fachteam. Durchlaufzeit &minus;60&nbsp;%.',h:4,i:'Mittel'},
+      {t:'Schadensfall-Storytelling',d:'Aus anonymisierten F&auml;llen werden Testimonials &amp; FAQ-Artikel &mdash; konstanter Content-Strom ohne neue Interviews.',h:3,i:'Mittel'}
+    ],
+    fmcg: [
+      {t:'Sortiments-Launches in 48&nbsp;h',d:'Produkt-Datenblatt &rarr; POS-Text, Webshop-Copy, Amazon A+, Social Hook &mdash; alles per Prompt-Kette.',h:6,i:'Hoch'},
+      {t:'Promo-Varianten f&uuml;r jeden Kanal',d:'Eine Kernbotschaft, 15 kanalgerechte Ableitungen. CTR-Tests binnen Tagen statt Wochen.',h:4,i:'Hoch'},
+      {t:'Shopper-Marketing Briefings',d:'Listungs-Pr&auml;sentationen f&uuml;r Key-Account-Termine entstehen in Minuten, nicht Tagen.',h:3,i:'Mittel'}
+    ],
+    franchise: [
+      {t:'Lokale Content-Engine',d:'Jede Filiale erh&auml;lt KI-generierte, ortsspezifische Social-Posts auf Basis zentraler Templates &mdash; CD-konform.',h:8,i:'Sehr hoch'},
+      {t:'Brief- &amp; Mailing-Baukasten',d:'Personalisierte Anschreiben f&uuml;r jeden Standort &mdash; Name, Ort, Angebot dynamisch per Merge-Feld.',h:4,i:'Hoch'},
+      {t:'Onboarding-Guides pro Standort',d:'Neue Franchise-Nehmer erhalten einen auf Region &amp; Markt zugeschnittenen Start-Content-Plan.',h:3,i:'Mittel'}
+    ],
+    industry: [
+      {t:'Technische Produktsteckbriefe',d:'CAD-Spec &rarr; vertriebsreife 1-Pager, White Papers und Messe-Snippets &mdash; in 8 Sprachen.',h:5,i:'Hoch'},
+      {t:'Vertriebs-Mail-Bibliothek',d:'Use-Case-basierte E-Mail-Sequenzen f&uuml;r Lead-Nurturing &mdash; Branche-spezifisch, Prompt-gesteuert.',h:3,i:'Mittel'},
+      {t:'Case Study Fabrik',d:'Aus Referenzkunden-Interviews entstehen in 2 Tagen publikationsreife Storys mit Visuals.',h:4,i:'Hoch'}
+    ],
+    other: [
+      {t:'Content-Pipeline mit KI',d:'Von Briefing &uuml;ber Draft bis Freigabe &mdash; ein strukturierter Prompt-Flow, der Redakteure entlastet.',h:5,i:'Hoch'},
+      {t:'Bild- &amp; Copy-Varianten',d:'Kampagnenmotive werden per Prompt in Formaten, Tonalit&auml;ten und Sprachen abgeleitet.',h:4,i:'Hoch'},
+      {t:'Research in Minuten',d:'Marktrecherche wird durch GPT-gest&uuml;tzte Briefings beschleunigt &mdash; mit Quellenverweisen.',h:3,i:'Mittel'}
+    ]
+  },
+  personalisierung: {
+    pharma: [
+      {t:'HCP-Segmentierung mit KI',d:'Fach&auml;rzte-Profile werden nach Indikation, Publikations- und Event-Aktivit&auml;t geclustert &mdash; Content trifft Relevanz.',h:5,i:'Sehr hoch'},
+      {t:'Dynamic Email f&uuml;r Au&szlig;endienst',d:'Individueller Follow-up-Draft nach jedem Besuch &mdash; inkl. passender Studie und n&auml;chsten Schritt.',h:4,i:'Hoch'},
+      {t:'Patient Journey Playbook',d:'Pro Persona ein personalisierter Content-Pfad &mdash; vom Awareness-Asset bis zum Therapie-Begleiter.',h:4,i:'Hoch'}
+    ],
+    insurance: [
+      {t:'Lebenslagen-Scoring',d:'KI leitet aus CRM-Signalen Bed&uuml;rfnisse ab &rarr; Tarif-Empfehlung f&uuml;r Berater vorbereitet.',h:5,i:'Sehr hoch'},
+      {t:'Vermittler-Playbooks',d:'Pro Region individuell: beste Argumente, Zielgruppen, Events &mdash; live per Prompt aktualisiert.',h:4,i:'Hoch'},
+      {t:'Kunden-Mailings mit Relevanz',d:'Generische Newsletter werden zu 6 Segmenten mit passenden Angeboten &mdash; automatisch, CD-sicher.',h:4,i:'Hoch'}
+    ],
+    fmcg: [
+      {t:'Shopper-Personas aktivieren',d:'KI leitet aus Panel-Daten Content-Varianten pro Shopper-Typ ab &mdash; Ausgespielt via CRM &amp; Retail Media.',h:6,i:'Sehr hoch'},
+      {t:'Lokale Aktionskommunikation',d:'Wochenangebote pro PLZ-Gebiet &mdash; Sprache, Motiv, Angebot dynamisch. Kein Manuelles Copy-Paste.',h:5,i:'Hoch'},
+      {t:'Loyalty-Mailings personalisiert',d:'Pro Mitglied ein Triggerpfad mit Produktempfehlungen &mdash; Uplift-tauglich in Tagen.',h:4,i:'Hoch'}
+    ],
+    franchise: [
+      {t:'Standort-Personalisierung by default',d:'Jeder Filial-Post, jedes Mailing &mdash; mit lokalem Markt, Wetter, Angebot. Zentral kontrolliert.',h:8,i:'Sehr hoch'},
+      {t:'Regionen-Kampagnen-Engine',d:'Region-spezifische Headlines und Visuals aus einer Master-Kampagne abgeleitet.',h:5,i:'Hoch'},
+      {t:'Lead-Response mit Ortsbezug',d:'Anfragen werden per KI-Draft binnen 5 Minuten mit lokalem Kontakt und Termin beantwortet.',h:3,i:'Mittel'}
+    ],
+    industry: [
+      {t:'Account-Based Content',d:'KI erstellt pro Zielkunde eine ma&szlig;geschneiderte Landingpage &mdash; Basis: Branche, Case, Produktkombi.',h:5,i:'Sehr hoch'},
+      {t:'Vertriebs-Briefings individuell',d:'Pro Termin eine 2-Seiten-KI-Pr&auml;paration mit Insights &uuml;ber Gegen&uuml;ber und Talking Points.',h:4,i:'Hoch'},
+      {t:'Sprachversionen per Knopfdruck',d:'Kundenspezifische Dokumente in 8 Sprachen &mdash; technisch korrekt, terminologisch konsistent.',h:3,i:'Mittel'}
+    ],
+    other: [
+      {t:'Segment-basierte Copy-Varianten',d:'Aus einer Kampagne werden 5 Zielgruppen-Fassungen &mdash; Tonfall, L&auml;nge, Hook angepasst.',h:5,i:'Hoch'},
+      {t:'Mail-Flows mit Relevanz',d:'Automatisierte Mails, die per KI-Persona-Fit ausgesteuert werden &mdash; keine generischen Blasts mehr.',h:4,i:'Hoch'},
+      {t:'Landingpages in Varianten',d:'Pro Zielgruppe eine personalisierte Landingpage &mdash; KI-Copy, A/B-ready.',h:3,i:'Mittel'}
+    ]
+  },
+  reporting: {
+    pharma: [
+      {t:'KPI-Report in 10 Minuten',d:'Aus SFDC, Marketing-Cloud und Veeva ein wochenfrischer KI-Briefing-Report &mdash; mit Narrativ.',h:5,i:'Hoch'},
+      {t:'Brand-Tracking Dashboard',d:'Soziale Signale, PubMed-Mentions und Medienabdeckung aggregiert &mdash; automatisch kommentiert.',h:4,i:'Mittel'},
+      {t:'Event-Follow-up Insights',d:'Kongress-Leads werden per KI geclustert: Top-Themen, Follow-up-Priorit&auml;t, n&auml;chste Aktion.',h:3,i:'Mittel'}
+    ],
+    insurance: [
+      {t:'Kampagnen-Auswertung per GPT',d:'CRM-Export &rarr; Narrative Zusammenfassung mit Next-Best-Action f&uuml;r jede Vertriebsregion.',h:5,i:'Hoch'},
+      {t:'Service-Center Voice-of-Customer',d:'Tickets werden geclustert &mdash; KI liefert w&ouml;chentlich Top-3-Themen f&uuml;r Content &amp; Produkt.',h:4,i:'Hoch'},
+      {t:'Renewals-Radar',d:'KI scannt Bestandsdaten und hebt Kunden mit Churn-Risiko in priorisierter Call-Liste hervor.',h:3,i:'Mittel'}
+    ],
+    fmcg: [
+      {t:'Retail-Media Wochenreport',d:'Amazon DSP, Retail-APIs und Trade-Spend &rarr; ein automatisch erstelltes Narrative-Deck.',h:5,i:'Hoch'},
+      {t:'Promo-Evaluation automatisiert',d:'Uplift-Analyse pro Promo in Minuten &mdash; inkl. Empfehlung f&uuml;r Folge-Aktion.',h:4,i:'Hoch'},
+      {t:'Shopper-Insights Feed',d:'Social Listening + Panel + Reviews &mdash; wochenfrisch als Trend-Brief f&uuml;r Brand-Teams.',h:3,i:'Mittel'}
+    ],
+    franchise: [
+      {t:'Filial-Performance Readout',d:'Top- und Bottom-Filialen werden automatisch identifiziert &mdash; mit Handlungs-Empfehlung.',h:6,i:'Sehr hoch'},
+      {t:'Regionaler Werbemittel-Report',d:'Welche Assets performen wo? KI liefert pro Region einen mini-Executive-Summary.',h:4,i:'Hoch'},
+      {t:'Lead-Qualit&auml;t pro Standort',d:'KI-Scoring deckt versteckte Top-Performer und Nachjustierungs-Bedarf auf.',h:3,i:'Mittel'}
+    ],
+    industry: [
+      {t:'Pipeline-Briefing mit KI',d:'Pro Woche ein GPT-generierter Readout zu Opportunities: Stagnation, Gefahren, Momentum.',h:5,i:'Hoch'},
+      {t:'Content-Attribution vereinfacht',d:'Welche Assets haben Deals beeinflusst? KI mapped Touchpoints auf SQL-Ebene.',h:3,i:'Mittel'},
+      {t:'Kunden-Insights B2B',d:'Gespr&auml;chsnotizen, Mails, Tickets &rarr; ein Kunden-Dossier pro Woche &mdash; automatisch aktualisiert.',h:3,i:'Mittel'}
+    ],
+    other: [
+      {t:'Wochen-Readouts in Minuten',d:'GA4, CRM und Ads-Daten &rarr; ein narratives KI-Briefing statt 50 Tabs im Dashboard.',h:5,i:'Hoch'},
+      {t:'Insights aus Open Text',d:'KI-Analyse von Umfragen &amp; Reviews zeigt Themen-Cluster &mdash; Recherche-Arbeit minus 70&nbsp;%.',h:4,i:'Hoch'},
+      {t:'Performance-Alerts mit Kontext',d:'Statt blanker Warnung eine formulierte Ursachen-Hypothese und n&auml;chster Schritt.',h:3,i:'Mittel'}
+    ]
+  },
+  compliance: {
+    pharma: [
+      {t:'Medical-Review Co-Pilot',d:'KI-Check auf Indikation, Claims, Quellen &mdash; bevor Material ins MLR geht. 40&nbsp;% schnellerer Durchlauf.',h:5,i:'Sehr hoch'},
+      {t:'Prompt-Guardrails',d:'Zentrale Prompt-Library mit Compliance-Sperren &mdash; nur freigegebene Claims flie&szlig;en in Drafts.',h:4,i:'Hoch'},
+      {t:'Audit-Trail f&uuml;r jede KI-Ausgabe',d:'Jeder Output versioniert, nachvollziehbar, l&ouml;schbar &mdash; DSGVO- und Pharma-Code-konform.',h:3,i:'Hoch'}
+    ],
+    insurance: [
+      {t:'Regulatorik-Check automatisch',d:'Texte werden gegen BaFin-Vorgaben gepr&uuml;ft &mdash; gef&auml;hrliche Formulierungen markiert.',h:5,i:'Sehr hoch'},
+      {t:'Freigabe-Workflow mit KI',d:'Legal, Fachabteilung und Marketing im Tool &mdash; KI priorisiert und kommentiert Drafts.',h:4,i:'Hoch'},
+      {t:'Datenschutz-Kon\u00ADformes Prompting',d:'Eigener KI-Agent auf internen Servern &mdash; kein Daten-Leak, volle Nachvollziehbarkeit.',h:3,i:'Hoch'}
+    ],
+    fmcg: [
+      {t:'Claim-Engine mit Sperrliste',d:'KI generiert nur innerhalb gesetzlich erlaubter Aussagen &mdash; HCVO, LMIV, UWG automatisiert.',h:4,i:'Hoch'},
+      {t:'Retail-Guidelines automatisch',d:'Pro Handels-Partner gelten andere Specs &mdash; KI generiert konform pro Konto.',h:3,i:'Mittel'},
+      {t:'Nachhaltigkeits-Claims pr&uuml;fen',d:'Green-Claim-Richtlinie 2026 erzwingen &mdash; KI flaggt riskante Formulierungen.',h:3,i:'Hoch'}
+    ],
+    franchise: [
+      {t:'CD-Guard f&uuml;r Filialen',d:'Zentraler KI-Gatekeeper pr&uuml;ft jede Filial-Ausspielung gegen Corporate-Design-Regeln.',h:6,i:'Sehr hoch'},
+      {t:'Freigabe-Workflows automatisiert',d:'Filial-Drafts werden per KI vorgepr&uuml;ft, bevor sie ins Zentral-Review gehen.',h:4,i:'Hoch'},
+      {t:'DSGVO-Copywriting',d:'Personalisierte Inhalte bleiben regelkonform &mdash; Opt-in, Double-Opt-in, L&ouml;schpflichten.',h:3,i:'Hoch'}
+    ],
+    industry: [
+      {t:'Export-Compliance KI-gepr&uuml;ft',d:'KI flaggt Aussagen mit Embargo- oder Zertifizierungs-Risiko &mdash; vor Ver&ouml;ffentlichung.',h:4,i:'Hoch'},
+      {t:'Technische Claims auditierbar',d:'Jede Leistungsaussage wird an Quelle und Norm zur&uuml;ckgebunden &mdash; revisionssicher.',h:3,i:'Hoch'},
+      {t:'Vertriebs-KI-Richtlinien',d:'Einheitliche Guardrails f&uuml;r alle Au&szlig;endienst-Drafts &mdash; keine Regelverst&ouml;&szlig;e mehr.',h:3,i:'Mittel'}
+    ],
+    other: [
+      {t:'KI-Governance Framework',d:'Policy, Approval-Flows, Schulungs-Modul &mdash; als Baukasten f&uuml;r Ihr Team.',h:4,i:'Sehr hoch'},
+      {t:'Prompt-Library zentral',d:'Eine kuratierte Prompt-Bibliothek &mdash; freigegeben, versioniert, markenkonform.',h:3,i:'Hoch'},
+      {t:'Audit-Log f&uuml;r KI-Outputs',d:'Jede KI-Generierung ist nachweisbar, pr&uuml;fbar und r&uuml;ckholbar.',h:3,i:'Mittel'}
+    ]
+  }
+};
+
+// Industry averages (expert estimates; refine with real data later)
+var kpBench = { pharma:42, insurance:38, fmcg:48, franchise:40, industry:36, other:43 };
+
+var kpIndustryLabels = { pharma:'Pharma/Medical', insurance:'Versicherung', fmcg:'FMCG/Handel', franchise:'Franchise-Netzwerk', industry:'Industrie/B2B', other:'Ihrer Branche' };
+
+var kpGoalText = {
+  zeit:'Zeit-Hebel: Routine-Aufgaben werden konsequent entkoppelt vom Team &mdash; KI &uuml;bernimmt das Voll-Gef&uuml;ll, Menschen kuratieren und entscheiden.',
+  output:'Output-Hebel: Mehr Varianten, mehr Kan&auml;le, mehr Sprachen &mdash; ohne proportionalen Ressourcen-Zuwachs.',
+  personalisierung:'Relevanz-Hebel: Ein Standard-Asset wird zu 5&ndash;15 segmentspezifischen Ableitungen &mdash; Performance steigt deutlich.',
+  kontrolle:'Kontroll-Hebel: Zentrale Governance &uuml;ber Claims, CD und Freigaben &mdash; ohne Wachstum der Koordinations-Bremse.',
+  kosten:'Kosten-Hebel: Externe Agentur-Aufw&auml;nde werden durch interne KI-Prozesse auf den Kern reduziert &mdash; ROI binnen 2 Quartalen.'
+};
+
+// 30-day plan (adaptive to top pain)
+var kpPlan = {
+  content: [
+    ['Woche 1','Baseline: Content-Aufw&auml;nde der letzten 4 Wochen dokumentieren. 3 Routine-Formate f&uuml;r den KI-Pilot identifizieren.'],
+    ['Woche 2','Tool-Setup (z.&nbsp;B. GPT Enterprise oder Azure OpenAI) + 5 Prompts pro Format als Bibliothek anlegen. Team-Briefing (45 Min).'],
+    ['Woche 3','Pilot-Produktion: 10 Assets pro Format live &mdash; mit Fach-Review. Messung Zeit pro Asset vs. Baseline.'],
+    ['Woche 4','Readout mit dem Team. Quick-Wins sichern: SOPs schreiben, Roll-out auf 2 weitere Formate planen.']
+  ],
+  personalisierung: [
+    ['Woche 1','Segment-Audit: 3&ndash;5 Zielgruppen priorisieren. Datenquellen mappen (CRM, Web, Behaviour).'],
+    ['Woche 2','Prompt-Set f&uuml;r Zielgruppen-Varianten bauen. Eine Kernkampagne als Testfall ausw&auml;hlen.'],
+    ['Woche 3','Kampagne wird per KI in 5 Zielgruppen-Varianten abgeleitet &mdash; live, mit KPI-Tracking.'],
+    ['Woche 4','Uplift analysieren, Lessons Learned dokumentieren. Scale-Plan f&uuml;r die n&auml;chsten 3 Kampagnen festlegen.']
+  ],
+  reporting: [
+    ['Woche 1','Daten-Audit: Welche Reports wie oft? Zeitaufwand pro Report. Top 3 f&uuml;r Automatisierung w&auml;hlen.'],
+    ['Woche 2','KI-Readout-Framework bauen: Datenexport &rarr; Prompt-Template &rarr; Narrative. Ein Test-Report live.'],
+    ['Woche 3','2 weitere Reports automatisieren. Stakeholder-Feedback einholen, Format nachjustieren.'],
+    ['Woche 4','Rollout &amp; Ownership: Wer betreibt das in Zukunft? Training-Session &amp; Dokumentation final.']
+  ],
+  compliance: [
+    ['Woche 1','Audit: Welche KI-Nutzung findet bereits statt? Policy-L&uuml;cken und Risiken dokumentieren.'],
+    ['Woche 2','KI-Richtlinie (1 Seite) finalisieren. Zentrale Prompt-Library aufsetzen. Schulungs-Slide-Deck erstellen.'],
+    ['Woche 3','Pilot-Team &uuml;ber Guardrails onboarden. Freigabe-Workflow mit KI-Preview testen.'],
+    ['Woche 4','Rollout an Core-Team. Audit-Trail live &mdash; erste KI-Output-Reviews &amp; Anpassungen.']
+  ]
+};
+
+// ───── Scoring & Render ─────
+function kpCalc(){
+  var industry = document.getElementById('kpIndustry').value;
+  var team = document.getElementById('kpTeamSize').value;
+  var structEl = document.querySelector('#kpStructure .kp-toggle.selected');
+  var structure = structEl ? structEl.dataset.value : 'zentral';
+  var tools = parseInt(document.getElementById('kpTools').value);
+  var routine = parseInt(document.getElementById('kpRoutine').value);
+  var painEl = document.querySelector('#kpPain .kp-opt.selected');
+  var pain = painEl ? painEl.dataset.value : 'personalisierung';
+  var budget = document.getElementById('kpBudget').classList.contains('checked');
+  var govern = document.getElementById('kpGovernance').classList.contains('checked');
+  var goalEl = document.querySelector('.kp-goal.selected');
+  var goal = goalEl ? goalEl.dataset.value : 'zeit';
+
+  // KI-Reifegrad 0-100
+  var score = 25;
+  score += Math.min(tools,8) * 4;           // 0..32
+  if (budget) score += 8;
+  if (govern) score += 10;
+  if (team === '6-20') score += 4;
+  else if (team === '21-50') score += 6;
+  else if (team === '50+') score += 8;
+  if (structure === 'hybrid') score += 3;
+  else if (structure === 'dezentral') score += 5;
+  if (routine >= 20) score -= 4;            // hoher Routine-Anteil = weniger Automatisierung
+  else if (routine <= 6) score += 4;
+  score = Math.max(10, Math.min(95, score));
+
+  // Zeitgewinn & Output-Faktor (Schaetzung)
+  var avgLib = kpLibrary[pain] && kpLibrary[pain][industry] ? kpLibrary[pain][industry] : kpLibrary.content.other;
+  var savedHours = avgLib.reduce(function(s,it){return s+it.h;},0);
+  savedHours = Math.min(savedHours, Math.max(3, routine));
+  var outputMultiplier = pain === 'personalisierung' ? 5 : (pain === 'content' ? 4 : 3);
+
+  // Benchmark
+  var avg = kpBench[industry] || 42;
+
+  // Render score
+  document.getElementById('resScore').innerHTML = score + '<span>/100</span>';
+  document.getElementById('resYou').style.left = score + '%';
+  document.getElementById('resAvg').style.left = avg + '%';
+  document.getElementById('resBenchNote').textContent = '\u00D8 ' + kpIndustryLabels[industry] + ' ' + avg + '  \u00B7  Sie ' + score;
+
+  var badge, desc;
+  if (score < 35) { badge='Einstiegsphase'; desc='Noch am Anfang &mdash; aber dort liegt der gr&ouml;&szlig;te Hebel. Ihre 3 Quick Wins setzen genau hier an.'; }
+  else if (score < 55) { badge='Aufbau-Phase'; desc='Erste KI-Tools sind im Einsatz. Jetzt geht es um Strukturierung und die ersten skalierenden Use Cases.'; }
+  else if (score < 75) { badge='Bereit f&uuml;r den n&auml;chsten Hebel'; desc='Solide Basis &mdash; jetzt z&auml;hlt, welche 3 Use Cases als N&auml;chstes sp&uuml;rbaren Impact liefern.'; }
+  else { badge='Advanced &mdash; Skalierungs-Phase'; desc='Sie sind vorne. Die Arbeit liegt jetzt in Governance, Skalierung und Messbarkeit.'; }
+  document.getElementById('resBadge').innerHTML = badge;
+  document.getElementById('resDesc').textContent = desc + ' ' + kpGoalText[goal];
+
+  document.getElementById('resHours').textContent = '+' + savedHours + ' h';
+  document.getElementById('resOutput').textContent = outputMultiplier + '\u00D7';
+
+  // Quick Wins
+  var lib = (kpLibrary[pain] && kpLibrary[pain][industry]) ? kpLibrary[pain][industry] : kpLibrary.content.other;
+  var qwHost = document.getElementById('resQuickwins');
+  qwHost.innerHTML = '';
+  for (var i=0; i<Math.min(3, lib.length); i++) {
+    var qw = lib[i];
+    var row = document.createElement('div');
+    row.className = 'kp-quickwin';
+    row.innerHTML = '<div class="kp-quickwin__num">'+(i+1)+'</div>'+
+      '<div class="kp-quickwin__body">'+
+      '<p class="kp-quickwin__title">'+qw.t+'</p>'+
+      '<p class="kp-quickwin__desc">'+qw.d+'</p>'+
+      '<div class="kp-quickwin__meta">'+
+      '<span>Zeit / Woche: <strong>~'+qw.h+' h</strong></span>'+
+      '<span>Impact: <strong>'+qw.i+'</strong></span>'+
+      '<span>Umsetzung: <strong>2&ndash;4 Wochen</strong></span>'+
+      '</div></div>';
+    qwHost.appendChild(row);
+  }
+
+  // 30-day plan
+  var plan = kpPlan[pain] || kpPlan.content;
+  var planHost = document.getElementById('resPlan');
+  planHost.innerHTML = '';
+  plan.forEach(function(step){
+    var li = document.createElement('li');
+    li.className = 'kp-plan__item';
+    li.innerHTML = '<span class="kp-plan__week">'+step[0]+'</span><span class="kp-plan__text">'+step[1]+'</span>';
+    planHost.appendChild(li);
+  });
+
+  // Lead hidden fields
+  document.getElementById('kpLeadScore').value = score;
+  document.getElementById('kpLeadIndustry').value = industry;
+  document.getElementById('kpLeadPain').value = pain;
+  document.getElementById('kpLeadGoal').value = goal;
+}
+
+function kpReset(){
+  document.getElementById('kpResult').classList.remove('active');
+  document.querySelectorAll('.kp-stage').forEach(function(s){s.classList.remove('active')});
+  document.getElementById('kpStage1').classList.add('active');
+  document.getElementById('kpProgress').style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function kpOpenContact(){
+  window.location.href='index-v4.html#kontakt';
+  return true;
+}
+
+document.getElementById('kpLeadForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var fd=new FormData(this);
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()})
+  .then(function(){document.getElementById('kpLeadForm').style.display='none';document.getElementById('kpLeadSuccess').style.display='block';})
+  .catch(function(){alert('Fehler beim Senden. Bitte versuchen Sie es sp\u00e4ter erneut.');});
+});
+</script>
+
+<!-- ═══ COOKIE-BANNER (DSGVO) ═══ -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:var(--gray-900);color:var(--white);padding:20px 24px;box-shadow:0 -4px 24px rgba(0,0,0,0.2);font-size:14px;line-height:1.6">
+  <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+    <p style="flex:1;min-width:280px;margin:0">Diese Website verwendet Cookies, um Ihnen die bestm&ouml;gliche Nutzung zu erm&ouml;glichen. Weitere Informationen finden Sie in unserer <a href="datenschutz.html" style="color:#e3101a;text-decoration:underline">Datenschutzerkl&auml;rung</a>.</p>
+    <div style="display:flex;gap:10px;flex-shrink:0">
+      <button onclick="setCookieConsent('essential')" style="padding:10px 20px;border-radius:100px;font-size:14px;font-weight:500;background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);cursor:pointer">Nur Essenzielle</button>
+      <button onclick="setCookieConsent('all')" style="padding:10px 20px;border-radius:100px;font-size:14px;font-weight:600;background:#e3101a;color:#fff;border:none;cursor:pointer">Alle akzeptieren</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){if(!localStorage.getItem('cookie_consent')){document.getElementById('cookieBanner').style.display='block';}})();
+function setCookieConsent(level){localStorage.setItem('cookie_consent',level);localStorage.setItem('cookie_consent_date',new Date().toISOString());document.getElementById('cookieBanner').style.display='none';}
+</script>
+</body>
+</html>
