@@ -345,15 +345,23 @@
             margin-bottom: 32px;
         }
 
-        .problem-content {
-            max-width: 800px;
-            margin: 0 auto;
+        .section-header {
+            text-align: left;
+            margin-bottom: 60px;
+            max-width: 900px;
         }
 
-        .problem-content p {
-            font-size: 16px;
-            line-height: 1.8;
+        .section-header .label {
+            justify-content: flex-start;
+        }
+
+        .section-header h2 {
             margin-bottom: 24px;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            line-height: 1.7;
             color: var(--gray-700);
         }
 
@@ -363,23 +371,6 @@
         .solution-section {
             background-color: var(--gray-50);
             padding: 80px var(--container-px);
-        }
-
-        .solution-header {
-            max-width: 800px;
-            margin: 0 auto 60px;
-            text-align: center;
-        }
-
-        .solution-header h2 {
-            margin-bottom: 24px;
-        }
-
-        .solution-header p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--gray-700);
-            margin-bottom: 24px;
         }
 
         .feature-cards {
@@ -402,6 +393,28 @@
             transform: translateY(-4px);
         }
 
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background-color: #F3F3F3;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--red);
+            margin-bottom: 20px;
+            flex-shrink: 0;
+        }
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+
         .feature-card h3 {
             margin-bottom: 16px;
             font-size: 1.25rem;
@@ -415,12 +428,12 @@
 
         .solution-tagline {
             text-align: left;
-            max-width: 700px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 40px;
-            background-color: var(--white);
-            border-radius: 8px;
-            border-left: 4px solid var(--red);
+            padding: 48px;
+            background-color: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
         }
 
         .solution-tagline p {
@@ -442,92 +455,91 @@
         }
 
         .case-study {
+            padding: 48px;
+            background-color: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
             max-width: 900px;
             margin: 0 auto;
-            border-left: 4px solid var(--red);
-            padding-left: 40px;
-            margin: 40px 0;
         }
 
-        .case-study .label {
-            display: block;
-            margin-bottom: 16px;
-        }
-
-        .case-study h2 {
-            margin-bottom: 24px;
-            font-size: 2rem;
-        }
-
-        .case-study > p:first-of-type,
-        .case-study-content > p:first-of-type {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--gray-700);
+        .case-study-lead {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 24px 28px;
             margin-bottom: 40px;
         }
 
-        .case-study-section-title {
+        .case-study-lead p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--gray-700);
+            margin: 0;
+        }
+
+        .case-study .label {
+            margin-bottom: 16px;
+            justify-content: flex-start;
+        }
+
+        .case-study > h2 {
+            margin-bottom: 40px;
+        }
+
+        .case-study-content {
+            display: grid;
+            gap: 32px;
+        }
+
+        .case-study-block h3 {
+            font-size: 16px;
             font-weight: 700;
             color: var(--black);
-            margin-top: 32px;
-            margin-bottom: 16px;
-            font-size: 1rem;
+            margin-bottom: 12px;
+            letter-spacing: 0;
         }
 
-        .case-study-list {
-            list-style: none;
-            margin-bottom: 32px;
-        }
-
-        .case-study-list li {
-            padding: 12px 0;
-            padding-left: 28px;
-            position: relative;
-            color: var(--gray-700);
+        .case-study-block p {
             font-size: 15px;
-            line-height: 1.6;
+            color: var(--gray-700);
+            line-height: 1.7;
         }
 
-        .case-study-list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 6px;
-            height: 6px;
-            background-color: var(--red);
-            border-radius: 50%;
+        .case-study-block ul {
+            list-style: none;
+            padding-left: 0;
         }
 
-        .case-study-description {
-            background-color: var(--gray-50);
-            padding: 32px;
-            border-radius: 8px;
-            margin-bottom: 32px;
-        }
-
-        .case-study-description h4 {
-            color: var(--black);
-            margin-bottom: 16px;
-        }
-
-        .case-study-description p {
+        .case-study-block li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 12px;
             color: var(--gray-700);
             font-size: 15px;
             line-height: 1.7;
+        }
+
+        .case-study-block li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.7em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--gray-500);
         }
 
         .case-study-metrics {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 24px;
-            margin: 40px 0;
+            margin-top: 16px;
         }
 
         .case-study-metric {
-            background-color: var(--gray-50);
+            background-color: var(--white);
             padding: 24px;
             border-radius: 8px;
             border: 1px solid var(--gray-200);
@@ -561,28 +573,10 @@
             justify-content: center;
         }
 
-        .case-study-conclusion {
-            background-color: var(--gray-50);
-            padding: 32px;
-            border-radius: 8px;
-            border-left: 4px solid var(--red);
-            margin-top: 40px;
-        }
-
-        .case-study-conclusion h4 {
-            margin-bottom: 16px;
-        }
-
-        .case-study-conclusion p {
-            color: var(--gray-700);
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
         .case-study-tagline {
             font-style: italic;
             color: var(--red);
-            margin-top: 20px;
+            margin-top: 16px;
             font-weight: 600;
         }
 
@@ -679,7 +673,7 @@
            CTA SECTION
            ======================================== */
         .cta-section {
-            background: linear-gradient(135deg, var(--red) 0%, #cc0f16 100%);
+            background: linear-gradient(135deg, var(--red) 0%, #ff2d33 100%);
             padding: 80px var(--container-px);
             text-align: center;
             color: var(--white);
@@ -705,35 +699,41 @@
            ======================================== */
         footer {
             background-color: var(--black);
-            padding: 60px var(--container-px);
             color: var(--white);
+            padding: 60px var(--container-px) 30px;
         }
 
         .footer-content {
+            max-width: var(--container-max);
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 48px;
             margin-bottom: 40px;
         }
 
         .footer-brand {
-            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .footer-brand .logo {
-            margin-bottom: 16px;
+            color: var(--white);
+            margin-bottom: 12px;
         }
 
         .footer-brand p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 13px;
             line-height: 1.6;
         }
 
         .footer-column h4 {
             color: var(--white);
+            font-size: 14px;
+            font-weight: 600;
             margin-bottom: 16px;
-            font-size: 1rem;
         }
 
         .footer-column ul {
@@ -745,9 +745,9 @@
         }
 
         .footer-column a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
             transition: var(--transition);
         }
 
@@ -757,10 +757,10 @@
 
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 32px;
+            padding-top: 30px;
             text-align: center;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
         }
 
         /* ========================================
@@ -907,13 +907,27 @@
         /* ========================================
            RESPONSIVE
            ======================================== */
+        @media (max-width: 1024px) {
+            section {
+                padding: 60px var(--container-px);
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+        }
+
         @media (max-width: 768px) {
+            :root {
+                --container-px: 20px;
+            }
+
             .nav__links { display: none; }
             .nav__cta { display: none; }
             .nav__mobile { display: flex; }
 
             section {
-                padding: 60px var(--container-px);
+                padding: 48px var(--container-px);
             }
 
             h1 { font-size: 2rem; }
@@ -933,11 +947,21 @@
             }
 
             .case-study {
-                border-left: none;
-                border-top: 4px solid var(--red);
                 margin: 40px 0;
-                padding: 24px 0;
-                padding-top: 24px;
+                padding: 32px 20px;
+            }
+
+            .case-study-lead {
+                padding: 20px 22px;
+                margin-bottom: 32px;
+            }
+
+            .case-study-lead p {
+                font-size: 1rem;
+            }
+
+            .case-study > h2 {
+                margin-bottom: 32px;
             }
 
             .case-study-layout {
@@ -968,7 +992,18 @@
                 padding: 10px 20px;
                 font-size: 13px;
             }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
         }
+
+        /* 3DCAY Logo — unified corporate logo */
+        .nav__logo img, .nav-logo img, .as-nav__logo img, .wp-nav__logo img,
+        .logo img, .wp-cover__logo img { height: 32px; width: auto; display: block; }
+        .nav__logo img, .nav-logo img, .as-nav__logo img, .wp-nav__logo img { height: 28px; }
+        footer .logo img { height: 32px; }
     </style>
 </head>
 <body>
@@ -976,19 +1011,14 @@
     <nav class="nav nav--dark" id="nav">
         <div class="nav__inner">
             <a href="index-v4.html" class="nav__logo">
-                <svg viewBox="113 222 1512 394" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="translate(113,220)">
-                        <path class="nav__logo-mono" d="M 594.00 83.00 L 577.00 113.00 L 566.00 148.00 L 562.00 174.00 L 562.00 213.00 L 566.00 239.00 L 573.00 263.00 L 586.00 291.00 L 595.00 305.00 L 598.00 307.00 L 617.00 301.00 L 635.00 292.00 L 652.00 280.00 L 664.00 268.00 L 664.00 266.00 L 657.00 258.00 L 648.00 242.00 L 641.00 222.00 L 638.00 205.00 L 638.00 179.00 L 642.00 159.00 L 653.00 134.00 L 663.00 119.00 L 647.00 105.00 L 635.00 97.00 L 615.00 88.00 Z M 1092.00 5.00 L 1262.00 245.00 L 1262.00 383.00 L 1338.00 383.00 L 1338.00 244.00 L 1508.00 4.00 L 1416.00 4.00 L 1300.00 173.00 L 1184.00 4.00 Z M 688.00 373.00 L 710.00 379.00 L 736.00 383.00 L 870.00 383.00 L 1014.00 85.00 L 1019.00 93.00 L 1091.00 244.00 L 1061.00 246.00 L 996.00 246.00 L 962.00 316.00 L 1124.00 316.00 L 1157.00 383.00 L 1244.00 382.00 L 1060.00 4.00 L 969.00 4.00 L 821.00 307.00 L 819.00 309.00 L 780.00 308.00 L 754.00 335.00 L 740.00 346.00 L 721.00 358.00 Z M 691.00 13.00 L 703.00 17.00 L 721.00 26.00 L 740.00 38.00 L 762.00 56.00 L 781.00 78.00 L 896.00 78.00 L 934.00 4.00 L 740.00 4.00 L 710.00 8.00 Z" fill-rule="evenodd"/>
-                        <path class="nav__logo-accent" d="M 50.00 7.00 L 50.00 82.00 L 252.00 84.00 L 150.00 167.00 L 150.00 217.00 L 247.00 217.00 L 266.00 221.00 L 283.00 230.00 L 294.00 243.00 L 299.00 259.00 L 299.00 274.00 L 295.00 288.00 L 290.00 296.00 L 284.00 302.00 L 265.00 312.00 L 246.00 317.00 L 47.00 318.00 L 2.00 394.00 L 263.00 393.00 L 287.00 389.00 L 315.00 380.00 L 336.00 369.00 L 350.00 358.00 L 361.00 346.00 L 370.00 332.00 L 377.00 316.00 L 382.00 296.00 L 384.00 275.00 L 383.00 251.00 L 380.00 235.00 L 373.00 216.00 L 358.00 194.00 L 346.00 183.00 L 334.00 175.00 L 314.00 166.00 L 296.00 161.00 L 256.00 157.00 L 294.00 122.00 L 354.00 75.00 L 354.00 7.00 Z M 390.00 2.00 L 390.00 72.00 L 359.00 96.00 L 359.00 166.00 L 371.00 172.00 L 386.00 183.00 L 396.00 193.00 L 407.00 209.00 L 414.00 225.00 L 418.00 241.00 L 420.00 262.00 L 419.00 284.00 L 415.00 306.00 L 404.00 332.00 L 395.00 345.00 L 381.00 359.00 L 372.00 366.00 L 359.00 373.00 L 359.00 389.00 L 549.00 389.00 L 590.00 388.00 L 611.00 385.00 L 654.00 373.00 L 683.00 359.00 L 707.00 343.00 L 734.00 317.00 L 751.00 293.00 L 762.00 271.00 L 769.00 251.00 L 776.00 216.00 L 777.00 187.00 L 772.00 149.00 L 762.00 118.00 L 752.00 98.00 L 743.00 84.00 L 720.00 58.00 L 691.00 36.00 L 663.00 21.00 L 635.00 11.00 L 613.00 6.00 L 583.00 2.00 Z M 441.00 78.00 L 578.00 78.00 L 606.00 84.00 L 625.00 91.00 L 635.00 96.00 L 658.00 113.00 L 675.00 132.00 L 685.00 151.00 L 691.00 171.00 L 693.00 185.00 L 692.00 212.00 L 688.00 229.00 L 680.00 248.00 L 667.00 267.00 L 652.00 281.00 L 635.00 293.00 L 617.00 302.00 L 596.00 309.00 L 576.00 312.00 L 442.00 313.00 Z" fill-rule="evenodd"/>
-                    </g>
-                </svg>
+                <img src="images/3dcay-logo.svg" alt="3DCAY">
             </a>
             <ul class="nav__links">
                 <li class="nav__dropdown">
                     <a href="#produkte">Produkte</a>
                     <div class="nav__dropdown-menu">
                         <a href="shop.html">Shop</a>
-                        <a href="web-to-publish.html">Web-to-Publish</a>
+                        <a href="web-to-publish.html" class="active">Web-to-Publish</a>
                         <a href="cashback.html">Cashback</a>
                         <a href="3dcay-app.html">App</a>
                     </div>
@@ -1021,7 +1051,8 @@
     <!-- PROBLEM SECTION -->
     <section class="problem-section">
         <div class="container">
-            <div class="problem-content">
+            <div class="section-header">
+                <div class="label">DIE AUFGABE</div>
                 <h2>Warum manuelle Gestaltungsprozesse Ihr Marketing ausbremsen</h2>
                 <p>In dezentralisierten Organisationen mit vielen Partnern oder Vertriebsstellen entsteht oft ein klassisches Dilemma: Zentrale Marketing-Teams benötigen volle Kontrolle über die Markenidentität — doch Teams vor Ort brauchen Flexibilität, um schnell auf lokale Anforderungen zu reagieren.</p>
                 <p>Das Ergebnis sind manuelle Gestaltungsprozesse, lange Abstimmungsschleifen mit Agenturen, Verzögerungen bei der Umsetzung und inkonsistente Materialien. Budgets explodieren, Markenrichtlinien werden verletzt, und die Marktfähigkeit leidet.</p>
@@ -1033,38 +1064,45 @@
     <!-- SOLUTION SECTION -->
     <section class="solution-section">
         <div class="container">
-            <div class="solution-header">
+            <div class="section-header">
+                <div class="label">DIE LÖSUNG</div>
                 <h2>Mit 3DCAY Web-to-Publish stellen Sie Ihren Teams und Partnern eine Plattform zur Verfügung</h2>
                 <p>Über die Werbemittel schnell, einfach und kosteneffizient erstellt, produziert und verteilt werden können — von Visitenkarten und Flyern bis hin zu Social Media Content und digitalen Assets.</p>
             </div>
 
             <div class="feature-cards">
                 <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg></div>
                     <h3>Individualisierung über Produktion bis zur Lieferung</h3>
                     <p>Alles integriert in einer Plattform. Design, Personalisierung, Produktion und Versand aus einer Hand — keine zusätzlichen Schnittstellen, keine Medienbrüche.</p>
                 </div>
 
                 <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="7" x="3" y="3" rx="1"/><rect width="9" height="7" x="3" y="14" rx="1"/><rect width="5" height="7" x="16" y="14" rx="1"/></svg></div>
                     <h3>Zentrale Templates</h3>
                     <p>Markenauftritt bleibt konsistent. CI-konforme Templates mit vordefinierten Variablen stellen sicher, dass jedes Material Ihren Standards entspricht.</p>
                 </div>
 
                 <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg></div>
                     <h3>Automatisierte Workflows</h3>
                     <p>Nutzer können flexibel anpassen. Tokens, Placeholder und intelligente Variablen ermöglichen Anpassungen ohne gestalterische Freiheiten zu gefährden.</p>
                 </div>
 
                 <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg></div>
                     <h3>Budgetsteuerung</h3>
                     <p>Volle Kostenkontrolle. Setzen Sie Budget-Limits, monitoren Sie Ausgaben in Echtzeit und geben Sie nur das frei, was Sie sich leisten können.</p>
                 </div>
 
                 <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
                     <h3>Lageranbindung</h3>
                     <p>Physische Materialien direkt verknüpft. Bestellprozesse sind automatisiert — Nutzer sehen direkt Lagerbestände und Kosten pro Material.</p>
                 </div>
 
                 <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
                     <h3>Auswertungen & Schnittstellen</h3>
                     <p>Maximale Effizienz. Detaillierte Reports über alle Aktivitäten, API-Integration in bestehende Systeme, und volle Transparenz über ROI und Performance.</p>
                 </div>
@@ -1080,23 +1118,29 @@
     <section class="case-study-section" id="case-study">
         <div class="container">
             <div class="case-study reveal">
-                <div class="label">CASE STUDY</div>
-                <h2>Coca-Cola Irland: Individuelle POS-Materialien für Gastronomie-Partner</h2>
-                
+                <div class="case-study-lead">
+                    <p>Ein internationaler Getränkehersteller stand vor der Herausforderung, den Umsatz seiner Gastronomie-Partner wie Bäckereien, Imbisse, Kioske und Dönerläden deutlich zu steigern. Hierfür sind individuell gestaltete lokale Kombi-Angebote in großer Stückzahl nötig.</p>
+                </div>
+
+                <div class="label">CASE STUDY — COCA-COLA IRLAND</div>
+                <h2>Individuelle POS-Materialien für Gastronomie-Partner</h2>
+
                 <div class="case-study-layout">
                     <!-- Left: Text content -->
                     <div class="case-study-content">
-                        <p>Ein internationaler Getränkehersteller stand vor der Herausforderung, den Umsatz seiner Gastronomie-Partner wie Bäckereien, Imbisse, Kioske und Dönerläden deutlich zu steigern. Hierfür sind individuell gestaltete lokale Kombi-Angebote in großer Stückzahl nötig.</p>
+                        <div class="case-study-block">
+                            <h3>Ausgangssituation</h3>
+                            <p>Die Anforderung war klar: Außendienst-Mitarbeiter sollten direkt beim Kundenbesuch individuelle Marketingmaterialien erstellen können. Das Ziel war es, dem Gastronomie-Partner noch im gleichen Gespräch konkrete POS-Materialien mit seinen lokalen Speisen und Getränken sowie aktuellen Preisen und seinem eigenen Logo zu zeigen und direkt zu bestellen.</p>
+                        </div>
 
-                        <h4 class="case-study-section-title">Ausgangssituation</h4>
-                        <p>Die Anforderung war klar: Außendienst-Mitarbeiter sollten direkt beim Kundenbesuch individuelle Marketingmaterialien erstellen können. Das Ziel war es, dem Gastronomie-Partner noch im gleichen Gespräch konkrete POS-Materialien mit seinen lokalen Speisen und Getränken sowie aktuellen Preisen und seinem eigenen Logo zu zeigen und direkt zu bestellen.</p>
+                        <div class="case-study-block">
+                            <h3>Lösung mit 3DCAY Web-to-Publish</h3>
+                            <p>Mit 3DCAY Web-to-Publish wurde eine Lösung geschaffen, die den Außendienst direkt in die Lage versetzt, individuelle Marketingmaterialien gemeinsam mit dem Kunden vor Ort zu erstellen.</p>
+                        </div>
 
-                        <h4 class="case-study-section-title">Lösung mit 3DCAY Web-to-Publish</h4>
-                        <p>Mit 3DCAY Web-to-Publish wurde eine Lösung geschaffen, die den Außendienst direkt in die Lage versetzt, individuelle Marketingmaterialien gemeinsam mit dem Kunden vor Ort zu erstellen.</p>
-
-                        <div class="case-study-description">
-                            <h4>Wie es funktioniert</h4>
-                            <ul class="case-study-list">
+                        <div class="case-study-block">
+                            <h3>Wie es funktioniert</h3>
+                            <ul>
                                 <li>Hintergründe und Design-Vorlagen auswählen</li>
                                 <li>Speisen und Getränke des Partners hinzufügen</li>
                                 <li>Preise aktuell eingeben</li>
@@ -1335,28 +1379,30 @@
                     </div>
                 </div>
 
-                <h4 class="case-study-section-title">Ergebnis & Mehrwert</h4>
-                <div class="case-study-metrics">
-                    <div class="case-study-metric reveal">
-                        <div class="case-study-metric-label">Umsatz pro Partner</div>
-                        <div class="case-study-metric-value">+45%</div>
-                    </div>
-                    <div class="case-study-metric reveal">
-                        <div class="case-study-metric-label">Abverkauf optimiert durch</div>
-                        <div class="case-study-metric-value">POS-Materialien</div>
-                    </div>
-                    <div class="case-study-metric reveal">
-                        <div class="case-study-metric-label">Bestellprozess</div>
-                        <div class="case-study-metric-value">Automatisiert</div>
-                    </div>
-                    <div class="case-study-metric reveal">
-                        <div class="case-study-metric-label">Kundeninteraktion</div>
-                        <div class="case-study-metric-value">Sofort im Dialog</div>
+                <div class="case-study-block">
+                    <h3>Ergebnis &amp; Mehrwert</h3>
+                    <div class="case-study-metrics">
+                        <div class="case-study-metric reveal">
+                            <div class="case-study-metric-label">Umsatz pro Partner</div>
+                            <div class="case-study-metric-value">+45%</div>
+                        </div>
+                        <div class="case-study-metric reveal">
+                            <div class="case-study-metric-label">Abverkauf optimiert durch</div>
+                            <div class="case-study-metric-value">POS-Materialien</div>
+                        </div>
+                        <div class="case-study-metric reveal">
+                            <div class="case-study-metric-label">Bestellprozess</div>
+                            <div class="case-study-metric-value">Automatisiert</div>
+                        </div>
+                        <div class="case-study-metric reveal">
+                            <div class="case-study-metric-label">Kundeninteraktion</div>
+                            <div class="case-study-metric-value">Sofort im Dialog</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="case-study-conclusion">
-                    <h4>Fazit</h4>
+                <div class="case-study-block">
+                    <h3>Fazit</h3>
                     <p>Mit 3DCAY Web-to-Publish verbindet Coca-Cola Irland zentrale Markensteuerung mit maximaler Flexibilität im Markt. Der Außendienst kann schneller handeln, Partner erhalten professionelle Materialien sofort, und die Marke bleibt konsistent.</p>
                     <p class="case-study-tagline">Individuelle Kampagnen. Sofort umgesetzt. Direkt am Point of Sale.</p>
                 </div>
@@ -1383,12 +1429,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <a href="index-v4.html" class="logo">
-                        <svg viewBox="113 222 1512 394" xmlns="http://www.w3.org/2000/svg" style="width:140px; height:auto; display:block;">
-                            <g transform="translate(113,220)">
-                                <path d="M 594.00 83.00 L 577.00 113.00 L 566.00 148.00 L 562.00 174.00 L 562.00 213.00 L 566.00 239.00 L 573.00 263.00 L 586.00 291.00 L 595.00 305.00 L 598.00 307.00 L 617.00 301.00 L 635.00 292.00 L 652.00 280.00 L 664.00 268.00 L 664.00 266.00 L 657.00 258.00 L 648.00 242.00 L 641.00 222.00 L 638.00 205.00 L 638.00 179.00 L 642.00 159.00 L 653.00 134.00 L 663.00 119.00 L 647.00 105.00 L 635.00 97.00 L 615.00 88.00 Z M 1092.00 5.00 L 1262.00 245.00 L 1262.00 383.00 L 1338.00 383.00 L 1338.00 244.00 L 1508.00 4.00 L 1416.00 4.00 L 1300.00 173.00 L 1184.00 4.00 Z M 688.00 373.00 L 710.00 379.00 L 736.00 383.00 L 870.00 383.00 L 1014.00 85.00 L 1019.00 93.00 L 1091.00 244.00 L 1061.00 246.00 L 996.00 246.00 L 962.00 316.00 L 1124.00 316.00 L 1157.00 383.00 L 1244.00 382.00 L 1060.00 4.00 L 969.00 4.00 L 821.00 307.00 L 819.00 309.00 L 780.00 308.00 L 754.00 335.00 L 740.00 346.00 L 721.00 358.00 Z M 691.00 13.00 L 703.00 17.00 L 721.00 26.00 L 740.00 38.00 L 762.00 56.00 L 781.00 78.00 L 896.00 78.00 L 934.00 4.00 L 740.00 4.00 L 710.00 8.00 Z" fill="#FFFFFF" fill-rule="evenodd"/>
-                                <path d="M 50.00 7.00 L 50.00 82.00 L 252.00 84.00 L 150.00 167.00 L 150.00 217.00 L 247.00 217.00 L 266.00 221.00 L 283.00 230.00 L 294.00 243.00 L 299.00 259.00 L 299.00 274.00 L 295.00 288.00 L 290.00 296.00 L 284.00 302.00 L 265.00 312.00 L 246.00 317.00 L 47.00 318.00 L 2.00 394.00 L 263.00 393.00 L 287.00 389.00 L 315.00 380.00 L 336.00 369.00 L 350.00 358.00 L 361.00 346.00 L 370.00 332.00 L 377.00 316.00 L 382.00 296.00 L 384.00 275.00 L 383.00 251.00 L 380.00 235.00 L 373.00 216.00 L 358.00 194.00 L 346.00 183.00 L 334.00 175.00 L 314.00 166.00 L 296.00 161.00 L 256.00 157.00 L 294.00 122.00 L 354.00 75.00 L 354.00 7.00 Z M 390.00 2.00 L 390.00 72.00 L 359.00 96.00 L 359.00 166.00 L 371.00 172.00 L 386.00 183.00 L 396.00 193.00 L 407.00 209.00 L 414.00 225.00 L 418.00 241.00 L 420.00 262.00 L 419.00 284.00 L 415.00 306.00 L 404.00 332.00 L 395.00 345.00 L 381.00 359.00 L 372.00 366.00 L 359.00 373.00 L 359.00 389.00 L 549.00 389.00 L 590.00 388.00 L 611.00 385.00 L 654.00 373.00 L 683.00 359.00 L 707.00 343.00 L 734.00 317.00 L 751.00 293.00 L 762.00 271.00 L 769.00 251.00 L 776.00 216.00 L 777.00 187.00 L 772.00 149.00 L 762.00 118.00 L 752.00 98.00 L 743.00 84.00 L 720.00 58.00 L 691.00 36.00 L 663.00 21.00 L 635.00 11.00 L 613.00 6.00 L 583.00 2.00 Z M 441.00 78.00 L 578.00 78.00 L 606.00 84.00 L 625.00 91.00 L 635.00 96.00 L 658.00 113.00 L 675.00 132.00 L 685.00 151.00 L 691.00 171.00 L 693.00 185.00 L 692.00 212.00 L 688.00 229.00 L 680.00 248.00 L 667.00 267.00 L 652.00 281.00 L 635.00 293.00 L 617.00 302.00 L 596.00 309.00 L 576.00 312.00 L 442.00 313.00 Z" fill="#B8181C" fill-rule="evenodd"/>
-                            </g>
-                        </svg>
+                        <img src="images/3dcay-logo.svg" alt="3DCAY" style="width:140px; height:auto; display:block;">
                     </a>
                     <p>3DCAY Marketing IT Solutions by drei-d — Die IT-Marke für smartes Marketing Fulfillment.</p>
                 </div>
@@ -1399,7 +1440,7 @@
                         <li><a href="shop.html">Shop</a></li>
                         <li><a href="web-to-publish.html">Web-to-Publish</a></li>
                         <li><a href="cashback.html">Cashback</a></li>
-                        <li><a href="app.html">App</a></li>
+                        <li><a href="3dcay-app.html">App</a></li>
                     </ul>
                 </div>
 

@@ -63,19 +63,20 @@
         h1, h2, h3, h4, h5, h6 {
             font-weight: 800;
             letter-spacing: -0.035em;
-            line-height: 1.04;
+            line-height: 1.1;
             color: var(--black);
         }
 
-        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
-        h2 { font-size: clamp(2rem, 4vw, 3rem); }
-        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
-        h4 { font-size: 1.25rem; }
-        h5 { font-size: 1rem; }
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.05; }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; }
+        h3 { font-size: 1.25rem; line-height: 1.3; }
+        h4 { font-size: 1.0625rem; line-height: 1.35; }
+        h5 { font-size: 0.9375rem; line-height: 1.4; }
 
         p {
             color: var(--gray-700);
-            line-height: 1.6;
+            line-height: 1.65;
+            font-size: 1rem;
         }
 
         em {
@@ -98,18 +99,19 @@
            BUTTONS
            ======================================== */
         .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 32px;
+            border-radius: 100px;
             font-family: var(--font-sans);
-            font-size: 1rem;
             font-weight: 600;
-            padding: 0.75rem 2rem;
-            border: 2px solid var(--red);
-            border-radius: 0;
+            font-size: 14px;
+            text-decoration: none;
+            border: none;
             cursor: pointer;
             transition: var(--transition);
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-            white-space: nowrap;
+            gap: 8px;
         }
 
         .btn--primary {
@@ -119,28 +121,42 @@
 
         .btn--primary:hover {
             background-color: var(--red-hover);
-            border-color: var(--red-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(227, 16, 26, 0.3);
+        }
+
+        .btn--outline-white {
+            border: 2px solid var(--white);
+            color: var(--white);
+            background-color: transparent;
+        }
+
+        .btn--outline-white:hover {
+            background-color: var(--white);
+            color: var(--red);
+            transform: translateY(-2px);
         }
 
         .btn--outline {
+            border: 2px solid var(--gray-200);
+            color: var(--black);
             background-color: transparent;
-            color: var(--red);
         }
 
         .btn--outline:hover {
-            background-color: var(--red);
-            color: var(--white);
+            border-color: var(--red);
+            color: var(--red);
+            transform: translateY(-2px);
         }
 
         .btn--dark {
             background-color: var(--black);
             color: var(--white);
-            border-color: var(--black);
         }
 
         .btn--dark:hover {
             background-color: var(--gray-900);
-            border-color: var(--gray-900);
+            transform: translateY(-2px);
         }
 
         /* ========================================
@@ -154,17 +170,11 @@
         }
 
         section {
-            padding: 4rem var(--container-px);
-        }
-
-        @media (max-width: 768px) {
-            section {
-                padding: 2rem var(--container-px);
-            }
+            padding: 80px var(--container-px);
         }
 
         /* ========================================
-           NAVIGATION (V2 Style)
+           NAVIGATION
            ======================================== */
         .nav {
             position: fixed;
@@ -177,7 +187,7 @@
             align-items: center;
             transition: all 0.4s ease;
         }
-
+        .nav--dark { color: var(--white); }
         .nav.scrolled {
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(20px);
@@ -185,7 +195,6 @@
             border-bottom: 1px solid var(--gray-200);
             color: var(--black);
         }
-
         .nav__inner {
             display: flex;
             align-items: center;
@@ -195,39 +204,22 @@
             margin: 0 auto;
             padding: 0 var(--container-px);
         }
-
         .nav__logo {
             display: flex;
             align-items: center;
             text-decoration: none;
             flex-shrink: 0;
         }
-
-        .nav__logo svg {
-            height: 28px;
-            width: auto;
-            transition: all 0.3s;
-        }
-
-        .nav__logo svg .nav__logo-mono {
-            fill: var(--red);
-        }
-
-        .nav.scrolled .nav__logo svg .nav__logo-mono {
-            fill: var(--red);
-        }
-
-        .nav__logo svg .nav__logo-accent {
-            fill: #B8181C;
-        }
-
+        .nav__logo svg { height: 28px; width: auto; transition: all 0.3s; }
+        .nav--dark .nav__logo svg .nav__logo-mono { fill: var(--white); }
+        .nav.scrolled .nav__logo svg .nav__logo-mono { fill: var(--red); }
+        .nav__logo svg .nav__logo-accent { fill: #B8181C; }
         .nav__links {
             display: flex;
             align-items: center;
             gap: 28px;
             list-style: none;
         }
-
         .nav__links a {
             font-size: 14px;
             font-weight: 400;
@@ -236,11 +228,8 @@
             opacity: 0.6;
             transition: opacity 0.2s;
         }
-
-        .nav__links a:hover {
-            opacity: 1;
-        }
-
+        .nav__links a:hover { opacity: 1; }
+        .nav__links a.active { opacity: 1; color: var(--red); }
         .nav__cta {
             display: inline-flex;
             align-items: center;
@@ -252,21 +241,12 @@
             transition: all 0.2s;
             text-decoration: none;
             flex-shrink: 0;
-            color: var(--black);
-            border: 1px solid var(--gray-200);
+            cursor: pointer;
+            background: none;
         }
-
-        .nav.scrolled .nav__cta {
-            color: var(--black);
-            border: 1px solid var(--gray-200);
-        }
-
-        .nav__cta:hover {
-            background: var(--red);
-            color: var(--white);
-            border-color: var(--red);
-        }
-
+        .nav--dark .nav__cta { color: var(--white); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .nav.scrolled .nav__cta { color: var(--black); border: 1px solid var(--gray-200); }
+        .nav__cta:hover { background: var(--red); color: var(--white); border-color: var(--red); }
         .nav__mobile {
             display: none;
             flex-direction: column;
@@ -275,18 +255,8 @@
             cursor: pointer;
             background: none;
             border: none;
-            color: inherit;
         }
-
-        .nav__mobile span {
-            display: block;
-            width: 24px;
-            height: 1.5px;
-            background: currentColor;
-            transition: all 0.3s;
-        }
-
-        /* Mobile Nav Panel */
+        .nav__mobile span { display: block; width: 24px; height: 1.5px; background: currentColor; transition: all 0.3s; }
         .nav__mobile-panel {
             display: none;
             position: fixed;
@@ -299,35 +269,11 @@
             z-index: 999;
             padding: 32px;
         }
-
-        .nav__mobile-panel.open {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .nav__mobile-panel a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 500;
-            opacity: 0.7;
-            transition: opacity 0.2s;
-        }
-
-        .nav__mobile-panel a:hover {
-            opacity: 1;
-        }
-
-        /* Nav Dropdown */
-        .nav__dropdown {
-            position: relative;
-        }
-
-        .nav__dropdown > a {
-            cursor: pointer;
-        }
-
+        .nav__mobile-panel.open { display: flex; flex-direction: column; gap: 24px; }
+        .nav__mobile-panel a { color: var(--white); text-decoration: none; font-size: 18px; font-weight: 500; opacity: 0.7; transition: opacity 0.2s; }
+        .nav__mobile-panel a:hover { opacity: 1; }
+        .nav__dropdown { position: relative; }
+        .nav__dropdown > a { cursor: pointer; }
         .nav__dropdown > a::after {
             content: '';
             display: inline-block;
@@ -341,7 +287,6 @@
             opacity: 0.5;
             transition: transform 0.2s;
         }
-
         .nav__dropdown-menu {
             position: absolute;
             top: calc(100% + 12px);
@@ -358,17 +303,8 @@
             overflow: hidden;
             z-index: 1001;
         }
-
-        .nav__dropdown:hover .nav__dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .nav__dropdown:hover > a::after {
-            transform: rotate(-135deg);
-        }
-
+        .nav__dropdown:hover .nav__dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav__dropdown:hover > a::after { transform: rotate(-135deg); }
         .nav__dropdown-menu a {
             display: block;
             padding: 10px 20px;
@@ -379,31 +315,14 @@
             border-bottom: 1px solid var(--gray-100);
             transition: all 0.15s;
         }
-
-        .nav__dropdown-menu a:last-child {
-            border-bottom: none;
-        }
-
-        .nav__dropdown-menu a:hover {
-            background: var(--gray-50);
-            color: var(--red) !important;
-            padding-left: 24px;
-        }
-
-        .nav.scrolled .nav__dropdown-menu {
-            background: var(--white);
-            border-color: var(--gray-200);
-        }
-
-        .nav.scrolled .nav__dropdown-menu a {
-            color: var(--gray-700) !important;
-            border-bottom-color: var(--gray-100);
-        }
-
-        .nav.scrolled .nav__dropdown-menu a:hover {
-            background: var(--gray-50);
-            color: var(--red) !important;
-        }
+        .nav__dropdown-menu a:last-child { border-bottom: none; }
+        .nav__dropdown-menu a:hover { background: var(--gray-50); color: var(--red) !important; padding-left: 24px; }
+        .nav--dark .nav__dropdown-menu { background: rgba(23, 23, 23, 0.95); backdrop-filter: blur(20px); border-color: rgba(255,255,255,0.1); }
+        .nav--dark .nav__dropdown-menu a { color: rgba(255,255,255,0.7) !important; border-bottom-color: rgba(255,255,255,0.08); }
+        .nav--dark .nav__dropdown-menu a:hover { background: rgba(227,16,26,0.15); color: var(--red) !important; }
+        .nav.scrolled .nav__dropdown-menu { background: var(--white); border-color: var(--gray-200); }
+        .nav.scrolled .nav__dropdown-menu a { color: var(--gray-700) !important; border-bottom-color: var(--gray-100); }
+        .nav.scrolled .nav__dropdown-menu a:hover { background: var(--gray-50); color: var(--red) !important; }
 
         @media (max-width: 768px) {
             .nav__links { display: none; }
@@ -415,71 +334,74 @@
            HERO SECTION
            ======================================== */
         .hero {
-            margin-top: 64px;
-            background-color: var(--black);
-            color: var(--white);
-            padding: 5rem var(--container-px);
-            min-height: calc(100vh - 64px);
+            position: relative;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding-top: 80px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--black) 0%, var(--gray-900) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/smartphone-hand.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.35;
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0.4) 0%, rgba(10, 10, 10, 0.8) 100%);
+            z-index: 2;
         }
 
         .hero-content {
+            position: relative;
+            z-index: 3;
             text-align: center;
             max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--container-px);
         }
 
         .hero h1 {
             color: var(--white);
-            margin-bottom: 1.5rem;
+            margin-bottom: 24px;
         }
 
-        .hero .label {
+        .hero h1 em {
             color: var(--red);
         }
 
-        .hero-subtitle {
-            font-size: 1.25rem;
-            line-height: 1.5;
-            margin-bottom: 2rem;
-            color: var(--gray-200);
+        .hero p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            margin-bottom: 40px;
+            line-height: 1.65;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .hero-cta {
+        .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
-        }
-
-        .hero-cta .btn {
-            font-size: 1.1rem;
-            padding: 1rem 2.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                min-height: auto;
-                padding: 2rem var(--container-px);
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .hero-cta {
-                gap: 0.5rem;
-            }
-
-            .hero-cta .btn {
-                font-size: 1rem;
-                padding: 0.75rem 1.5rem;
-            }
         }
 
         /* ========================================
@@ -497,18 +419,33 @@
         }
 
         /* ========================================
+           SECTION HEADER
+           ======================================== */
+        .section-header {
+            text-align: left;
+            margin-bottom: 60px;
+            max-width: 900px;
+        }
+
+        .section-header .label {
+            justify-content: flex-start;
+        }
+
+        .section-header h2 {
+            margin-bottom: 24px;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+
+        /* ========================================
            PROBLEM SECTION
            ======================================== */
         .problem-section {
             background-color: var(--white);
-        }
-
-        .problem-content {
-            max-width: 800px;
-        }
-
-        .problem-content h2 {
-            margin-bottom: 2rem;
         }
 
         .problem-challenges {
@@ -521,45 +458,40 @@
         .challenge {
             padding: 1.5rem;
             background-color: var(--gray-50);
-            border-left: 4px solid var(--red);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
         }
 
         .challenge h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.125rem;
+            margin-bottom: 8px;
         }
 
         .challenge p {
-            font-size: 0.95rem;
+            font-size: 0.9375rem;
+            line-height: 1.6;
         }
 
         /* ========================================
            SOLUTION SECTION
            ======================================== */
         .solution-section {
-            background-color: var(--gray-100);
-        }
-
-        .solution-header {
-            max-width: 800px;
-            margin-bottom: 3rem;
-        }
-
-        .solution-header h2 {
-            margin-bottom: 1rem;
+            background-color: var(--gray-50);
         }
 
         .solution-subheading {
-            font-size: 1.5rem;
-            color: var(--red);
-            font-weight: 600;
-            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            color: var(--black);
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
         }
 
         .solution-intro {
-            font-size: 1.1rem;
+            font-size: 1.125rem;
             color: var(--gray-700);
-            margin-bottom: 1rem;
+            margin-bottom: 16px;
+            line-height: 1.65;
         }
 
         .features-grid {
@@ -572,47 +504,76 @@
         .feature {
             background-color: var(--white);
             padding: 2rem;
-            border-radius: 0;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
             transition: var(--transition);
         }
 
         .feature:hover {
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background-color: #F3F3F3;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--red);
+            margin-bottom: 20px;
+            flex-shrink: 0;
+        }
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
         }
 
         .feature h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.125rem;
+            margin-bottom: 12px;
             color: var(--black);
         }
 
         .feature p {
-            font-size: 0.95rem;
+            font-size: 0.9375rem;
             color: var(--gray-700);
+            line-height: 1.6;
         }
 
         .solution-highlight {
-            background-color: var(--white);
+            background-color: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
             padding: 2rem;
             margin-top: 2rem;
-            border-left: 4px solid var(--red);
         }
 
         .solution-highlight p {
             font-size: 1rem;
             margin-bottom: 1rem;
+            line-height: 1.65;
         }
 
         .solution-highlight strong {
-            color: var(--red);
+            color: var(--black);
+            font-weight: 700;
         }
 
         .solution-tagline {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             color: var(--black);
-            font-weight: 600;
-            margin-top: 2rem;
+            font-weight: 700;
+            margin-top: 32px;
             line-height: 1.4;
+            letter-spacing: -0.01em;
         }
 
         /* ========================================
@@ -622,53 +583,115 @@
             background-color: var(--white);
         }
 
-        .case-study-container {
+        .case-study {
+            padding: 48px;
+            background-color: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
             max-width: 900px;
             margin: 0 auto;
         }
 
-        .case-study-header {
+        .case-study-lead {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin-bottom: 40px;
+        }
+
+        .case-study-lead p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--gray-700);
+            margin: 0;
+        }
+
+        .case-study .label {
+            margin-bottom: 16px;
+            justify-content: flex-start;
+        }
+
+        .case-study > h2 {
+            margin-bottom: 40px;
+        }
+
+        .case-study-visual-hero {
+            margin: 0 0 48px;
+            padding: 32px;
+            background: linear-gradient(180deg, #f5f5f5 0%, #ececec 100%);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
             text-align: center;
-            margin-bottom: 2rem;
         }
 
-        .case-study-header .label {
-            justify-content: center;
+        .case-study-visual-hero img {
+            display: block;
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+            margin: 0 auto;
         }
 
-        .case-study-header h2 {
-            margin-bottom: 1rem;
+        .case-study-visual-hero figcaption {
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--gray-500);
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 0.02em;
         }
 
-        .case-study-grid {
+        .case-study-content {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 32px;
         }
 
         .case-study-block {
-            background-color: var(--gray-50);
-            padding: 2rem;
-            border-radius: 0;
+            margin-bottom: 24px;
         }
 
         .case-study-block h3 {
-            font-size: 1.1rem;
-            color: var(--red);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            font-size: 16px;
             font-weight: 700;
-            margin-bottom: 1rem;
+            color: var(--black);
+            margin-bottom: 12px;
+            letter-spacing: 0;
         }
 
         .case-study-block p {
-            margin-bottom: 1rem;
-            line-height: 1.8;
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--gray-700);
         }
 
         .case-study-block p:last-child {
             margin-bottom: 0;
+        }
+
+        .case-study-block ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .case-study-block li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 12px;
+            color: var(--gray-700);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .case-study-block li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.7em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--gray-500);
         }
 
         .case-study-block strong {
@@ -691,14 +714,17 @@
 
         .result-item strong {
             display: block;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
+            font-weight: 800;
             color: var(--red);
-            margin-bottom: 0.5rem;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
         }
 
         .case-study-block .case-study-highlight {
-            background-color: var(--white);
-            border-left: 4px solid var(--red);
+            background-color: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
             padding: 1rem;
             margin: 1.5rem 0;
         }
@@ -706,35 +732,35 @@
         /* ========================================
            CTA SECTION
            ======================================== */
-        .cta-final-section {
-            background-color: var(--red);
+        .cta-section {
+            background: linear-gradient(135deg, var(--red) 0%, #ff2d33 100%);
             color: var(--white);
             text-align: center;
-            padding: 4rem var(--container-px);
         }
 
-        .cta-final-section h2 {
+        .cta-section h2 {
             color: var(--white);
-            margin-bottom: 1rem;
+            margin-bottom: 24px;
         }
 
-        .cta-final-section p {
-            color: var(--gray-100);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            line-height: 1.65;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .cta-final-section .btn {
+        .cta-section .btn {
             background-color: var(--white);
             color: var(--red);
-            border-color: var(--white);
-            font-size: 1.1rem;
-            padding: 1rem 2.5rem;
         }
 
-        .cta-final-section .btn:hover {
-            background-color: var(--gray-100);
-            border-color: var(--gray-100);
+        .cta-section .btn:hover {
+            background-color: var(--gray-50);
+            transform: translateY(-2px);
         }
 
         /* ========================================
@@ -963,7 +989,33 @@
             margin-bottom: 0.5rem;
         }
 
+        @media (max-width: 1024px) {
+            section {
+                padding: 60px var(--container-px);
+            }
+        }
+
         @media (max-width: 768px) {
+            :root {
+                --container-px: 20px;
+            }
+
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.25rem; }
+
+            section {
+                padding: 48px var(--container-px);
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr;
             }
@@ -976,25 +1028,52 @@
                 flex-direction: column;
             }
 
+            .case-study {
+                padding: 32px 20px;
+            }
+
+            .case-study-lead {
+                padding: 20px 22px;
+                margin-bottom: 32px;
+            }
+
+            .case-study-lead p {
+                font-size: 1rem;
+            }
+
+            .case-study > h2 {
+                margin-bottom: 32px;
+            }
+
+            .case-study-visual-hero {
+                margin-bottom: 32px;
+                padding: 20px;
+            }
+
+            .case-study-visual-hero figcaption {
+                font-size: 12px;
+            }
+
             .modal {
                 width: 95%;
                 padding: 1.5rem;
             }
         }
+    
+        /* 3DCAY Logo — unified corporate logo */
+        .nav__logo img, .nav-logo img, .as-nav__logo img, .wp-nav__logo img,
+        .logo img, .wp-cover__logo img { height: 32px; width: auto; display: block; }
+        .nav__logo img, .nav-logo img, .as-nav__logo img, .wp-nav__logo img { height: 28px; }
+        footer .logo img { height: 32px; }
     </style>
 </head>
 
 <body>
     <!-- NAVIGATION -->
-    <nav class="nav" id="nav">
+    <nav class="nav nav--dark" id="nav">
         <div class="nav__inner">
             <a href="index-v4.html" class="nav__logo">
-                <svg viewBox="113 222 1512 394" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="translate(113,220)">
-                        <path class="nav__logo-mono" d="M 594.00 83.00 L 577.00 113.00 L 566.00 148.00 L 562.00 174.00 L 562.00 213.00 L 566.00 239.00 L 573.00 263.00 L 586.00 291.00 L 595.00 305.00 L 598.00 307.00 L 617.00 301.00 L 635.00 292.00 L 652.00 280.00 L 664.00 268.00 L 664.00 266.00 L 657.00 258.00 L 648.00 242.00 L 641.00 222.00 L 638.00 205.00 L 638.00 179.00 L 642.00 159.00 L 653.00 134.00 L 663.00 119.00 L 647.00 105.00 L 635.00 97.00 L 615.00 88.00 Z M 1092.00 5.00 L 1262.00 245.00 L 1262.00 383.00 L 1338.00 383.00 L 1338.00 244.00 L 1508.00 4.00 L 1416.00 4.00 L 1300.00 173.00 L 1184.00 4.00 Z M 688.00 373.00 L 710.00 379.00 L 736.00 383.00 L 870.00 383.00 L 1014.00 85.00 L 1019.00 93.00 L 1091.00 244.00 L 1061.00 246.00 L 996.00 246.00 L 962.00 316.00 L 1124.00 316.00 L 1157.00 383.00 L 1244.00 382.00 L 1060.00 4.00 L 969.00 4.00 L 821.00 307.00 L 819.00 309.00 L 780.00 308.00 L 754.00 335.00 L 740.00 346.00 L 721.00 358.00 Z M 691.00 13.00 L 703.00 17.00 L 721.00 26.00 L 740.00 38.00 L 762.00 56.00 L 781.00 78.00 L 896.00 78.00 L 934.00 4.00 L 740.00 4.00 L 710.00 8.00 Z" fill-rule="evenodd"/>
-                        <path class="nav__logo-accent" d="M 50.00 7.00 L 50.00 82.00 L 252.00 84.00 L 150.00 167.00 L 150.00 217.00 L 247.00 217.00 L 266.00 221.00 L 283.00 230.00 L 294.00 243.00 L 299.00 259.00 L 299.00 274.00 L 295.00 288.00 L 290.00 296.00 L 284.00 302.00 L 265.00 312.00 L 246.00 317.00 L 47.00 318.00 L 2.00 394.00 L 263.00 393.00 L 287.00 389.00 L 315.00 380.00 L 336.00 369.00 L 350.00 358.00 L 361.00 346.00 L 370.00 332.00 L 377.00 316.00 L 382.00 296.00 L 384.00 275.00 L 383.00 251.00 L 380.00 235.00 L 373.00 216.00 L 358.00 194.00 L 346.00 183.00 L 334.00 175.00 L 314.00 166.00 L 296.00 161.00 L 256.00 157.00 L 294.00 122.00 L 354.00 75.00 L 354.00 7.00 Z M 390.00 2.00 L 390.00 72.00 L 359.00 96.00 L 359.00 166.00 L 371.00 172.00 L 386.00 183.00 L 396.00 193.00 L 407.00 209.00 L 414.00 225.00 L 418.00 241.00 L 420.00 262.00 L 419.00 284.00 L 415.00 306.00 L 404.00 332.00 L 395.00 345.00 L 381.00 359.00 L 372.00 366.00 L 359.00 373.00 L 359.00 389.00 L 549.00 389.00 L 590.00 388.00 L 611.00 385.00 L 654.00 373.00 L 683.00 359.00 L 707.00 343.00 L 734.00 317.00 L 751.00 293.00 L 762.00 271.00 L 769.00 251.00 L 776.00 216.00 L 777.00 187.00 L 772.00 149.00 L 762.00 118.00 L 752.00 98.00 L 743.00 84.00 L 720.00 58.00 L 691.00 36.00 L 663.00 21.00 L 635.00 11.00 L 613.00 6.00 L 583.00 2.00 Z M 441.00 78.00 L 578.00 78.00 L 606.00 84.00 L 625.00 91.00 L 635.00 96.00 L 658.00 113.00 L 675.00 132.00 L 685.00 151.00 L 691.00 171.00 L 693.00 185.00 L 692.00 212.00 L 688.00 229.00 L 680.00 248.00 L 667.00 267.00 L 652.00 281.00 L 635.00 293.00 L 617.00 302.00 L 596.00 309.00 L 576.00 312.00 L 442.00 313.00 Z" fill-rule="evenodd"/>
-                    </g>
-                </svg>
+                <img src="images/3dcay-logo.svg" alt="3DCAY">
             </a>
 
             <ul class="nav__links">
@@ -1004,34 +1083,27 @@
                         <a href="shop.html">Shop</a>
                         <a href="web-to-publish.html">Web-to-Publish</a>
                         <a href="cashback.html">Cashback</a>
-                        <a href="3dcay-app.html">App</a>
+                        <a href="3dcay-app.html" class="active">App</a>
                     </div>
                 </li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="#ki">KI-Lab</a></li>
+                <li><a href="ki-lab-newsletter.html">KI Lab</a></li>
                 <li><a href="referenzen.html">Referenzen</a></li>
             </ul>
-
-            <a href="#kontakt" class="nav__cta">Kontakt &rarr;</a>
-
+            <button class="nav__cta" onclick="openDemo()">Demo anfragen &rarr;</button>
             <button class="nav__mobile" aria-label="Menu" onclick="toggleMobileNav()">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
-
-    <!-- Mobile Nav Panel -->
     <div class="nav__mobile-panel" id="mobileNav">
         <a href="shop.html">Shop</a>
         <a href="web-to-publish.html">Web-to-Publish</a>
         <a href="cashback.html">Cashback</a>
         <a href="3dcay-app.html">App</a>
         <a href="services.html">Services</a>
-        <a href="#ki">KI-Lab</a>
+        <a href="ki-lab-newsletter.html">KI Lab</a>
         <a href="referenzen.html">Referenzen</a>
-        <a href="#kontakt" class="nav__cta" style="margin-top:16px">Kontakt &rarr;</a>
     </div>
 
     <!-- HERO SECTION -->
@@ -1039,10 +1111,10 @@
         <div class="hero-content">
             <span class="label">3DCAY APP</span>
             <h1 class="reveal">Die mobile Lösung für Ihren Vertrieb — alle Unterlagen jederzeit griffbereit</h1>
-            <p class="hero-subtitle reveal">Mit der 3DCAY App bringen Sie Ihre Marketing- und Vertriebsprozesse direkt zum Kunden vor Ort.</p>
-            <div class="hero-cta reveal">
+            <p class="reveal">Mit der 3DCAY App bringen Sie Ihre Marketing- und Vertriebsprozesse direkt zum Kunden vor Ort.</p>
+            <div class="hero-buttons reveal">
                 <button class="btn btn--primary" onclick="openDemo()">App-Demo anfragen</button>
-                <button class="btn btn--outline" onclick="document.getElementById('case-study-section').scrollIntoView({behavior:'smooth'})">Case Study: BARMER</button>
+                <a href="#case-study" class="btn btn--outline-white">Case Study: BARMER</a>
             </div>
         </div>
     </section>
@@ -1050,8 +1122,12 @@
     <!-- PROBLEM SECTION -->
     <section class="problem-section">
         <div class="container">
-            <h2 class="reveal">Warum Ihr Außendienst bessere Tools braucht</h2>
-            
+            <div class="section-header reveal">
+                <div class="label">DIE AUFGABE</div>
+                <h2>Warum Ihr Außendienst bessere Tools braucht</h2>
+                <p>Vertriebsteams vor Ort benötigen aktuelle Marketing- und Verkaufsunterlagen in Echtzeit — auch offline. Zentral gesteuerte CI-Konformität bei gleichzeitig maximaler Flexibilität entscheidet über Effizienz und Beratungsqualität.</p>
+            </div>
+
             <div class="problem-challenges reveal">
                 <div class="challenge">
                     <h3>Dezentralisierte Teams</h3>
@@ -1072,34 +1148,40 @@
     <!-- SOLUTION SECTION -->
     <section class="solution-section">
         <div class="container">
-            <div class="solution-header reveal">
+            <div class="section-header reveal">
+                <div class="label">DIE LÖSUNG</div>
                 <h2>Basierend auf einem Medienkatalog stehen dem Außendienst alle relevanten Materialien zentral zur Verfügung</h2>
-                <p class="solution-subheading">Online und offline.</p>
-                <p class="solution-intro">Die 3DCAY App verbindet zentrale Steuerung mit dezentraler Nutzung — maximale Effizienz für Ihren Vertrieb.</p>
+                <p>Online und offline. Die 3DCAY App verbindet zentrale Steuerung mit dezentraler Nutzung — maximale Effizienz für Ihren Vertrieb.</p>
             </div>
 
             <div class="features-grid">
                 <div class="feature reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m16 6 4 14"/><path d="M12 6v14"/><path d="M8 8v12"/><path d="M4 4v16"/></svg></div>
                     <h3>Umfassender Medienkatalog</h3>
                     <p>Alle Vertriebsunterlagen, Videos und Medien an einem zentralen Ort. Einfach abrufbar, immer aktuell.</p>
                 </div>
                 <div class="feature reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></div>
                     <h3>Ausfüllbare PDFs</h3>
                     <p>Direkt im Kundengespräch ausfüllbare Formulare und Angebote — professionell und effizient.</p>
                 </div>
                 <div class="feature reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h.01"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/><path d="M5 12.859a10 10 0 0 1 5.17-2.69"/><path d="M19 12.859a10 10 0 0 0-2.007-1.523"/><path d="M2 8.82a15 15 0 0 1 4.177-2.643"/><path d="M22 8.82a15 15 0 0 0-11.288-3.764"/><path d="m2 2 20 20"/></svg></div>
                     <h3>Offline-Fähigkeit</h3>
                     <p>Maximale Flexibilität im Außendienst. Alle Materialien sind auch ohne Internetverbindung verfügbar.</p>
                 </div>
                 <div class="feature reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></svg></div>
                     <h3>Zentrale CI-Steuerung</h3>
                     <p>Inhalte bleiben CI-konform. Ein Update für alle — zentral gesteuert, dezentral genutzt.</p>
                 </div>
                 <div class="feature reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></div>
                     <h3>Interaktive Inhalte</h3>
                     <p>Videos, animierte Präsentationen und ausfüllbare Formulare für professionelle Kundenberatung.</p>
                 </div>
                 <div class="feature reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
                     <h3>Dezentrale Nutzung</h3>
                     <p>Ihr Vertrieb arbeitet maximal flexibel — wann, wo und wie es Ihren Prozessen entspricht.</p>
                 </div>
@@ -1114,61 +1196,69 @@
     </section>
 
     <!-- CASE STUDY SECTION -->
-    <section class="case-study-section" id="case-study-section">
-        <div class="case-study-container">
-            <div class="case-study-header">
-                <span class="label">CASE STUDY</span>
-                <h2 class="reveal">BARMER</h2>
-                <p class="reveal">Digitale Vertriebsunterstützung für eine Krankenversicherung</p>
-            </div>
-
-            <div class="case-study-grid">
-                <div class="case-study-block reveal">
-                    <h3>Ausgangssituation</h3>
-                    <p>Eine große Krankenversicherung stand vor der Herausforderung, ihren dezentral organisierten Außendienst effizient mit aktuellen Marketing- und Vertriebsunterlagen zu versorgen. Die bisherigen Prozesse waren zeitaufwändig und medienbruchreich.</p>
+    <section class="case-study-section" id="case-study">
+        <div class="container">
+            <div class="case-study reveal">
+                <div class="case-study-lead">
+                    <p>Eine große Krankenversicherung benötigte eine mobile Lösung, mit der ihr dezentral organisierter Außendienst online wie offline jederzeit Zugriff auf aktuelle, CI-konforme Marketing- und Vertriebsunterlagen hat — mit zentraler Steuerung, medienbruchfreien Prozessen und voller Markenkonformität.</p>
                 </div>
 
-                <div class="case-study-block reveal">
-                    <h3>Anforderungen</h3>
-                    <ul style="margin-left: 1.5rem;">
-                        <li>Zentrale Bereitstellung aller Vertriebsmaterialien</li>
-                        <li>Individualisierbare Inhalte durch Web-to-Publish (W2P)</li>
-                        <li>Vollständiger Medienkatalog mit Videos, PDFs und Dokumenten</li>
-                        <li>Offline-Nutzung für Feldarbeit ohne Unterbrechungen</li>
-                        <li>Einheitlicher Markenauftritt CI-konform</li>
-                    </ul>
-                </div>
+                <div class="label">CASE STUDY — BARMER</div>
+                <h2>Digitale Vertriebsunterstützung für eine Krankenversicherung</h2>
 
-                <div class="case-study-block reveal">
-                    <h3>Lösung</h3>
-                    <p>Kombination aus <strong>3DCAY Web-to-Publish</strong> und <strong>3DCAY App</strong>:</p>
-                    <ul style="margin-left: 1.5rem;">
-                        <li><strong>Web-to-Publish:</strong> Individualisierbare Templates im zentralen Medienkatalog</li>
-                        <li><strong>App:</strong> Vollständiger Zugriff auf Vertriebsunterlagen, Videos, Medien und ausfüllbare PDFs mit Offline-Fähigkeit</li>
-                    </ul>
-                </div>
+                <figure class="case-study-visual-hero reveal">
+                    <img src="images/ipad-barmer-2.png" alt="BARMER Medien-App auf dem iPad — Medienkatalog mit kategorisierten Vertriebsunterlagen" loading="lazy">
+                    <figcaption>BARMER Medien-App — zentraler Medienkatalog mit Offline-Zugriff auf der 3DCAY App.</figcaption>
+                </figure>
 
-                <div class="case-study-block reveal">
-                    <h3>Ergebnis</h3>
-                    <ul style="margin-left: 1.5rem;">
-                        <li>Effizientere Vertriebsprozesse — schneller und zielgerichteter</li>
-                        <li>CI-konformer Markenauftritt über alle Vertriebskanäle</li>
-                        <li>Höhere Geschwindigkeit bei der Kundenberatung</li>
-                        <li>Verbesserte Beratungsqualität durch professionelle, aktuelle Materialien</li>
-                        <li>Medienbruchfreie Prozesse von der Vorbereitung bis zur Nachbereitung</li>
-                    </ul>
-                </div>
+                <div class="case-study-content">
+                    <div class="case-study-block">
+                        <h3>Ausgangssituation</h3>
+                        <p>Eine große Krankenversicherung stand vor der Herausforderung, ihren dezentral organisierten Außendienst effizient mit aktuellen Marketing- und Vertriebsunterlagen zu versorgen. Die bisherigen Prozesse waren zeitaufwändig und medienbruchreich.</p>
+                    </div>
 
-                <div class="case-study-block reveal">
-                    <h3>Fazit</h3>
-                    <p>Mit 3DCAY wurde eine skalierbare Lösung geschaffen, die <strong>zentrale Steuerung und dezentrale Nutzung optimal verbindet</strong> — und den Vertrieb nachhaltig digitalisiert.</p>
+                    <div class="case-study-block">
+                        <h3>Anforderungen</h3>
+                        <ul>
+                            <li>Zentrale Bereitstellung aller Vertriebsmaterialien</li>
+                            <li>Individualisierbare Inhalte durch Web-to-Publish (W2P)</li>
+                            <li>Vollständiger Medienkatalog mit Videos, PDFs und Dokumenten</li>
+                            <li>Offline-Nutzung für Feldarbeit ohne Unterbrechungen</li>
+                            <li>Einheitlicher Markenauftritt CI-konform</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-study-block">
+                        <h3>Lösung</h3>
+                        <p>Kombination aus <strong>3DCAY Web-to-Publish</strong> und <strong>3DCAY App</strong>:</p>
+                        <ul>
+                            <li><strong>Web-to-Publish:</strong> Individualisierbare Templates im zentralen Medienkatalog</li>
+                            <li><strong>App:</strong> Vollständiger Zugriff auf Vertriebsunterlagen, Videos, Medien und ausfüllbare PDFs mit Offline-Fähigkeit</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-study-block">
+                        <h3>Ergebnis</h3>
+                        <ul>
+                            <li>Effizientere Vertriebsprozesse — schneller und zielgerichteter</li>
+                            <li>CI-konformer Markenauftritt über alle Vertriebskanäle</li>
+                            <li>Höhere Geschwindigkeit bei der Kundenberatung</li>
+                            <li>Verbesserte Beratungsqualität durch professionelle, aktuelle Materialien</li>
+                            <li>Medienbruchfreie Prozesse von der Vorbereitung bis zur Nachbereitung</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-study-block">
+                        <h3>Fazit</h3>
+                        <p>Mit 3DCAY wurde eine skalierbare Lösung geschaffen, die <strong>zentrale Steuerung und dezentrale Nutzung optimal verbindet</strong> — und den Vertrieb nachhaltig digitalisiert.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FINAL CTA SECTION -->
-    <section class="cta-final-section">
+    <section class="cta-section">
         <div class="container">
             <h2 class="reveal">Mehr Effizienz im Außendienst. Bessere Beratung beim Kunden.</h2>
             <button class="btn btn--primary" onclick="openDemo()" style="background-color: var(--white); color: var(--red); border-color: var(--white);">App-Demo anfragen →</button>
@@ -1181,12 +1271,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <a href="#" class="logo">
-                        <svg viewBox="113 222 1512 394" xmlns="http://www.w3.org/2000/svg" style="width:140px; height:auto; display:block;">
-                            <g transform="translate(113,220)">
-                                <path d="M 594.00 83.00 L 577.00 113.00 L 566.00 148.00 L 562.00 174.00 L 562.00 213.00 L 566.00 239.00 L 573.00 263.00 L 586.00 291.00 L 595.00 305.00 L 598.00 307.00 L 617.00 301.00 L 635.00 292.00 L 652.00 280.00 L 664.00 268.00 L 664.00 266.00 L 657.00 258.00 L 648.00 242.00 L 641.00 222.00 L 638.00 205.00 L 638.00 179.00 L 642.00 159.00 L 653.00 134.00 L 663.00 119.00 L 647.00 105.00 L 635.00 97.00 L 615.00 88.00 Z M 1092.00 5.00 L 1262.00 245.00 L 1262.00 383.00 L 1338.00 383.00 L 1338.00 244.00 L 1508.00 4.00 L 1416.00 4.00 L 1300.00 173.00 L 1184.00 4.00 Z M 688.00 373.00 L 710.00 379.00 L 736.00 383.00 L 870.00 383.00 L 1014.00 85.00 L 1019.00 93.00 L 1091.00 244.00 L 1061.00 246.00 L 996.00 246.00 L 962.00 316.00 L 1124.00 316.00 L 1157.00 383.00 L 1244.00 382.00 L 1060.00 4.00 L 969.00 4.00 L 821.00 307.00 L 819.00 309.00 L 780.00 308.00 L 754.00 335.00 L 740.00 346.00 L 721.00 358.00 Z M 691.00 13.00 L 703.00 17.00 L 721.00 26.00 L 740.00 38.00 L 762.00 56.00 L 781.00 78.00 L 896.00 78.00 L 934.00 4.00 L 740.00 4.00 L 710.00 8.00 Z" fill="#FFFFFF" fill-rule="evenodd"/>
-                                <path d="M 50.00 7.00 L 50.00 82.00 L 252.00 84.00 L 150.00 167.00 L 150.00 217.00 L 247.00 217.00 L 266.00 221.00 L 283.00 230.00 L 294.00 243.00 L 299.00 259.00 L 299.00 274.00 L 295.00 288.00 L 290.00 296.00 L 284.00 302.00 L 265.00 312.00 L 246.00 317.00 L 47.00 318.00 L 2.00 394.00 L 263.00 393.00 L 287.00 389.00 L 315.00 380.00 L 336.00 369.00 L 350.00 358.00 L 361.00 346.00 L 370.00 332.00 L 377.00 316.00 L 382.00 296.00 L 384.00 275.00 L 383.00 251.00 L 380.00 235.00 L 373.00 216.00 L 358.00 194.00 L 346.00 183.00 L 334.00 175.00 L 314.00 166.00 L 296.00 161.00 L 256.00 157.00 L 294.00 122.00 L 354.00 75.00 L 354.00 7.00 Z M 390.00 2.00 L 390.00 72.00 L 359.00 96.00 L 359.00 166.00 L 371.00 172.00 L 386.00 183.00 L 396.00 193.00 L 407.00 209.00 L 414.00 225.00 L 418.00 241.00 L 420.00 262.00 L 419.00 284.00 L 415.00 306.00 L 404.00 332.00 L 395.00 345.00 L 381.00 359.00 L 372.00 366.00 L 359.00 373.00 L 359.00 389.00 L 549.00 389.00 L 590.00 388.00 L 611.00 385.00 L 654.00 373.00 L 683.00 359.00 L 707.00 343.00 L 734.00 317.00 L 751.00 293.00 L 762.00 271.00 L 769.00 251.00 L 776.00 216.00 L 777.00 187.00 L 772.00 149.00 L 762.00 118.00 L 752.00 98.00 L 743.00 84.00 L 720.00 58.00 L 691.00 36.00 L 663.00 21.00 L 635.00 11.00 L 613.00 6.00 L 583.00 2.00 Z M 441.00 78.00 L 578.00 78.00 L 606.00 84.00 L 625.00 91.00 L 635.00 96.00 L 658.00 113.00 L 675.00 132.00 L 685.00 151.00 L 691.00 171.00 L 693.00 185.00 L 692.00 212.00 L 688.00 229.00 L 680.00 248.00 L 667.00 267.00 L 652.00 281.00 L 635.00 293.00 L 617.00 302.00 L 596.00 309.00 L 576.00 312.00 L 442.00 313.00 Z" fill="#B8181C" fill-rule="evenodd"/>
-                            </g>
-                        </svg>
+                        <img src="images/3dcay-logo.svg" alt="3DCAY" style="width:140px; height:auto; display:block;">
                     </a>
                     <p>3DCAY Marketing IT Solutions by drei-d — Die IT-Marke für smartes Marketing Fulfillment.</p>
                 </div>

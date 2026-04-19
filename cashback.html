@@ -219,118 +219,199 @@
            NAVIGATION
            ======================================== */
         .nav {
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
-            background-color: var(--white);
-            border-bottom: 1px solid var(--gray-100);
-            padding: 16px var(--container-px);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            transition: all 0.4s ease;
         }
-
-        .nav__container {
-            max-width: var(--container-max);
-            margin: 0 auto;
+        .nav--dark { color: var(--white); }
+        .nav.scrolled {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-200);
+            color: var(--black);
+        }
+        .nav__inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 32px;
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--container-px);
         }
-
         .nav__logo {
             display: flex;
             align-items: center;
             text-decoration: none;
             flex-shrink: 0;
         }
-
-        .nav__logo svg {
-            height: 28px;
-            width: auto;
-        }
-
-        .nav__logo svg .nav__logo-mono {
-            fill: var(--red);
-        }
-
-        .nav__logo svg .nav__logo-accent {
-            fill: var(--red);
-        }
-
+        .nav__logo svg { height: 28px; width: auto; transition: all 0.3s; }
+        .nav--dark .nav__logo svg .nav__logo-mono { fill: var(--white); }
+        .nav.scrolled .nav__logo svg .nav__logo-mono { fill: var(--red); }
+        .nav__logo svg .nav__logo-accent { fill: #B8181C; }
         .nav__links {
             display: flex;
             align-items: center;
-            gap: 32px;
+            gap: 28px;
             list-style: none;
-            color: inherit;
         }
-
         .nav__links a {
+            font-size: 14px;
+            font-weight: 400;
             text-decoration: none;
             color: inherit;
-            font-weight: 500;
-            transition: var(--transition);
+            opacity: 0.6;
+            transition: opacity 0.2s;
         }
-
-        .nav__links a:hover {
-            color: var(--red);
-        }
-
-        .nav__dropdown {
-            position: relative;
-        }
-
-        .nav__dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: var(--white);
-            border: 1px solid var(--gray-100);
-            border-radius: 8px;
-            min-width: 200px;
-            margin-top: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .nav__dropdown:hover .nav__dropdown-menu {
-            display: block;
-        }
-
-        .nav__dropdown-menu a {
-            display: block;
-            padding: 12px 16px;
-            color: var(--gray-700);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .nav__dropdown-menu a:hover {
-            background-color: var(--gray-50);
-            color: var(--red);
-        }
-
+        .nav__links a:hover { opacity: 1; }
+        .nav__links a.active { opacity: 1; color: var(--red); }
         .nav__cta {
-            color: var(--black);
-            border: 1px solid var(--gray-200);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 20px;
+            border-radius: 100px;
+            transition: all 0.2s;
+            text-decoration: none;
+            flex-shrink: 0;
+            cursor: pointer;
+            background: none;
         }
-
+        .nav--dark .nav__cta { color: var(--white); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .nav.scrolled .nav__cta { color: var(--black); border: 1px solid var(--gray-200); }
+        .nav__cta:hover { background: var(--red); color: var(--white); border-color: var(--red); }
         .nav__mobile {
             display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 4px;
+            cursor: pointer;
+            background: none;
+            border: none;
         }
+        .nav__mobile span { display: block; width: 24px; height: 1.5px; background: currentColor; transition: all 0.3s; }
+        .nav__mobile-panel {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            padding: 32px;
+        }
+        .nav__mobile-panel.open { display: flex; flex-direction: column; gap: 24px; }
+        .nav__mobile-panel a { color: var(--white); text-decoration: none; font-size: 18px; font-weight: 500; opacity: 0.7; transition: opacity 0.2s; }
+        .nav__mobile-panel a:hover { opacity: 1; }
+        .nav__dropdown { position: relative; }
+        .nav__dropdown > a { cursor: pointer; }
+        .nav__dropdown > a::after {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            border-right: 1.5px solid currentColor;
+            border-bottom: 1.5px solid currentColor;
+            transform: rotate(45deg);
+            margin-left: 6px;
+            margin-bottom: 2px;
+            opacity: 0.5;
+            transition: transform 0.2s;
+        }
+        .nav__dropdown-menu {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: -16px;
+            background: var(--white);
+            border-radius: 8px;
+            min-width: 200px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            border: 1px solid var(--gray-200);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all 0.25s ease;
+            overflow: hidden;
+            z-index: 1001;
+        }
+        .nav__dropdown:hover .nav__dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav__dropdown:hover > a::after { transform: rotate(-135deg); }
+        .nav__dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--gray-700) !important;
+            opacity: 1 !important;
+            border-bottom: 1px solid var(--gray-100);
+            transition: all 0.15s;
+        }
+        .nav__dropdown-menu a:last-child { border-bottom: none; }
+        .nav__dropdown-menu a:hover { background: var(--gray-50); color: var(--red) !important; padding-left: 24px; }
+        .nav--dark .nav__dropdown-menu { background: rgba(23, 23, 23, 0.95); backdrop-filter: blur(20px); border-color: rgba(255,255,255,0.1); }
+        .nav--dark .nav__dropdown-menu a { color: rgba(255,255,255,0.7) !important; border-bottom-color: rgba(255,255,255,0.08); }
+        .nav--dark .nav__dropdown-menu a:hover { background: rgba(227,16,26,0.15); color: var(--red) !important; }
+        .nav.scrolled .nav__dropdown-menu { background: var(--white); border-color: var(--gray-200); }
+        .nav.scrolled .nav__dropdown-menu a { color: var(--gray-700) !important; border-bottom-color: var(--gray-100); }
+        .nav.scrolled .nav__dropdown-menu a:hover { background: var(--gray-50); color: var(--red) !important; }
 
         /* ========================================
            HERO SECTION
            ======================================== */
         .hero {
-            background: linear-gradient(135deg, #0A0A0A 0%, #1a1a1a 100%);
-            color: var(--white);
-            padding: 120px var(--container-px) 80px;
-            text-align: center;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--black) 0%, var(--gray-900) 100%);
         }
 
-        .hero .container {
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/3dcay_mockup_laptop1.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.35;
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0.4) 0%, rgba(10, 10, 10, 0.8) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
             max-width: 900px;
+            margin: 0 auto;
+            padding: 0 var(--container-px);
         }
 
         .hero .label {
@@ -340,28 +421,33 @@
         .hero h1 {
             color: var(--white);
             margin-bottom: 24px;
-            font-size: clamp(2.2rem, 6vw, 3.5rem);
+        }
+
+        .hero h1 em {
+            color: var(--red);
         }
 
         .hero p {
-            color: var(--gray-200);
-            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
             margin-bottom: 40px;
             line-height: 1.7;
         }
 
-        .hero-cta {
+        .hero-buttons {
             display: flex;
             gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
         /* ========================================
            CASHBACK PIPELINE SVG ANIMATION
            ======================================== */
         .cb-pipeline-anim {
+            position: relative;
+            z-index: 3;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -446,40 +532,44 @@
         /* ========================================
            SECTION STYLES
            ======================================== */
-        .section-light {
+        .problem-section,
+        .case-study-section {
             background-color: var(--white);
         }
 
-        .section-gray {
+        .solution-section,
+        .use-cases-section {
             background-color: var(--gray-50);
         }
 
-        .section-dark {
+        .ai-section {
             background-color: var(--black);
             color: var(--white);
         }
 
-        .section-red {
-            background: linear-gradient(135deg, #e3101a 0%, #ff1a25 100%);
+        .cta-section {
+            background: linear-gradient(135deg, var(--red) 0%, #ff2d33 100%);
             color: var(--white);
         }
 
-        .section-dark h2,
-        .section-red h2 {
+        .ai-section h2,
+        .cta-section h2 {
             color: var(--white);
         }
 
-        .section-dark p,
-        .section-red p {
+        .ai-section p,
+        .cta-section p {
             color: rgba(255, 255, 255, 0.85);
         }
 
         .section-header {
-            text-align: center;
+            text-align: left;
             margin-bottom: 60px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 900px;
+        }
+
+        .section-header .label {
+            justify-content: flex-start;
         }
 
         .section-header h2 {
@@ -487,12 +577,13 @@
         }
 
         .section-header p {
-            font-size: 18px;
+            font-size: 1.125rem;
             color: var(--gray-700);
+            line-height: 1.7;
         }
 
-        .section-dark .section-header p,
-        .section-red .section-header p {
+        .ai-section .section-header p,
+        .cta-section .section-header p {
             color: rgba(255, 255, 255, 0.85);
         }
 
@@ -507,7 +598,8 @@
             transition: var(--transition);
         }
 
-        .section-gray .card {
+        .solution-section .card,
+        .use-cases-section .card {
             background-color: var(--white);
         }
 
@@ -527,18 +619,26 @@
             line-height: 1.6;
         }
 
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            background-color: var(--red);
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background-color: #F3F3F3;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-weight: 800;
-            margin-bottom: 16px;
-            font-size: 24px;
+            color: var(--red);
+            margin-bottom: 20px;
+            flex-shrink: 0;
+        }
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
         }
 
         /* ========================================
@@ -558,6 +658,43 @@
             font-weight: 800;
             color: var(--white);
             margin-bottom: 8px;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: -0.01em;
+            line-height: 1.05;
+        }
+
+        .stat-number--text {
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
+            letter-spacing: -0.02em;
+            opacity: 0;
+            transform: scale(0.85);
+            transition: opacity 700ms ease, transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1.2);
+        }
+
+        .stat-block.active .stat-number--text {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .stat-block .stat-number[data-count] {
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 500ms ease, transform 500ms ease;
+        }
+
+        .stat-block.active .stat-number[data-count] {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-accent {
+            color: var(--red);
+        }
+
+        .stat-slash {
+            color: var(--white);
+            font-weight: 800;
+            margin: 0 2px;
         }
 
         .stat-label {
@@ -570,18 +707,36 @@
            CASE STUDY
            ======================================== */
         .case-study {
-            padding: 40px;
-            background-color: var(--white);
-            border-left: 4px solid var(--red);
-            border-radius: 4px;
+            padding: 48px;
+            background-color: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .case-study-header {
-            margin-bottom: 32px;
+        .case-study-lead {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin-bottom: 40px;
         }
 
-        .case-study h2 {
-            margin-bottom: 8px;
+        .case-study-lead p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--gray-700);
+            margin: 0;
+        }
+
+        .case-study .label {
+            margin-bottom: 16px;
+            justify-content: flex-start;
+        }
+
+        .case-study > h2 {
+            margin-bottom: 40px;
         }
 
         .case-study-content {
@@ -589,45 +744,56 @@
             gap: 32px;
         }
 
-        .case-study-section {
-            margin-bottom: 24px;
+        .case-study-block h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 12px;
+            letter-spacing: 0;
         }
 
-        .case-study-section h3 {
-            margin-bottom: 16px;
-            font-size: 18px;
+        .case-study-block p {
+            font-size: 15px;
+            color: var(--gray-700);
+            line-height: 1.7;
         }
 
-        .case-study-section ul {
+        .case-study-block ul {
             list-style: none;
             padding-left: 0;
         }
 
-        .case-study-section li {
-            padding-left: 24px;
+        .case-study-block li {
+            padding-left: 20px;
             position: relative;
             margin-bottom: 12px;
             color: var(--gray-700);
+            font-size: 15px;
+            line-height: 1.7;
         }
 
-        .case-study-section li:before {
-            content: "▸";
+        .case-study-block li:before {
+            content: "";
             position: absolute;
             left: 0;
-            color: var(--red);
-            font-weight: bold;
+            top: 0.7em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--gray-500);
         }
 
         .case-study-metrics {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 24px;
-            margin: 32px 0;
+            margin-top: 16px;
         }
 
         .metric-card {
             padding: 24px;
-            background-color: var(--gray-50);
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
             border-radius: 8px;
             text-align: center;
         }
@@ -794,9 +960,22 @@
         /* ========================================
            RESPONSIVE
            ======================================== */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             section {
                 padding: 60px var(--container-px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --container-px: 20px;
+            }
+
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+
+            section {
+                padding: 48px var(--container-px);
             }
 
             .nav__links {
@@ -808,18 +987,19 @@
             }
 
             .nav__mobile {
-                display: block;
+                display: flex;
             }
 
             .hero {
-                padding: 80px var(--container-px) 60px;
+                min-height: auto;
+                padding: 100px var(--container-px) 60px;
             }
 
-            .hero-cta {
+            .hero-buttons {
                 flex-direction: column;
             }
 
-            .hero-cta .btn {
+            .hero-buttons .btn {
                 width: 100%;
             }
 
@@ -831,6 +1011,23 @@
 
             .section-header {
                 margin-bottom: 40px;
+            }
+
+            .case-study {
+                padding: 32px 20px;
+            }
+
+            .case-study-lead {
+                padding: 20px 22px;
+                margin-bottom: 32px;
+            }
+
+            .case-study-lead p {
+                font-size: 1rem;
+            }
+
+            .case-study > h2 {
+                margin-bottom: 32px;
             }
 
             .modal-content {
@@ -894,19 +1091,20 @@
         @media (max-width: 480px) {
             .footer-content { grid-template-columns: 1fr; }
         }
+    
+        /* 3DCAY Logo — unified corporate logo */
+        .nav__logo img, .nav-logo img, .as-nav__logo img, .wp-nav__logo img,
+        .logo img, .wp-cover__logo img { height: 32px; width: auto; display: block; }
+        .nav__logo img, .nav-logo img, .as-nav__logo img, .wp-nav__logo img { height: 28px; }
+        footer .logo img { height: 32px; }
     </style>
 </head>
 <body>
     <!-- NAVIGATION -->
-    <nav class="nav" id="nav">
-        <div class="nav__container">
+    <nav class="nav nav--dark" id="nav">
+        <div class="nav__inner">
             <a href="index-v4.html" class="nav__logo">
-                <svg viewBox="113 222 1512 394" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="translate(113,220)">
-                        <path class="nav__logo-mono" d="M 594.00 83.00 L 577.00 113.00 L 566.00 148.00 L 562.00 174.00 L 562.00 213.00 L 566.00 239.00 L 573.00 263.00 L 586.00 291.00 L 595.00 305.00 L 598.00 307.00 L 617.00 301.00 L 635.00 292.00 L 652.00 280.00 L 664.00 268.00 L 664.00 266.00 L 657.00 258.00 L 648.00 242.00 L 641.00 222.00 L 638.00 205.00 L 638.00 179.00 L 642.00 159.00 L 653.00 134.00 L 663.00 119.00 L 647.00 105.00 L 635.00 97.00 L 615.00 88.00 Z M 1092.00 5.00 L 1262.00 245.00 L 1262.00 383.00 L 1338.00 383.00 L 1338.00 244.00 L 1508.00 4.00 L 1416.00 4.00 L 1300.00 173.00 L 1184.00 4.00 Z M 688.00 373.00 L 710.00 379.00 L 736.00 383.00 L 870.00 383.00 L 1014.00 85.00 L 1019.00 93.00 L 1091.00 244.00 L 1061.00 246.00 L 996.00 246.00 L 962.00 316.00 L 1124.00 316.00 L 1157.00 383.00 L 1244.00 382.00 L 1060.00 4.00 L 969.00 4.00 L 821.00 307.00 L 819.00 309.00 L 780.00 308.00 L 754.00 335.00 L 740.00 346.00 L 721.00 358.00 Z M 691.00 13.00 L 703.00 17.00 L 721.00 26.00 L 740.00 38.00 L 762.00 56.00 L 781.00 78.00 L 896.00 78.00 L 934.00 4.00 L 740.00 4.00 L 710.00 8.00 Z" fill-rule="evenodd"/>
-                        <path class="nav__logo-accent" d="M 50.00 7.00 L 50.00 82.00 L 252.00 84.00 L 150.00 167.00 L 150.00 217.00 L 247.00 217.00 L 266.00 221.00 L 283.00 230.00 L 294.00 243.00 L 299.00 259.00 L 299.00 274.00 L 295.00 288.00 L 290.00 296.00 L 284.00 302.00 L 265.00 312.00 L 246.00 317.00 L 47.00 318.00 L 2.00 394.00 L 263.00 393.00 L 287.00 389.00 L 315.00 380.00 L 336.00 369.00 L 350.00 358.00 L 361.00 346.00 L 370.00 332.00 L 377.00 316.00 L 382.00 296.00 L 384.00 275.00 L 383.00 251.00 L 380.00 235.00 L 373.00 216.00 L 358.00 194.00 L 346.00 183.00 L 334.00 175.00 L 314.00 166.00 L 296.00 161.00 L 256.00 157.00 L 294.00 122.00 L 354.00 75.00 L 354.00 7.00 Z M 390.00 2.00 L 390.00 72.00 L 359.00 96.00 L 359.00 166.00 L 371.00 172.00 L 386.00 183.00 L 396.00 193.00 L 407.00 209.00 L 414.00 225.00 L 418.00 241.00 L 420.00 262.00 L 419.00 284.00 L 415.00 306.00 L 404.00 332.00 L 395.00 345.00 L 381.00 359.00 L 372.00 366.00 L 359.00 373.00 L 359.00 389.00 L 549.00 389.00 L 590.00 388.00 L 611.00 385.00 L 654.00 373.00 L 683.00 359.00 L 707.00 343.00 L 734.00 317.00 L 751.00 293.00 L 762.00 271.00 L 769.00 251.00 L 776.00 216.00 L 777.00 187.00 L 772.00 149.00 L 762.00 118.00 L 752.00 98.00 L 743.00 84.00 L 720.00 58.00 L 691.00 36.00 L 663.00 21.00 L 635.00 11.00 L 613.00 6.00 L 583.00 2.00 Z M 441.00 78.00 L 578.00 78.00 L 606.00 84.00 L 625.00 91.00 L 635.00 96.00 L 658.00 113.00 L 675.00 132.00 L 685.00 151.00 L 691.00 171.00 L 693.00 185.00 L 692.00 212.00 L 688.00 229.00 L 680.00 248.00 L 667.00 267.00 L 652.00 281.00 L 635.00 293.00 L 617.00 302.00 L 596.00 309.00 L 576.00 312.00 L 442.00 313.00 Z" fill-rule="evenodd"/>
-                    </g>
-                </svg>
+                <img src="images/3dcay-logo.svg" alt="3DCAY">
             </a>
             <ul class="nav__links">
                 <li class="nav__dropdown">
@@ -922,21 +1120,32 @@
                 <li><a href="ki-lab-newsletter.html">KI Lab</a></li>
                 <li><a href="referenzen.html">Referenzen</a></li>
             </ul>
-            <button class="btn btn--primary nav__cta" onclick="openDemo()">Demo anfragen</button>
-            <button class="nav__mobile" id="mobileToggle" onclick="toggleMobileNav()">☰</button>
+            <button class="nav__cta" onclick="openDemo()">Demo anfragen &rarr;</button>
+            <button class="nav__mobile" aria-label="Menu" onclick="toggleMobileNav()">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
+    <div class="nav__mobile-panel" id="mobileNav">
+        <a href="shop.html">Shop</a>
+        <a href="web-to-publish.html">Web-to-Publish</a>
+        <a href="cashback.html">Cashback</a>
+        <a href="3dcay-app.html">App</a>
+        <a href="services.html">Services</a>
+        <a href="ki-lab-newsletter.html">KI Lab</a>
+        <a href="referenzen.html">Referenzen</a>
+    </div>
 
     <!-- HERO SECTION -->
     <section class="hero">
-        <div class="container">
+        <div class="hero-content">
             <div class="label">3DCAY CASHBACK</div>
-            <h1>Intelligente Cashback- und Promotionslösungen mit KI-gestützter Belegerkennung</h1>
+            <h1>Intelligente Cashback- und Promotionslösungen mit <em>KI-gestützter Belegerkennung</em></h1>
             <p>Automatisiert, skalierbar und perfekt für verkaufsfördernde Aktionen.</p>
-            
-            <div class="hero-cta">
+
+            <div class="hero-buttons">
                 <button class="btn btn--primary" onclick="openDemo()">Cashback-Demo anfragen</button>
-                <a href="#case" class="btn btn--outline-white">Case Study: EGGER</a>
+                <a href="#case-study" class="btn btn--outline-white">Case Study: EGGER</a>
             </div>
 
             <!-- Pipeline SVG Animation -->
@@ -1055,10 +1264,10 @@
     </section>
 
     <!-- PROBLEM SECTION -->
-    <section class="section-light reveal">
+    <section class="problem-section reveal">
         <div class="container">
             <div class="section-header">
-                <div class="label">DAS PROBLEM</div>
+                <div class="label">DIE AUFGABE</div>
                 <h2>Warum klassische Cashback-Prozesse teuer und fehleranfällig sind</h2>
                 <p>Klassische Aktionen verursachen hohen manuellen Aufwand: Rechnungen mussten geprüft, Daten übertragen und Auszahlungen manuell vorbereitet werden. Das Ziel war eine vollständig automatisierte, skalierbare Lösung, die Prozesse vereinfacht, Fehler minimiert und die Teilnehmerzufriedenheit erhöht.</p>
             </div>
@@ -1066,7 +1275,7 @@
     </section>
 
     <!-- SOLUTION SECTION -->
-    <section class="section-gray reveal">
+    <section class="solution-section reveal">
         <div class="container">
             <div class="section-header">
                 <div class="label">DIE LÖSUNG</div>
@@ -1076,32 +1285,32 @@
 
             <div class="grid grid-6">
                 <div class="card reveal">
-                    <div class="card-icon">⚙</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg></div>
                     <h3>Automatische Erkennung</h3>
                     <p>Automatische Erkennung von Artikeln, Mengen und Rechnungsdaten</p>
                 </div>
                 <div class="card reveal">
-                    <div class="card-icon">📋</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></div>
                     <h3>Regelbasierte Berechnung</h3>
                     <p>Regelbasierte Berechnung von Cashback- und Bonusbeträgen</p>
                 </div>
                 <div class="card reveal">
-                    <div class="card-icon">🛡</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
                     <h3>Fraud Detection</h3>
                     <p>Fraud Detection zur Erkennung von Betrugsversuchen</p>
                 </div>
                 <div class="card reveal">
-                    <div class="card-icon">📊</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg></div>
                     <h3>Admin-Dashboard</h3>
                     <p>Integrierte Prüf- und Freigabeprozesse über ein Admin-Dashboard</p>
                 </div>
                 <div class="card reveal">
-                    <div class="card-icon">📈</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
                     <h3>KI-Insight Views</h3>
                     <p>Reporting-Dashboard mit KI-Insight Views</p>
                 </div>
                 <div class="card reveal">
-                    <div class="card-icon">☁</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></div>
                     <h3>DSGVO Cloud</h3>
                     <p>DSGVO-konforme Cloud-Architektur und skalierbare Systemstruktur</p>
                 </div>
@@ -1110,7 +1319,7 @@
     </section>
 
     <!-- AI BLOCK -->
-    <section class="section-dark reveal">
+    <section class="ai-section reveal">
         <div class="container">
             <div class="section-header">
                 <div class="label">POWERED BY AI</div>
@@ -1118,89 +1327,100 @@
                 <p>OCR-Technologie und KI erkennen Artikel, Mengen und relevante Daten automatisch, validieren und ordnen den jeweiligen Aktionsregeln zu. Cashback-Beträge werden direkt berechnet und Prozesse ohne manuellen Aufwand abgewickelt.</p>
             </div>
 
-            <div class="grid grid-3">
+            <div class="grid grid-4">
                 <div class="stat-block reveal">
-                    <div class="stat-number">99.2%</div>
-                    <div class="stat-label">Erkennungsrate</div>
+                    <div class="stat-number" data-count><span class="stat-value" data-target="85" data-duration="1600">0</span><span class="stat-accent">%</span></div>
+                    <div class="stat-label">Weniger manueller Aufwand</div>
                 </div>
                 <div class="stat-block reveal">
-                    <div class="stat-number">45s</div>
-                    <div class="stat-label">pro Beleg</div>
+                    <div class="stat-number" data-count>&lt;<span class="stat-value" data-target="3" data-duration="1400">0</span><span class="stat-accent">s</span></div>
+                    <div class="stat-label">Rechnungserkennung</div>
                 </div>
                 <div class="stat-block reveal">
-                    <div class="stat-number">0</div>
-                    <div class="stat-label">manuelle Schritte</div>
+                    <div class="stat-number" data-count><span class="stat-value" data-target="99.2" data-decimals="1" data-duration="1800">0.0</span><span class="stat-accent">%</span></div>
+                    <div class="stat-label">Erkennungsgenauigkeit</div>
+                </div>
+                <div class="stat-block reveal">
+                    <div class="stat-number stat-number--text">24<span class="stat-slash">/</span><span class="stat-accent">7</span></div>
+                    <div class="stat-label">Automatisiert</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CASE STUDY -->
-    <section class="section-light reveal" id="case">
+    <section class="case-study-section reveal" id="case-study">
         <div class="container">
-            <div class="section-header">
+            <div class="case-study">
+                <div class="case-study-lead">
+                    <p>Ein österreichisches Industrieunternehmen wollte sein Cashback-Programm vollständig automatisieren — von der Belegerfassung über die Prüfung bis zur Auszahlung. Skalierbarkeit für mehrere Tausend Transaktionen pro Monat, Betrugsprävention und DSGVO-Konformität waren ebenso gefordert wie ein messbarer Effizienzgewinn.</p>
+                </div>
+
                 <div class="label">CASE STUDY — EGGER</div>
                 <h2>KI-gestütztes Cashback-Portal für die Industrie</h2>
-            </div>
 
-            <div class="case-study">
-                <div class="case-study-header">
-                    <h3>Ausgangssituation</h3>
-                </div>
-                <p>Ein Industrieunternehmen in Österreich wollte sein Cashback-Programm effizienter gestalten. Bisher waren manuelle Rechnungsprüfungen, Datentransfers und Auszahlungsvorbereitung zeitaufwendig und fehleranfällig. Das Ziel: Vollständige Automatisierung und Skalierbarkeit für mehrere Tausend Transaktionen pro Monat.</p>
-
-                <div class="case-study-section" style="margin-top: 32px;">
-                    <h3>Die Lösung mit 3DCAY Cashback</h3>
-                    <ul>
-                        <li>OCR-basierte automatische Belegerfassung und Datenextraktion</li>
-                        <li>Intelligente Regelentine für Cashback-Berechnung pro Beleg</li>
-                        <li>Admin-Dashboard für Prüfung, Freigabe und Reporting</li>
-                        <li>Fraud Detection zur Betrugsbekämpfung</li>
-                        <li>Automatische Auszahlung an Teilnehmer über API-Integration</li>
-                        <li>Echtzeit-Reporting und Insights für Marketing-Teams</li>
-                    </ul>
-                </div>
-
-                <div class="case-study-metrics">
-                    <div class="metric-card">
-                        <h4>Vorher</h4>
-                        <div class="metric-value">12 Min</div>
-                        <div class="metric-label">manuell pro Beleg</div>
+                <div class="case-study-content">
+                    <div class="case-study-block">
+                        <h3>Ausgangssituation</h3>
+                        <p>Bisher waren manuelle Rechnungsprüfungen, Datentransfers und Auszahlungsvorbereitung zeitaufwendig und fehleranfällig. Das Ziel: Vollständige Automatisierung und Skalierbarkeit für mehrere Tausend Transaktionen pro Monat — bei gleichzeitig hoher Prüfsicherheit.</p>
                     </div>
-                    <div class="metric-card">
-                        <h4>Nachher</h4>
-                        <div class="metric-value">45 Sek</div>
-                        <div class="metric-label">automatisch pro Beleg</div>
-                    </div>
-                    <div class="metric-card">
-                        <h4>Ergebnis</h4>
-                        <div class="metric-value">100%</div>
-                        <div class="metric-label">Vollautomatisierung</div>
-                    </div>
-                </div>
 
-                <div class="case-study-section">
-                    <h3>Ergebnis & Mehrwert</h3>
-                    <ul>
-                        <li>Zeitersparnis: Von 12 Min auf 45 Sekunden pro Beleg</li>
-                        <li>Kostenreduktion: 95% Einsparungen bei manuellen Prozessen</li>
-                        <li>Skalierbarkeit: Problemlos 50.000+ Belege pro Monat</li>
-                        <li>Fehlerquote: Reduktion auf unter 0,1%</li>
-                        <li>Zufriedenheit: Höhere Teilnehmer-Zufriedenheit durch schnelle Auszahlungen</li>
-                        <li>Compliance: Vollständige DSGVO-Konformität und Audit-Trail</li>
-                    </ul>
-                </div>
+                    <div class="case-study-block">
+                        <h3>Die Lösung mit 3DCAY Cashback</h3>
+                        <ul>
+                            <li>OCR-basierte automatische Belegerfassung und Datenextraktion</li>
+                            <li>Intelligente Regel-Engine für Cashback-Berechnung pro Beleg</li>
+                            <li>Admin-Dashboard für Prüfung, Freigabe und Reporting</li>
+                            <li>Fraud Detection zur Betrugsbekämpfung</li>
+                            <li>Automatische Auszahlung an Teilnehmer über API-Integration</li>
+                            <li>Echtzeit-Reporting und Insights für Marketing-Teams</li>
+                        </ul>
+                    </div>
 
-                <div class="case-study-section" style="margin-top: 32px; border-top: 1px solid var(--gray-100); padding-top: 24px;">
-                    <p><strong style="color: var(--black);">Fazit:</strong> Mit dem KI-gestützten 3DCAY Cashback-Portal realisieren Unternehmen effiziente, digitale Verkaufsförderung — schnell, sicher und messbar.</p>
-                    <p style="margin-top: 16px;"><a href="#" style="color: var(--red); text-decoration: none; font-weight: 600;">Vollständige Case Study →</a></p>
+                    <div class="case-study-block">
+                        <h3>Effizienzsprung in Zahlen</h3>
+                        <div class="case-study-metrics">
+                            <div class="metric-card">
+                                <h4>Vorher</h4>
+                                <div class="metric-value">12 Min</div>
+                                <div class="metric-label">manuell pro Beleg</div>
+                            </div>
+                            <div class="metric-card">
+                                <h4>Nachher</h4>
+                                <div class="metric-value">45 Sek</div>
+                                <div class="metric-label">automatisch pro Beleg</div>
+                            </div>
+                            <div class="metric-card">
+                                <h4>Ergebnis</h4>
+                                <div class="metric-value">100%</div>
+                                <div class="metric-label">Vollautomatisierung</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-study-block">
+                        <h3>Ergebnis &amp; Mehrwert</h3>
+                        <ul>
+                            <li>Zeitersparnis: Von 12 Min auf 45 Sekunden pro Beleg</li>
+                            <li>Kostenreduktion: 95% Einsparungen bei manuellen Prozessen</li>
+                            <li>Skalierbarkeit: Problemlos 50.000+ Belege pro Monat</li>
+                            <li>Fehlerquote: Reduktion auf unter 0,1%</li>
+                            <li>Zufriedenheit: Höhere Teilnehmer-Zufriedenheit durch schnelle Auszahlungen</li>
+                            <li>Compliance: Vollständige DSGVO-Konformität und Audit-Trail</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-study-block">
+                        <h3>Fazit</h3>
+                        <p>Mit dem KI-gestützten 3DCAY Cashback-Portal realisieren Unternehmen effiziente, digitale Verkaufsförderung — schnell, sicher und messbar.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- USE CASES -->
-    <section class="section-gray reveal">
+    <section class="use-cases-section reveal">
         <div class="container">
             <div class="section-header">
                 <div class="label">EINSATZMÖGLICHKEITEN</div>
@@ -1209,18 +1429,22 @@
 
             <div class="grid grid-4">
                 <div class="card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M14.5 9.5a3.5 3.5 0 1 0 0 5"/><path d="M9 10.5h5"/><path d="M9 13.5h5"/></svg></div>
                     <h3>Cashback-Programme</h3>
                     <p>Digitale Rückerstattungen mit automatischer Belegprüfung und Auszahlung. Ideal für Kundenbindung und Umsatzsteigerung.</p>
                 </div>
                 <div class="card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 9 5.5 3.5h13L20.5 9"/><path d="M3.5 9h17"/><path d="M5 9v10.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M10 20.5v-4.5a2 2 0 0 1 4 0v4.5"/></svg></div>
                     <h3>Händler-Incentives</h3>
                     <p>Bonuszahlungen an Einzelhandelsfachkräfte basierend auf Verkaufszielen und Belegen. Einfach, transparent und motivierend.</p>
                 </div>
                 <div class="card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 1 1 0-5c1.7 0 3 1.5 4.5 5"/><path d="M16.5 8a2.5 2.5 0 1 0 0-5c-1.7 0-3 1.5-4.5 5"/></svg></div>
                     <h3>Bonusaktionen</h3>
                     <p>Zeitlich begrenzte Promotionen mit automatischer Berechnung von Boni. Komplexe Regeln werden spielend einfach umgesetzt.</p>
                 </div>
                 <div class="card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg></div>
                     <h3>Garantie-Kampagnen</h3>
                     <p>Garantie-Rückerstattungen bei Produkt-Defekten oder ungeplanten Schäden. Vollautomatisch und kundenfreundlich.</p>
                 </div>
@@ -1229,7 +1453,7 @@
     </section>
 
     <!-- CTA SECTION -->
-    <section class="section-red reveal">
+    <section class="cta-section reveal">
         <div class="container">
             <div style="text-align: center;">
                 <h2>Weniger manueller Aufwand. Höhere Geschwindigkeit. Maximale Skalierbarkeit durch AI.</h2>
@@ -1251,12 +1475,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <a href="index-v4.html" class="logo">
-                        <svg viewBox="113 222 1512 394" xmlns="http://www.w3.org/2000/svg" style="width:140px; height:auto; display:block;">
-                            <g transform="translate(113,220)">
-                                <path d="M 594.00 83.00 L 577.00 113.00 L 566.00 148.00 L 562.00 174.00 L 562.00 213.00 L 566.00 239.00 L 573.00 263.00 L 586.00 291.00 L 595.00 305.00 L 598.00 307.00 L 617.00 301.00 L 635.00 292.00 L 652.00 280.00 L 664.00 268.00 L 664.00 266.00 L 657.00 258.00 L 648.00 242.00 L 641.00 222.00 L 638.00 205.00 L 638.00 179.00 L 642.00 159.00 L 653.00 134.00 L 663.00 119.00 L 647.00 105.00 L 635.00 97.00 L 615.00 88.00 Z M 1092.00 5.00 L 1262.00 245.00 L 1262.00 383.00 L 1338.00 383.00 L 1338.00 244.00 L 1508.00 4.00 L 1416.00 4.00 L 1300.00 173.00 L 1184.00 4.00 Z M 688.00 373.00 L 710.00 379.00 L 736.00 383.00 L 870.00 383.00 L 1014.00 85.00 L 1019.00 93.00 L 1091.00 244.00 L 1061.00 246.00 L 996.00 246.00 L 962.00 316.00 L 1124.00 316.00 L 1157.00 383.00 L 1244.00 382.00 L 1060.00 4.00 L 969.00 4.00 L 821.00 307.00 L 819.00 309.00 L 780.00 308.00 L 754.00 335.00 L 740.00 346.00 L 721.00 358.00 Z M 691.00 13.00 L 703.00 17.00 L 721.00 26.00 L 740.00 38.00 L 762.00 56.00 L 781.00 78.00 L 896.00 78.00 L 934.00 4.00 L 740.00 4.00 L 710.00 8.00 Z" fill="#FFFFFF" fill-rule="evenodd"/>
-                                <path d="M 50.00 7.00 L 50.00 82.00 L 252.00 84.00 L 150.00 167.00 L 150.00 217.00 L 247.00 217.00 L 266.00 221.00 L 283.00 230.00 L 294.00 243.00 L 299.00 259.00 L 299.00 274.00 L 295.00 288.00 L 290.00 296.00 L 284.00 302.00 L 265.00 312.00 L 246.00 317.00 L 47.00 318.00 L 2.00 394.00 L 263.00 393.00 L 287.00 389.00 L 315.00 380.00 L 336.00 369.00 L 350.00 358.00 L 361.00 346.00 L 370.00 332.00 L 377.00 316.00 L 382.00 296.00 L 384.00 275.00 L 383.00 251.00 L 380.00 235.00 L 373.00 216.00 L 358.00 194.00 L 346.00 183.00 L 334.00 175.00 L 314.00 166.00 L 296.00 161.00 L 256.00 157.00 L 294.00 122.00 L 354.00 75.00 L 354.00 7.00 Z M 390.00 2.00 L 390.00 72.00 L 359.00 96.00 L 359.00 166.00 L 371.00 172.00 L 386.00 183.00 L 396.00 193.00 L 407.00 209.00 L 414.00 225.00 L 418.00 241.00 L 420.00 262.00 L 419.00 284.00 L 415.00 306.00 L 404.00 332.00 L 395.00 345.00 L 381.00 359.00 L 372.00 366.00 L 359.00 373.00 L 359.00 389.00 L 549.00 389.00 L 590.00 388.00 L 611.00 385.00 L 654.00 373.00 L 683.00 359.00 L 707.00 343.00 L 734.00 317.00 L 751.00 293.00 L 762.00 271.00 L 769.00 251.00 L 776.00 216.00 L 777.00 187.00 L 772.00 149.00 L 762.00 118.00 L 752.00 98.00 L 743.00 84.00 L 720.00 58.00 L 691.00 36.00 L 663.00 21.00 L 635.00 11.00 L 613.00 6.00 L 583.00 2.00 Z M 441.00 78.00 L 578.00 78.00 L 606.00 84.00 L 625.00 91.00 L 635.00 96.00 L 658.00 113.00 L 675.00 132.00 L 685.00 151.00 L 691.00 171.00 L 693.00 185.00 L 692.00 212.00 L 688.00 229.00 L 680.00 248.00 L 667.00 267.00 L 652.00 281.00 L 635.00 293.00 L 617.00 302.00 L 596.00 309.00 L 576.00 312.00 L 442.00 313.00 Z" fill="#B8181C" fill-rule="evenodd"/>
-                            </g>
-                        </svg>
+                        <img src="images/3dcay-logo.svg" alt="3DCAY" style="width:140px; height:auto; display:block;">
                     </a>
                     <p>3DCAY Marketing IT Solutions by drei-d — Die IT-Marke für smartes Marketing Fulfillment.</p>
                 </div>
@@ -1329,16 +1548,13 @@
     <!-- SCRIPTS -->
     <script>
         // Navigation scroll handler
-        let lastScrollY = 0;
         window.addEventListener('scroll', () => {
-            lastScrollY = window.scrollY;
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 50) { nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
         });
 
         // Mobile nav toggle
-        function toggleMobileNav() {
-            const nav = document.getElementById('nav');
-            nav.classList.toggle('nav--mobile-open');
-        }
+        function toggleMobileNav() { document.getElementById('mobileNav').classList.toggle('open'); }
 
         // Demo Modal Functions
         function openDemo() {
@@ -1365,11 +1581,47 @@
             }
         });
 
+        // Count-up animation for stat numbers
+        function animateCount(container) {
+            // Find the inner animated value element (or fall back to the container itself)
+            const valueEl = container.querySelector('.stat-value') || container;
+            if (!valueEl.dataset.target) return;
+
+            const target = parseFloat(valueEl.dataset.target);
+            const duration = parseInt(valueEl.dataset.duration, 10) || 1400;
+            const explicitDecimals = parseInt(valueEl.dataset.decimals, 10);
+            const decimals = !isNaN(explicitDecimals)
+                ? explicitDecimals
+                : (valueEl.dataset.target.split('.')[1] || '').length;
+            const startTime = performance.now();
+
+            function frame(now) {
+                const progress = Math.min(1, (now - startTime) / duration);
+                // easeOutCubic
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = target * eased;
+                const value = decimals > 0 ? current.toFixed(decimals) : Math.round(current);
+                valueEl.textContent = value;
+                if (progress < 1) {
+                    requestAnimationFrame(frame);
+                } else {
+                    valueEl.textContent = decimals > 0 ? target.toFixed(decimals) : target;
+                }
+            }
+
+            requestAnimationFrame(frame);
+        }
+
         // Intersection Observer for Reveal Animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
+                    // Trigger count-up for any stat-number[data-count] inside
+                    const counters = entry.target.matches('[data-count]')
+                        ? [entry.target]
+                        : entry.target.querySelectorAll('[data-count]');
+                    counters.forEach(animateCount);
                     observer.unobserve(entry.target);
                 }
             });
