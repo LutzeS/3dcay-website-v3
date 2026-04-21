@@ -1908,7 +1908,7 @@
                     <div class="label" style="color:var(--red); margin:0;">FIT-CHECK · 3 MIN</div>
                     <h3 style="font-size:1.35rem; line-height:1.25; margin:0;">Passt 3DCAY zu Ihrem Setup?</h3>
                     <p style="color:var(--gray-700); margin:0; font-size:15px; flex:1;">In 12 Fragen prüfen, ob Ihre Marketing-IT bereit ist für Automatisierung und KI-gestütztes Fulfillment — inklusive individueller Auswertung.</p>
-                    <a href="assessment.html" class="btn btn--outline" style="align-self:flex-start; margin-top:8px;">Fit-Check starten →</a>
+                    <button type="button" onclick="openLead('fitCheckModal')" class="btn btn--outline" style="align-self:flex-start; margin-top:8px;">Fit-Check starten →</button>
                 </div>
 
                 <!-- Whitepaper -->
@@ -1919,7 +1919,7 @@
                     <div class="label" style="color:var(--red); margin:0;">WHITEPAPER · PDF</div>
                     <h3 style="font-size:1.35rem; line-height:1.25; margin:0;">Marketing Fulfillment 2026</h3>
                     <p style="color:var(--gray-700); margin:0; font-size:15px; flex:1;">Wie Enterprise-Brands ihre POS-Prozesse von Papier in die Cloud bringen — Benchmarks, Architektur-Entscheidungen und Best Practices auf 12 Seiten.</p>
-                    <a href="whitepaper.html" class="btn btn--outline" style="align-self:flex-start; margin-top:8px;">Whitepaper laden →</a>
+                    <button type="button" onclick="openLead('whitepaperModal')" class="btn btn--outline" style="align-self:flex-start; margin-top:8px;">Whitepaper laden →</button>
                 </div>
 
                 <!-- KI-Playbook -->
@@ -1930,7 +1930,7 @@
                     <div class="label" style="color:var(--red); margin:0;">KI-PLAYBOOK · PDF</div>
                     <h3 style="font-size:1.35rem; line-height:1.25; margin:0;">7 KI-Use-Cases, die sich rechnen</h3>
                     <p style="color:var(--gray-700); margin:0; font-size:15px; flex:1;">Die konkreten KI-Anwendungen für Marketing-IT, bei denen 2026 der ROI stimmt — mit Rechenbeispielen aus echten Kundenprojekten.</p>
-                    <a href="ki-playbook.html" class="btn btn--outline" style="align-self:flex-start; margin-top:8px;">Playbook anfordern →</a>
+                    <button type="button" onclick="openLead('playbookModal')" class="btn btn--outline" style="align-self:flex-start; margin-top:8px;">Playbook anfordern →</button>
                 </div>
 
             </div>
@@ -2127,6 +2127,138 @@
         </div>
     </div>
 
+    <!-- FIT-CHECK LEAD MODAL -->
+    <div class="modal-overlay" id="fitCheckModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeLead('fitCheckModal')">&times;</button>
+
+            <div class="lead-form">
+                <div class="label" style="color:var(--red); margin-bottom:8px;">FIT-CHECK · 3 MIN</div>
+                <h2 style="margin-bottom:8px;">Passt 3DCAY zu Ihrem Setup?</h2>
+                <p style="color:var(--gray-500); margin-bottom:24px; font-size:15px;">In 12 Fragen erhalten Sie eine individuelle Auswertung. Wir senden Ihnen die Ergebnisse auch per E-Mail zu.</p>
+
+                <form name="fit-check" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleLeadSubmit(event, 'fitCheckModal')">
+                    <input type="hidden" name="form-name" value="fit-check">
+                    <p style="display:none;"><label>Nicht ausfüllen: <input name="bot-field"></label></p>
+
+                    <div class="form-group">
+                        <label for="fc-firstName">Vorname</label>
+                        <input type="text" id="fc-firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fc-lastName">Nachname</label>
+                        <input type="text" id="fc-lastName" name="lastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fc-email">E-Mail</label>
+                        <input type="email" id="fc-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fc-company">Unternehmen (optional)</label>
+                        <input type="text" id="fc-company" name="company">
+                    </div>
+
+                    <button type="submit" class="btn btn--primary" style="width:100%;">Fit-Check starten →</button>
+                </form>
+            </div>
+
+            <div class="modal-success">
+                <div class="modal-success-icon">✓</div>
+                <h3>Los geht's!</h3>
+                <p>Ihre Daten sind gespeichert. Starten Sie jetzt den 3-Minuten-Fit-Check.</p>
+                <a href="assessment.html" class="btn btn--primary">Fit-Check jetzt starten →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHITEPAPER LEAD MODAL -->
+    <div class="modal-overlay" id="whitepaperModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeLead('whitepaperModal')">&times;</button>
+
+            <div class="lead-form">
+                <div class="label" style="color:var(--red); margin-bottom:8px;">WHITEPAPER · PDF</div>
+                <h2 style="margin-bottom:8px;">Marketing Fulfillment 2026</h2>
+                <p style="color:var(--gray-500); margin-bottom:24px; font-size:15px;">Benchmarks, Architektur-Entscheidungen und Best Practices auf 12 Seiten. Wir senden Ihnen den Download-Link auch per E-Mail.</p>
+
+                <form name="whitepaper-download" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleLeadSubmit(event, 'whitepaperModal')">
+                    <input type="hidden" name="form-name" value="whitepaper-download">
+                    <p style="display:none;"><label>Nicht ausfüllen: <input name="bot-field"></label></p>
+
+                    <div class="form-group">
+                        <label for="wp-firstName">Vorname</label>
+                        <input type="text" id="wp-firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="wp-lastName">Nachname</label>
+                        <input type="text" id="wp-lastName" name="lastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="wp-email">E-Mail</label>
+                        <input type="email" id="wp-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="wp-company">Unternehmen (optional)</label>
+                        <input type="text" id="wp-company" name="company">
+                    </div>
+
+                    <button type="submit" class="btn btn--primary" style="width:100%;">Whitepaper anfordern →</button>
+                </form>
+            </div>
+
+            <div class="modal-success">
+                <div class="modal-success-icon">✓</div>
+                <h3>Fertig!</h3>
+                <p>Vielen Dank. Ihr Whitepaper steht jetzt zum Download bereit.</p>
+                <a href="whitepaper-download.html" class="btn btn--primary">Whitepaper herunterladen →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- KI-PLAYBOOK LEAD MODAL -->
+    <div class="modal-overlay" id="playbookModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeLead('playbookModal')">&times;</button>
+
+            <div class="lead-form">
+                <div class="label" style="color:var(--red); margin-bottom:8px;">KI-PLAYBOOK · PDF</div>
+                <h2 style="margin-bottom:8px;">7 KI-Use-Cases, die sich rechnen</h2>
+                <p style="color:var(--gray-500); margin-bottom:24px; font-size:15px;">Konkrete KI-Anwendungen für Marketing-IT mit Rechenbeispielen aus echten Kundenprojekten. Sie erhalten den Download-Link auch per E-Mail.</p>
+
+                <form name="ki-playbook" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleLeadSubmit(event, 'playbookModal')">
+                    <input type="hidden" name="form-name" value="ki-playbook">
+                    <p style="display:none;"><label>Nicht ausfüllen: <input name="bot-field"></label></p>
+
+                    <div class="form-group">
+                        <label for="pb-firstName">Vorname</label>
+                        <input type="text" id="pb-firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pb-lastName">Nachname</label>
+                        <input type="text" id="pb-lastName" name="lastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pb-email">E-Mail</label>
+                        <input type="email" id="pb-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pb-company">Unternehmen (optional)</label>
+                        <input type="text" id="pb-company" name="company">
+                    </div>
+
+                    <button type="submit" class="btn btn--primary" style="width:100%;">Playbook anfordern →</button>
+                </form>
+            </div>
+
+            <div class="modal-success">
+                <div class="modal-success-icon">✓</div>
+                <h3>Fertig!</h3>
+                <p>Vielen Dank. Ihr KI-Playbook steht jetzt bereit.</p>
+                <a href="ki-playbook.html" class="btn btn--primary">Playbook öffnen →</a>
+            </div>
+        </div>
+    </div>
+
     <script>
         /* ========================================
            NAVIGATION & SCROLL DETECTION (V2 Style)
@@ -2317,6 +2449,56 @@
             if (e.target === demoModal) {
                 closeDemo();
             }
+        });
+
+        /* ========================================
+           LEAD-MAGNET MODALS (Fit-Check / Whitepaper / Playbook)
+           ======================================== */
+        function openLead(modalId) {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLead(modalId) {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+            const formWrap = modal.querySelector('.lead-form');
+            const success = modal.querySelector('.modal-success');
+            if (formWrap) formWrap.style.display = 'block';
+            if (success) success.classList.remove('show');
+        }
+
+        function handleLeadSubmit(e, modalId) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData)
+            }).then(() => {
+                const modal = document.getElementById(modalId);
+                const formWrap = modal.querySelector('.lead-form');
+                const success = modal.querySelector('.modal-success');
+                if (formWrap) formWrap.style.display = 'none';
+                if (success) success.classList.add('show');
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('Es gab einen Fehler. Bitte versuchen Sie es später erneut.');
+            });
+        }
+
+        /* Close on backdrop click for all lead modals */
+        ['fitCheckModal', 'whitepaperModal', 'playbookModal'].forEach((id) => {
+            const m = document.getElementById(id);
+            if (!m) return;
+            m.addEventListener('click', (e) => {
+                if (e.target === m) closeLead(id);
+            });
         });
 
         /* ========================================
