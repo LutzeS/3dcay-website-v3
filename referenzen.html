@@ -395,11 +395,11 @@
 
         /* Logos, die bereits als graue Vorlage vorliegen -> kein Invert, nur Helligkeit heben */
         .client-logo img.is-grau {
-            filter: brightness(2.2) opacity(0.75);
+            filter: grayscale(1) brightness(2.2) opacity(0.8);
         }
 
         .client-logo:hover img.is-grau {
-            filter: brightness(2.6) opacity(1);
+            filter: grayscale(1) brightness(2.6) opacity(1);
         }
 
         /* ========================================
@@ -915,6 +915,7 @@
             <div class="label">REFERENZEN</div>
             <h1>Erfolgsgeschichten unserer Kunden</h1>
             <p>Von der Industrie bis zur Forschung — so setzen führende Unternehmen auf 3DCAY.</p>
+            <p style="margin-top:16px; opacity:0.75; font-size:15px;">Auf dieser Seite werden wir sukzessive interessante Case Studies neuer realisierter Projekte für unsere Kunden ergänzen. Wir hoffen so unseren Website-Besuchern immer aktuelle und vor allem spannende Projekte darzustellen.</p>
             
             <!-- Client Logos Row -->
             <div class="client-logos">
