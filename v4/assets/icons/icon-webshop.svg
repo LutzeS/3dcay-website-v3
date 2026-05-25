@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="3DCAY Webshop">
+  <!-- 3DCAY · Webshop Icon · Stack of product boxes (3D-Pyramide) -->
+  <rect width="100" height="100" rx="20" fill="#D71519"/>
+  <g fill="#F2EBDD" stroke="#F2EBDD" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Top box -->
+    <rect x="42" y="28" width="16" height="14" rx="1.5" fill="none" stroke-width="3"/>
+    <!-- Mid row: two boxes -->
+    <rect x="30" y="46" width="16" height="14" rx="1.5" fill="none" stroke-width="3"/>
+    <rect x="54" y="46" width="16" height="14" rx="1.5" fill="none" stroke-width="3"/>
+    <!-- Bottom row: full bar with 3 box dividers -->
+    <rect x="22" y="64" width="56" height="14" rx="1.5"/>
+    <line x1="40" y1="64" x2="40" y2="78" stroke="#D71519" stroke-width="2"/>
+    <line x1="60" y1="64" x2="60" y2="78" stroke="#D71519" stroke-width="2"/>
+  </g>
+</svg>
