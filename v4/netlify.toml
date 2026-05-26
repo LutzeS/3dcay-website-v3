@@ -1,19 +1,14 @@
 # 3DCAY Website · V4 · Mono-Rot Edition
-# Diese netlify.toml gehört zu einer separaten Netlify-Site (3dcay-version4).
-# Im Netlify-Dashboard wird "Base directory" = "v4" und "Publish directory" = "v4" gesetzt.
-# Damit ist v4/ die Site-Root, /index.html wird zu v4/index.html.
+# Netlify-Site: 3dcay-version4
+# Build-Setup wird im Dashboard verwaltet:
+#   Base directory   = v4
+#   Publish directory = v4
+# Keine [build]-Sektion hier, sonst überschreibt sie die UI-Settings.
 
-[build]
-  publish = "."
-  base    = "."
-
-# Saubere URLs: /webshop → shop.html (sobald v4-Versionen existieren, hier umbiegen)
-# Für v1.0 verlinken die Module-Tiles direkt auf shop.html etc., die im selben v4-Folder liegen müssen.
-
-# 404 Fallback
+# 404 Fallback (Hash-URL für SPAs nicht relevant — pretty URLs aktiv)
 [[redirects]]
   from   = "/*"
-  to     = "/index.html"
+  to     = "/404.html"
   status = 404
 
 [[headers]]
