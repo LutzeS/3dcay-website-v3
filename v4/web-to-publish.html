@@ -15,33 +15,34 @@
     <link rel="preload" as="image" href="images/foto2-w2p.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <style>
         /* ========================================
-           DESIGN SYSTEM (v3-Original)
+           3DCAY · MONO-ROT EDITION (Brandbook-Tokens)
            ======================================== */
         :root {
-            --black:    #0A0A0A;
-            --red:      #e3101a;
-            --red-hover:#ff1a25;
+            /* Brandbook · Mono-Rot Edition */
+            --red:        #D71519;
+            --red-deep:   #9E0F12;
+            --red-ink:    #5C0A0C;
+            --red-hover:  #B30E12;
+            --cream:      #F2EBDD;
+            --cream-lo:   #E6DDC9;
+            --ink:        #0A0908;
+            --ink-soft:   #2A2826;
+
+            /* Aliase für v3-Layout-Kompatibilität */
+            --black:    #0A0908;
             --white:    #FFF;
-            --gray-50:  #FAFAFA;
-            --gray-100: #F0F0F0;
-            --gray-200: #E5E5E5;
-            --gray-500: #737373;
-            --gray-700: #404040;
-            --gray-900: #171717;
+            --gray-50:  #F2EBDD;
+            --gray-100: #E6DDC9;
+            --gray-200: #E6DDC9;
+            --gray-500: #5C0A0C;
+            --gray-700: #2A2826;
+            --gray-900: #0A0908;
 
-            /* Aliase, damit die Korrektur-PDF-Sektionen weiterhin auflösen */
-            --cream:    #FFF;
-            --cream-lo: #F0F0F0;
-            --ink:      #0A0A0A;
-            --ink-soft: #404040;
-            --red-ink:  #e3101a;
-            --red-deep: #B8181C;
-
-            --font-sans: 'Inter', sans-serif;
+            --font-sans: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
 
             --container-max: 1280px;
@@ -62,8 +63,8 @@
 
         body {
             font-family: var(--font-sans);
-            color: var(--gray-700);
-            background-color: var(--white);
+            color: var(--ink);
+            background-color: var(--cream);
             line-height: 1.6;
         }
 
@@ -1184,7 +1185,7 @@
                             <svg viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
                                     <filter id="stepShadow">
-                                        <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#e3101a" flood-opacity="0.12"/>
+                                        <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#D71519" flood-opacity="0.12"/>
                                     </filter>
                                     <filter id="glowRed">
                                         <feGaussianBlur stdDeviation="3" result="blur"/>
@@ -1194,12 +1195,12 @@
 
                                 <!-- STEP 1: Design-Vorlagen auswählen -->
                                 <g class="fade-in d1">
-                                    <circle cx="28" cy="38" r="16" fill="#e3101a">
+                                    <circle cx="28" cy="38" r="16" fill="#D71519">
                                         <animate attributeName="r" values="16;18;16" dur="2s" repeatCount="indefinite"/>
                                     </circle>
-                                    <text x="28" y="43" text-anchor="middle" fill="#fff" font-family="'Inter', sans-serif" font-size="13" font-weight="700">1</text>
-                                    <text x="54" y="35" fill="#0A0A0A" font-family="'Inter', sans-serif" font-size="11" font-weight="700">Design-Vorlage</text>
-                                    <text x="54" y="48" fill="#737373" font-family="'Inter', sans-serif" font-size="9">Hintergrund auswählen</text>
+                                    <text x="28" y="43" text-anchor="middle" fill="#fff" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="700">1</text>
+                                    <text x="54" y="35" fill="#0A0A0A" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700">Design-Vorlage</text>
+                                    <text x="54" y="48" fill="#737373" font-family="'Space Grotesk', sans-serif" font-size="9">Hintergrund auswählen</text>
                                 </g>
                                 <!-- Template cards with hover shimmer -->
                                 <g class="fade-in d2">
@@ -1210,9 +1211,9 @@
                                     <line x1="30" y1="103" x2="76" y2="103" stroke="#ccc" stroke-width="1.2" stroke-linecap="round"/>
                                 </g>
                                 <g class="fade-in d2">
-                                    <rect x="109" y="62" width="82" height="52" rx="6" fill="#ffffff" stroke="#e3101a" stroke-width="2" filter="url(#stepShadow)"/>
+                                    <rect x="109" y="62" width="82" height="52" rx="6" fill="#ffffff" stroke="#D71519" stroke-width="2" filter="url(#stepShadow)"/>
                                     <!-- Pulsing selection glow -->
-                                    <rect x="107" y="60" width="86" height="56" rx="8" fill="none" stroke="#e3101a" stroke-width="1" opacity="0.3">
+                                    <rect x="107" y="60" width="86" height="56" rx="8" fill="none" stroke="#D71519" stroke-width="1" opacity="0.3">
                                         <animate attributeName="opacity" values="0.1;0.5;0.1" dur="1.8s" repeatCount="indefinite"/>
                                         <animate attributeName="x" values="107;104;107" dur="1.8s" repeatCount="indefinite"/>
                                         <animate attributeName="y" values="60;57;60" dur="1.8s" repeatCount="indefinite"/>
@@ -1221,8 +1222,8 @@
                                     </rect>
                                     <rect x="113" y="66" width="74" height="30" rx="3" fill="#1a1a2e"/>
                                     <line x1="123" y1="103" x2="169" y2="103" stroke="#ccc" stroke-width="1.2" stroke-linecap="round"/>
-                                    <circle cx="183" cy="80" r="6" fill="none" stroke="#e3101a" stroke-width="1.5"/>
-                                    <polyline points="179,80 182,83 188,77" fill="none" stroke="#e3101a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="183" cy="80" r="6" fill="none" stroke="#D71519" stroke-width="1.5"/>
+                                    <polyline points="179,80 182,83 188,77" fill="none" stroke="#D71519" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </g>
                                 <g class="fade-in d2">
                                     <rect x="202" y="62" width="82" height="52" rx="6" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.2" filter="url(#stepShadow)">
@@ -1233,28 +1234,28 @@
                                 </g>
 
                                 <!-- Connector line 1→2 with flowing dot -->
-                                <line x1="150" y1="118" x2="150" y2="142" stroke="#e3101a" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4">
+                                <line x1="150" y1="118" x2="150" y2="142" stroke="#D71519" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4">
                                     <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="1s" repeatCount="indefinite"/>
                                 </line>
-                                <circle r="3" fill="#e3101a" filter="url(#glowRed)">
+                                <circle r="3" fill="#D71519" filter="url(#glowRed)">
                                     <animateMotion dur="1.2s" repeatCount="indefinite" path="M150,118 L150,142"/>
                                 </circle>
 
                                 <!-- STEP 2: Speisen & Getränke hinzufügen -->
                                 <g class="fade-in d3">
-                                    <circle cx="28" cy="158" r="16" fill="#e3101a">
+                                    <circle cx="28" cy="158" r="16" fill="#D71519">
                                         <animate attributeName="r" values="16;18;16" dur="2.2s" repeatCount="indefinite"/>
                                     </circle>
-                                    <text x="28" y="163" text-anchor="middle" fill="#fff" font-family="'Inter', sans-serif" font-size="13" font-weight="700">2</text>
-                                    <text x="54" y="155" fill="#0A0A0A" font-family="'Inter', sans-serif" font-size="11" font-weight="700">Speisen & Getränke</text>
-                                    <text x="54" y="168" fill="#737373" font-family="'Inter', sans-serif" font-size="9">Produkte des Partners einfügen</text>
+                                    <text x="28" y="163" text-anchor="middle" fill="#fff" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="700">2</text>
+                                    <text x="54" y="155" fill="#0A0A0A" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700">Speisen & Getränke</text>
+                                    <text x="54" y="168" fill="#737373" font-family="'Space Grotesk', sans-serif" font-size="9">Produkte des Partners einfügen</text>
                                 </g>
                                 <!-- Food card with floating effect -->
                                 <g class="fade-in d4">
                                     <g>
                                         <animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,0" dur="3s" repeatCount="indefinite"/>
                                         <rect x="16" y="180" width="130" height="56" rx="6" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.2" filter="url(#stepShadow)"/>
-                                        <ellipse cx="44" cy="210" rx="14" ry="6" fill="none" stroke="#e3101a" stroke-width="1.2"/>
+                                        <ellipse cx="44" cy="210" rx="14" ry="6" fill="none" stroke="#D71519" stroke-width="1.2"/>
                                         <!-- Animated steam -->
                                         <path d="M36 204 Q38 198 40 204" fill="none" stroke="#ccc" stroke-width="1" stroke-linecap="round" opacity="0.6">
                                             <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
@@ -1268,8 +1269,8 @@
                                             <animate attributeName="opacity" values="0.3;0.8;0.3" dur="1.8s" repeatCount="indefinite"/>
                                             <animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,0" dur="1.8s" repeatCount="indefinite"/>
                                         </path>
-                                        <text x="68" y="203" fill="#0A0A0A" font-family="'Inter', sans-serif" font-size="9" font-weight="600">Burger Menü</text>
-                                        <text x="68" y="216" fill="#737373" font-family="'Inter', sans-serif" font-size="8">+ Pommes, Getränk</text>
+                                        <text x="68" y="203" fill="#0A0A0A" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="600">Burger Menü</text>
+                                        <text x="68" y="216" fill="#737373" font-family="'Space Grotesk', sans-serif" font-size="8">+ Pommes, Getränk</text>
                                     </g>
                                 </g>
                                 <!-- Drink card with floating effect -->
@@ -1277,112 +1278,112 @@
                                     <g>
                                         <animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,0" dur="3.4s" repeatCount="indefinite"/>
                                         <rect x="156" y="180" width="130" height="56" rx="6" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.2" filter="url(#stepShadow)"/>
-                                        <rect x="170" y="196" width="16" height="24" rx="3" fill="none" stroke="#e3101a" stroke-width="1.2"/>
-                                        <line x1="176" y1="192" x2="176" y2="196" stroke="#e3101a" stroke-width="1.2" stroke-linecap="round"/>
+                                        <rect x="170" y="196" width="16" height="24" rx="3" fill="none" stroke="#D71519" stroke-width="1.2"/>
+                                        <line x1="176" y1="192" x2="176" y2="196" stroke="#D71519" stroke-width="1.2" stroke-linecap="round"/>
                                         <!-- Animated bubbles in drink -->
-                                        <circle cx="175" cy="212" r="1.5" fill="#e3101a" opacity="0.3">
+                                        <circle cx="175" cy="212" r="1.5" fill="#D71519" opacity="0.3">
                                             <animate attributeName="cy" values="216;204;216" dur="2s" repeatCount="indefinite"/>
                                             <animate attributeName="opacity" values="0.5;0;0.5" dur="2s" repeatCount="indefinite"/>
                                         </circle>
-                                        <circle cx="179" cy="210" r="1" fill="#e3101a" opacity="0.3">
+                                        <circle cx="179" cy="210" r="1" fill="#D71519" opacity="0.3">
                                             <animate attributeName="cy" values="214;206;214" dur="1.6s" repeatCount="indefinite"/>
                                             <animate attributeName="opacity" values="0.4;0;0.4" dur="1.6s" repeatCount="indefinite"/>
                                         </circle>
-                                        <text x="196" y="203" fill="#0A0A0A" font-family="'Inter', sans-serif" font-size="9" font-weight="600">Cola 0,5l</text>
-                                        <text x="196" y="216" fill="#737373" font-family="'Inter', sans-serif" font-size="8">Softdrink</text>
+                                        <text x="196" y="203" fill="#0A0A0A" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="600">Cola 0,5l</text>
+                                        <text x="196" y="216" fill="#737373" font-family="'Space Grotesk', sans-serif" font-size="8">Softdrink</text>
                                     </g>
                                 </g>
 
                                 <!-- Connector line 2→3 with flowing dot -->
-                                <line x1="150" y1="240" x2="150" y2="264" stroke="#e3101a" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4">
+                                <line x1="150" y1="240" x2="150" y2="264" stroke="#D71519" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4">
                                     <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="1s" repeatCount="indefinite"/>
                                 </line>
-                                <circle r="3" fill="#e3101a" filter="url(#glowRed)">
+                                <circle r="3" fill="#D71519" filter="url(#glowRed)">
                                     <animateMotion dur="1.2s" repeatCount="indefinite" path="M150,240 L150,264"/>
                                 </circle>
 
                                 <!-- STEP 3: Preise eingeben -->
                                 <g class="fade-in d5">
-                                    <circle cx="28" cy="280" r="16" fill="#e3101a">
+                                    <circle cx="28" cy="280" r="16" fill="#D71519">
                                         <animate attributeName="r" values="16;18;16" dur="2.4s" repeatCount="indefinite"/>
                                     </circle>
-                                    <text x="28" y="285" text-anchor="middle" fill="#fff" font-family="'Inter', sans-serif" font-size="13" font-weight="700">3</text>
-                                    <text x="54" y="277" fill="#0A0A0A" font-family="'Inter', sans-serif" font-size="11" font-weight="700">Preise eingeben</text>
-                                    <text x="54" y="290" fill="#737373" font-family="'Inter', sans-serif" font-size="9">Aktuelle lokale Preise setzen</text>
+                                    <text x="28" y="285" text-anchor="middle" fill="#fff" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="700">3</text>
+                                    <text x="54" y="277" fill="#0A0A0A" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700">Preise eingeben</text>
+                                    <text x="54" y="290" fill="#737373" font-family="'Space Grotesk', sans-serif" font-size="9">Aktuelle lokale Preise setzen</text>
                                 </g>
                                 <!-- Price input with blinking cursor -->
                                 <g class="fade-in d6">
                                     <rect x="16" y="302" width="268" height="44" rx="6" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.2" filter="url(#stepShadow)"/>
-                                    <text x="30" y="320" fill="#737373" font-family="'Inter', sans-serif" font-size="9">Burger Menü</text>
-                                    <rect x="120" y="310" width="68" height="24" rx="4" fill="#fafafa" stroke="#e3101a" stroke-width="1.2"/>
-                                    <text x="142" y="326" text-anchor="middle" fill="#e3101a" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700">12,90</text>
+                                    <text x="30" y="320" fill="#737373" font-family="'Space Grotesk', sans-serif" font-size="9">Burger Menü</text>
+                                    <rect x="120" y="310" width="68" height="24" rx="4" fill="#fafafa" stroke="#D71519" stroke-width="1.2"/>
+                                    <text x="142" y="326" text-anchor="middle" fill="#D71519" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700">12,90</text>
                                     <!-- Blinking cursor -->
-                                    <line x1="164" y1="314" x2="164" y2="330" stroke="#e3101a" stroke-width="1.5" stroke-linecap="round">
+                                    <line x1="164" y1="314" x2="164" y2="330" stroke="#D71519" stroke-width="1.5" stroke-linecap="round">
                                         <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
                                     </line>
-                                    <text x="196" y="326" fill="#737373" font-family="'Inter', sans-serif" font-size="12" font-weight="600">€</text>
-                                    <text x="224" y="318" fill="#737373" font-family="'Inter', sans-serif" font-size="9">Cola</text>
-                                    <text x="258" y="326" text-anchor="middle" fill="#e3101a" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">2,50 €</text>
+                                    <text x="196" y="326" fill="#737373" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="600">€</text>
+                                    <text x="224" y="318" fill="#737373" font-family="'Space Grotesk', sans-serif" font-size="9">Cola</text>
+                                    <text x="258" y="326" text-anchor="middle" fill="#D71519" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">2,50 €</text>
                                 </g>
 
                                 <!-- Connector line 3→4 with flowing dot -->
-                                <line x1="150" y1="350" x2="150" y2="374" stroke="#e3101a" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4">
+                                <line x1="150" y1="350" x2="150" y2="374" stroke="#D71519" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4">
                                     <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="1s" repeatCount="indefinite"/>
                                 </line>
-                                <circle r="3" fill="#e3101a" filter="url(#glowRed)">
+                                <circle r="3" fill="#D71519" filter="url(#glowRed)">
                                     <animateMotion dur="1.2s" repeatCount="indefinite" path="M150,350 L150,374"/>
                                 </circle>
 
                                 <!-- STEP 4: Logo hochladen -->
                                 <g class="fade-in d7">
-                                    <circle cx="28" cy="390" r="16" fill="#e3101a">
+                                    <circle cx="28" cy="390" r="16" fill="#D71519">
                                         <animate attributeName="r" values="16;18;16" dur="2.6s" repeatCount="indefinite"/>
                                     </circle>
-                                    <text x="28" y="395" text-anchor="middle" fill="#fff" font-family="'Inter', sans-serif" font-size="13" font-weight="700">4</text>
-                                    <text x="54" y="387" fill="#0A0A0A" font-family="'Inter', sans-serif" font-size="11" font-weight="700">Partner-Logo</text>
-                                    <text x="54" y="400" fill="#737373" font-family="'Inter', sans-serif" font-size="9">Hochladen & positionieren</text>
+                                    <text x="28" y="395" text-anchor="middle" fill="#fff" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="700">4</text>
+                                    <text x="54" y="387" fill="#0A0A0A" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700">Partner-Logo</text>
+                                    <text x="54" y="400" fill="#737373" font-family="'Space Grotesk', sans-serif" font-size="9">Hochladen & positionieren</text>
                                 </g>
                                 <!-- Upload area with animated border and bouncing arrow -->
                                 <g class="fade-in d8">
-                                    <rect x="16" y="412" width="268" height="56" rx="6" fill="#ffffff" stroke="#e3101a" stroke-width="1.2" stroke-dasharray="8,4" filter="url(#stepShadow)">
+                                    <rect x="16" y="412" width="268" height="56" rx="6" fill="#ffffff" stroke="#D71519" stroke-width="1.2" stroke-dasharray="8,4" filter="url(#stepShadow)">
                                         <animate attributeName="stroke-dashoffset" from="0" to="-24" dur="2s" repeatCount="indefinite"/>
                                     </rect>
                                     <!-- Bouncing upload arrow -->
                                     <g>
                                         <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.5s" repeatCount="indefinite"/>
-                                        <line x1="150" y1="428" x2="150" y2="444" stroke="#e3101a" stroke-width="2" stroke-linecap="round"/>
-                                        <polyline points="143,434 150,426 157,434" fill="none" stroke="#e3101a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="150" y1="428" x2="150" y2="444" stroke="#D71519" stroke-width="2" stroke-linecap="round"/>
+                                        <polyline points="143,434 150,426 157,434" fill="none" stroke="#D71519" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </g>
-                                    <text x="150" y="458" text-anchor="middle" fill="#999" font-family="'Inter', sans-serif" font-size="8">logo_restaurant.png</text>
+                                    <text x="150" y="458" text-anchor="middle" fill="#999" font-family="'Space Grotesk', sans-serif" font-size="8">logo_restaurant.png</text>
                                     <!-- Upload progress bar -->
                                     <rect x="100" y="462" width="100" height="3" rx="1.5" fill="#eee"/>
-                                    <rect x="100" y="462" width="0" height="3" rx="1.5" fill="#e3101a">
+                                    <rect x="100" y="462" width="0" height="3" rx="1.5" fill="#D71519">
                                         <animate attributeName="width" values="0;100;100;0" dur="3s" repeatCount="indefinite"/>
                                     </rect>
                                 </g>
 
                                 <!-- Connector line 4→5 with flowing dot -->
-                                <line x1="150" y1="472" x2="150" y2="496" stroke="#e3101a" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4">
+                                <line x1="150" y1="472" x2="150" y2="496" stroke="#D71519" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4">
                                     <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="1s" repeatCount="indefinite"/>
                                 </line>
-                                <circle r="3" fill="#e3101a" filter="url(#glowRed)">
+                                <circle r="3" fill="#D71519" filter="url(#glowRed)">
                                     <animateMotion dur="1.2s" repeatCount="indefinite" path="M150,472 L150,496"/>
                                 </circle>
 
                                 <!-- STEP 5: Fertige POS-Materialien -->
                                 <g class="fade-in d9">
-                                    <circle cx="28" cy="512" r="16" fill="#e3101a">
+                                    <circle cx="28" cy="512" r="16" fill="#D71519">
                                         <animate attributeName="r" values="16;18;16" dur="2.8s" repeatCount="indefinite"/>
                                     </circle>
-                                    <text x="28" y="517" text-anchor="middle" fill="#fff" font-family="'Inter', sans-serif" font-size="13" font-weight="700">5</text>
-                                    <text x="54" y="509" fill="#0A0A0A" font-family="'Inter', sans-serif" font-size="11" font-weight="700">Fertig in Minuten</text>
-                                    <text x="54" y="522" fill="#737373" font-family="'Inter', sans-serif" font-size="9">POS-Material direkt bestellen</text>
+                                    <text x="28" y="517" text-anchor="middle" fill="#fff" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="700">5</text>
+                                    <text x="54" y="509" fill="#0A0A0A" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700">Fertig in Minuten</text>
+                                    <text x="54" y="522" fill="#737373" font-family="'Space Grotesk', sans-serif" font-size="9">POS-Material direkt bestellen</text>
                                 </g>
                                 <!-- Result card with glow pulse -->
                                 <g class="fade-in d10">
-                                    <rect x="36" y="534" width="228" height="56" rx="8" fill="#ffffff" stroke="#e3101a" stroke-width="2" filter="url(#stepShadow)"/>
+                                    <rect x="36" y="534" width="228" height="56" rx="8" fill="#ffffff" stroke="#D71519" stroke-width="2" filter="url(#stepShadow)"/>
                                     <!-- Pulsing success glow -->
-                                    <rect x="32" y="530" width="236" height="64" rx="12" fill="none" stroke="#e3101a" stroke-width="1" opacity="0.2">
+                                    <rect x="32" y="530" width="236" height="64" rx="12" fill="none" stroke="#D71519" stroke-width="1" opacity="0.2">
                                         <animate attributeName="opacity" values="0.1;0.4;0.1" dur="2s" repeatCount="indefinite"/>
                                         <animate attributeName="x" values="32;28;32" dur="2s" repeatCount="indefinite"/>
                                         <animate attributeName="y" values="530;526;530" dur="2s" repeatCount="indefinite"/>
@@ -1392,10 +1393,10 @@
                                     <!-- Mini preview with shimmer -->
                                     <rect x="46" y="542" width="36" height="40" rx="3" fill="#1a1a2e"/>
                                     <rect x="50" y="546" width="28" height="14" rx="2" fill="#333"/>
-                                    <line x1="52" y1="566" x2="74" y2="566" stroke="#e3101a" stroke-width="1.2" stroke-linecap="round"/>
+                                    <line x1="52" y1="566" x2="74" y2="566" stroke="#D71519" stroke-width="1.2" stroke-linecap="round"/>
                                     <line x1="52" y1="572" x2="68" y2="572" stroke="#999" stroke-width="0.8" stroke-linecap="round"/>
-                                    <text x="94" y="557" fill="#0A0A0A" font-family="'Inter', sans-serif" font-size="10" font-weight="700">POS-Plakat A3</text>
-                                    <text x="94" y="570" fill="#737373" font-family="'Inter', sans-serif" font-size="8">Individuell · Druckfertig</text>
+                                    <text x="94" y="557" fill="#0A0A0A" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700">POS-Plakat A3</text>
+                                    <text x="94" y="570" fill="#737373" font-family="'Space Grotesk', sans-serif" font-size="8">Individuell · Druckfertig</text>
                                     <!-- Animated checkmark -->
                                     <circle cx="242" cy="562" r="10" fill="#22c55e">
                                         <animate attributeName="r" values="10;12;10" dur="1.5s" repeatCount="indefinite"/>
