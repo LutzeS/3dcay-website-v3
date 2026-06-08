@@ -1048,6 +1048,72 @@
         </div>
     </section>
 
+    <!-- ANIMIERTES PRODUKT-LAUFBAND (cchbc-Beispiele) -->
+    <section class="product-marquee" style="background: linear-gradient(180deg, var(--black) 0%, var(--gray-900) 100%); padding: 0; overflow: hidden;">
+        <div class="marquee-track">
+            <div class="marquee-item"><img src="images/cchbc/acrylic-strut-card.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/aufsteller-1_menu.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/barker-card-holder.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/cooler-fin.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/digital-display-sdpl.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/digital-display-vertical.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/gehweg_menu.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/klemmbrett_Menu.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/menu_cafe-bar_korr.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/monster-generic_trifold.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/occasion_drr-vital.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/plexi_menu.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/smartphone_poster.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/smartphone_poster_quer.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/wooden-block.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/wooden-menu-holder.png" alt=""></div>
+            <!-- Duplikat für nahtlose Endlos-Schleife -->
+            <div class="marquee-item"><img src="images/cchbc/acrylic-strut-card.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/aufsteller-1_menu.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/barker-card-holder.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/cooler-fin.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/digital-display-sdpl.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/digital-display-vertical.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/gehweg_menu.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/klemmbrett_Menu.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/menu_cafe-bar_korr.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/monster-generic_trifold.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/occasion_drr-vital.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/plexi_menu.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/smartphone_poster.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/smartphone_poster_quer.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/wooden-block.png" alt=""></div>
+            <div class="marquee-item"><img src="images/cchbc/wooden-menu-holder.png" alt=""></div>
+        </div>
+        <style>
+            .product-marquee { position: relative; }
+            .product-marquee::before,
+            .product-marquee::after {
+                content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
+            }
+            .product-marquee::before { left: 0; background: linear-gradient(90deg, var(--black) 0%, transparent 100%); }
+            .product-marquee::after  { right: 0; background: linear-gradient(270deg, var(--black) 0%, transparent 100%); }
+            .marquee-track {
+                display: flex; align-items: flex-end; gap: 28px; padding: 28px 0;
+                width: max-content; animation: marquee-scroll 90s linear infinite;
+            }
+            .marquee-item { flex-shrink: 0; height: 200px; display: flex; align-items: flex-end; }
+            .marquee-item img {
+                height: 100%; width: auto; display: block; object-fit: contain;
+                filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
+            }
+            @keyframes marquee-scroll {
+                from { transform: translateX(0); }
+                to   { transform: translateX(-50%); }
+            }
+            .marquee-track:hover { animation-play-state: paused; }
+            @media (max-width: 768px) {
+                .marquee-item { height: 140px; }
+                .marquee-track { gap: 18px; animation-duration: 60s; }
+            }
+        </style>
+    </section>
+
     <!-- KURZBESCHREIBUNG · FEATURES · KUNDENVORTEILE (Box) -->
     <section class="overview-section" style="padding:64px 0; background:var(--white);">
         <div class="container">
