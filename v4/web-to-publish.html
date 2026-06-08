@@ -375,9 +375,12 @@
 
         .feature-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 32px;
             margin-bottom: 60px;
+        }
+        @media (max-width: 720px) {
+            .feature-cards { grid-template-columns: 1fr; }
         }
 
         .feature-card {
@@ -1051,47 +1054,46 @@
     <!-- KURZBESCHREIBUNG · FEATURES · KUNDENVORTEILE (Box) -->
     <section class="overview-section" style="padding:64px 0; background:var(--white);">
         <div class="container">
-            <div class="overview-box" style="background:var(--gray-50); border:1px solid var(--gray-200); border-radius:20px; padding:48px; display:grid; grid-template-columns:1fr 1fr; gap:48px;">
-                <!-- Linke Spalte: Kurzbeschreibung + Einsatzbereiche -->
-                <div>
+            <div class="overview-box" style="background:var(--gray-50); border:1px solid var(--gray-200); border-radius:20px; padding:48px;">
+                <!-- Kurzbeschreibung (oben, volle Breite) -->
+                <div style="margin-bottom:40px;">
                     <h3 style="font-size:24px; font-weight:800; letter-spacing:-0.02em; margin-bottom:16px;">3DCAY Web-to-Publish bringt Sie von der Idee zum fertigen Werbemedium &mdash; in einem System.</h3>
-                    <p style="font-size:15px; line-height:1.7; color:var(--gray-700); margin-bottom:24px;">
+                    <p style="font-size:15px; line-height:1.7; color:var(--gray-700); margin:0;">
                         Templates, Personalisierung, Produktion und Versand &mdash; ohne Medienbr&uuml;che und ohne zus&auml;tzliche Tools. Zentrale Marketingteams behalten die Kontrolle &uuml;ber CI und Regeln, w&auml;hrend Nutzer vor Ort Inhalte flexibel anpassen k&ouml;nnen.
                     </p>
-                    <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); font-weight:600; margin-bottom:12px;">TYPISCHE EINSATZBEREICHE</div>
-                    <ul style="list-style:none; padding:0; margin:0; font-size:14px; line-height:1.7; color:var(--gray-700);">
-                        <li style="padding-left:18px; position:relative; margin-bottom:8px;"><span style="position:absolute; left:0; top:8px; width:6px; height:6px; border-radius:50%; background:var(--red);"></span><strong>Dezentrale Organisationen</strong> mit vielen Standorten / Partnern (Franchise, Retail, Au&szlig;endienst)</li>
-                        <li style="padding-left:18px; position:relative; margin-bottom:8px;"><span style="position:absolute; left:0; top:8px; width:6px; height:6px; border-radius:50%; background:var(--red);"></span><strong>POS-Materialien</strong> und lokale Aktionen (z.&nbsp;B. Preis- / Men&uuml;varianten)</li>
-                        <li style="padding-left:18px; position:relative;"><span style="position:absolute; left:0; top:8px; width:6px; height:6px; border-radius:50%; background:var(--red);"></span><strong>Standardwerbemittel</strong> (Visitenkarten, Flyer, Plakate) &amp; digitale Assets</li>
-                    </ul>
                 </div>
 
-                <!-- Rechte Spalte: Features + Kundenvorteile -->
-                <div>
-                    <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); font-weight:600; margin-bottom:12px;">FEATURES</div>
-                    <ul style="list-style:none; padding:0; margin:0 0 28px; font-size:14px; line-height:1.6; color:var(--gray-700);">
-                        <li style="padding-left:18px; position:relative; margin-bottom:10px;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; border-radius:50%; background:var(--red);"></span><strong>Zentrale Templates (CI-konform):</strong> vordefinierte Vorlagen mit Variablen &mdash; konsistenter Markenauftritt</li>
-                        <li style="padding-left:18px; position:relative; margin-bottom:10px;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; border-radius:50%; background:var(--red);"></span><strong>Automatisierte Workflows:</strong> von der Layouterstellung &uuml;ber Bestellprozesse (budgetiert bzw. nach Freigabe) bis zur Produktion und Versand &mdash; aus einer Hand</li>
-                        <li style="padding-left:18px; position:relative; margin-bottom:10px;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; border-radius:50%; background:var(--red);"></span><strong>Budgetsteuerung:</strong> Budget-Limits setzen und Ausgaben monitoren</li>
-                        <li style="padding-left:18px; position:relative;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; border-radius:50%; background:var(--red);"></span><strong>Auswertungen &amp; Schnittstellen:</strong> Reports, API-Integration, Transparenz &uuml;ber Nutzung / Performance sowie Best&auml;nde / Kosten</li>
-                    </ul>
+                <!-- Features + Kundenvorteile (2 Spalten) -->
+                <div class="overview-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:48px;">
+                    <div>
+                        <div class="label" style="font-size:22px; margin-bottom:16px;">FEATURES</div>
+                        <ul style="list-style:none; padding:0; margin:0; font-size:15px; line-height:1.6; color:var(--gray-700);">
+                            <li style="padding-left:20px; position:relative; margin-bottom:12px;"><span style="position:absolute; left:0; top:8px; width:7px; height:7px; border-radius:50%; background:var(--red);"></span><strong>Zentrale Templates (CI-konform):</strong> vordefinierte Vorlagen mit Variablen &mdash; konsistenter Markenauftritt</li>
+                            <li style="padding-left:20px; position:relative; margin-bottom:12px;"><span style="position:absolute; left:0; top:8px; width:7px; height:7px; border-radius:50%; background:var(--red);"></span><strong>Automatisierte Workflows:</strong> von der Layouterstellung &uuml;ber Bestellprozesse (budgetiert bzw. nach Freigabe) bis zur Produktion und Versand &mdash; aus einer Hand</li>
+                            <li style="padding-left:20px; position:relative; margin-bottom:12px;"><span style="position:absolute; left:0; top:8px; width:7px; height:7px; border-radius:50%; background:var(--red);"></span><strong>Budgetsteuerung:</strong> Budget-Limits setzen und Ausgaben monitoren</li>
+                            <li style="padding-left:20px; position:relative;"><span style="position:absolute; left:0; top:8px; width:7px; height:7px; border-radius:50%; background:var(--red);"></span><strong>Auswertungen &amp; Schnittstellen:</strong> Reports, API-Integration, Transparenz &uuml;ber Nutzung / Performance sowie Best&auml;nde / Kosten</li>
+                        </ul>
+                    </div>
 
-                    <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); font-weight:600; margin-bottom:12px;">KUNDENVORTEILE</div>
-                    <ul style="list-style:none; padding:0; margin:0; font-size:14px; line-height:1.6; color:var(--gray-700);">
-                        <li style="padding-left:18px; position:relative; margin-bottom:8px;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; border-radius:50%; background:var(--red);"></span><strong>Schneller live:</strong> Materialien in Minuten statt Abstimmungsschleifen</li>
-                        <li style="padding-left:18px; position:relative; margin-bottom:8px;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; border-radius:50%; background:var(--red);"></span><strong>Marke bleibt sauber:</strong> CI-konforme Templates statt &bdquo;jeder bastelt selbst&ldquo;</li>
-                        <li style="padding-left:18px; position:relative; margin-bottom:8px;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; border-radius:50%; background:var(--red);"></span><strong>Skalierbar f&uuml;r viele Standorte:</strong> zentral steuern, lokal ausspielen</li>
-                        <li style="padding-left:18px; position:relative; margin-bottom:8px;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; border-radius:50%; background:var(--red);"></span><strong>Kosten runter:</strong> weniger Agentur- / Grafikaufwand, wirtschaftlich auch bei kleinen Auflagen</li>
-                        <li style="padding-left:18px; position:relative; margin-bottom:8px;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; border-radius:50%; background:var(--red);"></span><strong>Mehr Steuerung:</strong> Budget, Regeln, Auswertungen und Lager im Blick</li>
-                        <li style="padding-left:18px; position:relative;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; border-radius:50%; background:var(--red);"></span><strong>Time to Market:</strong> in Minuten zum individuellen Werbemittel</li>
-                    </ul>
+                    <div>
+                        <div class="label" style="font-size:22px; margin-bottom:16px;">KUNDENVORTEILE</div>
+                        <ul style="list-style:none; padding:0; margin:0; font-size:15px; line-height:1.6; color:var(--gray-700);">
+                            <li style="padding-left:20px; position:relative; margin-bottom:10px;"><span style="position:absolute; left:0; top:8px; width:7px; height:7px; border-radius:50%; background:var(--red);"></span><strong>Schneller live:</strong> Materialien in Minuten statt Abstimmungsschleifen</li>
+                            <li style="padding-left:20px; position:relative; margin-bottom:10px;"><span style="position:absolute; left:0; top:8px; width:7px; height:7px; border-radius:50%; background:var(--red);"></span><strong>Marke bleibt sauber:</strong> CI-konforme Templates statt &bdquo;jeder bastelt selbst&ldquo;</li>
+                            <li style="padding-left:20px; position:relative; margin-bottom:10px;"><span style="position:absolute; left:0; top:8px; width:7px; height:7px; border-radius:50%; background:var(--red);"></span><strong>Skalierbar f&uuml;r viele Standorte:</strong> zentral steuern, lokal ausspielen</li>
+                            <li style="padding-left:20px; position:relative; margin-bottom:10px;"><span style="position:absolute; left:0; top:8px; width:7px; height:7px; border-radius:50%; background:var(--red);"></span><strong>Kosten runter:</strong> weniger Agentur- / Grafikaufwand, wirtschaftlich auch bei kleinen Auflagen</li>
+                            <li style="padding-left:20px; position:relative; margin-bottom:10px;"><span style="position:absolute; left:0; top:8px; width:7px; height:7px; border-radius:50%; background:var(--red);"></span><strong>Mehr Steuerung:</strong> Budget, Regeln, Auswertungen und Lager im Blick</li>
+                            <li style="padding-left:20px; position:relative;"><span style="position:absolute; left:0; top:8px; width:7px; height:7px; border-radius:50%; background:var(--red);"></span><strong>Time to Market:</strong> in Minuten zum individuellen Werbemittel</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <style>
         @media (max-width:880px) {
-            .overview-box { grid-template-columns:1fr !important; gap:32px !important; padding:32px !important; }
+            .overview-box { padding:32px !important; }
+            .overview-grid { grid-template-columns:1fr !important; gap:32px !important; }
         }
     </style>
 
