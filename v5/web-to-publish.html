@@ -561,6 +561,7 @@
             background-image: url('images/dashboard-office.png');
             background-size: cover;
             background-position: center;
+            opacity: 0.4;
             z-index: 1;
         }
 
@@ -571,10 +572,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, 
-                rgba(0, 0, 0, 0.4) 0%, 
-                rgba(0, 0, 0, 0.5) 50%, 
-                rgba(0, 0, 0, 0.75) 100%);
+            background: linear-gradient(180deg, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.82) 100%);
             z-index: 2;
         }
 
@@ -1554,7 +1552,45 @@
         footer .logo img { height: 32px; }
     </style>
     <style>
-        /* ===== v4 SOLUTION GRID (übernommen von v4 web-to-publish) ===== */
+        /* ===== KACHELN / TILES (übernommen von v4 web-to-publish) ===== */
+        .tile { background:var(--gray-50); border:1px solid var(--gray-200); border-radius:20px; padding:clamp(28px,4vw,48px); max-width:900px; margin:0 auto; }
+        .tile--white { background:var(--white); }
+        .tile--wide { max-width:1100px; }
+        .tile + .tile { margin-top:24px; }
+        .tile .label { font-size:22px; margin-bottom:16px; }
+        .tile h2 { margin-bottom:20px; }
+        .tile-lead { font-size:15px; line-height:1.7; color:var(--gray-700); margin:0; }
+        .tile-2col { display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-top:8px; }
+        @media (max-width:880px){ .tile-2col{ grid-template-columns:1fr; gap:32px; } }
+        .tile-bullets { list-style:none; padding:0; margin:0; font-size:15px; line-height:1.6; color:var(--gray-700); }
+        .tile-bullets li { padding-left:22px; position:relative; margin-bottom:12px; }
+        .tile-bullets li:last-child { margin-bottom:0; }
+        .tile-bullets li::before { content:''; position:absolute; left:0; top:8px; width:7px; height:7px; border-radius:50%; background:var(--red); }
+        .tile-section { padding:40px var(--container-px); }
+    </style>
+    <style>
+        /* ===== v5 COMPONENTS (wiederhergestellt) ===== */
+        .v5-lead { max-width: 860px; }
+        .v5-lead p { font-size: 16px; }
+        .v5-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+        .v5-grid-2 { display:grid; grid-template-columns: repeat(auto-fit,minmax(340px,1fr)); gap:24px; }
+        .v5-card { background:var(--white); border:1px solid var(--gray-200); border-radius:14px; padding:26px; transition:var(--transition); }
+        .v5-card:hover { border-color:var(--red); transform:translateY(-3px); box-shadow:0 14px 30px rgba(0,0,0,0.06); }
+        .v5-card .v5-ico { width:44px; height:44px; border-radius:10px; background:rgba(227,16,26,0.08); display:flex; align-items:center; justify-content:center; color:var(--red); margin-bottom:16px; }
+        .v5-card h4 { font-size:17px; margin-bottom:8px; color:var(--black); }
+        .v5-card p { font-size:14px; color:var(--gray-700); line-height:1.65; }
+        .v5-check { list-style:none; display:grid; gap:14px; margin:0; padding:0; }
+        .v5-check li { display:flex; gap:12px; align-items:flex-start; font-size:15px; color:var(--gray-700); line-height:1.6; }
+        .v5-check li svg { flex-shrink:0; margin-top:2px; color:var(--red); }
+        .v5-case { background: linear-gradient(135deg,var(--black) 0%,var(--gray-900) 100%); color:var(--white); border-radius:20px; padding:clamp(28px,4vw,56px); }
+        .v5-case h2, .v5-case h3, .v5-case h4 { color:var(--white); }
+        .v5-case p { color:rgba(255,255,255,0.82); }
+        .v5-case .v5-check li { color:rgba(255,255,255,0.85); }
+        .v5-case .v5-check li svg { color:var(--red-hover); }
+        .v5-case .label { color:#ff5a62; }
+        .v5-tagline { font-size:clamp(22px,3vw,30px); font-weight:800; letter-spacing:-0.02em; line-height:1.25; color:var(--black); margin-top:8px; }
+        .v5-subhead { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--red); margin-bottom:14px; }
+        /* ===== v4 SOLUTION GRID (wiederhergestellt) ===== */
         .solution-section { background-color: var(--gray-50); padding: 72px var(--container-px); }
         .feature-cards { display:grid; grid-template-columns: repeat(2,1fr); gap:32px; margin:0 auto; max-width:980px; }
         @media (max-width:720px){ .feature-cards{ grid-template-columns:1fr; } }
@@ -1622,57 +1658,60 @@
         <a href="#kontakt" class="nav__cta" style="margin-top:16px" data-i18n="nav.kontakt">Kontakt &rarr;</a>
     </div>
 
-        <!-- HERO SECTION -->
+        <style>.hero::before{ background-image:url('images/foto2-w2p.png'); }</style>
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
             <div class="label">3DCAY · Web-to-Publish</div>
             <h1>3DCAY <em>Web-to-Publish</em></h1>
             <p class="v5-tagline" style="color:#fff;">Marketingmaterialien einfach und CI-konform erstellen und personalisieren.</p>
-            <p>Dezentral nutzbar, zentral gesteuert – von der Idee zum fertigen Werbemedium in einem System.</p>
+            <p>Dezentral nutzbar, zentral gesteuert.</p>
             <div class="hero-buttons">
                 <button class="btn btn--primary" onclick="openDemo()">W2P-Demo anfragen</button>
-                <a href="../whitepaper-download.html" class="btn btn--outline-white">Whitepaper herunterladen</a>
+                <a href="#case-study" class="btn btn--outline-white">Case Study: Getränkehersteller</a>
             </div>
         </div>
     </section>
 
-    <!-- KURZBESCHREIBUNG -->
-    <section class="products-section" style="padding:72px var(--container-px);">
+    <!-- KURZBESCHREIBUNG · FEATURES · KUNDENVORTEILE · KACHEL -->
+    <section class="tile-section">
         <div class="container">
-            <div class="section-header v5-lead">
-                <div class="label">Kurzbeschreibung</div>
-                <h2>Von der Idee zum fertigen Werbemedium – in einem System</h2>
-                <p>3DCAY Web-to-Publish bringt Sie von der Idee zum fertigen Werbemedium: Templates, Personalisierung, Produktion und Versand – ohne Medienbrüche und ohne zusätzliche Tools. Zentrale Marketingteams behalten die Kontrolle über CI und Regeln, während Nutzer vor Ort Inhalte flexibel anpassen können.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- KUNDENVORTEILE -->
-    <section class="products-section" style="padding:0 var(--container-px) 72px;">
-        <div class="container">
-            <div class="section-header">
-                <div class="label">Kundenvorteile</div>
-                <h2>Schneller live. Marke sauber. Kosten runter.</h2>
-            </div>
-            <div class="v5-grid-2">
-                <ul class="v5-check">
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Schneller live:</strong> Materialien entstehen in Minuten statt in Abstimmungsschleifen.</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Marke bleibt sauber:</strong> CI-konforme Templates statt „jeder bastelt selbst".</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Skalierbar für viele Standorte:</strong> zentral steuern, lokal ausspielen.</span></li>
-                </ul>
-                <ul class="v5-check">
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Kosten runter:</strong> weniger Agentur- und Grafikaufwand, wirtschaftlich auch bei kleinen Auflagen.</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Mehr Steuerung:</strong> Budget, Regeln, Auswertungen und Lager im Blick.</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Time to Market:</strong> in Minuten zum individuellen Werbemittel.</span></li>
-                </ul>
+            <div class="tile tile--wide">
+                <div style="margin-bottom:40px;">
+                    <div class="label">Kurzbeschreibung</div>
+                    <h2>Von der Idee zum fertigen Werbemedium – in einem System</h2>
+                    <p class="tile-lead">Templates, Personalisierung, Produktion und Versand – ohne Medienbrüche und ohne zusätzliche Tools. Zentrale Marketingteams behalten die Kontrolle über CI und Regeln, während Nutzer vor Ort Inhalte flexibel anpassen können.</p>
+                </div>
+                <div class="tile-2col">
+                    <div>
+                        <div class="label">Features</div>
+                        <ul class="tile-bullets">
+                            <li><strong>Zentrale Templates (CI-konform):</strong> vordefinierte Vorlagen mit Variablen – konsistenter Markenauftritt</li>
+                            <li><strong>Automatisierte Workflows:</strong> von der Layouterstellung über Bestellprozesse bis zur Produktion und Versand – aus einer Hand</li>
+                            <li><strong>Budgetsteuerung:</strong> Budget-Limits setzen und Ausgaben monitoren</li>
+                            <li><strong>Auswertungen &amp; Schnittstellen:</strong> Reports, API-Integration, Transparenz über Nutzung, Bestände und Kosten</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="label">Kundenvorteile</div>
+                        <ul class="tile-bullets">
+                            <li><strong>Schneller live:</strong> Materialien in Minuten statt Abstimmungsschleifen</li>
+                            <li><strong>Marke bleibt sauber:</strong> CI-konforme Templates statt „jeder bastelt selbst"</li>
+                            <li><strong>Skalierbar für viele Standorte:</strong> zentral steuern, lokal ausspielen</li>
+                            <li><strong>Kosten runter:</strong> weniger Agentur-/Grafikaufwand, wirtschaftlich auch bei kleinen Auflagen</li>
+                            <li><strong>Mehr Steuerung:</strong> Budget, Regeln, Auswertungen und Lager im Blick</li>
+                            <li><strong>Time to Market:</strong> in Minuten zum individuellen Werbemittel</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CASE STUDY -->
-    <section class="products-section" style="padding:0 var(--container-px) 72px;">
+    <section class="tile-section" id="case-study">
         <div class="container">
-            <div class="v5-case">
+            <div class="v5-case tile--wide" style="max-width:1100px;">
                 <div class="label">Case Study · Getränkehersteller</div>
                 <h2>Individuelle POS-Materialien für Gastronomie-Partner</h2>
                 <p style="margin:16px 0 8px; max-width:780px;">Ein internationaler Getränkehersteller wollte den Umsatz seiner Gastronomie-Partner (Bäckereien, Imbisse, Kioske) über lokale Kombi-Menüs steigern – z. B. „Burger + Getränk". Dafür wurden individuell gestaltete POS-Materialien in hoher Anzahl benötigt, wirtschaftlich auch bei kleinen Stückzahlen.</p>
@@ -1744,12 +1783,12 @@
         </div>
     </section>
 
-    <!-- BRANCHE -->
-    <section class="products-section" style="padding:72px var(--container-px);">
+    <!-- BRANCHE · KACHEL -->
+    <section class="tile-section">
         <div class="container">
-            <div class="v5-lead" style="border-left:3px solid var(--red); padding-left:24px;">
-                <div class="v5-subhead">Einsatz in der Versicherungsbranche</div>
-                <p>Für Versicherungen wird Web-to-Publish u. a. genutzt, um Werbemittel wie Flyer, Plakate, Anzeigen, Roll-Ups und Broschüren kostengünstig im Vertrieb zu erstellen, zu produzieren und zu versenden.</p>
+            <div class="tile tile--wide">
+                <div class="label">Einsatz in der Versicherungsbranche</div>
+                <p class="tile-lead">Für Versicherungen wird Web-to-Publish u. a. genutzt, um Werbemittel wie Flyer, Plakate, Anzeigen, Roll-Ups und Broschüren kostengünstig im Vertrieb zu erstellen, zu produzieren und zu versenden.</p>
             </div>
         </div>
     </section>

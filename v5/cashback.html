@@ -561,6 +561,7 @@
             background-image: url('images/dashboard-office.png');
             background-size: cover;
             background-position: center;
+            opacity: 0.4;
             z-index: 1;
         }
 
@@ -571,10 +572,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, 
-                rgba(0, 0, 0, 0.4) 0%, 
-                rgba(0, 0, 0, 0.5) 50%, 
-                rgba(0, 0, 0, 0.75) 100%);
+            background: linear-gradient(180deg, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.82) 100%);
             z-index: 2;
         }
 
@@ -1554,7 +1552,45 @@
         footer .logo img { height: 32px; }
     </style>
     <style>
-        /* ===== v4 SOLUTION GRID (übernommen von v4 web-to-publish) ===== */
+        /* ===== KACHELN / TILES (übernommen von v4 web-to-publish) ===== */
+        .tile { background:var(--gray-50); border:1px solid var(--gray-200); border-radius:20px; padding:clamp(28px,4vw,48px); max-width:900px; margin:0 auto; }
+        .tile--white { background:var(--white); }
+        .tile--wide { max-width:1100px; }
+        .tile + .tile { margin-top:24px; }
+        .tile .label { font-size:22px; margin-bottom:16px; }
+        .tile h2 { margin-bottom:20px; }
+        .tile-lead { font-size:15px; line-height:1.7; color:var(--gray-700); margin:0; }
+        .tile-2col { display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-top:8px; }
+        @media (max-width:880px){ .tile-2col{ grid-template-columns:1fr; gap:32px; } }
+        .tile-bullets { list-style:none; padding:0; margin:0; font-size:15px; line-height:1.6; color:var(--gray-700); }
+        .tile-bullets li { padding-left:22px; position:relative; margin-bottom:12px; }
+        .tile-bullets li:last-child { margin-bottom:0; }
+        .tile-bullets li::before { content:''; position:absolute; left:0; top:8px; width:7px; height:7px; border-radius:50%; background:var(--red); }
+        .tile-section { padding:40px var(--container-px); }
+    </style>
+    <style>
+        /* ===== v5 COMPONENTS (wiederhergestellt) ===== */
+        .v5-lead { max-width: 860px; }
+        .v5-lead p { font-size: 16px; }
+        .v5-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+        .v5-grid-2 { display:grid; grid-template-columns: repeat(auto-fit,minmax(340px,1fr)); gap:24px; }
+        .v5-card { background:var(--white); border:1px solid var(--gray-200); border-radius:14px; padding:26px; transition:var(--transition); }
+        .v5-card:hover { border-color:var(--red); transform:translateY(-3px); box-shadow:0 14px 30px rgba(0,0,0,0.06); }
+        .v5-card .v5-ico { width:44px; height:44px; border-radius:10px; background:rgba(227,16,26,0.08); display:flex; align-items:center; justify-content:center; color:var(--red); margin-bottom:16px; }
+        .v5-card h4 { font-size:17px; margin-bottom:8px; color:var(--black); }
+        .v5-card p { font-size:14px; color:var(--gray-700); line-height:1.65; }
+        .v5-check { list-style:none; display:grid; gap:14px; margin:0; padding:0; }
+        .v5-check li { display:flex; gap:12px; align-items:flex-start; font-size:15px; color:var(--gray-700); line-height:1.6; }
+        .v5-check li svg { flex-shrink:0; margin-top:2px; color:var(--red); }
+        .v5-case { background: linear-gradient(135deg,var(--black) 0%,var(--gray-900) 100%); color:var(--white); border-radius:20px; padding:clamp(28px,4vw,56px); }
+        .v5-case h2, .v5-case h3, .v5-case h4 { color:var(--white); }
+        .v5-case p { color:rgba(255,255,255,0.82); }
+        .v5-case .v5-check li { color:rgba(255,255,255,0.85); }
+        .v5-case .v5-check li svg { color:var(--red-hover); }
+        .v5-case .label { color:#ff5a62; }
+        .v5-tagline { font-size:clamp(22px,3vw,30px); font-weight:800; letter-spacing:-0.02em; line-height:1.25; color:var(--black); margin-top:8px; }
+        .v5-subhead { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--red); margin-bottom:14px; }
+        /* ===== v4 SOLUTION GRID (wiederhergestellt) ===== */
         .solution-section { background-color: var(--gray-50); padding: 72px var(--container-px); }
         .feature-cards { display:grid; grid-template-columns: repeat(2,1fr); gap:32px; margin:0 auto; max-width:980px; }
         @media (max-width:720px){ .feature-cards{ grid-template-columns:1fr; } }
@@ -1622,13 +1658,14 @@
         <a href="#kontakt" class="nav__cta" style="margin-top:16px" data-i18n="nav.kontakt">Kontakt &rarr;</a>
     </div>
 
-        <!-- HERO SECTION -->
+        <style>.hero::before{ background-image:url('images/smartphone-macro.png'); }</style>
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
             <div class="label">3DCAY · Cashback</div>
             <h1>Cashback-Aktionen. <em>Automatisiert</em>, validiert, skalierbar.</h1>
             <p class="v5-tagline" style="color:#fff;">KI-gestützte Belegerkennung trifft auf regelbasierte Auszahlung.</p>
-            <p>Für Cashback- und Promotionprogramme, die sich selbst verwalten – von der Belegerfassung über die KI-gestützte Validierung bis zur Auszahlung. Kein manueller Aufwand. Kein Medienbruch. Maximale Skalierbarkeit.</p>
+            <p>Kein manueller Aufwand. Kein Medienbruch. Maximale Skalierbarkeit.</p>
             <div class="hero-buttons">
                 <button class="btn btn--primary" onclick="openDemo()">Cashback-Demo anfragen</button>
                 <a href="../whitepaper-download.html" class="btn btn--outline-white">Whitepaper herunterladen</a>
@@ -1636,13 +1673,34 @@
         </div>
     </section>
 
-    <!-- KURZBESCHREIBUNG -->
-    <section class="products-section" style="padding:72px var(--container-px);">
+    <!-- OVERVIEW · KACHEL -->
+    <section class="tile-section">
         <div class="container">
-            <div class="section-header v5-lead">
-                <div class="label">Überblick</div>
-                <h2>Eine Plattform für den gesamten Cashback-Prozess</h2>
-                <p>3DCAY Cashback ist eine cloudbasierte Plattform für die vollständige Automatisierung von Cashback- und Promotionprozessen. Teilnehmer laden ihre Belege direkt im Portal hoch; OCR-Technologie und Künstliche Intelligenz erkennen, validieren und verarbeiten alle relevanten Daten automatisch – inklusive Fraud Detection und regelbasierter Auszahlungsberechnung.</p>
+            <div class="tile tile--wide">
+                <div style="margin-bottom:36px;">
+                    <div class="label">Kurzbeschreibung</div>
+                    <h2>Eine Plattform für den gesamten Cashback-Prozess</h2>
+                    <p class="tile-lead">3DCAY Cashback ist eine cloudbasierte Plattform für die vollständige Automatisierung von Cashback- und Promotionprozessen. Teilnehmer laden ihre Belege direkt im Portal hoch; OCR-Technologie und Künstliche Intelligenz erkennen, validieren und verarbeiten alle relevanten Daten automatisch – inklusive Fraud Detection und regelbasierter Auszahlungsberechnung.</p>
+                </div>
+                <div class="tile-2col">
+                    <div>
+                        <div class="label">Für wen</div>
+                        <ul class="tile-bullets">
+                            <li>Hersteller, Marken und Unternehmen, die Cashback-Programme, Händler-Incentives oder Bonusaktionen digital abwickeln</li>
+                            <li>Aktionen mit hohen Teilnehmerzahlen und großen Volumen sicher skalieren</li>
+                            <li>Manuellen Prüfaufwand und Fehlerquoten dauerhaft reduzieren</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="label">Kundenvorteile</div>
+                        <ul class="tile-bullets">
+                            <li><strong>Weniger manueller Aufwand:</strong> der gesamte Prozess läuft automatisiert</li>
+                            <li><strong>Höhere Geschwindigkeit:</strong> Validierung und Berechnung in Echtzeit statt nach Tagen</li>
+                            <li><strong>Geringeres Fehlerpotenzial:</strong> KI-Validierung minimiert menschliche Fehler</li>
+                            <li><strong>Maximale Transparenz:</strong> alle Prozesse jederzeit nachvollziehbar dokumentiert</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1703,32 +1761,10 @@
         </div>
     </section>
 
-    <!-- KUNDENVORTEILE -->
-    <section class="products-section" style="padding:72px var(--container-px);">
-        <div class="container">
-            <div class="section-header">
-                <div class="label">Kundenvorteile</div>
-                <h2>Schneller, sicherer, fehlerärmer</h2>
-            </div>
-            <div class="v5-grid-2">
-                <ul class="v5-check">
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Weniger manueller Aufwand:</strong> der gesamte Prozess läuft automatisiert.</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Höhere Prozessgeschwindigkeit:</strong> Validierung und Berechnung in Echtzeit statt nach Tagen.</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Geringeres Fehlerpotenzial:</strong> KI-Validierung minimiert menschliche Fehler.</span></li>
-                </ul>
-                <ul class="v5-check">
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Skalierbarkeit ohne Mehraufwand:</strong> auch große Teilnehmerzahlen sicher und effizient.</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Maximale Transparenz:</strong> alle Prozesse und Ergebnisse jederzeit nachvollziehbar dokumentiert.</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Flexibler Einsatz:</strong> eine Plattform für unterschiedliche Aktionsmechaniken – kein Systemwechsel.</span></li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
     <!-- CASE STUDY -->
-    <section class="products-section" style="padding:20px var(--container-px) 80px;">
+    <section class="tile-section">
         <div class="container">
-            <div class="v5-case">
+            <div class="v5-case tile--wide" style="max-width:1100px;">
                 <div class="label">Case Study · Industrie (Österreich)</div>
                 <h2>KI-gestütztes Cashback-Portal für die Industrie</h2>
                 <p style="margin:16px 0 8px; max-width:780px;">Ein österreichisches Industrieunternehmen wollte sein bestehendes Cashback-Programm grundlegend effizienter gestalten. Klassische Aktionen verursachten erheblichen manuellen Aufwand: Rechnungen wurden manuell geprüft, Daten händisch übertragen und Auszahlungen einzeln vorbereitet. Gesucht war eine vollständig automatisierte, skalierbare Lösung.</p>

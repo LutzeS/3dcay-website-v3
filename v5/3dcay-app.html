@@ -561,6 +561,7 @@
             background-image: url('images/dashboard-office.png');
             background-size: cover;
             background-position: center;
+            opacity: 0.4;
             z-index: 1;
         }
 
@@ -571,10 +572,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, 
-                rgba(0, 0, 0, 0.4) 0%, 
-                rgba(0, 0, 0, 0.5) 50%, 
-                rgba(0, 0, 0, 0.75) 100%);
+            background: linear-gradient(180deg, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.82) 100%);
             z-index: 2;
         }
 
@@ -1554,7 +1552,45 @@
         footer .logo img { height: 32px; }
     </style>
     <style>
-        /* ===== v4 SOLUTION GRID (übernommen von v4 web-to-publish) ===== */
+        /* ===== KACHELN / TILES (übernommen von v4 web-to-publish) ===== */
+        .tile { background:var(--gray-50); border:1px solid var(--gray-200); border-radius:20px; padding:clamp(28px,4vw,48px); max-width:900px; margin:0 auto; }
+        .tile--white { background:var(--white); }
+        .tile--wide { max-width:1100px; }
+        .tile + .tile { margin-top:24px; }
+        .tile .label { font-size:22px; margin-bottom:16px; }
+        .tile h2 { margin-bottom:20px; }
+        .tile-lead { font-size:15px; line-height:1.7; color:var(--gray-700); margin:0; }
+        .tile-2col { display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-top:8px; }
+        @media (max-width:880px){ .tile-2col{ grid-template-columns:1fr; gap:32px; } }
+        .tile-bullets { list-style:none; padding:0; margin:0; font-size:15px; line-height:1.6; color:var(--gray-700); }
+        .tile-bullets li { padding-left:22px; position:relative; margin-bottom:12px; }
+        .tile-bullets li:last-child { margin-bottom:0; }
+        .tile-bullets li::before { content:''; position:absolute; left:0; top:8px; width:7px; height:7px; border-radius:50%; background:var(--red); }
+        .tile-section { padding:40px var(--container-px); }
+    </style>
+    <style>
+        /* ===== v5 COMPONENTS (wiederhergestellt) ===== */
+        .v5-lead { max-width: 860px; }
+        .v5-lead p { font-size: 16px; }
+        .v5-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+        .v5-grid-2 { display:grid; grid-template-columns: repeat(auto-fit,minmax(340px,1fr)); gap:24px; }
+        .v5-card { background:var(--white); border:1px solid var(--gray-200); border-radius:14px; padding:26px; transition:var(--transition); }
+        .v5-card:hover { border-color:var(--red); transform:translateY(-3px); box-shadow:0 14px 30px rgba(0,0,0,0.06); }
+        .v5-card .v5-ico { width:44px; height:44px; border-radius:10px; background:rgba(227,16,26,0.08); display:flex; align-items:center; justify-content:center; color:var(--red); margin-bottom:16px; }
+        .v5-card h4 { font-size:17px; margin-bottom:8px; color:var(--black); }
+        .v5-card p { font-size:14px; color:var(--gray-700); line-height:1.65; }
+        .v5-check { list-style:none; display:grid; gap:14px; margin:0; padding:0; }
+        .v5-check li { display:flex; gap:12px; align-items:flex-start; font-size:15px; color:var(--gray-700); line-height:1.6; }
+        .v5-check li svg { flex-shrink:0; margin-top:2px; color:var(--red); }
+        .v5-case { background: linear-gradient(135deg,var(--black) 0%,var(--gray-900) 100%); color:var(--white); border-radius:20px; padding:clamp(28px,4vw,56px); }
+        .v5-case h2, .v5-case h3, .v5-case h4 { color:var(--white); }
+        .v5-case p { color:rgba(255,255,255,0.82); }
+        .v5-case .v5-check li { color:rgba(255,255,255,0.85); }
+        .v5-case .v5-check li svg { color:var(--red-hover); }
+        .v5-case .label { color:#ff5a62; }
+        .v5-tagline { font-size:clamp(22px,3vw,30px); font-weight:800; letter-spacing:-0.02em; line-height:1.25; color:var(--black); margin-top:8px; }
+        .v5-subhead { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--red); margin-bottom:14px; }
+        /* ===== v4 SOLUTION GRID (wiederhergestellt) ===== */
         .solution-section { background-color: var(--gray-50); padding: 72px var(--container-px); }
         .feature-cards { display:grid; grid-template-columns: repeat(2,1fr); gap:32px; margin:0 auto; max-width:980px; }
         @media (max-width:720px){ .feature-cards{ grid-template-columns:1fr; } }
@@ -1622,13 +1658,14 @@
         <a href="#kontakt" class="nav__cta" style="margin-top:16px" data-i18n="nav.kontakt">Kontakt &rarr;</a>
     </div>
 
-        <!-- HERO SECTION -->
+        <style>.hero::before{ background-image:url('images/smartphone-hand.png'); }</style>
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
             <div class="label">3DCAY · App</div>
             <h1>Alle Vertriebsunterlagen. <em>Immer dabei.</em> Auch offline.</h1>
             <p class="v5-tagline" style="color:#fff;">Die mobile Lösung für Ihren Außendienst.</p>
-            <p>Marketing- und Verkaufsunterlagen zentral gesteuert, dezentral genutzt. Ihr Außendienst greift jederzeit auf alle relevanten Materialien zu – interaktiv, CI-konform und ohne Abhängigkeit vom Internetzugang. Bessere Beratung. Weniger Medienbruch. Mehr Abschluss.</p>
+            <p>Bessere Beratung. Weniger Medienbruch. Mehr Abschluss.</p>
             <div class="hero-buttons">
                 <button class="btn btn--primary" onclick="openDemo()">App-Demo anfragen</button>
                 <a href="web-to-publish.html" class="btn btn--outline-white">Mit Web-to-Publish kombinieren</a>
@@ -1636,13 +1673,34 @@
         </div>
     </section>
 
-    <!-- KURZBESCHREIBUNG -->
-    <section class="products-section" style="padding:72px var(--container-px);">
+    <!-- OVERVIEW · KACHEL -->
+    <section class="tile-section">
         <div class="container">
-            <div class="section-header v5-lead">
-                <div class="label">Was ist die 3DCAY App?</div>
-                <h2>Eine mobile Vertriebsplattform auf Basis eines zentralen Medienkatalogs</h2>
-                <p>Vertriebsteams erhalten über Tablet oder Smartphone Zugriff auf alle Marketing- und Verkaufsunterlagen – von Broschüren und Anträgen über ausfüllbare PDFs bis hin zu Videos. Inhalte lassen sich direkt im Kundengespräch präsentieren, personalisieren und ausfüllen.</p>
+            <div class="tile tile--wide">
+                <div style="margin-bottom:36px;">
+                    <div class="label">Was ist die 3DCAY App?</div>
+                    <h2>Eine mobile Vertriebsplattform auf Basis eines zentralen Medienkatalogs</h2>
+                    <p class="tile-lead">Vertriebsteams erhalten über Tablet oder Smartphone Zugriff auf alle Marketing- und Verkaufsunterlagen – von Broschüren und Anträgen über ausfüllbare PDFs bis hin zu Videos. Inhalte lassen sich direkt im Kundengespräch präsentieren, personalisieren und ausfüllen.</p>
+                </div>
+                <div class="tile-2col">
+                    <div>
+                        <div class="label">Besonders stark bei</div>
+                        <ul class="tile-bullets">
+                            <li>Dezentralen Vertriebsorganisationen wie Versicherungen, Franchise-Systemen oder Pharma-Außendiensten</li>
+                            <li>Unternehmen mit einheitlichem Markenauftritt bei hoher Flexibilität im Außendienst</li>
+                            <li>Teams, die auch ohne Internetverbindung zuverlässig beraten müssen</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="label">Kundenvorteile</div>
+                        <ul class="tile-bullets">
+                            <li><strong>Mehr Effizienz:</strong> keine Suche, keine veralteten Dokumente</li>
+                            <li><strong>Bessere Beratungsqualität:</strong> interaktive Inhalte überzeugen</li>
+                            <li><strong>Einheitlicher Markenauftritt:</strong> CI-konform für alle Partner</li>
+                            <li><strong>Maximale Flexibilität:</strong> Offline-Nutzung für jeden Einsatzort</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1703,32 +1761,10 @@
         </div>
     </section>
 
-    <!-- KUNDENVORTEILE -->
-    <section class="products-section" style="padding:72px var(--container-px);">
-        <div class="container">
-            <div class="section-header">
-                <div class="label">Kundenvorteile</div>
-                <h2>Mehr Effizienz, bessere Beratung</h2>
-            </div>
-            <div class="v5-grid-2">
-                <ul class="v5-check">
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Mehr Effizienz im Außendienst:</strong> keine Suche, keine veralteten Dokumente.</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Bessere Beratungsqualität:</strong> interaktive, digitale Inhalte machen Gespräche überzeugender.</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Einheitlicher Markenauftritt:</strong> CI-konforme Materialien für alle Vertriebspartner.</span></li>
-                </ul>
-                <ul class="v5-check">
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Maximale Flexibilität:</strong> Offline-Nutzung und mobile Bedienung für jeden Einsatzort.</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Medienbruchfreie Prozesse:</strong> von der zentralen Erstellung bis zum Einsatz beim Kunden.</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Schnellere Bereitstellung:</strong> neue Materialien stehen dem gesamten Vertriebsnetz sofort zur Verfügung.</span></li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
     <!-- CASE STUDY -->
-    <section class="products-section" style="padding:20px var(--container-px) 80px;">
+    <section class="tile-section">
         <div class="container">
-            <div class="v5-case">
+            <div class="v5-case tile--wide" style="max-width:1100px;">
                 <div class="label">Case Study · Krankenversicherung</div>
                 <h2>Digitale Vertriebsunterstützung für eine Krankenversicherung</h2>
                 <p style="margin:16px 0 8px; max-width:780px;">Eine große Krankenversicherung musste ihren dezentral organisierten Außendienst effizient mit aktuellen Marketing- und Vertriebsunterlagen versorgen. Die Berater benötigten jederzeit Zugriff auf alle Materialien – vom Antrag bis zum POS-Material – und mussten diese direkt im Kundengespräch nutzen, personalisieren und ausfüllen können, auch ohne Internetverbindung.</p>
@@ -1750,7 +1786,6 @@
                         </ul>
                     </div>
                 </div>
-                <p style="margin-top:28px; max-width:780px;">Mit 3DCAY wurde eine skalierbare Lösung geschaffen, die zentrale Steuerung und dezentrale Nutzung optimal verbindet – und den Vertrieb nachhaltig digitalisiert.</p>
             </div>
         </div>
     </section>
