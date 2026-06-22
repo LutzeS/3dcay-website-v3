@@ -1,0 +1,10 @@
+{
+  "name": "3dcay-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "3DCAY Backend – Netlify Functions (Leads, Fit-Check-Statistik, Whitepaper, News, Newsletter via Mailjet)",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}

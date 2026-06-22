@@ -1,6 +1,10 @@
 [build]
   publish = "."
 
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 # --- Version 6: neue v5-Präsenz ist die Startseite ---
 [[redirects]]
   from = "/"
