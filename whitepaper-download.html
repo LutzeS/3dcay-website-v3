@@ -132,7 +132,7 @@ strong{color:var(--black);font-weight:700}
 
 <div class="save-banner no-print" id="saveBanner">
   <span>Tipp: Speichern Sie dieses Dokument als PDF &uuml;ber <strong>Datei &rarr; Drucken &rarr; Als PDF speichern</strong></span>
-  <div><a href="v5/index.html">&larr; Zur&uuml;ck zur Website</a> &nbsp; <button class="save-banner__close" onclick="document.getElementById('saveBanner').style.display='none'">&times;</button></div>
+  <div><a id="wpDownloadBtn" href="#" target="_blank" rel="noopener" style="display:none;font-weight:700">&darr; PDF herunterladen</a> &nbsp; <a href="v5/index.html">&larr; Zur&uuml;ck zur Website</a> &nbsp; <button class="save-banner__close" onclick="document.getElementById('saveBanner').style.display='none'">&times;</button></div>
 </div>
 
 <div class="wp-wrap" style="margin-top:48px">
@@ -427,5 +427,20 @@ strong{color:var(--black);font-weight:700}
 </div>
 
 </div>
+<script>
+/* Aktives Whitepaper-PDF aus dem Backend anbieten – additiv, mit Fallback (bricht nichts) */
+(function(){
+  try{
+    fetch('/.netlify/functions/active-whitepaper?slot=whitepaper')
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d && d.whitepaper && d.whitepaper.downloadUrl){
+          var b=document.getElementById('wpDownloadBtn');
+          if(b){ b.href=d.whitepaper.downloadUrl; b.style.display='inline'; }
+        }
+      }).catch(function(){});
+  }catch(e){}
+})();
+</script>
 </body>
 </html>

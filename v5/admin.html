@@ -176,32 +176,51 @@ function renderFit(){
     <p class="muted" style="margin-top:14px">„Abbrecher" = gestartet, aber nicht abgeschlossen. Tracking wird über die Fit-Check-Seite gesendet (siehe BACKEND-README).</p></div>`;
 }
 
+function wpSlotName(s){ return s==='playbook'?'KI-Playbook':(s==='other'?'Sonstiges':'Whitepaper'); }
 function renderWp(){
   const rows=(DATA.whitepapers||[]).map(w=>`
     <tr><td>${esc(w.title)}<div class="muted">${esc(w.description||'')}</div></td>
-    <td><a href="${esc(w.fileUrl)}" target="_blank">${esc(w.fileUrl||'')}</a></td>
+    <td><span class="pill">${wpSlotName(w.slot)}</span></td>
+    <td>${w.fileUrl?'<a href="'+esc(w.fileUrl)+'" target="_blank">PDF</a>':'—'}</td>
     <td>${w.active===false?'<span class="pill">inaktiv</span>':'<span class="pill neu">aktiv</span>'}</td>
     <td>${w.downloads||0}</td>
     <td><button class="btn btn--ghost btn--sm" onclick='editWp(${JSON.stringify(w)})'>✎</button>
         <button class="btn btn--ghost btn--sm" onclick="delWp('${w.id}')">×</button></td></tr>`).join('')
-    || '<tr><td colspan="5" class="muted">Noch keine Whitepapers.</td></tr>';
+    || '<tr><td colspan="6" class="muted">Noch keine Whitepapers.</td></tr>';
   document.getElementById('v-wp').innerHTML=`<h2>Whitepaper / PDFs</h2>
-    <div class="panel"><table><thead><tr><th>Titel</th><th>Datei-URL</th><th>Status</th><th>Downloads</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
+    <div class="panel" style="overflow:auto"><table><thead><tr><th>Titel</th><th>Slot</th><th>Datei</th><th>Status</th><th>Downloads</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
     <div class="panel"><h3 id="wpFormTitle">Neues Whitepaper</h3>
       <input type="hidden" id="wp_id">
-      <label>Titel</label><input id="wp_title">
+      <div class="row"><div><label>Titel</label><input id="wp_title"></div>
+        <div><label>Slot (Platzierung)</label><select id="wp_slot"><option value="whitepaper">Whitepaper</option><option value="playbook">KI-Playbook</option><option value="other">Sonstiges</option></select></div></div>
       <label>Beschreibung</label><input id="wp_desc">
-      <label>Datei-URL (z. B. /whitepaper.pdf oder externer Link)</label><input id="wp_url" placeholder="/whitepaper.pdf">
+      <label>PDF hochladen (max ~5 MB)</label><input type="file" id="wp_file" accept="application/pdf">
+      <label>… oder Datei-URL (extern / vorhandene Datei)</label><input id="wp_url" placeholder="/whitepaper.pdf">
       <label><input type="checkbox" id="wp_active" checked style="width:auto;margin-right:6px">aktiv</label>
       <div style="margin-top:14px"><button class="btn" onclick="saveWp()">Speichern</button>
       <button class="btn btn--ghost" onclick="resetWp()">Zurücksetzen</button></div>
-      <p class="muted" style="margin-top:10px">Download-Link für die Seite: <code>/.netlify/functions/download?id=&lt;ID&gt;</code></p></div>`;
+      <p class="muted" style="margin-top:10px">Öffentlicher Download-Link: <code>/.netlify/functions/download?id=&lt;ID&gt;</code> · Das aktive „Whitepaper" erscheint automatisch auf der Whitepaper-Seite.</p></div>`;
 }
-function editWp(w){ wp_id.value=w.id; wp_title.value=w.title||''; wp_desc.value=w.description||''; wp_url.value=w.fileUrl||''; wp_active.checked=w.active!==false; document.getElementById('wpFormTitle').textContent='Whitepaper bearbeiten'; window.scrollTo(0,document.body.scrollHeight); }
-function resetWp(){ wp_id.value='';wp_title.value='';wp_desc.value='';wp_url.value='';wp_active.checked=true; document.getElementById('wpFormTitle').textContent='Neues Whitepaper'; }
-async function saveWp(){ if(!wp_title.value||!wp_url.value){toast('Titel und URL nötig');return;}
-  const item={id:wp_id.value||undefined,title:wp_title.value,description:wp_desc.value,fileUrl:wp_url.value,active:wp_active.checked};
-  await api('admin-content',{method:'POST',body:JSON.stringify({collection:'whitepapers',action:'save',item})}); toast('Gespeichert'); await load(); }
+function editWp(w){ wp_id.value=w.id; wp_title.value=w.title||''; wp_desc.value=w.description||''; wp_url.value=w.fileUrl||''; document.getElementById('wp_slot').value=w.slot||'whitepaper'; var fe=document.getElementById('wp_file'); if(fe) fe.value=''; wp_active.checked=w.active!==false; document.getElementById('wpFormTitle').textContent='Whitepaper bearbeiten'; window.scrollTo(0,document.body.scrollHeight); }
+function resetWp(){ wp_id.value='';wp_title.value='';wp_desc.value='';wp_url.value=''; document.getElementById('wp_slot').value='whitepaper'; var fe=document.getElementById('wp_file'); if(fe) fe.value=''; wp_active.checked=true; document.getElementById('wpFormTitle').textContent='Neues Whitepaper'; }
+function fileToBase64(file){ return new Promise(function(res,rej){ var r=new FileReader(); r.onload=function(){ res(String(r.result).split(',')[1]); }; r.onerror=rej; r.readAsDataURL(file); }); }
+async function saveWp(){
+  if(!wp_title.value){toast('Titel nötig');return;}
+  var fileUrl = wp_url.value;
+  var fe=document.getElementById('wp_file');
+  if(fe && fe.files && fe.files[0]){
+    var f=fe.files[0];
+    if(f.size > 5*1024*1024){ toast('Datei zu groß (max ~5 MB)'); return; }
+    toast('Lade PDF hoch…');
+    var b64=await fileToBase64(f);
+    var up=await api('upload',{method:'POST',body:JSON.stringify({filename:f.name,contentType:f.type||'application/pdf',dataBase64:b64})});
+    if(up.error){ toast('Upload-Fehler: '+(up.hint||up.error)); return; }
+    fileUrl=up.fileUrl;
+  }
+  if(!fileUrl){ toast('PDF hochladen oder Datei-URL angeben'); return; }
+  const item={id:wp_id.value||undefined,title:wp_title.value,description:wp_desc.value,fileUrl:fileUrl,slot:document.getElementById('wp_slot').value,active:wp_active.checked};
+  await api('admin-content',{method:'POST',body:JSON.stringify({collection:'whitepapers',action:'save',item})}); toast('Gespeichert'); await load();
+}
 async function delWp(id){ if(!confirm('Whitepaper löschen?'))return; await api('admin-content',{method:'POST',body:JSON.stringify({collection:'whitepapers',action:'delete',id})}); await load(); }
 
 function renderNews(){
