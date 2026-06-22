@@ -253,6 +253,8 @@ a{color:inherit;text-decoration:none}
 document.getElementById('kiLabForm').addEventListener('submit', function(e) {
   e.preventDefault();
   var fd = new FormData(this);
+  // 3DCAY Backend (additiv, fire-and-forget) – Double-Opt-In-Anmeldung
+  try { var _em = fd.get('email'); if (_em) { fetch('/.netlify/functions/subscribe', {method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({email:_em, source:'ki-lab-newsletter'})}).catch(function(){}); } } catch(_e){}
   fetch('/', {
     method: 'POST',
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},

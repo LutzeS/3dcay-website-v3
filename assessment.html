@@ -430,5 +430,31 @@ document.getElementById('asLeadForm').addEventListener('submit',function(e){
 (function(){if(!localStorage.getItem('cookie_consent')){document.getElementById('cookieBanner').style.display='block';}})();
 function setCookieConsent(level){localStorage.setItem('cookie_consent',level);localStorage.setItem('cookie_consent_date',new Date().toISOString());document.getElementById('cookieBanner').style.display='none';}
 </script>
+<script>
+/* 3DCAY Backend – Fit-Check-Funnel-Tracking (additiv, fire-and-forget; bricht die Seite nie) */
+(function(){
+  try{
+    var sid = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : ('' + Date.now() + Math.random());
+    function t(ev, meta){ try{ fetch('/.netlify/functions/track',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({event:ev,sessionId:sid,meta:meta||{}})}).catch(function(){}); }catch(e){} }
+    window.__fitTrack = t;
+    t('fitcheck_start');
+    if (typeof window.asShowResults === 'function') {
+      var _orig = window.asShowResults;
+      window.asShowResults = function(){ t('fitcheck_complete'); return _orig.apply(this, arguments); };
+    }
+    var f = document.getElementById('asLeadForm');
+    if (f) {
+      f.addEventListener('submit', function(){
+        t('fitcheck_signup');
+        try{
+          var em = (document.getElementById('asLeadEmail')||{}).value;
+          var sc = (document.getElementById('asLeadScore')||{}).value;
+          if (em) { fetch('/.netlify/functions/lead',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({type:'fitcheck',email:em,interest:'Fit-Check Report',message:'Score: '+(sc||''),source:'assessment'})}).catch(function(){}); }
+        }catch(e){}
+      });
+    }
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
