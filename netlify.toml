@@ -1,71 +1,76 @@
 [build]
   publish = "."
 
+# --- Version 6: neue v5-Präsenz ist die Startseite ---
 [[redirects]]
   from = "/"
-  to = "/index-v4.html"
-  status = 200
+  to = "/v5/index.html"
+  status = 301
   force = true
 
+# Kurz-URLs für die v5-Seiten
 [[redirects]]
-  from = "/produkte/cashback"
-  to = "/cashback.html"
-  status = 200
-
+  from = "/shop"
+  to = "/v5/shop.html"
+  status = 301
 [[redirects]]
-  from = "/produkte/shop"
-  to = "/shop.html"
-  status = 200
-
+  from = "/shop-details"
+  to = "/v5/shop-details.html"
+  status = 301
 [[redirects]]
-  from = "/produkte/web-to-publish"
-  to = "/web-to-publish.html"
-  status = 200
-
+  from = "/web-to-publish"
+  to = "/v5/web-to-publish.html"
+  status = 301
 [[redirects]]
-  from = "/produkte/app"
-  to = "/3dcay-app.html"
-  status = 200
-
+  from = "/cashback"
+  to = "/v5/cashback.html"
+  status = 301
+[[redirects]]
+  from = "/app"
+  to = "/v5/3dcay-app.html"
+  status = 301
 [[redirects]]
   from = "/services"
-  to = "/services.html"
-  status = 200
+  to = "/v5/services.html"
+  status = 301
+[[redirects]]
+  from = "/ki-lab"
+  to = "/v5/ki-lab.html"
+  status = 301
+[[redirects]]
+  from = "/blog"
+  to = "/v5/blog.html"
+  status = 301
 
+# Geteilte Root-Seiten (von v5 verlinkt)
 [[redirects]]
   from = "/referenzen"
   to = "/referenzen.html"
-  status = 200
-
+  status = 301
 [[redirects]]
   from = "/assessment"
   to = "/assessment.html"
-  status = 200
-
+  status = 301
 [[redirects]]
   from = "/ki-playbook"
   to = "/ki-playbook.html"
-  status = 200
-
+  status = 301
 [[redirects]]
   from = "/whitepaper"
   to = "/whitepaper.html"
-  status = 200
-
+  status = 301
 [[redirects]]
   from = "/newsletter"
   to = "/ki-lab-newsletter.html"
-  status = 200
-
+  status = 301
 [[redirects]]
   from = "/impressum"
   to = "/impressum.html"
-  status = 200
-
+  status = 301
 [[redirects]]
   from = "/datenschutz"
   to = "/datenschutz.html"
-  status = 200
+  status = 301
 
 [[redirects]]
   from = "/*"
