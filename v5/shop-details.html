@@ -1652,57 +1652,18 @@
     </style>
 </head>
 <body>
-    <!-- NAVIGATION (V2 Style) -->
-    <nav class="nav nav--dark" id="nav">
-        <div class="nav__inner">
-            <a href="index.html" class="nav__logo">
-                <img src="images/3dcay-logo.svg" alt="3DCAY">
-            </a>
-
-            <ul class="nav__links">
-                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-                <li class="nav__dropdown">
-                    <a href="#produkte" data-i18n="nav.produkte">Produkte</a>
-                    <div class="nav__dropdown-menu">
-                        <a href="shop.html">Shop</a>
-                        <a href="web-to-publish.html">Web-to-Publish</a>
-                        <a href="cashback.html">Cashback</a>
-                        <a href="3dcay-app.html">App</a>
-                    </div>
-                </li>
-                <li><a href="services.html" data-i18n="nav.services">Services</a></li>
-                <li><a href="ki-lab.html" data-i18n="nav.ki">KI-Lab</a></li>
-                <li><a href="../referenzen.html" data-i18n="nav.referenzen">Referenzen</a></li>
-                <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
-                <li class="lang-toggle">
-                    <button id="btnLangDE" class="active" onclick="setLang('de')">DE</button>
-                    <button id="btnLangEN" onclick="setLang('en')">EN</button>
-                </li>
-            </ul>
-
-            <a href="#kontakt" class="nav__cta" data-i18n="nav.kontakt">Kontakt &rarr;</a>
-
-            <button class="nav__mobile" aria-label="Menu" onclick="toggleMobileNav()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
+    <!-- NAVIGATION (minimal · wie assessment) -->
+    <style>
+        .as-nav { height:64px; display:flex; align-items:center; border-bottom:1px solid var(--gray-200); padding:0 32px; background:var(--white); }
+        .as-nav__logo { display:flex; align-items:center; text-decoration:none; }
+        .as-nav__logo img { height:28px; width:auto; }
+        .as-nav__back { margin-left:auto; font-size:14px; color:var(--gray-500); text-decoration:none; transition:color 0.2s; }
+        .as-nav__back:hover { color:var(--black); }
+    </style>
+    <nav class="as-nav">
+        <a href="index.html" class="as-nav__logo"><img src="images/3dcay-logo.svg" alt="3DCAY"></a>
+        <a href="shop.html" class="as-nav__back">&larr; Zur&uuml;ck zum Shop</a>
     </nav>
-
-    <!-- Mobile Nav Panel -->
-    <div class="nav__mobile-panel" id="mobileNav">
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="web-to-publish.html">Web-to-Publish</a>
-        <a href="cashback.html">Cashback</a>
-        <a href="3dcay-app.html">App</a>
-        <a href="services.html" data-i18n="nav.services">Services</a>
-        <a href="ki-lab.html" data-i18n="nav.ki">KI-Lab</a>
-        <a href="../referenzen.html" data-i18n="nav.referenzen">Referenzen</a>
-        <a href="blog.html">Blog</a>
-        <a href="#kontakt" class="nav__cta" style="margin-top:16px" data-i18n="nav.kontakt">Kontakt &rarr;</a>
-    </div>
 
         <style>.hero::before{ background-image:url('images/dashboard-office.png'); }</style>
     <!-- HERO SECTION -->
@@ -2528,14 +2489,12 @@
            NAVIGATION & SCROLL DETECTION (V2 Style)
            ======================================== */
         const nav = document.getElementById('nav');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
+        if (nav) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) { nav.classList.add('scrolled'); }
+                else { nav.classList.remove('scrolled'); }
+            });
+        }
 
         /* Mobile Nav Toggle */
         function toggleMobileNav() {
@@ -2582,8 +2541,8 @@
             document.documentElement.lang = lang;
 
             // Update toggle buttons
-            document.getElementById('btnLangDE').classList.toggle('active', lang === 'de');
-            document.getElementById('btnLangEN').classList.toggle('active', lang === 'en');
+            const bDE = document.getElementById('btnLangDE'); if (bDE) bDE.classList.toggle('active', lang === 'de');
+            const bEN = document.getElementById('btnLangEN'); if (bEN) bEN.classList.toggle('active', lang === 'en');
 
             // Apply translations
             document.querySelectorAll('[data-i18n]').forEach(el => {
