@@ -83,7 +83,8 @@ a{color:inherit;text-decoration:none}
 .kp-goal{padding:20px 12px;border:1px solid var(--gray-200);border-radius:12px;text-align:center;cursor:pointer;transition:all 0.2s}
 .kp-goal:hover{border-color:var(--gray-500)}
 .kp-goal.selected{border-color:var(--red);background:rgba(227,16,26,0.04)}
-.kp-goal__icon{font-size:26px;margin-bottom:8px}
+.kp-goal__icon{margin-bottom:10px;color:var(--red);line-height:0}
+.kp-goal__icon svg{width:26px;height:26px;display:inline-block}
 .kp-goal__label{font-size:13px;font-weight:600}
 
 .kp-btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;padding:14px 28px;border-radius:100px;border:none;cursor:pointer;transition:all 0.2s}
@@ -141,7 +142,7 @@ a{color:inherit;text-decoration:none}
 .kp-plan__text{font-size:14px;color:var(--gray-700);line-height:1.6;flex:1}
 
 .kp-result__cta{text-align:center;margin-top:32px}
-.kp-result__cta .kp-btn{width:100%;justify-content:center;padding:18px;font-size:16px}
+.kp-result__cta .kp-btn{width:auto;display:inline-flex;justify-content:center;padding:13px 30px;font-size:15px}
 
 /* Lead capture on result */
 .kp-lead{background:linear-gradient(180deg,#FFF 0%,#FAFAFA 100%);border:1px solid var(--gray-200);border-radius:12px;padding:28px;margin-top:24px}
@@ -298,11 +299,11 @@ a{color:inherit;text-decoration:none}
       <p class="kp-card__sub">Worauf soll Ihr KI-Playbook prim&auml;r einzahlen?</p>
 
       <div class="kp-goals" id="kpGoals">
-        <div class="kp-goal" onclick="kpGoal(this)" data-value="zeit"><div class="kp-goal__icon">&#9201;</div><p class="kp-goal__label">Zeit sparen</p></div>
-        <div class="kp-goal" onclick="kpGoal(this)" data-value="output"><div class="kp-goal__icon">&#128200;</div><p class="kp-goal__label">Mehr Output</p></div>
-        <div class="kp-goal" onclick="kpGoal(this)" data-value="personalisierung"><div class="kp-goal__icon">&#127919;</div><p class="kp-goal__label">Personalisierung</p></div>
-        <div class="kp-goal" onclick="kpGoal(this)" data-value="kontrolle"><div class="kp-goal__icon">&#128737;&#65039;</div><p class="kp-goal__label">Kontrolle</p></div>
-        <div class="kp-goal" onclick="kpGoal(this)" data-value="kosten"><div class="kp-goal__icon">&#128176;</div><p class="kp-goal__label">Kosten senken</p></div>
+        <div class="kp-goal" onclick="kpGoal(this)" data-value="zeit"><div class="kp-goal__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="12" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></svg></div><p class="kp-goal__label">Zeit sparen</p></div>
+        <div class="kp-goal" onclick="kpGoal(this)" data-value="output"><div class="kp-goal__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div><p class="kp-goal__label">Mehr Output</p></div>
+        <div class="kp-goal" onclick="kpGoal(this)" data-value="personalisierung"><div class="kp-goal__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><p class="kp-goal__label">Personalisierung</p></div>
+        <div class="kp-goal" onclick="kpGoal(this)" data-value="kontrolle"><div class="kp-goal__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></div><p class="kp-goal__label">Kontrolle</p></div>
+        <div class="kp-goal" onclick="kpGoal(this)" data-value="kosten"><div class="kp-goal__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg></div><p class="kp-goal__label">Kosten senken</p></div>
       </div>
 
       <div class="kp-actions">
@@ -388,7 +389,7 @@ a{color:inherit;text-decoration:none}
     </div>
 
     <div class="kp-result__cta" style="margin-top:24px">
-      <a href="v5/index.html#kontakt" class="kp-btn kp-btn--primary" onclick="return kpOpenContact()">30-Min Discovery-Call buchen &rarr;</a>
+      <a href="v5/index.html#kontakt" class="kp-btn kp-btn--primary" onclick="return kpOpenContact()">Kontakt aufnehmen &rarr;</a>
       <p style="font-size:13px;color:var(--gray-500);margin-top:12px;cursor:pointer" onclick="kpReset()">Playbook neu erstellen</p>
     </div>
   </div>
