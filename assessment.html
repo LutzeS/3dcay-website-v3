@@ -80,7 +80,8 @@ a{color:inherit;text-decoration:none}
 .as-goal{padding:20px 12px;border:1px solid var(--gray-200);border-radius:12px;text-align:center;cursor:pointer;transition:all 0.2s}
 .as-goal:hover{border-color:var(--gray-500)}
 .as-goal.selected{border-color:var(--red);background:rgba(227,16,26,0.04)}
-.as-goal__icon{font-size:24px;margin-bottom:8px}
+.as-goal__icon{margin-bottom:10px;color:var(--red);line-height:0}
+.as-goal__icon svg{width:26px;height:26px;display:inline-block}
 .as-goal__label{font-size:13px;font-weight:600}
 
 .as-btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;padding:14px 28px;border-radius:100px;border:none;cursor:pointer;transition:all 0.2s}
@@ -264,11 +265,11 @@ a{color:inherit;text-decoration:none}
       <p class="as-card__sub">Was hat f&uuml;r Sie die h&ouml;chste Priorit&auml;t bei der Umstellung?</p>
 
       <div class="as-goals" id="asGoals">
-        <div class="as-goal" onclick="asGoal(this)" data-value="kosten"><div class="as-goal__icon">&#128176;</div><p class="as-goal__label">Kosten</p></div>
-        <div class="as-goal" onclick="asGoal(this)" data-value="kontrolle"><div class="as-goal__icon">&#128274;</div><p class="as-goal__label">Kontrolle</p></div>
-        <div class="as-goal" onclick="asGoal(this)" data-value="tempo"><div class="as-goal__icon">&#9889;</div><p class="as-goal__label">Tempo</p></div>
-        <div class="as-goal" onclick="asGoal(this)" data-value="transparenz"><div class="as-goal__icon">&#128200;</div><p class="as-goal__label">Transparenz</p></div>
-        <div class="as-goal" onclick="asGoal(this)" data-value="skalierung"><div class="as-goal__icon">&#128640;</div><p class="as-goal__label">Skalierung</p></div>
+        <div class="as-goal" onclick="asGoal(this)" data-value="kosten"><div class="as-goal__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg></div><p class="as-goal__label">Kosten</p></div>
+        <div class="as-goal" onclick="asGoal(this)" data-value="kontrolle"><div class="as-goal__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><p class="as-goal__label">Kontrolle</p></div>
+        <div class="as-goal" onclick="asGoal(this)" data-value="tempo"><div class="as-goal__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><p class="as-goal__label">Tempo</p></div>
+        <div class="as-goal" onclick="asGoal(this)" data-value="transparenz"><div class="as-goal__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div><p class="as-goal__label">Transparenz</p></div>
+        <div class="as-goal" onclick="asGoal(this)" data-value="skalierung"><div class="as-goal__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" x2="14" y1="3" y2="10"/><line x1="3" x2="10" y1="21" y2="14"/></svg></div><p class="as-goal__label">Skalierung</p></div>
       </div>
 
       <div class="as-actions">
@@ -318,7 +319,7 @@ a{color:inherit;text-decoration:none}
     </div>
 
     <div class="as-result__cta" style="margin-top:24px">
-      <a href="v5/index.html" class="as-btn as-btn--primary" onclick="return openDemoFromAssess()">Pilot-Workshop buchen &rarr;</a>
+      <a href="v5/index.html" class="as-btn as-btn--primary" onclick="return openDemoFromAssess()">Kontakt aufnehmen &rarr;</a>
       <p style="font-size:13px;color:var(--gray-500);margin-top:12px;cursor:pointer" onclick="asReset()">Assessment wiederholen</p>
     </div>
   </div>
