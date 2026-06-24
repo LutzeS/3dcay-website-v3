@@ -1619,6 +1619,9 @@
         .case-study-block li { padding-left:20px; position:relative; margin-bottom:12px; color:var(--gray-700); font-size:15px; line-height:1.7; }
         .case-study-block li:before { content:""; position:absolute; left:0; top:0.7em; width:6px; height:6px; border-radius:50%; background-color:var(--gray-500); }
         .case-study-tagline { font-style:italic; color:var(--red); margin-top:20px; font-weight:600; font-size:18px; }
+        .cs-anim { margin-top:26px; display:flex; justify-content:flex-end; }
+        .cs-anim svg { width:100%; max-width:420px; height:auto; display:block; }
+        @media (max-width:720px){ .cs-anim{ justify-content:center; } }
         /* metric cards */
         .case-study-metrics { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; margin-top:24px; }
         .case-study-metric { background:var(--white); padding:24px; border-radius:8px; border:1px solid var(--gray-200); }
@@ -1753,7 +1756,7 @@
     </section>
 
     <!-- FEATURES & USPs · GRID-LAYOUT -->
-    <section class="solution-section">
+    <section class="solution-section" style="padding-bottom:32px;">
         <div class="container">
             <div class="section-header">
                 <div class="label" style="text-transform:none;">FEATURES &amp; USPs</div>
@@ -1802,14 +1805,11 @@
                     <p>Inklusive Optionen für Versand- und Zollanforderungen – je nach Setup.</p>
                 </div>
             </div>
-            <div class="solution-tagline">
-                <p>Zentral steuern.<br>Dezentral nutzen. <em>Effizient skalieren.</em></p>
-            </div>
         </div>
     </section>
 
     <!-- SHOP-DETAILS BUTTON -->
-    <section class="tile-section" style="padding-top:0; text-align:center;">
+    <section class="tile-section" style="padding:32px var(--container-px); text-align:center;">
         <div class="container">
             <a href="shop-details.html#tiers" class="btn btn--primary">SHOP-DETAILS</a>
         </div>
@@ -1848,6 +1848,75 @@
                     <div class="case-study-block">
                         <h3>Fazit</h3>
                         <p>Mit dem 3DCAY Shop steuert der Kunde Werbemittel zentral, unterstützt den Außendienst im Tagesgeschäft und sichert Transparenz, Reporting und Kontrolle – in einer skalierbaren, leicht bedienbaren Lösung.</p>
+
+                        <!-- Smarte SVG-Animation: Zentral steuern -> dezentral nutzen -> skalieren -->
+                        <div class="cs-anim" aria-hidden="true">
+                            <svg viewBox="0 0 520 200" role="img" xmlns="http://www.w3.org/2000/svg">
+                                <title>Zentrale Steuerung versorgt dezentrale Standorte</title>
+                                <style>
+                                    .csv-link{fill:none;stroke:#E5E5E5;stroke-width:2}
+                                    .csv-flow{fill:none;stroke:#e3101a;stroke-width:2;stroke-linecap:round;stroke-dasharray:5 13;animation:csv-flow 1.5s linear infinite}
+                                    .csv-flow.f2{animation-delay:.30s}.csv-flow.f3{animation-delay:.60s}.csv-flow.f4{animation-delay:.90s}
+                                    .csv-ring{fill:none;stroke:#e3101a;stroke-width:1.6;transform-box:fill-box;transform-origin:center;animation:csv-pulse 3s ease-out infinite}
+                                    .csv-ring.r2{animation-delay:1.5s}
+                                    .csv-core{fill:#e3101a}
+                                    .csv-core-dot{fill:#fff;opacity:.92}
+                                    .csv-node{fill:#fff;stroke:#0A0A0A;stroke-width:1.6;transform-box:fill-box;transform-origin:center;animation:csv-pop 3s ease-in-out infinite}
+                                    .csv-node.n2{animation-delay:.30s}.csv-node.n3{animation-delay:.60s}.csv-node.n4{animation-delay:.90s}
+                                    .csv-nd{fill:#e3101a;transform-box:fill-box;transform-origin:center;animation:csv-pop 3s ease-in-out infinite}
+                                    .csv-nd.n2{animation-delay:.30s}.csv-nd.n3{animation-delay:.60s}.csv-nd.n4{animation-delay:.90s}
+                                    .csv-add{fill:none;stroke:#e3101a;stroke-width:1.8;stroke-linecap:round;opacity:0;transform-box:fill-box;transform-origin:center;animation:csv-add 6s ease-in-out infinite}
+                                    .csv-cap{font:600 9px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.12em;fill:#737373}
+                                    @keyframes csv-flow{to{stroke-dashoffset:-36}}
+                                    @keyframes csv-pulse{0%{transform:scale(.7);opacity:.6}100%{transform:scale(2.4);opacity:0}}
+                                    @keyframes csv-pop{0%,55%,100%{transform:scale(1)}28%{transform:scale(1.22)}}
+                                    @keyframes csv-add{0%,70%{opacity:0;transform:scale(.4)}82%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
+                                    @media (prefers-reduced-motion: reduce){
+                                        .csv-flow,.csv-ring,.csv-node,.csv-nd,.csv-add{animation:none}
+                                        .csv-ring{opacity:.3}.csv-add{opacity:.6}
+                                    }
+                                </style>
+
+                                <!-- Verbindungen Hub -> Standorte -->
+                                <line class="csv-link" x1="78" y1="100" x2="408" y2="40"/>
+                                <line class="csv-link" x1="78" y1="100" x2="478" y2="82"/>
+                                <line class="csv-link" x1="78" y1="100" x2="478" y2="140"/>
+                                <line class="csv-link" x1="78" y1="100" x2="408" y2="170"/>
+                                <line class="csv-flow"    x1="78" y1="100" x2="408" y2="40"/>
+                                <line class="csv-flow f2" x1="78" y1="100" x2="478" y2="82"/>
+                                <line class="csv-flow f3" x1="78" y1="100" x2="478" y2="140"/>
+                                <line class="csv-flow f4" x1="78" y1="100" x2="408" y2="170"/>
+
+                                <!-- Zentrale (Hub) -->
+                                <circle class="csv-ring"    cx="78" cy="100" r="17"/>
+                                <circle class="csv-ring r2" cx="78" cy="100" r="17"/>
+                                <circle class="csv-core" cx="78" cy="100" r="16"/>
+                                <circle class="csv-core-dot" cx="78" cy="100" r="4.5"/>
+                                <circle class="csv-core-dot" cx="78" cy="89" r="2"/>
+                                <circle class="csv-core-dot" cx="78" cy="111" r="2"/>
+                                <circle class="csv-core-dot" cx="67" cy="100" r="2"/>
+                                <circle class="csv-core-dot" cx="89" cy="100" r="2"/>
+                                <text class="csv-cap" x="78" y="135" text-anchor="middle">ZENTRAL</text>
+
+                                <!-- Standorte (dezentral) -->
+                                <rect class="csv-node"    x="395" y="27" width="26" height="26" rx="7"/>
+                                <circle class="csv-nd"    cx="408" cy="40" r="4"/>
+                                <rect class="csv-node n2" x="465" y="69" width="26" height="26" rx="7"/>
+                                <circle class="csv-nd n2" cx="478" cy="82" r="4"/>
+                                <rect class="csv-node n3" x="465" y="127" width="26" height="26" rx="7"/>
+                                <circle class="csv-nd n3" cx="478" cy="140" r="4"/>
+                                <rect class="csv-node n4" x="395" y="157" width="26" height="26" rx="7"/>
+                                <circle class="csv-nd n4" cx="408" cy="170" r="4"/>
+
+                                <!-- Skalieren: weiterer Standort erscheint -->
+                                <g class="csv-add">
+                                    <rect x="500" y="92" width="22" height="22" rx="6" fill="none" stroke="#e3101a" stroke-width="1.6" stroke-dasharray="3 3"/>
+                                    <line x1="511" y1="98" x2="511" y2="108"/>
+                                    <line x1="506" y1="103" x2="516" y2="103"/>
+                                </g>
+                                <text class="csv-cap" x="478" y="186" text-anchor="middle">DEZENTRAL</text>
+                            </svg>
+                        </div>
                     </div>
                 </div>
                 <p class="case-study-tagline">Zentral steuern. Dezentral nutzen. Effizient skalieren.</p>
