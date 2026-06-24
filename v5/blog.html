@@ -1672,7 +1672,7 @@
                 <li><a href="services.html" data-i18n="nav.services">Services</a></li>
                 <li><a href="ki-lab.html" data-i18n="nav.ki">KI-Lab</a></li>
                 <li><a href="../referenzen.html" data-i18n="nav.referenzen">Referenzen</a></li>
-                <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                <li><a href="blog.html" data-i18n="nav.blog">Videos</a></li>
                 <li class="lang-toggle">
                     <button id="btnLangDE" class="active" onclick="setLang('de')">DE</button>
                     <button id="btnLangEN" onclick="setLang('en')">EN</button>
@@ -1699,7 +1699,7 @@
         <a href="services.html" data-i18n="nav.services">Services</a>
         <a href="ki-lab.html" data-i18n="nav.ki">KI-Lab</a>
         <a href="../referenzen.html" data-i18n="nav.referenzen">Referenzen</a>
-        <a href="blog.html">Blog</a>
+        <a href="blog.html">Videos</a>
         <a href="#kontakt" class="nav__cta" style="margin-top:16px" data-i18n="nav.kontakt">Kontakt &rarr;</a>
     </div>
 
@@ -1707,12 +1707,12 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
-            <div class="label">3DCAY · Blog</div>
-            <h1>Blog &mdash; <em>Marketing Fulfillment</em></h1>
-            <p style="font-weight:600;">Regelm&auml;&szlig;ig Content, Impulse und aktuelle Tipps aus dem Bereich Marketing Fulfillment.</p>
+            <div class="label">3DCAY · Videos</div>
+            <h1>Marketing Fulfillment &mdash; <em>Unsere Videos f&uuml;r Sie&hellip;</em></h1>
+            <p style="font-weight:600;">Regelm&auml;&szlig;ig Videos, Impulse und aktuelle Tipps aus dem Bereich Marketing Fulfillment.</p>
             <div class="hero-buttons">
-                <a href="#beitraege" class="btn btn--primary">Zu den Beitr&auml;gen</a>
-                <a href="https://3dcay.de/marketing-logistik-blog/" target="_blank" rel="noopener" class="btn btn--outline-white">Alle Beitr&auml;ge ansehen</a>
+                <a href="#beitraege" class="btn btn--primary">Zu den Videos</a>
+                <a href="https://www.youtube.com/@3dcaymarketingsolutions/videos" target="_blank" rel="noopener" class="btn btn--outline-white">Alle Videos auf YouTube</a>
             </div>
         </div>
     </section>
@@ -1723,7 +1723,7 @@
             <div class="tile tile--wide">
                 <div class="label">Worum geht&rsquo;s</div>
                 <h2>Praxiswissen, Impulse und Neuigkeiten</h2>
-                <p class="tile-lead">Auf unserem Blog finden Sie regelm&auml;&szlig;ig n&uuml;tzlichen Content f&uuml;r die Praxis, Impulse f&uuml;r den beruflichen Alltag und leicht umsetzbare Tipps sowie aktuelle Neuigkeiten aus dem Bereich Marketing Fulfillment &ndash; von effektiver Kundenkommunikation &uuml;ber die Optimierung von Fulfillment-Prozessen bis zu den neuesten digitalen Trends. Wir teilen unser Fachwissen und geben praktische Einblicke in bew&auml;hrte Strategien, die Ihren Arbeitsalltag erleichtern und Ihre Effizienz steigern.</p>
+                <p class="tile-lead">In unserem Video-Bereich finden Sie regelm&auml;&szlig;ig n&uuml;tzlichen Content f&uuml;r die Praxis, Impulse f&uuml;r den beruflichen Alltag und leicht umsetzbare Tipps sowie aktuelle Neuigkeiten aus dem Bereich Marketing Fulfillment &ndash; von effektiver Kundenkommunikation &uuml;ber die Optimierung von Fulfillment-Prozessen bis zu den neuesten digitalen Trends. Wir teilen unser Fachwissen und geben praktische Einblicke in bew&auml;hrte Strategien, die Ihren Arbeitsalltag erleichtern und Ihre Effizienz steigern.</p>
             </div>
         </div>
     </section>
@@ -1741,72 +1741,142 @@
         .blog-card h3 { font-size:18px; font-weight:700; line-height:1.3; margin-bottom:10px; color:var(--black); letter-spacing:0; }
         .blog-card p { font-size:14px; line-height:1.6; color:var(--gray-700); flex-grow:1; }
         .blog-card__more { margin-top:16px; font-size:14px; font-weight:600; color:var(--red); }
+        .video-card { display:flex; flex-direction:column; background:var(--white); border:1px solid var(--gray-200); border-radius:16px; overflow:hidden; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+        .video-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,0.08); border-color:#d4d4d4; }
+        .video-thumb { position:relative; display:block; width:100%; aspect-ratio:16/9; padding:0; margin:0; border:0; cursor:pointer; background:#0A0A0A; overflow:hidden; }
+        .video-thumb img { width:100%; height:100%; object-fit:cover; display:block; opacity:.9; transition:opacity .25s ease, transform .35s ease; }
+        .video-thumb:hover img { opacity:1; transform:scale(1.04); }
+        .video-play { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+        .video-play > span { width:62px; height:62px; border-radius:50%; background:rgba(227,16,26,.92); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,.35); transition:transform .2s ease, background .2s ease; }
+        .video-thumb:hover .video-play > span { transform:scale(1.08); background:var(--red); }
+        .video-play svg { width:24px; height:24px; margin-left:3px; fill:#fff; }
+        .video-card iframe { width:100%; aspect-ratio:16/9; border:0; display:block; }
+        .video-body { padding:24px; display:flex; flex-direction:column; flex-grow:1; }
+        .video-body h3 { font-size:18px; font-weight:700; line-height:1.3; margin:6px 0 8px; color:var(--black); letter-spacing:0; }
+        .video-body p { font-size:14px; line-height:1.6; color:var(--gray-700); margin:0; }
+        .video-more { margin-top:14px; }
+        .video-more summary { cursor:pointer; font-size:14px; font-weight:600; color:var(--red); list-style:none; display:inline-block; }
+        .video-more summary::-webkit-details-marker { display:none; }
+        .video-more summary::after { content:" \2192"; }
+        .video-more[open] summary::after { content:" \2191"; }
+        .video-more__text { margin-top:10px; font-size:14px; line-height:1.7; color:var(--gray-700); }
+        .video-note { font-size:12px; color:var(--gray-500); margin-top:22px; text-align:center; }
+        .video-note a { color:var(--red); }
     </style>
     <section class="solution-section" id="beitraege">
         <div class="container">
             <div class="section-header">
-                <div class="label" style="text-transform:none;">AKTUELLE BEITR&Auml;GE</div>
-                <h2>Neues aus dem Marketing Fulfillment</h2>
+                <div class="label" style="text-transform:none;">AKTUELLE VIDEOS</div>
+                <h2>Videos aus dem Marketing Fulfillment</h2>
             </div>
             <div class="blog-grid">
-                <a class="blog-card reveal" href="https://3dcay.de/3dcay-toolbox-freigabeprozesse/" target="_blank" rel="noopener">
-                    <div class="blog-card__meta"><span class="blog-card__cat">Freigabeprozesse</span><span class="blog-card__date">21. Juli 2025</span></div>
-                    <h3>Modul Freigabeprozesse</h3>
-                    <p>Bestellungen individuell prüfen und freigeben – mehr Kontrolle über jeden Bestellvorgang im Marketing-Fulfillment-Shop.</p>
-                    <span class="blog-card__more">Weiterlesen &rarr;</span>
-                </a>
-                <a class="blog-card reveal" href="https://3dcay.de/3dcay-toolbox-gewichtsbeschraenkungen/" target="_blank" rel="noopener">
-                    <div class="blog-card__meta"><span class="blog-card__cat">Marketing-Fulfillment-Shop</span><span class="blog-card__date">27. Juni 2025</span></div>
-                    <h3>Modul Gewichtsbeschränkungen</h3>
-                    <p>Versandkosten sparen durch Mindestgewicht – die Toolbox des 3DCAY Marketing-Fulfillment-Shops.</p>
-                    <span class="blog-card__more">Weiterlesen &rarr;</span>
-                </a>
-                <a class="blog-card reveal" href="https://3dcay.de/modul-budgetmanagement-3dcay/" target="_blank" rel="noopener">
-                    <div class="blog-card__meta"><span class="blog-card__cat">Budgetmanagement</span><span class="blog-card__date">2. Juni 2025</span></div>
-                    <h3>Modul Budgetmanagement</h3>
-                    <p>Begrenzen Sie die Budgets Ihrer Benutzer und behalten Sie die Kosten jederzeit im Griff.</p>
-                    <span class="blog-card__more">Weiterlesen &rarr;</span>
-                </a>
-                <a class="blog-card reveal" href="https://3dcay.de/3dcay-toolbox-bestellbeschraenkungen/" target="_blank" rel="noopener">
-                    <div class="blog-card__meta"><span class="blog-card__cat">Bestellbeschränkung</span><span class="blog-card__date">27. März 2025</span></div>
-                    <h3>Modul Bestellbeschränkungen</h3>
-                    <p>Mehr Kontrolle durch Bestellmengen und Freigabepflichten – gezielt steuern, wer wie viel bestellt.</p>
-                    <span class="blog-card__more">Weiterlesen &rarr;</span>
-                </a>
-                <a class="blog-card reveal" href="https://3dcay.de/3dcay-toolbox-berechtigungsfunktionen/" target="_blank" rel="noopener">
-                    <div class="blog-card__meta"><span class="blog-card__cat">Berechtigungssystem</span><span class="blog-card__date">6. März 2025</span></div>
-                    <h3>Modul Berechtigungsfunktionen</h3>
-                    <p>Steuern Sie die Sichtbarkeit von Artikeln – granular und nachvollziehbar pro Benutzergruppe.</p>
-                    <span class="blog-card__more">Weiterlesen &rarr;</span>
-                </a>
-                <a class="blog-card reveal" href="https://3dcay.de/3dcay-toolbox-bestandskontrolle/" target="_blank" rel="noopener">
-                    <div class="blog-card__meta"><span class="blog-card__cat">Bestandskontrolle</span><span class="blog-card__date">6. Februar 2025</span></div>
-                    <h3>Modul Bestandskontrolle</h3>
-                    <p>Weisen Sie Ihren Benutzern verfügbare Bestände zu und vermeiden Sie Überbestellungen.</p>
-                    <span class="blog-card__more">Weiterlesen &rarr;</span>
-                </a>
-                <a class="blog-card reveal" href="https://3dcay.de/3dcay-toolbox-lagerreichweite/" target="_blank" rel="noopener">
-                    <div class="blog-card__meta"><span class="blog-card__cat">Lagerreichweite</span><span class="blog-card__date">4. Dezember 2024</span></div>
-                    <h3>Modul Lagerreichweite</h3>
-                    <p>Immer genügend Artikel im Lager – behalten Sie Reichweiten und Nachschub im Blick.</p>
-                    <span class="blog-card__more">Weiterlesen &rarr;</span>
-                </a>
-                <a class="blog-card reveal" href="https://3dcay.de/der-marketing-fulfillment-shop/" target="_blank" rel="noopener">
-                    <div class="blog-card__meta"><span class="blog-card__cat">Marketing-Fulfillment-Shop</span><span class="blog-card__date">4. Juli 2024</span></div>
-                    <h3>KEIN Standard-Shop für Marketing-Fulfillment</h3>
-                    <p>Warum Standard-Shopsysteme im B2B-Marketing an ihre Grenzen stoßen – und was es wirklich braucht.</p>
-                    <span class="blog-card__more">Weiterlesen &rarr;</span>
-                </a>
+                                <div class="video-card reveal">
+                    <button type="button" class="video-thumb" data-yt="yTwvoFTtM7s" aria-label="Video abspielen: Modul Freigabeprozesse">
+                        <img src="https://3dcay.de/wp-content/uploads/2024/12/YT-Thumbnail_2024_toolbox-freigabe.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
+                        <span class="video-play" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span>
+                    </button>
+                    <div class="video-body">
+                        <div class="blog-card__meta"><span class="blog-card__cat">Freigabeprozesse</span><span class="blog-card__date">21. Juli 2025</span></div>
+                        <h3>Modul Freigabeprozesse</h3>
+                        <p>Bestellungen individuell prüfen und freigeben – mehr Kontrolle über jeden Bestellvorgang im Marketing-Fulfillment-Shop.</p>
+                        <details class="video-more"><summary>Mehr erfahren</summary><div class="video-more__text">Trotz dezentraler Bestellprozesse können Freigaben der Qualitätssicherung dienen. Pro Artikel lässt sich festlegen, ob er generell freigabepflichtig ist oder erst nach Ausschöpfung eines Bestellkontingents. Bestellungen mit freigabepflichtigen Artikeln werden erst ausgelöst, wenn über alle Positionen entschieden wurde – die Bestände bleiben so lange geblockt.</div></details>
+                    </div>
+                </div>
+                <div class="video-card reveal">
+                    <button type="button" class="video-thumb" data-yt="b3qIdmKPMb8" aria-label="Video abspielen: Modul Gewichtsbeschränkungen">
+                        <img src="https://3dcay.de/wp-content/uploads/2024/12/YT-Thumbnail_2024_toolbox-gewicht.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
+                        <span class="video-play" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span>
+                    </button>
+                    <div class="video-body">
+                        <div class="blog-card__meta"><span class="blog-card__cat">Marketing-Fulfillment-Shop</span><span class="blog-card__date">27. Juni 2025</span></div>
+                        <h3>Modul Gewichtsbeschränkungen</h3>
+                        <p>Versandkosten sparen durch Mindestgewicht – die Toolbox des 3DCAY Marketing-Fulfillment-Shops.</p>
+                        <details class="video-more"><summary>Mehr erfahren</summary><div class="video-more__text">Über ein individuelles Mindestgewicht pro Bestellung und Benutzergruppe werden Besteller animiert, vorausschauender zu planen. Das reduziert die Zahl der Versandvorgänge, senkt die Versandkosten und verbessert den CO₂-Fußabdruck der Werbemittellogistik.</div></details>
+                    </div>
+                </div>
+                <div class="video-card reveal">
+                    <button type="button" class="video-thumb" data-yt="4cOeVMmE-uU" aria-label="Video abspielen: Modul Budgetmanagement">
+                        <img src="https://3dcay.de/wp-content/uploads/2024/12/YT-Thumbnail_2024_toolbox-budget.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
+                        <span class="video-play" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span>
+                    </button>
+                    <div class="video-body">
+                        <div class="blog-card__meta"><span class="blog-card__cat">Budgetmanagement</span><span class="blog-card__date">2. Juni 2025</span></div>
+                        <h3>Modul Budgetmanagement</h3>
+                        <p>Begrenzen Sie die Budgets Ihrer Benutzer und behalten Sie die Kosten jederzeit im Griff.</p>
+                        <details class="video-more"><summary>Mehr erfahren</summary><div class="video-more__text">Jedem Benutzer lässt sich ein Budget in Euro zuweisen; Bestellungen sind nur im Rahmen dieses Budgets möglich. Die Funktion ist mit Bestandskonten und Bestellbeschränkungen kombinierbar – künftig auch als automatisch erneuernde Monats-, Quartals- oder Jahresbudgets.</div></details>
+                    </div>
+                </div>
+                <div class="video-card reveal">
+                    <button type="button" class="video-thumb" data-yt="OqJFAS0xUtg" aria-label="Video abspielen: Modul Bestellbeschränkungen">
+                        <img src="https://3dcay.de/wp-content/uploads/2024/12/YT-Thumbnail_2024_toolbox_bestellbeschraenkungen1.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
+                        <span class="video-play" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span>
+                    </button>
+                    <div class="video-body">
+                        <div class="blog-card__meta"><span class="blog-card__cat">Bestellbeschränkung</span><span class="blog-card__date">27. März 2025</span></div>
+                        <h3>Modul Bestellbeschränkungen</h3>
+                        <p>Mehr Kontrolle durch Bestellmengen und Freigabepflichten – gezielt steuern, wer wie viel bestellt.</p>
+                        <details class="video-more"><summary>Mehr erfahren</summary><div class="video-more__text">Maximale oder minimale Bestellmengen pro Warenkorb, Freigabepflichten oder Kontingente pro Zeitraum – jeweils benutzergruppen- und artikelspezifisch. In Kombination mit den Berechtigungsfunktionen wird daraus ein starkes Instrument zur Steuerung der Marketingressourcen.</div></details>
+                    </div>
+                </div>
+                <div class="video-card reveal">
+                    <button type="button" class="video-thumb" data-yt="L84nu_w-6Bs" aria-label="Video abspielen: Modul Berechtigungsfunktionen">
+                        <img src="https://3dcay.de/wp-content/uploads/2024/12/YT-Thumbnail_2024_toolbox_berechtigungen.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
+                        <span class="video-play" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span>
+                    </button>
+                    <div class="video-body">
+                        <div class="blog-card__meta"><span class="blog-card__cat">Berechtigungssystem</span><span class="blog-card__date">6. März 2025</span></div>
+                        <h3>Modul Berechtigungsfunktionen</h3>
+                        <p>Steuern Sie die Sichtbarkeit von Artikeln – granular und nachvollziehbar pro Benutzergruppe.</p>
+                        <details class="video-more"><summary>Mehr erfahren</summary><div class="video-more__text">Pro Benutzergruppe lässt sich festlegen, welche Artikelkategorien sichtbar sind – so werden ungewollte Begehrlichkeiten gar nicht erst geweckt. Für mehr Flexibilität sind die Ansichtsrechte alternativ auch direkt auf Artikelebene steuerbar.</div></details>
+                    </div>
+                </div>
+                <div class="video-card reveal">
+                    <button type="button" class="video-thumb" data-yt="OJYKN3n3nwk" aria-label="Video abspielen: Modul Bestandskontrolle">
+                        <img src="https://3dcay.de/wp-content/uploads/2024/12/YT-Thumbnail_2024_toolbox_bestandskontrolle.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
+                        <span class="video-play" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span>
+                    </button>
+                    <div class="video-body">
+                        <div class="blog-card__meta"><span class="blog-card__cat">Bestandskontrolle</span><span class="blog-card__date">6. Februar 2025</span></div>
+                        <h3>Modul Bestandskontrolle</h3>
+                        <p>Weisen Sie Ihren Benutzern verfügbare Bestände zu und vermeiden Sie Überbestellungen.</p>
+                        <details class="video-more"><summary>Mehr erfahren</summary><div class="video-more__text">Der Gesamtbestand eines Artikels lässt sich auf mehrere Bestandskonten aufteilen – etwa freier Bestand und Reservierungsbestand, oder ein eigener Bestand je Vertriebsgebiet bzw. -team. So fließen die Artikel gezielt in die vorgesehenen Kanäle.</div></details>
+                    </div>
+                </div>
+                <div class="video-card reveal">
+                    <button type="button" class="video-thumb" data-yt="cH0EvkZJ55U" aria-label="Video abspielen: Modul Lagerreichweite">
+                        <img src="https://3dcay.de/wp-content/uploads/2024/12/YT-Thumbnail_2024_toolbox_lagerreichweite.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
+                        <span class="video-play" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span>
+                    </button>
+                    <div class="video-body">
+                        <div class="blog-card__meta"><span class="blog-card__cat">Lagerreichweite</span><span class="blog-card__date">4. Dezember 2024</span></div>
+                        <h3>Modul Lagerreichweite</h3>
+                        <p>Immer genügend Artikel im Lager – behalten Sie Reichweiten und Nachschub im Blick.</p>
+                        <details class="video-more"><summary>Mehr erfahren</summary><div class="video-more__text">Prognose-Tools berechnen aus durchschnittlichen Verkaufszahlen, Mindestbestand, gewünschter Reichweite und Produktionszeit, wann ein Artikel voraussichtlich ausverkauft ist – inklusive automatischer Nachbestell-Empfehlung mit Mengenvorschlag. Verfügbarkeitslücken lassen sich so zuverlässig vermeiden.</div></details>
+                    </div>
+                </div>
+                <div class="video-card reveal">
+                    <button type="button" class="video-thumb" data-yt="RYbeZlFdj94" aria-label="Video abspielen: KEIN Standard-Shop für Marketing-Fulfillment">
+                        <img src="https://3dcay.de/wp-content/uploads/2024/07/YT-Thumbnail_3DCAY-DER-Fulfillment-Shop.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
+                        <span class="video-play" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span>
+                    </button>
+                    <div class="video-body">
+                        <div class="blog-card__meta"><span class="blog-card__cat">Marketing-Fulfillment-Shop</span><span class="blog-card__date">4. Juli 2024</span></div>
+                        <h3>KEIN Standard-Shop für Marketing-Fulfillment</h3>
+                        <p>Warum Standard-Shopsysteme im B2B-Marketing an ihre Grenzen stoßen – und was es wirklich braucht.</p>
+                        <details class="video-more"><summary>Mehr erfahren</summary><div class="video-more__text">Magento, Shopify oder Shopware sind schnell aufgesetzt, decken komplexe B2B-Fulfillment-Prozesse aber oft nur mit vielen Zusatzplugins ab. Der 3DCAY SHOP ist speziell für Marketing-Fulfillment gebaut – inklusive Web-to-Print und einem offenen Schnittstellendesign zur Integration in bestehende IT-Systeme.</div></details>
+                    </div>
+                </div>
             </div>
+            <p class="video-note">Hinweis: Videos werden erst beim Klick geladen (youtube-nocookie.com). Dabei können Daten an Google/YouTube übertragen werden. <a href="https://www.youtube.com/@3dcaymarketingsolutions/videos" target="_blank" rel="noopener">Alle Videos auf YouTube</a>.</p>
         </div>
     </section>
 
     <!-- FINAL CTA -->
     <section class="cta-section">
         <div class="container">
-            <h2>Kein Beitrag mehr verpassen.</h2>
-            <p>Neue Artikel, Tipps und Neuigkeiten aus dem Marketing Fulfillment – direkt aus der Praxis.</p>
-            <a href="https://3dcay.de/marketing-logistik-blog/" target="_blank" rel="noopener" class="btn btn--dark" style="background-color: var(--white); color: var(--red);">Alle Beiträge ansehen →</a>
+            <h2>Kein Video mehr verpassen.</h2>
+            <p>Neue Videos, Tipps und Neuigkeiten aus dem Marketing Fulfillment – direkt aus der Praxis.</p>
+            <a href="https://www.youtube.com/@3dcaymarketingsolutions/videos" target="_blank" rel="noopener" class="btn btn--dark" style="background-color: var(--white); color: var(--red);">Alle Videos auf YouTube →</a>
         </div>
     </section>
 
@@ -1847,7 +1917,7 @@
                         <li><a href="../assessment.html">Fit-Check</a></li>
                         <li><a href="../ki-lab-newsletter.html">KI-Lab Newsletter</a></li>
                         <li><a href="../referenzen.html">Referenzen</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="blog.html">Videos</a></li>
                     </ul>
                 </div>
             </div>
@@ -2323,5 +2393,21 @@
         }
     </script>
     <script src="cookie-consent.js" defer></script>
+<script>
+(function(){
+  document.querySelectorAll('.video-thumb').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id = btn.getAttribute('data-yt'); if(!id) return;
+      var ifr = document.createElement('iframe');
+      ifr.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+      ifr.title = btn.getAttribute('aria-label') || 'Video';
+      ifr.setAttribute('allow','autoplay; encrypted-media; picture-in-picture; web-share');
+      ifr.setAttribute('allowfullscreen','');
+      ifr.loading = 'lazy';
+      btn.replaceWith(ifr);
+    });
+  });
+})();
+</script>
 </body>
 </html>
