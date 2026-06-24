@@ -2,6 +2,7 @@
 import { putItem, uid } from './lib/store.mjs';
 import { json, preflight } from './lib/auth.mjs';
 import { sendMail, mailjetConfigured } from './lib/mailjet.mjs';
+import { clientIp, rateLimit, honeypotTripped } from './lib/guard.mjs';
 
 export default async (req) => {
   const pf = preflight(req); if (pf) return pf;
@@ -10,6 +11,11 @@ export default async (req) => {
   try { b = await req.json(); } catch {}
   const email = String(b.email || '').trim();
   if (!email) return json({ error: 'email' }, 400);
+
+  // Missbrauchsschutz
+  if (honeypotTripped(b)) return json({ ok: true, id: 'skipped' });
+  if (!(await rateLimit({ name: 'lead', ip: clientIp(req), max: 5, windowSec: 60 })))
+    return json({ error: 'rate_limited' }, 429);
 
   const id = uid('lead');
   const lead = {

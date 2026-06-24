@@ -200,3 +200,75 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
+/* =====================================================================
+   3DCAY Analytics & Conversion-Tracking (einwilligungsbasiert)
+   - Lädt GA4 ERST nach Statistik-Einwilligung (Consent Mode v2 ist oben gesetzt).
+   - window.trackConversion(name, params) feuert GA4-Events (puffert sonst harmlos im dataLayer).
+   - Bindet automatisch Conversion-Events an bekannte Formulare.
+   ---------------------------------------------------------------------
+   >>> EINRICHTUNG: Tragen Sie hier Ihre GA4-Mess-ID ein (Format G-XXXXXXXXXX).
+       Solange leer, werden KEINE externen Skripte geladen (voll DSGVO-konform/inert).
+   ===================================================================== */
+(function () {
+  'use strict';
+  var GA_ID = ''; // <-- z. B. 'G-XXXXXXXXXX' eintragen, um Analytics zu aktivieren
+  var KEY = '3dcay_consent';
+  var loaded = false;
+
+  function statisticsAllowed() {
+    try { var c = JSON.parse(localStorage.getItem(KEY) || 'null'); return !!(c && c.statistics); }
+    catch (e) { return false; }
+  }
+
+  function loadGA() {
+    if (loaded || !GA_ID) return;
+    loaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_ID);
+    document.head.appendChild(s);
+    window.gtag('js', new Date());
+    window.gtag('config', GA_ID, { anonymize_ip: true });
+  }
+
+  // Öffentlich: Conversion-Event auslösen (funktioniert auch, wenn GA noch nicht geladen ist)
+  window.trackConversion = function (name, params) {
+    try {
+      window.dataLayer = window.dataLayer || [];
+      (window.gtag || function () { window.dataLayer.push(arguments); })('event', name || 'conversion', params || {});
+    } catch (e) {}
+  };
+
+  // GA laden, sobald Statistik-Einwilligung vorliegt (jetzt oder per Banner-Event)
+  if (statisticsAllowed()) loadGA();
+  document.addEventListener('cookieconsent:applied', function (e) {
+    if (e && e.detail && e.detail.statistics) loadGA();
+  });
+
+  // Automatisches Conversion-Tracking für bekannte Formulare
+  var FORM_EVENTS = {
+    'fit-check': 'lead_fitcheck',
+    'whitepaper': 'lead_whitepaper',
+    'whitepaper-download': 'lead_whitepaper',
+    'ki-playbook': 'lead_playbook',
+    'ki-playbook-lead': 'lead_playbook',
+    'demo': 'lead_demo',
+    'kontakt': 'lead_contact',
+    'contact': 'lead_contact',
+    'newsletter': 'newsletter_signup'
+  };
+  document.addEventListener('submit', function (ev) {
+    var f = ev.target;
+    if (!f || f.tagName !== 'FORM') return;
+    var key = (f.getAttribute('name') || f.id || '').toLowerCase();
+    var evt = FORM_EVENTS[key];
+    if (!evt) {
+      if (f.id === 'kpLeadForm') evt = 'lead_playbook';
+      else if (/newsletter|subscribe/.test(key)) evt = 'newsletter_signup';
+    }
+    window.trackConversion(evt || 'form_submit', { form: key || f.id || 'unknown', page: location.pathname });
+  }, true);
+})();

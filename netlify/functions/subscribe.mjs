@@ -3,6 +3,7 @@ import crypto from 'node:crypto';
 import { putItem, getItem } from './lib/store.mjs';
 import { json, preflight, signEmailToken } from './lib/auth.mjs';
 import { sendMail, mailjetConfigured } from './lib/mailjet.mjs';
+import { clientIp, rateLimit, honeypotTripped } from './lib/guard.mjs';
 
 export const emailKey = (email) => crypto.createHash('sha256').update(String(email).toLowerCase().trim()).digest('hex');
 const valid = (e) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e);
@@ -14,6 +15,11 @@ export default async (req) => {
   try { body = await req.json(); } catch {}
   const email = String(body.email || '').toLowerCase().trim();
   if (!valid(email)) return json({ error: 'email' }, 400);
+
+  // Missbrauchsschutz (E-Mail-Bombing vermeiden)
+  if (honeypotTripped(body)) return json({ ok: true });
+  if (!(await rateLimit({ name: 'subscribe', ip: clientIp(req), max: 3, windowSec: 60 })))
+    return json({ error: 'rate_limited' }, 429);
 
   const key = emailKey(email);
   const existing = await getItem('subscribers', key);
