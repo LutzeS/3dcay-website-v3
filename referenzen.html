@@ -954,7 +954,7 @@
                 <li><a href="v5/services.html" data-i18n="nav.services">Services</a></li>
                 <li><a href="v5/ki-lab.html" data-i18n="nav.ki">KI-Lab</a></li>
                 <li><a href="referenzen.html" data-i18n="nav.referenzen">Referenzen</a></li>
-                <li><a href="https://3dcay.de/marketing-logistik-blog/" target="_blank" rel="noopener" data-i18n="nav.blog">Blog</a></li>
+                <li><a href="v5/blog.html" data-i18n="nav.blog">Videos</a></li>
                 <li class="lang-toggle">
                     <button id="btnLangDE" class="active" onclick="setLang('de')">DE</button>
                     <button id="btnLangEN" onclick="setLang('en')">EN</button>
@@ -981,7 +981,7 @@
         <a href="v5/services.html" data-i18n="nav.services">Services</a>
         <a href="v5/ki-lab.html" data-i18n="nav.ki">KI-Lab</a>
         <a href="referenzen.html" data-i18n="nav.referenzen">Referenzen</a>
-        <a href="https://3dcay.de/marketing-logistik-blog/" target="_blank" rel="noopener">Blog</a>
+        <a href="v5/blog.html" data-i18n="nav.blog">Videos</a>
         <a href="#" class="nav__cta" style="margin-top:16px" onclick="openDemo(); return false;" data-i18n="nav.kontakt">Kontakt &rarr;</a>
     </div>
 
@@ -1256,8 +1256,8 @@
 
         /* i18n / BILINGUAL SYSTEM */
         const translations = {
-            de: { 'nav.home': 'Home', 'nav.produkte': 'Produkte', 'nav.services': 'Services', 'nav.ki': 'KI-Lab', 'nav.referenzen': 'Referenzen', 'nav.blog': 'Blog', 'nav.kontakt': 'Kontakt →' },
-            en: { 'nav.home': 'Home', 'nav.produkte': 'Products', 'nav.services': 'Services', 'nav.ki': 'AI Lab', 'nav.referenzen': 'References', 'nav.blog': 'Blog', 'nav.kontakt': 'Contact →' }
+            de: { 'nav.home': 'Home', 'nav.produkte': 'Produkte', 'nav.services': 'Services', 'nav.ki': 'KI-Lab', 'nav.referenzen': 'Referenzen', 'nav.blog': 'Videos', 'nav.kontakt': 'Kontakt →' },
+            en: { 'nav.home': 'Home', 'nav.produkte': 'Products', 'nav.services': 'Services', 'nav.ki': 'AI Lab', 'nav.referenzen': 'References', 'nav.blog': 'Videos', 'nav.kontakt': 'Contact →' }
         };
         let currentLang = localStorage.getItem('3dcay-lang') || 'de';
         function setLang(lang) {
