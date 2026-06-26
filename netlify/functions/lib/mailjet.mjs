@@ -8,7 +8,8 @@ export function mailjetConfigured() {
 }
 
 // to: string | {Email,Name} | Array davon
-export async function sendMail({ to, subject, html, text }) {
+// attachments: [{ filename, contentType, base64 }] (optional)
+export async function sendMail({ to, subject, html, text, attachments }) {
   const key = process.env.MAILJET_API_KEY;
   const secret = process.env.MAILJET_SECRET_KEY;
   const from = process.env.MAILJET_FROM_EMAIL;
@@ -19,13 +20,25 @@ export async function sendMail({ to, subject, html, text }) {
   const arr = Array.isArray(to) ? to : [to];
   const recipients = arr.map((r) => (typeof r === 'string' ? { Email: r } : { Email: r.Email || r.email, Name: r.Name || r.name || '' }));
 
-  const messages = recipients.map((r) => ({
-    From: { Email: from, Name: fromName },
-    To: [r],
-    Subject: subject,
-    HTMLPart: html,
-    TextPart: text || stripHtml(html),
-  }));
+  const att = Array.isArray(attachments) && attachments.length
+    ? attachments.map((a) => ({
+        ContentType: a.contentType || 'application/octet-stream',
+        Filename: a.filename || 'anhang',
+        Base64Content: a.base64,
+      }))
+    : undefined;
+
+  const messages = recipients.map((r) => {
+    const m = {
+      From: { Email: from, Name: fromName },
+      To: [r],
+      Subject: subject,
+      HTMLPart: html,
+      TextPart: text || stripHtml(html),
+    };
+    if (att) m.Attachments = att;
+    return m;
+  });
 
   const res = await fetch('https://api.mailjet.com/v3.1/send', {
     method: 'POST',

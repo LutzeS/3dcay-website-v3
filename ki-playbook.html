@@ -706,10 +706,59 @@ function kpOpenContact(){
 
 document.getElementById('kpLeadForm').addEventListener('submit',function(e){
   e.preventDefault();
-  var fd=new FormData(this);
-  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()})
-  .then(function(){document.getElementById('kpLeadForm').style.display='none';document.getElementById('kpLeadSuccess').style.display='block';})
-  .catch(function(){alert('Fehler beim Senden. Bitte versuchen Sie es sp\u00e4ter erneut.');});
+  var form=this;
+  var btn=form.querySelector('.kp-lead__btn');
+  var btnLabel=btn?btn.innerHTML:'';
+  if(btn){btn.disabled=true;btn.innerHTML='Playbook wird erstellt &hellip;';}
+
+  function showSuccess(delivered){
+    var box=document.getElementById('kpLeadSuccess');
+    box.innerHTML = delivered
+      ? '\u2713 Ihr Playbook wurde heruntergeladen und an Ihre E-Mail gesendet. Pr\u00fcfen Sie Ihren Download-Ordner und Ihr Postfach.'
+      : '\u2713 Ihr Playbook wurde heruntergeladen. Pr\u00fcfen Sie Ihren Download-Ordner.';
+    form.style.display='none'; box.style.display='block';
+  }
+  function fail(){
+    if(btn){btn.disabled=false;btn.innerHTML=btnLabel||'Playbook als PDF zusenden &rarr;';}
+    alert('Es gab ein Problem bei der Erstellung. Bitte versuchen Sie es sp\u00e4ter erneut.');
+  }
+  function sendLead(base64){
+    var payload={
+      first_name:form.first_name.value, last_name:form.last_name.value,
+      company:form.company.value, email:form.email.value,
+      score:document.getElementById('kpLeadScore').value,
+      industry:document.getElementById('kpLeadIndustry').value,
+      pain:document.getElementById('kpLeadPain').value,
+      goal:document.getElementById('kpLeadGoal').value,
+      pdfBase64:base64||''
+    };
+    return fetch('/.netlify/functions/playbook-send',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){return r.json().catch(function(){return {};});});
+  }
+  function netlifyFallback(){
+    var fd=new FormData(form);
+    return fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()});
+  }
+
+  var gen = window.kpGeneratePlaybook ? window.kpGeneratePlaybook(form) : Promise.reject(new Error('no-generator'));
+  gen.then(function(res){
+    // PDF erzeugt + heruntergeladen -> Lead + E-Mail-Versand
+    sendLead(res.base64).then(function(out){
+      showSuccess(!!(out && out.delivered));
+    }).catch(function(){ showSuccess(false); });
+  }).catch(function(){
+    // PDF-Generierung nicht moeglich -> Lead trotzdem sichern, sonst Netlify-Fallback
+    sendLead('').then(function(out){
+      var box=document.getElementById('kpLeadSuccess');
+      box.innerHTML='\u2713 Ihr Playbook ist unterwegs! Pr\u00fcfen Sie Ihr Postfach in den n\u00e4chsten Minuten.';
+      form.style.display='none'; box.style.display='block';
+    }).catch(function(){
+      netlifyFallback().then(function(){
+        var box=document.getElementById('kpLeadSuccess');
+        form.style.display='none'; box.style.display='block';
+      }).catch(fail);
+    });
+  });
 });
 </script>
 
@@ -728,5 +777,7 @@ document.getElementById('kpLeadForm').addEventListener('submit',function(e){
 function setCookieConsent(level){localStorage.setItem('cookie_consent',level);localStorage.setItem('cookie_consent_date',new Date().toISOString());document.getElementById('cookieBanner').style.display='none';}
 </script>
     <script src="v5/cookie-consent.js" defer></script>
+<script src="v5/vendor/html2pdf.bundle.min.js" defer></script>
+<script src="v5/playbook-generate.js" defer></script>
 </body>
 </html>

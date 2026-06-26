@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<!--
+  3DCAY KI-Marketing-Playbook — DRUCK-/PDF-TEMPLATE
+  Wird zur Laufzeit befüllt (playbook-generate.js) und als PDF erzeugt.
+  Platzhalter: {{TOKEN}}. Dynamisch: Branche, Score, Phase, Kennzahlen, Quick Wins, 30-Tage-Plan.
+-->
+<style>
+  @font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url('/v5/fonts/inter-latin-400-normal.woff2') format('woff2');}
+  @font-face{font-family:'Inter';font-weight:500;font-display:swap;src:url('/v5/fonts/inter-latin-500-normal.woff2') format('woff2');}
+  @font-face{font-family:'Inter';font-weight:700;font-display:swap;src:url('/v5/fonts/inter-latin-700-normal.woff2') format('woff2');}
+  @font-face{font-family:'Inter';font-weight:800;font-display:swap;src:url('/v5/fonts/inter-latin-800-normal.woff2') format('woff2');}
+  @font-face{font-family:'JetBrains Mono';font-weight:400;font-display:swap;src:url('/v5/fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2');}
+  @font-face{font-family:'JetBrains Mono';font-weight:700;font-display:swap;src:url('/v5/fonts/jetbrains-mono-latin-700-normal.woff2') format('woff2');}
+  :root{
+    --red:#e3101a;--black:#0A0A0A;--ink:#171717;
+    --g200:#E5E5E5;--g300:#d4d4d4;--g500:#737373;--g700:#404040;
+    --bg:#FAFAFA;--mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  @page{size:A4;margin:0;}
+  *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  html,body{margin:0;padding:0;background:#fff;}
+  body{font-family:'Inter',system-ui,Arial,sans-serif;color:var(--ink);font-size:10.5pt;line-height:1.55;width:210mm;}
+  .sheet{width:210mm;padding:0 16mm 12mm;overflow:hidden;}
+  .sheet--cover{padding:0;}
+  .break{page-break-before:always;break-before:page;}
+  h1,h2,h3{letter-spacing:-.02em;margin:0;}
+  .mono{font-family:var(--mono);}.red{color:var(--red);}.muted{color:var(--g500);}
+
+  /* COVER */
+  .cover{background:var(--black);color:#fff;width:210mm;height:297mm;padding:24mm 18mm;display:flex;flex-direction:column;}
+  .cover img{width:46mm;height:auto;display:block;}
+  .cover__eyebrow{font-family:var(--mono);font-size:9pt;letter-spacing:.18em;color:var(--red);font-weight:700;text-transform:uppercase;margin:46mm 0 9mm;}
+  .cover h1{font-size:33pt;font-weight:800;line-height:1.05;color:#fff;max-width:150mm;}
+  .cover__sub{font-size:12pt;color:#bdbdbd;margin-top:8mm;max-width:140mm;line-height:1.5;}
+  .cover__for{margin-top:9mm;font-size:10.5pt;color:#e5e5e5;}
+  .cover__for b{color:#fff;}
+  .cover__meta{margin-top:auto;display:flex;gap:13mm;border-top:1px solid #2a2a2a;padding-top:8mm;}
+  .cover__meta .k{font-family:var(--mono);color:var(--g500);text-transform:uppercase;letter-spacing:.1em;font-size:7.5pt;margin-bottom:2mm;}
+  .cover__meta .v{font-size:11pt;font-weight:700;color:#fff;}
+
+  .sec{font-family:var(--mono);font-size:8.5pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:14mm 0 3mm;}
+  .sheet>.sec:first-child{margin-top:14mm;}
+  h2{font-size:18pt;font-weight:800;margin-bottom:4mm;}
+  .lead{color:var(--g700);font-size:10.5pt;margin:0 0 7mm;max-width:158mm;}
+
+  .score{background:var(--black);color:#fff;border-radius:5mm;padding:11mm 12mm;margin-bottom:8mm;}
+  .score__num{font-size:46pt;font-weight:800;line-height:.9;}
+  .score__num span{color:var(--red);font-size:20pt;}
+  .score__phase{display:inline-block;background:rgba(227,16,26,.16);color:#ff5862;border:1px solid rgba(227,16,26,.5);border-radius:100px;padding:2mm 6mm;font-family:var(--mono);font-size:8.5pt;font-weight:700;letter-spacing:.06em;margin-bottom:4mm;}
+  .score__desc{color:#cfcfcf;font-size:10pt;margin:6mm 0 0;max-width:152mm;line-height:1.55;}
+  .bench{margin-top:8mm;}
+  .bench__label{font-family:var(--mono);font-size:7.5pt;letter-spacing:.12em;color:var(--g500);text-transform:uppercase;margin-bottom:3mm;}
+  .bar{position:relative;height:3mm;background:#262626;border-radius:100px;}
+  .bar__avg{position:absolute;top:-1.5mm;width:.6mm;height:6mm;background:var(--g500);}
+  .bar__you{position:absolute;top:-1mm;width:4mm;height:5mm;background:var(--red);border-radius:1mm;transform:translateX(-50%);}
+  .bench__scale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:7.5pt;color:var(--g500);margin-top:2.5mm;}
+
+  .stats{display:flex;gap:6mm;margin-bottom:8mm;}
+  .stat{flex:1;border:1px solid var(--g200);border-radius:4mm;padding:6mm;text-align:center;}
+  .stat__num{font-size:24pt;font-weight:800;color:var(--red);line-height:1;}
+  .stat__lbl{font-size:8.5pt;color:var(--g500);margin-top:2mm;text-transform:uppercase;letter-spacing:.06em;font-family:var(--mono);}
+
+  .qw{display:flex;gap:6mm;border:1px solid var(--g200);border-radius:4mm;padding:6mm;margin-bottom:5mm;}
+  .qw__n{font-family:var(--mono);font-size:15pt;font-weight:700;color:var(--red);min-width:9mm;}
+  .qw__t{font-size:12pt;font-weight:700;margin-bottom:2mm;}
+  .qw__d{color:var(--g700);font-size:10pt;margin-bottom:3mm;line-height:1.5;}
+  .qw__meta{display:flex;gap:7mm;flex-wrap:wrap;font-family:var(--mono);font-size:8pt;color:var(--g500);text-transform:uppercase;letter-spacing:.05em;}
+  .qw__meta b{color:var(--ink);font-weight:700;}
+  .chip{display:inline-block;background:#fdeaeb;color:var(--red);border-radius:100px;padding:.6mm 3mm;font-weight:700;}
+
+  .plan__item{display:flex;gap:7mm;padding:4.5mm 0;border-top:1px solid var(--g200);}
+  .plan__item:first-child{border-top:none;}
+  .plan__w{font-family:var(--mono);font-size:9pt;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--red);min-width:24mm;}
+  .plan__t{color:var(--g700);font-size:10pt;line-height:1.5;}
+
+  .prompt{border:1px solid var(--g200);border-radius:4mm;overflow:hidden;margin-bottom:5mm;}
+  .prompt__head{background:#f5f5f5;padding:3.5mm 6mm;font-weight:700;font-size:10.5pt;border-bottom:1px solid var(--g200);}
+  .prompt__head span{font-family:var(--mono);font-size:8pt;color:var(--g500);font-weight:600;display:block;margin-top:1mm;letter-spacing:.04em;}
+  .prompt__body{padding:5mm 6mm;font-family:var(--mono);font-size:8.7pt;line-height:1.6;color:var(--g700);white-space:pre-wrap;}
+  .prompt__body .ph{color:var(--red);}
+
+  table{width:100%;border-collapse:collapse;font-size:9.3pt;margin-bottom:5mm;}
+  th,td{text-align:left;padding:3.2mm 4mm;border-bottom:1px solid var(--g200);vertical-align:top;}
+  th{font-family:var(--mono);font-size:7.5pt;text-transform:uppercase;letter-spacing:.06em;color:var(--g500);font-weight:700;}
+  .tag{display:inline-block;font-family:var(--mono);font-size:7pt;font-weight:700;letter-spacing:.04em;border-radius:100px;padding:.5mm 2.5mm;}
+  .tag--core{background:#fdeaeb;color:var(--red);}
+  .tag--opt{background:#eef2f7;color:#475569;}
+
+  .chk{display:flex;gap:4mm;padding:3.2mm 0;border-top:1px solid var(--g200);align-items:flex-start;}
+  .chk:first-child{border-top:none;}
+  .chk__box{min-width:4.5mm;height:4.5mm;border:1.4pt solid var(--red);border-radius:1.3mm;margin-top:.6mm;}
+  .chk__t{font-size:10pt;color:var(--g700);line-height:1.5;}
+  .chk__t b{color:var(--ink);}
+
+  .callout{background:var(--bg);border:1px solid var(--g200);border-left:3px solid var(--red);border-radius:0 3mm 3mm 0;padding:5mm 6mm;font-size:9.5pt;color:var(--g700);margin:6mm 0;line-height:1.55;}
+  .callout b{color:var(--ink);}
+
+  .cta{background:var(--black);color:#fff;border-radius:5mm;padding:10mm 12mm;margin-top:8mm;}
+  .cta h2{color:#fff;font-size:16pt;margin-bottom:3mm;}
+  .cta p{color:#c9c9c9;font-size:10pt;margin:0 0 6mm;max-width:140mm;}
+  .cta__row{display:flex;gap:6mm;flex-wrap:wrap;font-size:9.5pt;}
+  .cta__row a{color:#fff;text-decoration:none;border-bottom:1px solid var(--red);padding-bottom:.5mm;}
+  .pagefoot{display:flex;justify-content:space-between;font-family:var(--mono);font-size:7.5pt;color:var(--g500);border-top:1px solid var(--g200);padding-top:4mm;margin:9mm 0 0;}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="sheet sheet--cover">
+  <div class="cover">
+    <img src="/v5/images/3dcay-logo.svg" alt="3DCAY">
+    <div class="cover__eyebrow">KI-Playbook &middot; 3DCAY Lab</div>
+    <h1>Ihr KI-Marketing-<br>Playbook</h1>
+    <p class="cover__sub">Drei sofort umsetzbare Quick Wins, ein 30-Tage-Plan und Ihr KI-Reifegrad im Branchenvergleich &mdash; inklusive Prompt-Vorlagen, Tool-Stack-Empfehlung und Governance-Checkliste.</p>
+    <p class="cover__for">Erstellt f&uuml;r: <b>{{NAME}}</b>{{COMPANY_SUFFIX}}</p>
+    <div class="cover__meta">
+      <div><div class="k">Profil</div><div class="v">{{INDUSTRY}}</div></div>
+      <div><div class="k">Reifegrad</div><div class="v">{{SCORE}} / 100</div></div>
+      <div><div class="k">Phase</div><div class="v">{{PHASE}}</div></div>
+      <div><div class="k">Stand</div><div class="v">{{DATE}}</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REIFEGRAD -->
+<section class="sheet break">
+  <p class="sec">Ausgangslage</p>
+  <h2>Ihr KI-Reifegrad</h2>
+
+  <div class="score">
+    <div class="score__phase">{{PHASE}}</div>
+    <div class="score__num">{{SCORE}}<span>/100</span></div>
+    <p class="score__desc">{{PHASE_DESC}}</p>
+    <div class="bench">
+      <div class="bench__label">Branchen-Benchmark</div>
+      <div class="bar">
+        <div class="bar__avg" style="left:{{BENCH_AVG}}%"></div>
+        <div class="bar__you" style="left:{{SCORE}}%"></div>
+      </div>
+      <div class="bench__scale"><span>0</span><span>&Oslash; {{INDUSTRY}} {{BENCH_AVG}} &middot; Sie {{SCORE}}</span><span>100</span></div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat__num">+{{HOURS}} h</div><div class="stat__lbl">Zeit / Woche</div></div>
+    <div class="stat"><div class="stat__num">{{OUTPUT}}&times;</div><div class="stat__lbl">Content-Frequenz</div></div>
+    <div class="stat"><div class="stat__num">2 Q</div><div class="stat__lbl">bis ROI</div></div>
+  </div>
+
+  <div class="callout">{{BENCH_NOTE}}</div>
+  <div class="pagefoot"><span>3DCAY KI-Playbook &middot; {{INDUSTRY}}</span><span>Seite 2</span></div>
+</section>
+
+<!-- QUICK WINS -->
+<section class="sheet break">
+  <p class="sec">Sofort startklar</p>
+  <h2>Ihre 3 Quick Wins</h2>
+  <p class="lead">Basierend auf Branche, Team-Gr&ouml;&szlig;e und Top-Ziel. Umsetzbar ohne neues Tooling.</p>
+
+  {{QUICKWINS}}
+
+  <div class="callout"><b>Summe:</b> rund <b>{{HOURS}} Stunden</b> freigespielte Zeit pro Woche &mdash; bei gleichbleibender Qualit&auml;t und h&ouml;herer Kunden-Relevanz. Start mit Quick Win&nbsp;1 (h&ouml;chster Impact).</div>
+  <div class="pagefoot"><span>3DCAY KI-Playbook &middot; {{INDUSTRY}}</span><span>Seite 3</span></div>
+</section>
+
+<!-- 30-TAGE-PLAN -->
+<section class="sheet break">
+  <p class="sec">Umsetzung</p>
+  <h2>30-Tage-Plan</h2>
+  <p class="lead">Ein schlanker, w&ouml;chentlicher Rhythmus &mdash; von der Baseline bis zum ersten messbaren Output.</p>
+
+  {{PLAN}}
+
+  <div class="callout"><b>Erfolgskriterium:</b> Am Ende von Woche 4 steht eine produktive Prompt-Bibliothek, ein dokumentierter Uplift (Baseline vs. KI-Variante) und eine Go/No-Go-Entscheidung f&uuml;r die Skalierung.</div>
+  <div class="pagefoot"><span>3DCAY KI-Playbook &middot; {{INDUSTRY}}</span><span>Seite 4</span></div>
+</section>
+
+<!-- PROMPTS -->
+<section class="sheet break">
+  <p class="sec">Vorlagen</p>
+  <h2>Prompt-Bausteine</h2>
+  <p class="lead">Startfertige Vorlagen f&uuml;r Ihre Quick Wins. <span class="red">Rot</span> = von Ihnen zu f&uuml;llen.</p>
+
+  <div class="prompt">
+    <div class="prompt__head">1 &middot; Zielkunden-Content <span>Quick Win 1</span></div>
+    <div class="prompt__body">Du bist Marketingtexter f&uuml;r <span class="ph">[Unternehmen/Marke]</span>.
+Erstelle Content f&uuml;r den Zielkunden <span class="ph">[Kunde/Segment, Branche]</span>.
+Kontext: relevante Produkte <span class="ph">[Produkte]</span>, bekannter Pain <span class="ph">[Herausforderung]</span>, Referenz <span class="ph">[Case]</span>.
+Liefere: H1, Subline, 3 Nutzenbl&ouml;cke (Kunden-Sprache), 1 Social-Proof-Block, CTA.
+Tonalit&auml;t: sachlich, pr&auml;zise. Keine erfundenen Zahlen.</div>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt__head">2 &middot; Termin-/Vertriebs-Briefing <span>Quick Win 2</span></div>
+    <div class="prompt__body">Erstelle ein 2-seitiges Briefing f&uuml;r ein Gespr&auml;ch mit <span class="ph">[Ansprechpartner, Rolle, Firma]</span>.
+Quellen: <span class="ph">[Website, letzte Mails, CRM-Notizen einf&uuml;gen]</span>.
+Gliederung: (1) Firma & Lage, (2) wahrscheinliche Ziele/Pains der Rolle,
+(3) 3 ma&szlig;geschneiderte Talking Points, (4) 3 kluge R&uuml;ckfragen, (5) Einw&auml;nde + Antwort.
+Markiere Annahmen klar als Annahme.</div>
+  </div>
+
+  <div class="prompt">
+    <div class="prompt__head">3 &middot; Variante / Sprachversion <span>Quick Win 3</span></div>
+    <div class="prompt__body">Leite aus dem folgenden Asset <span class="ph">[Anzahl]</span> Varianten ab f&uuml;r <span class="ph">[Kan&auml;le/Sprachen]</span>.
+Regeln: Fachterminologie laut Glossar <span class="ph">[Begriff = Zielbegriff]</span>, Marken-/Produktnamen unver&auml;ndert, Ansprache <span class="ph">[Sie/Du]</span>.
+Gib am Ende eine Liste der Stellen aus, bei denen du unsicher warst.
+Asset: <span class="ph">[Text einf&uuml;gen]</span></div>
+  </div>
+
+  <div class="pagefoot"><span>3DCAY KI-Playbook &middot; {{INDUSTRY}}</span><span>Seite 5</span></div>
+</section>
+
+<!-- TOOL-STACK -->
+<section class="sheet break">
+  <p class="sec">Empfehlung</p>
+  <h2>Tool-Stack</h2>
+  <p class="lead">Anbieterunabh&auml;ngig gedacht &mdash; mit Fallback-Ebene. Lehre aus dem Fable-5-Bann: kein Prozess h&auml;ngt an einem einzigen Modell.</p>
+
+  <table>
+    <thead><tr><th>Ebene</th><th>Empfehlung</th><th>Zweck</th><th>Prio</th></tr></thead>
+    <tbody>
+      <tr><td><b>Basismodell</b></td><td>Claude Opus 4.8 <span class="muted">/ GPT-Klasse als Fallback</span></td><td>Texte, Briefings, &Uuml;bersetzung &mdash; stabil & kosteneffizient</td><td><span class="tag tag--core">Core</span></td></tr>
+      <tr><td><b>Zugriff/Abstraktion</b></td><td>Modell-Gateway (z.&nbsp;B. eigener Proxy)</td><td>Anbieter austauschbar, ein Endpoint, zentrale Logs</td><td><span class="tag tag--core">Core</span></td></tr>
+      <tr><td><b>Datenschutz</b></td><td>EU-/Self-Hosted-Option f&uuml;r sensible Daten</td><td>DSGVO-konform, kein Daten-Leak, Nachvollziehbarkeit</td><td><span class="tag tag--core">Core</span></td></tr>
+      <tr><td><b>Prompt-Verwaltung</b></td><td>Zentrale, versionierte Prompt-Library</td><td>Markenkonform, freigegeben, wiederverwendbar</td><td><span class="tag tag--core">Core</span></td></tr>
+      <tr><td><b>Bild/Asset</b></td><td>Bildmodell mit Markenstil-Referenz</td><td>Kampagnenmotive, Format-Ableitungen</td><td><span class="tag tag--opt">Optional</span></td></tr>
+      <tr><td><b>Automatisierung</b></td><td>Workflow-Tool (Make / n8n / Zapier)</td><td>Prompt-Ketten & Daten&uuml;bergaben verbinden</td><td><span class="tag tag--opt">Optional</span></td></tr>
+      <tr><td><b>Messung</b></td><td>KPI-Tracking auf Varianten-Ebene</td><td>Uplift KI-Variante vs. Baseline belegen</td><td><span class="tag tag--opt">Optional</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout"><b>Faustregel Budget:</b> In der Aufbau-Phase reichen Lizenz-/API-Kosten im niedrigen drei- bis vierstelligen Bereich pro Monat. Der gr&ouml;&szlig;te Hebel ist nicht das teuerste Modell, sondern saubere Prompts, gute Vor-/Nachverarbeitung und ein fester Review-Schritt.</div>
+  <div class="pagefoot"><span>3DCAY KI-Playbook &middot; {{INDUSTRY}}</span><span>Seite 6</span></div>
+</section>
+
+<!-- GOVERNANCE + CTA -->
+<section class="sheet break">
+  <p class="sec">Sicher betreiben</p>
+  <h2>Governance-Checkliste</h2>
+  <p class="lead">Pflicht-Bausteine, bevor KI-Output kundenseitig oder &ouml;ffentlich verwendet wird.</p>
+
+  <div class="chk"><div class="chk__box"></div><div class="chk__t"><b>Freigabe-Prozess:</b> Jeder KI-Output durchl&auml;uft einen menschlichen Review vor Ver&ouml;ffentlichung (4-Augen bei Claims).</div></div>
+  <div class="chk"><div class="chk__box"></div><div class="chk__t"><b>Claim-/Faktencheck:</b> Zahlen, Normen und Produktaussagen gegen Quelle pr&uuml;fen &mdash; keine erfundenen Werte.</div></div>
+  <div class="chk"><div class="chk__box"></div><div class="chk__t"><b>Datenschutz:</b> Keine personenbezogenen/vertraulichen Daten in &ouml;ffentliche Modelle; sensible F&auml;lle &uuml;ber EU-/Self-Hosting.</div></div>
+  <div class="chk"><div class="chk__box"></div><div class="chk__t"><b>Urheber-/Markenrecht:</b> Bildquellen & Lizenzen kl&auml;ren; keine gesch&uuml;tzten Inhalte Dritter reproduzieren.</div></div>
+  <div class="chk"><div class="chk__box"></div><div class="chk__t"><b>Kennzeichnung:</b> Intern dokumentieren, wo KI eingesetzt wurde (Audit-Trail / Versionierung).</div></div>
+  <div class="chk"><div class="chk__box"></div><div class="chk__t"><b>Anbieter-Resilienz:</b> Mindestens ein Fallback-Modell definiert; Zugriff &uuml;ber Gateway abstrahiert.</div></div>
+  <div class="chk"><div class="chk__box"></div><div class="chk__t"><b>Prompt-Hygiene:</b> Nur freigegebene Prompts aus der zentralen Library; Guardrails f&uuml;r kritische Claims.</div></div>
+  <div class="chk"><div class="chk__box"></div><div class="chk__t"><b>Schulung:</b> Team-Briefing zu Chancen, Grenzen und roten Linien; benannte verantwortliche Person.</div></div>
+
+  <div class="cta">
+    <h2>N&auml;chster Schritt</h2>
+    <p>Sie m&ouml;chten die Quick Wins mit uns aufsetzen? Wir begleiten Aufbau, Prompt-Library und Governance &mdash; pragmatisch und messbar.</p>
+    <div class="cta__row">
+      <span>Kontakt: <a href="https://3dcay-version3.netlify.app/v5/index.html#kontakt">3dcay.de &middot; Kontakt</a></span>
+      <span>Fit-Check: <a href="https://3dcay-version3.netlify.app/assessment">KI-Readiness pr&uuml;fen</a></span>
+    </div>
+  </div>
+
+  <div class="pagefoot"><span>3DCAY Marketing IT Solutions by drei-d &middot; Muster-Playbook, keine Rechtsberatung</span><span>Seite 7</span></div>
+</section>
+
+</body>
+</html>
