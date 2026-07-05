@@ -3,7 +3,7 @@
 // Benötigt Umgebungsvariable: ANTHROPIC_API_KEY (Netlify → Site settings → Environment variables)
 // Optional: CHAT_MODEL (Default: claude-haiku-4-5), ALLOWED_ORIGIN
 
-import { KNOWLEDGE_BASE } from "./knowledge.mjs";
+import { KNOWLEDGE_BASE } from "./lib/knowledge.mjs";
 
 const MODEL = process.env.CHAT_MODEL || "claude-haiku-4-5";
 const MAX_TURNS = 20;          // max. Nachrichten pro Konversation
@@ -35,7 +35,8 @@ ${KNOWLEDGE_BASE}
 </wissensbasis>
 
 ## Verhalten
-- Antworte in der Sprache des Nutzers (Deutsch oder Englisch). Sieze auf Deutsch.
+- Antworte in der Sprache des Nutzers (Deutsch oder Englisch). Sieze auf Deutsch KONSEQUENT (niemals "Du").
+- Verwende keine Emojis.
 - Kurz und präzise: 2–5 Sätze, bei Aufzählungen max. 5 Stichpunkte.
 - Wenn eine Information NICHT in der Wissensbasis steht, sage das ehrlich und
   verweise auf die Demo-Anfrage (Kontakt-Button) oder den Fit-Check (/assessment).
