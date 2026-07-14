@@ -108,7 +108,11 @@
 
   // ---------- Styles ----------
   var css =
-    ".dcaycb *{box-sizing:border-box;margin:0;padding:0;font-family:inherit}" +
+    // Reset gegen das Seiten-Stylesheet: Website-Regeln für h3/p/button/a sind
+    // spezifischer als Vererbung und würden sonst Farbe, Schriftgröße oder
+    // Uppercase-Transform ins Widget durchschlagen (z. B. unsichtbarer Titel).
+    ".dcaycb *{box-sizing:border-box;margin:0;padding:0;font-family:inherit;" +
+    "text-transform:none;letter-spacing:normal;text-align:left}" +
     ".dcaycb{position:fixed;bottom:20px;right:20px;z-index:99999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:14px}" +
     ".dcaycb-btn{width:58px;height:58px;border-radius:50%;border:none;cursor:pointer;background:" + CFG.dark + ";color:#fff;box-shadow:0 6px 24px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;transition:transform .15s}" +
     ".dcaycb-btn:hover{transform:scale(1.06)}" +
@@ -117,8 +121,8 @@
     ".dcaycb.open .dcaycb-panel{display:flex}" +
     ".dcaycb-head{background:" + CFG.dark + ";color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px}" +
     ".dcaycb-head .dot{width:9px;height:9px;border-radius:50%;background:#22c55e;flex:none}" +
-    ".dcaycb-head h3{font-size:15px;font-weight:600;line-height:1.2}" +
-    ".dcaycb-head p{font-size:11.5px;opacity:.75}" +
+    ".dcaycb-head h3{font-size:15px;font-weight:600;line-height:1.2;color:#fff;margin:0}" +
+    ".dcaycb-head p{font-size:11.5px;opacity:.75;color:#fff;margin:0}" +
     ".dcaycb-head .x{margin-left:auto;background:none;border:none;color:#fff;cursor:pointer;font-size:20px;line-height:1;opacity:.8;padding:4px}" +
     ".dcaycb-body{flex:1;overflow-y:auto;padding:14px;background:#f4f6f9;display:flex;flex-direction:column;gap:10px}" +
     ".dcaycb-msg{max-width:85%;padding:9px 13px;border-radius:14px;line-height:1.45;word-wrap:break-word;white-space:normal}" +
