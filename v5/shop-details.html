@@ -1873,7 +1873,9 @@
             color: var(--white);
         }
         .matrix-body {
-            padding: 0 8px 8px;
+            /* rechter Innenabstand = Chevron (32px) + Grid-Gap (16px) + summary-Padding (24px),
+               damit die Wertespalten exakt unter BASIC / PRO / PREMIUM sitzen */
+            padding: 0 72px 8px 8px;
         }
         .matrix-subtable {
             width: 100%;
@@ -1924,6 +1926,7 @@
                 padding: 16px 18px;
             }
             .matrix-head-tiers { display: none; }
+            .matrix-body { padding: 0 8px 8px; }
             .matrix-subtable td { padding: 10px 12px; font-size: 13px; }
             .matrix-subtable td.tier-cell { width: 56px; }
         }
