@@ -8,7 +8,7 @@
     <meta property="og:description" content="Die IT-Marke für smartes Marketing Fulfillment – Weniger Aufwand. Mehr Kontrolle. Mehr Performance.">
     <meta property="og:image" content="images/og-image.jpg">
     <meta property="og:type" content="website">
-    <title>3DCAY – Marketing IT Solutions by drei-d</title>
+    <title>Shop Details – Ausbaustufen & Funktionen | 3DCAY</title>
     
     <link rel="preload" as="image" href="images/dashboard-office.png">
     <link href="fonts/fonts.css" rel="stylesheet">
@@ -1650,229 +1650,593 @@
     </style>
 </head>
 <body>
-    <!-- NAVIGATION (V2 Style) -->
-    <nav class="nav nav--dark" id="nav">
-        <div class="nav__inner">
-            <a href="index.html" class="nav__logo">
-                <img src="images/3dcay-logo.svg" alt="3DCAY">
-            </a>
-
-            <ul class="nav__links">
-                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-                <li class="nav__dropdown">
-                    <a href="#produkte" data-i18n="nav.produkte">Produkte</a>
-                    <div class="nav__dropdown-menu">
-                        <a href="shop.html">Shop</a>
-                        <a href="web-to-publish.html">Web-to-Publish</a>
-                        <a href="cashback.html">Cashback</a>
-                        <a href="3dcay-app.html">App</a>
-                    </div>
-                </li>
-                <li><a href="services.html" data-i18n="nav.services">Services</a></li>
-                <li><a href="ki-lab.html" data-i18n="nav.ki">KI-Lab</a></li>
-                <li><a href="../referenzen.html" data-i18n="nav.referenzen">Referenzen</a></li>
-                <li><a href="blog.html" data-i18n="nav.blog">Videos</a></li>
-                <li class="lang-toggle">
-                    <button id="btnLangDE" class="active" onclick="setLang('de')">DE</button>
-                    <button id="btnLangEN" onclick="setLang('en')">EN</button>
-                </li>
-            </ul>
-
-            <a href="#kontakt" class="nav__cta" data-i18n="nav.kontakt">Kontakt &rarr;</a>
-
-            <button class="nav__mobile" aria-label="Menu" onclick="toggleMobileNav()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
+    <!-- NAVIGATION (minimal · wie assessment) -->
+    <style>
+        .as-nav { height:64px; display:flex; align-items:center; border-bottom:1px solid var(--gray-200); padding:0 32px; background:var(--white); }
+        .as-nav__logo { display:flex; align-items:center; text-decoration:none; }
+        .as-nav__logo img { height:28px; width:auto; }
+        .as-nav__back { margin-left:auto; font-size:14px; color:var(--gray-500); text-decoration:none; transition:color 0.2s; }
+        .as-nav__back:hover { color:var(--black); }
+    </style>
+    <nav class="as-nav">
+        <a href="index.html" class="as-nav__logo"><img src="images/3dcay-logo.svg" alt="3DCAY"></a>
+        <a href="shop.html" class="as-nav__back">&larr; Zur&uuml;ck zum Shop</a>
     </nav>
 
-    <!-- Mobile Nav Panel -->
-    <div class="nav__mobile-panel" id="mobileNav">
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="web-to-publish.html">Web-to-Publish</a>
-        <a href="cashback.html">Cashback</a>
-        <a href="3dcay-app.html">App</a>
-        <a href="services.html" data-i18n="nav.services">Services</a>
-        <a href="ki-lab.html" data-i18n="nav.ki">KI-Lab</a>
-        <a href="../referenzen.html" data-i18n="nav.referenzen">Referenzen</a>
-        <a href="blog.html">Videos</a>
-        <a href="#kontakt" class="nav__cta" style="margin-top:16px" data-i18n="nav.kontakt">Kontakt &rarr;</a>
-    </div>
-
-        <style>
-        .hero::before{ background-image:url('images/dashboard-office.png'); }
-        .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:1000px; margin:0 auto; }
-        @media(max-width:760px){ .stat-grid{ grid-template-columns:1fr; } }
-        .stat{ background:var(--white); border:1px solid var(--gray-200); border-radius:16px; padding:36px 28px; text-align:center; }
-        .stat-num{ font-size:clamp(40px,6vw,64px); font-weight:800; color:var(--red); line-height:1; letter-spacing:-0.03em; }
-        .stat-label{ margin-top:14px; font-size:14px; color:var(--gray-700); line-height:1.55; }
-        .sol-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-        @media(max-width:900px){ .sol-grid{ grid-template-columns:repeat(2,1fr); } }
-        @media(max-width:560px){ .sol-grid{ grid-template-columns:1fr; } }
-    </style>
+        <style>.hero::before{ background-image:url('images/dashboard-office.png'); }</style>
     <!-- HERO SECTION -->
-    <style>.hero{ padding:72px 0 50px; }</style>
     <section class="hero">
         <div class="hero-content">
-            <div class="label" style="text-transform:none;">3DCAY MARKETING IT SOLUTIONS BY drei-d</div>
-            <h1>Smarte IT für <em style="white-space:nowrap;">Marketing &amp; Fulfillment</em></h1>
-            <p class="v5-tagline" style="color:#fff;">20 Jahre Marketing-Software. 30 Jahre B2B-Fulfillment. Eine Plattform.</p>
-            <p><span style="font-weight:600;">3DCAY ist die neue IT-Marke von drei-d —</span> entstanden aus der Integration von CAY SOLUTIONS. Wir bündeln zwei Jahrzehnte Erfahrung in Marketing-POS-Software und Web-to-Print mit drei Jahrzehnten Expertise in B2B-Werbemittel-Webshops und Marketing Fulfillment.</p>
-            <p style="font-weight:600; margin-top:10px;">Das Ergebnis: Lösungen, die in der Praxis funktionieren – nicht nur im Pitch.</p>
+            <div class="label">3DCAY · Shop Details</div>
+            <h1>Ausbaustufen &amp; <em>Funktionen</em> im Detail</h1>
+            <p style="font-weight:600;">Drei Ausbaustufen &ndash; vom Start-up bis zum Konzern. Jede Stufe ist an Ihr Corporate Design und Ihre Prozesse anpassbar.</p>
             <div class="hero-buttons">
-                <a href="#produkte" class="btn btn--primary">Lösungen entdecken</a>
+                <a href="#tiers" class="btn btn--primary">Zu den Ausbaustufen</a>
+                <a href="shop.html" class="btn btn--outline-white">Zur&uuml;ck zum Shop</a>
             </div>
         </div>
     </section>
 
-    <!-- CLIENT LOGOS -->
-    <section class="clients">
-        <p class="clients__label">Vertrauen führender Unternehmen</p>
-        <div class="clients__track">
-            <div class="clients__track-inner">
-                <div class="clients__logo"><img src="images/Logos/Fritz_Egger_Logo.svg-1.png" alt="EGGER"></div>
-                <div class="clients__logo"><img src="images/Logos/PHILIPS_grau.svg" alt="PHILIPS"></div>
-                <div class="clients__logo"><img src="images/Logos/Volkswagen-New-Logo-Vector.svg-.png" alt="Volkswagen"></div>
-                <div class="clients__logo"><img src="images/Logos/BARMER_Logo.svg.png" alt="Barmer"></div>
-                <div class="clients__logo"><img src="images/Logos/Cornelsen_Verlag_Logo.svg.png" alt="Cornelsen"></div>
-                <div class="clients__logo"><img src="images/Logos/Tuev-nord.svg.png" alt="TÜV Nord"></div>
-                <div class="clients__logo"><img src="images/Logos/Coca-Cola_logo.svg.png" alt="Coca-Cola"></div>
-                <div class="clients__logo"><img src="images/Logos/Helmholtz_Logo_grau.png" alt="Helmholtz"></div>
-                <div class="clients__logo"><img src="images/Logos/Logo_VGH_Versicherungen.svg" alt="VGH"></div>
-                <div class="clients__logo"><img src="images/Logos/BAT_logo_grau.svg" alt="BAT"></div>
-                <div class="clients__logo"><img src="images/Logos/heimbs-C-FLcerJ.svg" alt="Heimbs"></div>
-                <div class="clients__logo"><img src="images/Logos/Fritz_Egger_Logo.svg-1.png" alt="EGGER"></div>
-                <div class="clients__logo"><img src="images/Logos/PHILIPS_grau.svg" alt="PHILIPS"></div>
-                <div class="clients__logo"><img src="images/Logos/Volkswagen-New-Logo-Vector.svg-.png" alt="Volkswagen"></div>
-                <div class="clients__logo"><img src="images/Logos/BARMER_Logo.svg.png" alt="Barmer"></div>
-                <div class="clients__logo"><img src="images/Logos/Cornelsen_Verlag_Logo.svg.png" alt="Cornelsen"></div>
-                <div class="clients__logo"><img src="images/Logos/Tuev-nord.svg.png" alt="TÜV Nord"></div>
-                <div class="clients__logo"><img src="images/Logos/Coca-Cola_logo.svg.png" alt="Coca-Cola"></div>
-                <div class="clients__logo"><img src="images/Logos/Helmholtz_Logo_grau.png" alt="Helmholtz"></div>
-                <div class="clients__logo"><img src="images/Logos/Logo_VGH_Versicherungen.svg" alt="VGH"></div>
-                <div class="clients__logo"><img src="images/Logos/BAT_logo_grau.svg" alt="BAT"></div>
-                <div class="clients__logo"><img src="images/Logos/heimbs-C-FLcerJ.svg" alt="Heimbs"></div>
-            </div>
-        </div>
-    </section>
+    <style>
+        .tiers-section {
+            background-color: var(--white);
+        }
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+        .tier-card {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+        .tier-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            border-color: var(--red);
+        }
+        .tier-card.featured {
+            border-color: var(--red);
+            box-shadow: 0 6px 24px rgba(227, 16, 26, 0.08);
+        }
+        .tier-card .tier-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background-color: #F3F3F3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .tier-card .tier-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: none;
+            stroke: var(--red);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .tier-card.featured .tier-icon {
+            background-color: rgba(227, 16, 26, 0.08);
+        }
+        .tier-card .tier-badge {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--red);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .tier-card h3 {
+            font-size: 1.375rem;
+            margin-bottom: 8px;
+            color: var(--black);
+        }
+        .tier-card .tier-lead {
+            font-size: 0.9375rem;
+            color: var(--gray-500);
+            margin-bottom: 20px;
+        }
+        .tier-card .tier-body p {
+            font-size: 0.9375rem;
+            color: var(--gray-700);
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+        .tier-card .tier-body p:last-child {
+            margin-bottom: 0;
+        }
+        .tier-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .tier-card li {
+            padding: 8px 0 8px 24px;
+            position: relative;
+            font-size: 0.9375rem;
+            color: var(--gray-700);
+            line-height: 1.5;
+        }
+        .tier-card li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 14px;
+            height: 2px;
+            background-color: var(--red);
+            border-radius: 2px;
+        }
 
-    <!-- ZAHLEN -->
-    <section class="products-section" style="padding:56px var(--container-px) 32px;">
-        <div class="container">
-            <div class="section-header" style="margin-bottom:40px;">
-                <h2>Zahlen, die für sich sprechen</h2>
-            </div>
-            <div class="stat-grid">
-                <div class="stat reveal">
-                    <div class="stat-num" data-count="20" data-suffix="+">20<em>+</em></div>
-                    <div class="stat-label">Jahre Erfahrung in Marketing-POS-Software &amp; Web-to-Print</div>
-                </div>
-                <div class="stat reveal">
-                    <div class="stat-num" data-count="30" data-suffix="+">30<em>+</em></div>
-                    <div class="stat-label">Jahre Expertise in B2B-Werbemittel-Webshops &amp; Marketing Fulfillment</div>
-                </div>
-                <div class="stat reveal">
-                    <div class="stat-num" data-count="50" data-suffix="+">50<em>+</em></div>
-                    <div class="stat-label">aktive Kunden aus Industrie, FMCG, Versicherung und Handel</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        /* Feature Matrix — Accordion */
+        .matrix-section {
+            background-color: var(--gray-50);
+        }
+        .matrix-accordion {
+            margin-top: 32px;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .matrix-panel {
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .matrix-panel:last-child {
+            border-bottom: none;
+        }
+        .matrix-panel > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 20px 24px;
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            align-items: center;
+            gap: 16px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--black);
+            font-weight: 700;
+            user-select: none;
+            transition: background-color .2s ease;
+        }
+        .matrix-panel > summary::-webkit-details-marker,
+        .matrix-panel > summary::marker {
+            display: none;
+            content: '';
+        }
+        .matrix-panel > summary:hover {
+            background: var(--gray-50);
+        }
+        .matrix-panel[open] > summary {
+            background: var(--gray-50);
+            color: var(--red);
+        }
+        .matrix-head-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .matrix-head-count {
+            font-family: var(--font-sans);
+            font-size: 12px;
+            letter-spacing: 0;
+            text-transform: none;
+            color: var(--gray-500);
+            font-weight: 500;
+            background: var(--gray-100);
+            padding: 2px 10px;
+            border-radius: 999px;
+        }
+        .matrix-panel[open] .matrix-head-count {
+            background: rgba(227, 16, 26, 0.1);
+            color: var(--red);
+        }
+        .matrix-head-tiers {
+            display: grid;
+            grid-template-columns: repeat(3, 72px);
+            gap: 0;
+            font-size: 11px;
+            color: var(--gray-500);
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 0.06em;
+        }
+        .matrix-chevron {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--gray-700);
+            transition: transform .3s ease, background-color .2s ease;
+            font-family: var(--font-sans);
+        }
+        .matrix-panel[open] .matrix-chevron {
+            transform: rotate(180deg);
+            background: var(--red);
+            color: var(--white);
+        }
+        .matrix-body {
+            /* rechter Innenabstand = Chevron (32px) + Grid-Gap (16px) + summary-Padding (24px),
+               damit die Wertespalten exakt unter BASIC / PRO / PREMIUM sitzen */
+            padding: 0 72px 8px 8px;
+        }
+        .matrix-subtable {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .matrix-subtable td {
+            padding: 12px 16px;
+            color: var(--gray-700);
+            border-top: 1px solid var(--gray-100);
+        }
+        .matrix-subtable tr:first-child td {
+            border-top: none;
+        }
+        .matrix-subtable td.tier-cell {
+            width: 72px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--black);
+        }
+        .matrix-check { color: var(--red); font-size: 16px; font-weight: 800; }
+        .matrix-mod { color: var(--gray-500); font-weight: 600; font-size: 13px; }
+        .matrix-dash { color: var(--gray-200); }
 
-    <!-- WAS IST 3DCAY -->
-    <section class="products-section" style="padding:24px var(--container-px) 36px; background:var(--gray-50);">
-        <div class="container">
-            <div class="tile tile--wide">
-                <div class="label">Was ist 3DCAY?</div>
-                <h2>Die Software-Marke für Marketing-Fulfillment.</h2>
-                <p class="tile-lead">Vom Shop bis zur Aktion.</p>
-                <p class="tile-lead" style="margin-top:22px;">Dabei setzen wir gezielt auf Künstliche Intelligenz, um Prozesse weiter zu optimieren:</p>
-                <ul class="tile-bullets" style="margin-top:14px;">
-                    <li>Automatisierte Belegerkennung für Cashback- und Promotionprozesse</li>
-                    <li>Intelligente Datenverarbeitung für Reporting und Entscheidungsgrundlagen</li>
-                    <li>Skalierbare Kampagnensteuerung für große Aktionsvolumen</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+        .matrix-note {
+            margin-top: 16px;
+            padding: 14px 20px;
+            font-size: 13px;
+            color: var(--gray-700);
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+        }
+        .matrix-legend {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+            font-size: 14px;
+            color: var(--gray-700);
+        }
+        .matrix-legend span strong { color: var(--black); margin-right: 4px; }
 
-    <!-- WAS UNS BESONDERS MACHT -->
-    <section class="products-section" style="padding:36px var(--container-px) 72px;">
-        <div class="container">
-            <div class="tile tile--wide">
-                <div class="label">Was uns besonders macht</div>
-                <h2>Individuelle Systeme für komplexe Marketing- und Logistikprozesse</h2>
-                <p class="tile-lead">Neben leistungsstarken Standardlösungen entwickeln wir seit jeher individuelle Systeme für komplexe Marketing- und Logistikprozesse. Genau dieses Know-how macht 3DCAY flexibel, skalierbar und passgenau für Ihre Anforderungen.</p>
-                <p class="v5-tagline" style="margin-top:22px;">Weniger Aufwand. Mehr Kontrolle. <em>Mehr Performance</em> – mit smarter Technologie und generativer KI.</p>
-            </div>
-        </div>
-    </section>
+        @media (max-width: 640px) {
+            .matrix-panel > summary {
+                grid-template-columns: 1fr auto;
+                gap: 12px;
+                padding: 16px 18px;
+            }
+            .matrix-head-tiers { display: none; }
+            .matrix-body { padding: 0 8px 8px; }
+            .matrix-subtable td { padding: 10px 12px; font-size: 13px; }
+            .matrix-subtable td.tier-cell { width: 56px; }
+        }
+    </style>
 
-    <!-- UNSERE LÖSUNGEN · 6 KACHELN -->
-    <section class="products-section" id="produkte" style="padding:24px var(--container-px) 40px; background:var(--gray-50);">
+    <section class="tiers-section reveal" id="tiers">
         <div class="container">
             <div class="section-header">
-                <div class="label">Unsere Lösungen</div>
-                <h2>Flexibel, skalierbar, zukunftssicher</h2>
-                <p>Ein modulares Portfolio aus leistungsstarken Tools und individuellen Entwicklungen.</p>
+                <div class="label">WEBSHOP-VARIATIONSSTUFEN</div>
+                <h2>Drei Ausbaustufen — vom Start-up bis zum Konzern</h2>
+                <p>Der Funktionsumfang des 3DCAY Webshops ist flexibel und richtet sich nach Unternehmensgröße und Anforderungen. Jede Stufe ist an Ihr Corporate Design und Ihre Prozesse anpassbar.</p>
             </div>
-            <div class="sol-grid">
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div>
-                    <h3>3DCAY Shop</h3>
-                    <p>Die zentrale Plattform für Ihren Marketing-Fulfillment-Webshop.</p>
-                    <a href="shop.html">Mehr erfahren →</a>
+
+            <div class="tiers-grid">
+                <div class="tier-card reveal">
+                    <div class="tier-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div class="tier-badge">BASIC</div>
+                    <h3>Individuelle Web-Basislösung – ausgerichtet auf Ihre Marketing-Fulfillment-Prozesse</h3>
+                    <div class="tier-body">
+                        <p>Mit der Basic-Plattform erhalten Sie ein System zur Optimierung und Beschleunigung Ihrer Marketing-Fulfillment-Prozesse. Bereits diese Plattform kann auf Ihre individuellen Anforderungen abgestimmt und in Ihrem Design gestaltet werden.</p>
+                        <p>Im Basis-Angebot sind alle grundlegenden Funktionen enthalten. Als Start-up und kleineres Unternehmen sowie bei einem ersten Einstieg in die Digitalisierung und Prozessoptimierung profitieren Sie spürbar für Ihr Business.</p>
+                    </div>
                 </div>
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"></path><path d="M12 2a10 10 0 0 1 10 10m-10-10a10 10 0 0 0-10 10"></path></svg></div>
-                    <h3>3DCAY Web-to-Publish</h3>
-                    <p>Erstellen und personalisieren Sie Marketingmaterialien einfach und CI-konform.</p>
-                    <a href="web-to-publish.html">Mehr erfahren →</a>
+
+                <div class="tier-card featured reveal">
+                    <div class="tier-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><path d="M2 13h20"/></svg>
+                    </div>
+                    <div class="tier-badge">PRO</div>
+                    <h3>Professionelles Marketing-Fulfillment-Management für Ihr Unternehmen</h3>
+                    <div class="tier-body">
+                        <p>Gehen Sie den nächsten Schritt individueller Professionalisierung Ihres Unternehmens mit der Etablierung eines umfassenden webbasierten Organisationstools für Ihre Marketinglogistik. Die Plattform und ihre Features im Bereich Konfiguration und Administration können individuell auf Ihre Unternehmensgröße und Anforderungen angepasst werden.</p>
+                        <p>Das Professional-Angebot richtet sich vor allem an Konzerne und mittelständische Unternehmen, die mit unserer Prozesstechnologie ihr Fulfillment-Management auf das nächste Level der Digitalisierung bringen wollen.</p>
+                    </div>
                 </div>
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path><path d="M12 17v-6M9 12h6"></path></svg></div>
-                    <h3>3DCAY Cashback</h3>
-                    <p>Intelligente Cashback- und Promotionslösungen mit KI-gestützter Belegerkennung.</p>
-                    <a href="cashback.html">Mehr erfahren →</a>
-                </div>
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><path d="M12 17v4M4 21h16"></path></svg></div>
-                    <h3>3DCAY App</h3>
-                    <p>Die mobile Lösung für Ihren Vertrieb — alle Unterlagen jederzeit griffbereit.</p>
-                    <a href="3dcay-app.html">Mehr erfahren →</a>
-                </div>
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
-                    <h3>Services – Individuelle IT</h3>
-                    <p>Landingpages, Aktions-Webseiten, Individualentwicklung und Schnittstellen-Design – maßgeschneidert für komplexe Anforderungen.</p>
-                    <a href="services.html">Mehr erfahren →</a>
-                </div>
-                <div class="product-card reveal" style="display:flex; flex-direction:column;">
-                    <img src="images/BSFZ_Siegel_RGB_2x.png" alt="BSFZ Forschungszulage Siegel 2026" style="width:64px; height:auto; margin-bottom:16px;">
-                    <h3>Forschungszulage 2026</h3>
-                    <p>Unsere B2B-Commerce-Entwicklung ist staatlich als förderungswürdig anerkannt — zertifiziert durch die Bescheinigungsstelle Forschungszulage (BSFZ).</p>
+
+                <div class="tier-card reveal">
+                    <div class="tier-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>
+                    </div>
+                    <div class="tier-badge">PREMIUM</div>
+                    <h3>Maximale Individualität – maximale Leistungsfähigkeit</h3>
+                    <div class="tier-body">
+                        <p>Unser Premium-Angebot bietet Ihnen eine umfassende Individuallösung für Marketing-Fulfillment, mit der auch individuellste Prozessanforderungen Ihres Unternehmens abgebildet und digitalisiert werden können. Erweiterter Support und zusätzliche Funktionen bieten Ihnen die Möglichkeit, noch schneller und flexibler zu reagieren. Vor allem das Web-to-Publish-Modul zur Erstellung individualisierter Werbemittel ist hier hervorzuheben.</p>
+                        <p>Vom Start-up bis zum Konzern entwickeln wir eine passende Lösung für Ihr Fulfillment-Management. Setzen Sie Web-to-Print-Lösungen effizient um und optimieren Sie Ihre gesamte Marketinglogistik umfassend.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BEREIT FÜR DEN NÄCHSTEN SCHRITT -->
-    <section class="products-section" id="kontakt" style="scroll-margin-top:88px; padding:36px var(--container-px) 72px;">
+    <section class="matrix-section reveal">
         <div class="container">
-            <div class="tile tile--wide" style="text-align:center;">
-                <div class="label" style="justify-content:center;">Bereit für den nächsten Schritt?</div>
-                <h2>Sprechen Sie uns an – wir finden die passende Lösung.</h2>
-                <p class="tile-lead" style="margin:0 auto 28px; max-width:680px;">Ob konkretes Projekt oder erste Orientierung – wir finden die passende Lösung für Ihre Anforderungen.</p>
-                <ul class="v5-check" style="max-width:620px; margin:0 auto 32px; text-align:left;">
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Ehrliche Einschätzung, welche 3DCAY-Lösung zu Ihren Prozessen passt</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Orientierung zu Aufwand, Zeitrahmen und Integrationsmöglichkeiten</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Konkrete nächste Schritte – ohne Umwege</span></li>
-                </ul>
-                <button class="btn btn--primary" onclick="openDemo()">Jetzt Kontakt aufnehmen</button>
+            <div class="section-header">
+                <div class="label">FEATURE-MATRIX</div>
+                <h2>Funktionen im Detail — transparent nach Ausbaustufe</h2>
+                <p>Eine vollständige Übersicht aller Module und Standardfeatures je Stufe. Alle mit „M" gekennzeichneten Features sind optional als Modul buchbar.</p>
             </div>
+
+            <div class="matrix-accordion">
+
+                <!-- SHOP-FEATURES -->
+                <details class="matrix-panel" open>
+                    <summary>
+                        <span class="matrix-head-title">Shop-Features<span class="matrix-head-count">20 Features</span></span>
+                        <div class="matrix-head-tiers"><span>Basic</span><span>Pro</span><span>Premium</span></div>
+                        <span class="matrix-chevron">▾</span>
+                    </summary>
+                    <div class="matrix-body">
+                        <table class="matrix-subtable">
+                            <tbody>
+                                <tr><td>Bestandskonten (Bestandsverteilung über Benutzergruppen)</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Budgetverwaltung</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Artikel-Promotion auf der Startseite</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Downloadbare Artikel</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Kundenrabatte / Nachlässe</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Leihartikel- / Messe-Bestellsystem</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-mod">M</span></td></tr>
+                                <tr><td>Freigabe-Workflow für Artikel</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Authentifizierung</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Startseite</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Artikelsuche</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Kategorie-Menü inkl. Unterkategorien</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Artikelliste (Kategorien)</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Artikel-Detailseite</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Individuelle Artikelattribute</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Artikel mit Ablaufdatum</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Versandkostenpauschalen (int. Versand)</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Mitführen von Zollangaben</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Benutzerprofil (Adressen, Passwortänderung)</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Multibestellungen</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-mod">M</span></td></tr>
+                                <tr><td>POS- und Filialverwaltung</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-mod">M</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- MEDIEN-INDIVIDUALISIERUNG -->
+                <details class="matrix-panel">
+                    <summary>
+                        <span class="matrix-head-title">Medien-Individualisierung<span class="matrix-head-count">2 Features</span></span>
+                        <div class="matrix-head-tiers"><span>Basic</span><span>Pro</span><span>Premium</span></div>
+                        <span class="matrix-chevron">▾</span>
+                    </summary>
+                    <div class="matrix-body">
+                        <table class="matrix-subtable">
+                            <tbody>
+                                <tr><td>Web-to-Print</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Speisekarten-Modul</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- REPORTINGS -->
+                <details class="matrix-panel">
+                    <summary>
+                        <span class="matrix-head-title">Reportings<span class="matrix-head-count">7 Features</span></span>
+                        <div class="matrix-head-tiers"><span>Basic</span><span>Pro</span><span>Premium</span></div>
+                        <span class="matrix-chevron">▾</span>
+                    </summary>
+                    <div class="matrix-body">
+                        <table class="matrix-subtable">
+                            <tbody>
+                                <tr><td>Dashboard</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Bestandsliste</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Top-Flop-Liste</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Bestellexport</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Benutzer-Report</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Lagerwert</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Bestandshistorie</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- WARENWIRTSCHAFT -->
+                <details class="matrix-panel">
+                    <summary>
+                        <span class="matrix-head-title">Warenwirtschaft<span class="matrix-head-count">1 Feature</span></span>
+                        <div class="matrix-head-tiers"><span>Basic</span><span>Pro</span><span>Premium</span></div>
+                        <span class="matrix-chevron">▾</span>
+                    </summary>
+                    <div class="matrix-body">
+                        <table class="matrix-subtable">
+                            <tbody>
+                                <tr><td>Lieferscheine</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- ADMINISTRATION -->
+                <details class="matrix-panel">
+                    <summary>
+                        <span class="matrix-head-title">Administration<span class="matrix-head-count">15 Features</span></span>
+                        <div class="matrix-head-tiers"><span>Basic</span><span>Pro</span><span>Premium</span></div>
+                        <span class="matrix-chevron">▾</span>
+                    </summary>
+                    <div class="matrix-body">
+                        <table class="matrix-subtable">
+                            <tbody>
+                                <tr><td>Kategorieverwaltung</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Produktverwaltung</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Artikelanmeldung</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Bestandsnachmeldung</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Artikelvernichtung</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Bestandskontenverwaltung</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Benutzergruppenverwaltung</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Benutzerverwaltung</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Rechte- und Rollenverwaltung</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Zugriff auf Reports</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Bestellverwaltung</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Budgetverwaltung</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Verwaltung globaler Adressbücher</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Artikel-Promotion-Verwaltung</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>POS- und Filialverwaltung (Admin)</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- HOSTING UND SICHERHEIT -->
+                <details class="matrix-panel">
+                    <summary>
+                        <span class="matrix-head-title">Hosting und Sicherheit<span class="matrix-head-count">4 Features</span></span>
+                        <div class="matrix-head-tiers"><span>Basic</span><span>Pro</span><span>Premium</span></div>
+                        <span class="matrix-chevron">▾</span>
+                    </summary>
+                    <div class="matrix-body">
+                        <table class="matrix-subtable">
+                            <tbody>
+                                <tr><td>Domain</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Hosting</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>SSL-Zertifikat</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>2-Faktor-Authentifizierung</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- SCHNITTSTELLEN -->
+                <details class="matrix-panel">
+                    <summary>
+                        <span class="matrix-head-title">Schnittstellen<span class="matrix-head-count">3 Features</span></span>
+                        <div class="matrix-head-tiers"><span>Basic</span><span>Pro</span><span>Premium</span></div>
+                        <span class="matrix-chevron">▾</span>
+                    </summary>
+                    <div class="matrix-body">
+                        <table class="matrix-subtable">
+                            <tbody>
+                                <tr><td>REST-API</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Single-Sign-On</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Individuelle Schnittstellen</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- DATENMIGRATION -->
+                <details class="matrix-panel">
+                    <summary>
+                        <span class="matrix-head-title">Datenmigration<span class="matrix-head-count">2 Features</span></span>
+                        <div class="matrix-head-tiers"><span>Basic</span><span>Pro</span><span>Premium</span></div>
+                        <span class="matrix-chevron">▾</span>
+                    </summary>
+                    <div class="matrix-body">
+                        <table class="matrix-subtable">
+                            <tbody>
+                                <tr><td>Datenmigration</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>POS- und Filialdaten</td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- RECHTEMANAGEMENT -->
+                <details class="matrix-panel">
+                    <summary>
+                        <span class="matrix-head-title">Rechtemanagement<span class="matrix-head-count">3 Features</span></span>
+                        <div class="matrix-head-tiers"><span>Basic</span><span>Pro</span><span>Premium</span></div>
+                        <span class="matrix-chevron">▾</span>
+                    </summary>
+                    <div class="matrix-body">
+                        <table class="matrix-subtable">
+                            <tbody>
+                                <tr><td>Berechtigungssteuerung</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Administrationsberechtigungen</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Benutzergruppen (max. 2 Gruppen)</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- SUPPORT -->
+                <details class="matrix-panel">
+                    <summary>
+                        <span class="matrix-head-title">Support<span class="matrix-head-count">2 Features</span></span>
+                        <div class="matrix-head-tiers"><span>Basic</span><span>Pro</span><span>Premium</span></div>
+                        <span class="matrix-chevron">▾</span>
+                    </summary>
+                    <div class="matrix-body">
+                        <table class="matrix-subtable">
+                            <tbody>
+                                <tr><td>Support</td><td class="tier-cell">E-Mail</td><td class="tier-cell">E-Mail / Rückruf</td><td class="tier-cell">E-Mail / Rückruf</td></tr>
+                                <tr><td>Individuelle SLA (nach Absprache &amp; Aufwand)</td><td class="tier-cell"><span class="matrix-dash">—</span></td><td class="tier-cell"><span class="matrix-mod">M</span></td><td class="tier-cell"><span class="matrix-mod">M</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- KONFIGURATION -->
+                <details class="matrix-panel">
+                    <summary>
+                        <span class="matrix-head-title">Konfiguration<span class="matrix-head-count">3 Features</span></span>
+                        <div class="matrix-head-tiers"><span>Basic</span><span>Pro</span><span>Premium</span></div>
+                        <span class="matrix-chevron">▾</span>
+                    </summary>
+                    <div class="matrix-body">
+                        <table class="matrix-subtable">
+                            <tbody>
+                                <tr><td>White-Label Design</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Responsive Design</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                                <tr><td>Sprache (DE / EN)</td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td><td class="tier-cell"><span class="matrix-check">✓</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+            </div>
+
+            <div class="matrix-note">Alle mit „M" gekennzeichneten Features sind als Module erhältlich und können in Basic, Pro oder Premium hinzugebucht werden.</div>
+
+            <div class="matrix-legend">
+                <span><strong>✓</strong> Standardfeature</span>
+                <span><strong>M</strong> Modul (optional buchbar)</span>
+                <span><strong>—</strong> nicht verfügbar</span>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FINAL CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Sehen Sie, wie der 3DCAY Shop in Ihrer Organisation aussieht.</h2>
+            <p>Use-Case-Check, Demo entlang Ihrer Prozesse und eine Empfehlung zur passenden Ausbaustufe.</p>
+            <button class="btn btn--dark" onclick="openDemo()" style="background-color: var(--white); color: var(--red);">Demo anfragen →</button>
         </div>
     </section>
 
@@ -2126,14 +2490,12 @@
            NAVIGATION & SCROLL DETECTION (V2 Style)
            ======================================== */
         const nav = document.getElementById('nav');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
+        if (nav) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) { nav.classList.add('scrolled'); }
+                else { nav.classList.remove('scrolled'); }
+            });
+        }
 
         /* Mobile Nav Toggle */
         function toggleMobileNav() {
@@ -2158,7 +2520,7 @@
                 'nav.ki': 'KI-Lab',
                 'nav.referenzen': 'Referenzen',
                 'nav.kontakt': 'Kontakt \u2192',
-                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS BY drei-d',
+                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS \u00b7 BY DREI-D',
                 'clients.label': 'Vertrauen f\u00fchrender Unternehmen'
             },
             en: {
@@ -2167,7 +2529,7 @@
                 'nav.ki': 'AI Lab',
                 'nav.referenzen': 'References',
                 'nav.kontakt': 'Contact \u2192',
-                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS BY drei-d',
+                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS \u00b7 BY DREI-D',
                 'clients.label': 'Trusted by leading companies'
             }
         };
@@ -2180,8 +2542,8 @@
             document.documentElement.lang = lang;
 
             // Update toggle buttons
-            document.getElementById('btnLangDE').classList.toggle('active', lang === 'de');
-            document.getElementById('btnLangEN').classList.toggle('active', lang === 'en');
+            const bDE = document.getElementById('btnLangDE'); if (bDE) bDE.classList.toggle('active', lang === 'de');
+            const bEN = document.getElementById('btnLangEN'); if (bEN) bEN.classList.toggle('active', lang === 'en');
 
             // Apply translations
             document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -2265,7 +2627,7 @@
         }, { threshold: 0.3 });
 
         // Observe both KI stats and case study metrics
-        document.querySelectorAll('.ki-stats, .metrics, .stat-grid').forEach(el => {
+        document.querySelectorAll('.ki-stats, .metrics').forEach(el => {
             countObserver.observe(el);
         });
 

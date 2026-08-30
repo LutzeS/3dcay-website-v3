@@ -1618,6 +1618,7 @@
         .case-study-block ul { list-style:none; padding-left:0; margin:0; }
         .case-study-block li { padding-left:20px; position:relative; margin-bottom:12px; color:var(--gray-700); font-size:15px; line-height:1.7; }
         .case-study-block li:before { content:""; position:absolute; left:0; top:0.7em; width:6px; height:6px; border-radius:50%; background-color:var(--gray-500); }
+        .case-study-img { width:100%; height:auto; display:block; margin-top:20px; border-radius:8px; }
         .case-study-tagline { font-style:italic; color:var(--red); margin-top:20px; font-weight:600; font-size:18px; }
         /* metric cards */
         .case-study-metrics { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; margin-top:24px; }
@@ -1702,177 +1703,278 @@
         <a href="#kontakt" class="nav__cta" style="margin-top:16px" data-i18n="nav.kontakt">Kontakt &rarr;</a>
     </div>
 
-        <style>
-        .hero::before{ background-image:url('images/dashboard-office.png'); }
-        .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:1000px; margin:0 auto; }
-        @media(max-width:760px){ .stat-grid{ grid-template-columns:1fr; } }
-        .stat{ background:var(--white); border:1px solid var(--gray-200); border-radius:16px; padding:36px 28px; text-align:center; }
-        .stat-num{ font-size:clamp(40px,6vw,64px); font-weight:800; color:var(--red); line-height:1; letter-spacing:-0.03em; }
-        .stat-label{ margin-top:14px; font-size:14px; color:var(--gray-700); line-height:1.55; }
-        .sol-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-        @media(max-width:900px){ .sol-grid{ grid-template-columns:repeat(2,1fr); } }
-        @media(max-width:560px){ .sol-grid{ grid-template-columns:1fr; } }
-    </style>
+        <style>.hero::before{ background-image:url('images/hero-world-map.png'); }</style>
     <!-- HERO SECTION -->
-    <style>.hero{ padding:72px 0 50px; }</style>
     <section class="hero">
         <div class="hero-content">
-            <div class="label" style="text-transform:none;">3DCAY MARKETING IT SOLUTIONS BY drei-d</div>
-            <h1>Smarte IT für <em style="white-space:nowrap;">Marketing &amp; Fulfillment</em></h1>
-            <p class="v5-tagline" style="color:#fff;">20 Jahre Marketing-Software. 30 Jahre B2B-Fulfillment. Eine Plattform.</p>
-            <p><span style="font-weight:600;">3DCAY ist die neue IT-Marke von drei-d —</span> entstanden aus der Integration von CAY SOLUTIONS. Wir bündeln zwei Jahrzehnte Erfahrung in Marketing-POS-Software und Web-to-Print mit drei Jahrzehnten Expertise in B2B-Werbemittel-Webshops und Marketing Fulfillment.</p>
-            <p style="font-weight:600; margin-top:10px;">Das Ergebnis: Lösungen, die in der Praxis funktionieren – nicht nur im Pitch.</p>
+            <div class="label">3DCAY · Services</div>
+            <h1>Digitale Lösungen, die <em>weiterdenken</em>.</h1>
+            <p style="font-weight:600;">Maßgeschneiderte IT-Services für Marketing, Vertrieb und digitale Prozesse – entwickelt, integriert und betrieben aus einer Hand.</p>
             <div class="hero-buttons">
-                <a href="#produkte" class="btn btn--primary">Lösungen entdecken</a>
+                <button class="btn btn--primary" onclick="openDemo()">Projekt besprechen</button>
+                <a href="../referenzen.html" class="btn btn--outline-white">Referenzen ansehen</a>
             </div>
         </div>
     </section>
 
-    <!-- CLIENT LOGOS -->
-    <section class="clients">
-        <p class="clients__label">Vertrauen führender Unternehmen</p>
-        <div class="clients__track">
-            <div class="clients__track-inner">
-                <div class="clients__logo"><img src="images/Logos/Fritz_Egger_Logo.svg-1.png" alt="EGGER"></div>
-                <div class="clients__logo"><img src="images/Logos/PHILIPS_grau.svg" alt="PHILIPS"></div>
-                <div class="clients__logo"><img src="images/Logos/Volkswagen-New-Logo-Vector.svg-.png" alt="Volkswagen"></div>
-                <div class="clients__logo"><img src="images/Logos/BARMER_Logo.svg.png" alt="Barmer"></div>
-                <div class="clients__logo"><img src="images/Logos/Cornelsen_Verlag_Logo.svg.png" alt="Cornelsen"></div>
-                <div class="clients__logo"><img src="images/Logos/Tuev-nord.svg.png" alt="TÜV Nord"></div>
-                <div class="clients__logo"><img src="images/Logos/Coca-Cola_logo.svg.png" alt="Coca-Cola"></div>
-                <div class="clients__logo"><img src="images/Logos/Helmholtz_Logo_grau.png" alt="Helmholtz"></div>
-                <div class="clients__logo"><img src="images/Logos/Logo_VGH_Versicherungen.svg" alt="VGH"></div>
-                <div class="clients__logo"><img src="images/Logos/BAT_logo_grau.svg" alt="BAT"></div>
-                <div class="clients__logo"><img src="images/Logos/heimbs-C-FLcerJ.svg" alt="Heimbs"></div>
-                <div class="clients__logo"><img src="images/Logos/Fritz_Egger_Logo.svg-1.png" alt="EGGER"></div>
-                <div class="clients__logo"><img src="images/Logos/PHILIPS_grau.svg" alt="PHILIPS"></div>
-                <div class="clients__logo"><img src="images/Logos/Volkswagen-New-Logo-Vector.svg-.png" alt="Volkswagen"></div>
-                <div class="clients__logo"><img src="images/Logos/BARMER_Logo.svg.png" alt="Barmer"></div>
-                <div class="clients__logo"><img src="images/Logos/Cornelsen_Verlag_Logo.svg.png" alt="Cornelsen"></div>
-                <div class="clients__logo"><img src="images/Logos/Tuev-nord.svg.png" alt="TÜV Nord"></div>
-                <div class="clients__logo"><img src="images/Logos/Coca-Cola_logo.svg.png" alt="Coca-Cola"></div>
-                <div class="clients__logo"><img src="images/Logos/Helmholtz_Logo_grau.png" alt="Helmholtz"></div>
-                <div class="clients__logo"><img src="images/Logos/Logo_VGH_Versicherungen.svg" alt="VGH"></div>
-                <div class="clients__logo"><img src="images/Logos/BAT_logo_grau.svg" alt="BAT"></div>
-                <div class="clients__logo"><img src="images/Logos/heimbs-C-FLcerJ.svg" alt="Heimbs"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ZAHLEN -->
-    <section class="products-section" style="padding:56px var(--container-px) 32px;">
-        <div class="container">
-            <div class="section-header" style="margin-bottom:40px;">
-                <h2>Zahlen, die für sich sprechen</h2>
-            </div>
-            <div class="stat-grid">
-                <div class="stat reveal">
-                    <div class="stat-num" data-count="20" data-suffix="+">20<em>+</em></div>
-                    <div class="stat-label">Jahre Erfahrung in Marketing-POS-Software &amp; Web-to-Print</div>
-                </div>
-                <div class="stat reveal">
-                    <div class="stat-num" data-count="30" data-suffix="+">30<em>+</em></div>
-                    <div class="stat-label">Jahre Expertise in B2B-Werbemittel-Webshops &amp; Marketing Fulfillment</div>
-                </div>
-                <div class="stat reveal">
-                    <div class="stat-num" data-count="50" data-suffix="+">50<em>+</em></div>
-                    <div class="stat-label">aktive Kunden aus Industrie, FMCG, Versicherung und Handel</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WAS IST 3DCAY -->
-    <section class="products-section" style="padding:24px var(--container-px) 36px; background:var(--gray-50);">
+    <!-- OVERVIEW · KACHEL -->
+    <section class="tile-section">
         <div class="container">
             <div class="tile tile--wide">
-                <div class="label">Was ist 3DCAY?</div>
-                <h2>Die Software-Marke für Marketing-Fulfillment.</h2>
-                <p class="tile-lead">Vom Shop bis zur Aktion.</p>
-                <p class="tile-lead" style="margin-top:22px;">Dabei setzen wir gezielt auf Künstliche Intelligenz, um Prozesse weiter zu optimieren:</p>
-                <ul class="tile-bullets" style="margin-top:14px;">
-                    <li>Automatisierte Belegerkennung für Cashback- und Promotionprozesse</li>
-                    <li>Intelligente Datenverarbeitung für Reporting und Entscheidungsgrundlagen</li>
-                    <li>Skalierbare Kampagnensteuerung für große Aktionsvolumen</li>
-                </ul>
+                <div class="label">Unsere IT-Services im Überblick</div>
+                <h2>Drei Leistungsfelder. Ein Ansprechpartner. Alles aus einer Hand.</h2>
+                <p class="tile-lead">Neben unseren Produkten entwickeln wir individuelle Lösungen, die exakt auf Ihre Anforderungen zugeschnitten sind – von der Aktions-Webseite über das maßgeschneiderte Portal bis zur komplexen Systemintegration. Wir liefern, was Standardlösungen nicht können – und betreiben es zuverlässig.</p>
             </div>
         </div>
     </section>
 
-    <!-- WAS UNS BESONDERS MACHT -->
-    <section class="products-section" style="padding:36px var(--container-px) 72px;">
+    <!-- 3 LEISTUNGSFELDER · GRID-LAYOUT -->
+    <section class="solution-section" style="padding:32px var(--container-px);">
+        <div class="container">
+            <div class="feature-cards" style="grid-template-columns:repeat(3,1fr); max-width:none;">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+                    <h3>Landingpages &amp; Aktions-Webseiten</h3>
+                    <p>Schnelle Umsetzung kampagnenspezifischer Webseiten für Promotions, Cashback-Aktionen und Geld-zurück-Garantien – integriert, skalierbar, zeitkritisch-tauglich.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                    <h3>Individuelle Softwareentwicklung</h3>
+                    <p>Maßgeschneiderte Portale, Plattformen und Web-Applikationen – entwickelt für komplexe Anforderungen, die kein Standardprodukt erfüllt.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4M9 21H5a2 2 0 0 1-2-2v-4M15 3h4a2 2 0 0 1 2 2v4M15 21h4a2 2 0 0 0 2-2v-4"/><circle cx="12" cy="12" r="2"/></svg></div>
+                    <h3>Schnittstellen-Design &amp; Systemintegration</h3>
+                    <p>Nahtlose Anbindung von ERP-, Shop-, WaWi- und Kundensystemen über REST, GraphQL, SOAP und SFTP – für durchgängige, automatisierte Prozesse.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEISTUNG 1: INDIVIDUELLE SOFTWAREENTWICKLUNG -->
+    <section class="tile-section">
         <div class="container">
             <div class="tile tile--wide">
-                <div class="label">Was uns besonders macht</div>
-                <h2>Individuelle Systeme für komplexe Marketing- und Logistikprozesse</h2>
-                <p class="tile-lead">Neben leistungsstarken Standardlösungen entwickeln wir seit jeher individuelle Systeme für komplexe Marketing- und Logistikprozesse. Genau dieses Know-how macht 3DCAY flexibel, skalierbar und passgenau für Ihre Anforderungen.</p>
-                <p class="v5-tagline" style="margin-top:22px;">Weniger Aufwand. Mehr Kontrolle. <em>Mehr Performance</em> – mit smarter Technologie und generativer KI.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- UNSERE LÖSUNGEN · 6 KACHELN -->
-    <section class="products-section" id="produkte" style="padding:24px var(--container-px) 40px; background:var(--gray-50);">
-        <div class="container">
-            <div class="section-header">
-                <div class="label">Unsere Lösungen</div>
-                <h2>Flexibel, skalierbar, zukunftssicher</h2>
-                <p>Ein modulares Portfolio aus leistungsstarken Tools und individuellen Entwicklungen.</p>
-            </div>
-            <div class="sol-grid">
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div>
-                    <h3>3DCAY Shop</h3>
-                    <p>Die zentrale Plattform für Ihren Marketing-Fulfillment-Webshop.</p>
-                    <a href="shop.html">Mehr erfahren →</a>
-                </div>
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"></path><path d="M12 2a10 10 0 0 1 10 10m-10-10a10 10 0 0 0-10 10"></path></svg></div>
-                    <h3>3DCAY Web-to-Publish</h3>
-                    <p>Erstellen und personalisieren Sie Marketingmaterialien einfach und CI-konform.</p>
-                    <a href="web-to-publish.html">Mehr erfahren →</a>
-                </div>
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path><path d="M12 17v-6M9 12h6"></path></svg></div>
-                    <h3>3DCAY Cashback</h3>
-                    <p>Intelligente Cashback- und Promotionslösungen mit KI-gestützter Belegerkennung.</p>
-                    <a href="cashback.html">Mehr erfahren →</a>
-                </div>
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><path d="M12 17v4M4 21h16"></path></svg></div>
-                    <h3>3DCAY App</h3>
-                    <p>Die mobile Lösung für Ihren Vertrieb — alle Unterlagen jederzeit griffbereit.</p>
-                    <a href="3dcay-app.html">Mehr erfahren →</a>
-                </div>
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
-                    <h3>Services – Individuelle IT</h3>
-                    <p>Landingpages, Aktions-Webseiten, Individualentwicklung und Schnittstellen-Design – maßgeschneidert für komplexe Anforderungen.</p>
-                    <a href="services.html">Mehr erfahren →</a>
-                </div>
-                <div class="product-card reveal" style="display:flex; flex-direction:column;">
-                    <img src="images/BSFZ_Siegel_RGB_2x.png" alt="BSFZ Forschungszulage Siegel 2026" style="width:64px; height:auto; margin-bottom:16px;">
-                    <h3>Forschungszulage 2026</h3>
-                    <p>Unsere B2B-Commerce-Entwicklung ist staatlich als förderungswürdig anerkannt — zertifiziert durch die Bescheinigungsstelle Forschungszulage (BSFZ).</p>
+                <div class="label">Individuelle Softwareentwicklung</div>
+                <h2>Wenn Standardlösungen nicht weit genug denken …</h2>
+                <p class="tile-lead" style="margin-bottom:24px;">… entwickeln wir Portale, Plattformen und Web-Applikationen – exakt auf Ihre Prozesse, Nutzer und Systemlandschaft zugeschnitten. Von der Konzeption bis zum laufenden Betrieb.</p>
+                <h4 style="font-size:16px; font-weight:700; color:var(--black); letter-spacing:0; margin-bottom:14px;">Typische Projekte</h4>
+                <div class="tile-2col">
+                    <ul class="tile-bullets">
+                        <li>Vertriebsunterlagen-Portale für dezentrale Außendienstorganisationen</li>
+                        <li>Retouren- und Prozessportale für Industrie und Handel</li>
+                    </ul>
+                    <ul class="tile-bullets">
+                        <li>Forschungs- und Wissensplattformen für wissenschaftliche Einrichtungen</li>
+                        <li>Interne Tools für Marketing- und Vertriebsprozesse</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BEREIT FÜR DEN NÄCHSTEN SCHRITT -->
-    <section class="products-section" id="kontakt" style="scroll-margin-top:88px; padding:36px var(--container-px) 72px;">
+    <section class="tile-section" style="padding-top:0;">
         <div class="container">
-            <div class="tile tile--wide" style="text-align:center;">
-                <div class="label" style="justify-content:center;">Bereit für den nächsten Schritt?</div>
-                <h2>Sprechen Sie uns an – wir finden die passende Lösung.</h2>
-                <p class="tile-lead" style="margin:0 auto 28px; max-width:680px;">Ob konkretes Projekt oder erste Orientierung – wir finden die passende Lösung für Ihre Anforderungen.</p>
-                <ul class="v5-check" style="max-width:620px; margin:0 auto 32px; text-align:left;">
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Ehrliche Einschätzung, welche 3DCAY-Lösung zu Ihren Prozessen passt</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Orientierung zu Aufwand, Zeitrahmen und Integrationsmöglichkeiten</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Konkrete nächste Schritte – ohne Umwege</span></li>
-                </ul>
-                <button class="btn btn--primary" onclick="openDemo()">Jetzt Kontakt aufnehmen</button>
+            <div class="case-study reveal">
+                <div class="label">Case Study · Helmholtz Zentrum München</div>
+                <h2>Individuelles Forschungsportal — der DZIF Data &amp; Tools-Hub</h2>
+                <div class="case-study-content">
+                    <div class="case-study-block">
+                        <h3>Ausgangssituation</h3>
+                        <p>Das Helmholtz Zentrum München benötigte eine zentrale Plattform, um wissenschaftliche Inhalte strukturiert bereitzustellen und den Austausch innerhalb der Forschungsgemeinschaft zu fördern. Gesucht wurde eine Lösung, die öffentliche Inhalte zugänglich macht und gleichzeitig geschützte Bereiche für Wissenschaftler bietet – intuitiv bedienbar, sicher und skalierbar.</p>
+                        <img src="images/helmholtz-case.jpg" alt="Helmholtz Zentrum München – DZIF Data &amp; Tools-Hub" class="case-study-img" loading="lazy">
+                    </div>
+                    <div class="case-study-block">
+                        <h3>Die Lösung: DZIF Data &amp; Tools-Hub</h3>
+                        <ul>
+                            <li>Strukturierte Bereitstellung von Forschungsdaten, Studien und Publikationen</li>
+                            <li>Öffentlicher Zugriff auf relevante Inhalte für die breite Fachöffentlichkeit</li>
+                            <li>Login-geschützte Bereiche für erweiterte Inhalte und Forschungszwecke</li>
+                            <li>Integration von Schulungen, Anwendungen und Tools für die wissenschaftliche Nutzung</li>
+                            <li>Benutzerfreundliche Oberfläche für einfache Navigation und effizientes Arbeiten</li>
+                        </ul>
+                        <p style="margin-top:12px;">Die technische Basis: eine individuell entwickelte Webplattform mit flexibler Erweiterbarkeit und sicherer Datenverwaltung – exakt zugeschnitten auf die Anforderungen von Forschungseinrichtungen.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h3>Ergebnis &amp; Mehrwert</h3>
+                        <ul>
+                            <li>Zentrale Plattform für Wissenstransfer und Zusammenarbeit</li>
+                            <li>Verbesserter Zugang zu wissenschaftlichen Ressourcen</li>
+                            <li>Klare Trennung zwischen öffentlichen und geschützten Inhalten</li>
+                            <li>Skalierbare Lösung für zukünftige Anforderungen und Erweiterungen</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-block">
+                        <h3>Fazit</h3>
+                        <p>Individuell entwickelt. Sicher betrieben. Zukunftssicher skalierbar – exakt zugeschnitten auf die Anforderungen von Forschungseinrichtungen.</p>
+                    </div>
+                </div>
             </div>
+            <div class="case-study reveal" style="margin-top:24px;">
+                <div class="label">Case Study · BAT &amp; dieBayerische</div>
+                <h2>Maßgeschneiderte Prozessportale für Vertrieb und Logistik</h2>
+                <div class="case-study-content">
+                    <div class="case-study-block">
+                        <h3>Ausgangssituation</h3>
+                        <p>Unternehmen aus Industrie und Versicherungswirtschaft benötigen digitale Portale, die komplexe interne Prozesse abbilden – vom strukturierten Zugriff auf Vertriebsunterlagen bis zur Abwicklung von Retouren. Standardsysteme bilden diese spezifischen Workflows selten vollständig ab.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h3>Die Lösung</h3>
+                        <p>3DCAY entwickelte individuelle Portallösungen für zwei unterschiedliche Anforderungsprofile:</p>
+                        <p style="margin-top:10px;"><strong>Vertriebsunterlagen-Portal:</strong> Zentrale Bereitstellung und Verwaltung aller Vertriebsmaterialien für dezentrale Teams – mit Zugriffssteuerung, Suchfunktion und direktem Download.</p>
+                        <p style="margin-top:8px;"><strong>Retouren-Portal:</strong> Digitale Abwicklung von Rücksendungen und Reklamationen – mit automatisierten Prüfprozessen, Statusverfolgung und Schnittstellenanbindung an bestehende Lagersysteme.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h3>Ergebnis &amp; Mehrwert</h3>
+                        <ul>
+                            <li>Deutlich reduzierter manueller Aufwand in Vertrieb und Logistik</li>
+                            <li>Transparente, nachvollziehbare Prozesse für alle Beteiligten</li>
+                            <li>Schnelle Verfügbarkeit aktueller Materialien für den Außendienst</li>
+                            <li>Skalierbare Architektur für wachsende Anforderungen</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-block" style="display:flex; align-items:flex-end;">
+                        <img src="images/3dcay_mockup_laptop1.png" alt="3DCAY Analytics Dashboard auf MacBook" style="width:100%; height:auto; display:block; filter:drop-shadow(0 16px 48px rgba(0,0,0,0.12));" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEISTUNG 2: AKTIONS-WEBSEITEN -->
+    <section class="solution-section" style="padding:32px var(--container-px);">
+        <div class="container">
+            <div class="tile tile--wide" style="margin-bottom:40px;">
+                <div class="label">Aktions-Webseiten &amp; Landingpages</div>
+                <h2>Promotions sind zeitkritisch. Die IT dahinter darf es nicht sein.</h2>
+                <p class="tile-lead">3DCAY entwickelt und betreibt kampagnenspezifische Webseiten und Landingpages, die schnell live gehen, stabil laufen und exakt auf die jeweilige Aktionsmechanik zugeschnitten sind.</p>
+            </div>
+            <div class="feature-cards" style="grid-template-columns:repeat(3,1fr); max-width:none;">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H4z"/><path d="M2 20h20M9 8h6M9 12h4"/></svg></div>
+                    <h3>Landingpages für Teilnahme</h3>
+                    <p>Kampagnenspezifische Seiten für Registrierung und Teilnahme – schnell live, stabil im Betrieb.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M12 7v6M9 10h6"/></svg></div>
+                    <h3>Cashback- &amp; Garantieprozesse</h3>
+                    <p>Integration von Aktionslogiken inkl. Belegprüfung und Upload-Funktionen für Rechnungen oder Nachweise.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7h-9M14 17H5M17 21l4-4-4-4M7 3 3 7l4 4"/></svg></div>
+                    <h3>Skalierbare Infrastruktur</h3>
+                    <p>Anbindung an Backend-Systeme und Aktionslogiken – stabil auch bei hohen Teilnehmerzahlen.</p>
+                </div>
+            </div>
+            <div class="case-study reveal" style="margin-top:40px;">
+                <div class="label">Case Study · Philips</div>
+                <h2>Aktions-Webseiten für internationale Promotion-Kampagnen</h2>
+                <div class="case-study-content">
+                    <div class="case-study-block">
+                        <h3>Ausgangssituation</h3>
+                        <p>Internationale FMCG-Marken setzen regelmäßig zeitkritische Verkaufsaktionen um – Cashback, Geld-zurück-Garantien, Produkt-Promotions. Über interne IT ist die Umsetzung oft zu langsam oder zu aufwendig. Gesucht wurde ein Partner, der schnell, flexibel und zuverlässig liefert.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h3>Die Lösung</h3>
+                        <ul>
+                            <li>Kampagnenspezifisches Design und Teilnahmeformulare</li>
+                            <li>Integration von Cashback- und Garantieprozessen inkl. Belegprüfung</li>
+                            <li>Upload-Funktionen für Rechnungen und Teilnahmenachweise</li>
+                            <li>Anbindung an Backend-Systeme und Aktionslogiken</li>
+                            <li>Skalierbare Infrastruktur für große Teilnehmerzahlen</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-block">
+                        <h3>Ergebnis &amp; Mehrwert</h3>
+                        <ul>
+                            <li>Schnelle Time-to-Market für neue Kampagnen</li>
+                            <li>Hohe Flexibilität bei wechselnden Aktionsmechaniken</li>
+                            <li>Stabiler Betrieb auch bei großen Teilnehmerzahlen</li>
+                            <li>Entlastung der internen IT-Abteilungen</li>
+                            <li>Reibungslose Umsetzung von Cashback- und Promotion-Aktionen</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-block">
+                        <h3>Fazit</h3>
+                        <p>Durch die enge Verzahnung von IT, Marketing-Fulfillment und Aktions-Know-how lassen sich Projekte deutlich schneller umsetzen als über klassische IT-Prozesse auf Kundenseite.</p>
+                    </div>
+                </div>
+                <p class="case-study-tagline">Schneller live. Besser integriert. Perfekt für Promotions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEISTUNG 3: API & SCHNITTSTELLEN -->
+    <section class="tile-section">
+        <div class="container">
+            <div class="tile tile--wide">
+                <div class="label">API &amp; Schnittstellen-Design</div>
+                <h2>Systeme, die nicht miteinander reden, kosten Zeit und Geld.</h2>
+                <p class="tile-lead" style="margin-bottom:28px;">3DCAY verbindet Ihre bestehenden Systeme zuverlässig miteinander – ob Shop, ERP, WaWi oder Kundensystem. Dank jahrzehntelanger Projekterfahrung liefern wir Integrationen, die technisch funktionieren und langfristig stabil bleiben.</p>
+                <div class="tile-2col">
+                    <ul class="tile-bullets">
+                        <li>Anbindung von ERP-Systemen (z. B. SAP), Shops und Drittsystemen</li>
+                        <li>Umsetzung moderner REST- und GraphQL-APIs</li>
+                        <li>Integration bestehender SOAP-Schnittstellen</li>
+                    </ul>
+                    <ul class="tile-bullets">
+                        <li>Aufbau von Middleware-Lösungen als flexibler „Übersetzer" zwischen Systemen</li>
+                        <li>Sicherer Datenaustausch über SFTP und weitere Protokolle</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="case-study reveal" style="margin-top:24px;">
+                <div class="label">Case Study · BAT</div>
+                <h2>Systemintegration für einen internationalen Konzern</h2>
+                <div class="case-study-content">
+                    <div class="case-study-block">
+                        <h3>Ausgangssituation</h3>
+                        <p>Ein internationales Unternehmen benötigte eine zuverlässige Schnittstellen-Architektur, um Bestell-, Lager- und Vertriebssysteme nahtlos zu verbinden. Manuelle Datentransfers und Medienbrüche verursachten Fehler, Verzögerungen und internen Mehraufwand.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h3>Die Lösung</h3>
+                        <ul>
+                            <li>Anbindung des Kundensystems an Shop- und Warenwirtschaftssysteme über REST-APIs</li>
+                            <li>Aufbau einer Middleware-Schicht für flexible Systemkommunikation</li>
+                            <li>Automatisierter, gesicherter Datenaustausch ohne manuelle Eingriffe</li>
+                            <li>Skalierbare Architektur für zukünftige Systemerweiterungen</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-block">
+                        <h3>Ergebnis &amp; Mehrwert</h3>
+                        <ul>
+                            <li>Durchgängige, automatisierte Prozesse ohne Medienbrüche</li>
+                            <li>Reduzierter manueller Aufwand und geringere Fehleranfälligkeit</li>
+                            <li>Hohe Flexibilität bei der Anbindung neuer Systeme</li>
+                            <li>Zukunftssichere Architektur für wachsende Anforderungen</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="font-size:clamp(22px,3vw,30px); font-weight:800; letter-spacing:-0.02em; line-height:1.25; margin-top:20px;">Systeme verbinden. Prozesse optimieren. Wachstum ermöglichen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRE-BANNER · 3 SCHRITTE -->
+    <section class="tile-section" style="background:var(--gray-50);">
+        <div class="container">
+            <div style="max-width:1100px; margin:0 auto; text-align:center;">
+                <h3 style="font-size:clamp(22px,3vw,30px); font-weight:800; letter-spacing:-0.02em; line-height:1.25; margin-bottom:8px;">Konkrete Anforderung oder noch keine klare Vorstellung?</h3>
+                <div class="step-grid">
+                    <div class="step-card"><div class="label">01 · Einschätzung</div><p>Welcher Lösungsansatz zu Ihren Anforderungen passt.</p></div>
+                    <div class="step-card"><div class="label">02 · Orientierung</div><p>Zu Aufwand, Zeitrahmen und Integrationskomplexität.</p></div>
+                    <div class="step-card"><div class="label">03 · Nächste Schritte</div><p>Konkret und ohne Umwege.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-section" id="kontakt" style="scroll-margin-top:88px;">
+        <div class="container">
+            <h2>Lassen Sie uns Ihr Projekt besprechen.</h2>
+            <p>Individuell entwickelt. Sicher betrieben. Zukunftssicher skalierbar.</p>
+            <button class="btn btn--dark" onclick="openDemo()" style="background-color: var(--white); color: var(--red);">Projekt besprechen →</button>
         </div>
     </section>
 
@@ -2158,7 +2260,7 @@
                 'nav.ki': 'KI-Lab',
                 'nav.referenzen': 'Referenzen',
                 'nav.kontakt': 'Kontakt \u2192',
-                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS BY drei-d',
+                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS \u00b7 BY DREI-D',
                 'clients.label': 'Vertrauen f\u00fchrender Unternehmen'
             },
             en: {
@@ -2167,7 +2269,7 @@
                 'nav.ki': 'AI Lab',
                 'nav.referenzen': 'References',
                 'nav.kontakt': 'Contact \u2192',
-                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS BY drei-d',
+                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS \u00b7 BY DREI-D',
                 'clients.label': 'Trusted by leading companies'
             }
         };
@@ -2265,7 +2367,7 @@
         }, { threshold: 0.3 });
 
         // Observe both KI stats and case study metrics
-        document.querySelectorAll('.ki-stats, .metrics, .stat-grid').forEach(el => {
+        document.querySelectorAll('.ki-stats, .metrics').forEach(el => {
             countObserver.observe(el);
         });
 

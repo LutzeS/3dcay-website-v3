@@ -1702,177 +1702,172 @@
         <a href="#kontakt" class="nav__cta" style="margin-top:16px" data-i18n="nav.kontakt">Kontakt &rarr;</a>
     </div>
 
-        <style>
-        .hero::before{ background-image:url('images/dashboard-office.png'); }
-        .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:1000px; margin:0 auto; }
-        @media(max-width:760px){ .stat-grid{ grid-template-columns:1fr; } }
-        .stat{ background:var(--white); border:1px solid var(--gray-200); border-radius:16px; padding:36px 28px; text-align:center; }
-        .stat-num{ font-size:clamp(40px,6vw,64px); font-weight:800; color:var(--red); line-height:1; letter-spacing:-0.03em; }
-        .stat-label{ margin-top:14px; font-size:14px; color:var(--gray-700); line-height:1.55; }
-        .sol-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-        @media(max-width:900px){ .sol-grid{ grid-template-columns:repeat(2,1fr); } }
-        @media(max-width:560px){ .sol-grid{ grid-template-columns:1fr; } }
-    </style>
+        <style>.hero::before{ background-image:url('images/titel-cashback.jpg'); }</style>
     <!-- HERO SECTION -->
-    <style>.hero{ padding:72px 0 50px; }</style>
     <section class="hero">
         <div class="hero-content">
-            <div class="label" style="text-transform:none;">3DCAY MARKETING IT SOLUTIONS BY drei-d</div>
-            <h1>Smarte IT für <em style="white-space:nowrap;">Marketing &amp; Fulfillment</em></h1>
-            <p class="v5-tagline" style="color:#fff;">20 Jahre Marketing-Software. 30 Jahre B2B-Fulfillment. Eine Plattform.</p>
-            <p><span style="font-weight:600;">3DCAY ist die neue IT-Marke von drei-d —</span> entstanden aus der Integration von CAY SOLUTIONS. Wir bündeln zwei Jahrzehnte Erfahrung in Marketing-POS-Software und Web-to-Print mit drei Jahrzehnten Expertise in B2B-Werbemittel-Webshops und Marketing Fulfillment.</p>
-            <p style="font-weight:600; margin-top:10px;">Das Ergebnis: Lösungen, die in der Praxis funktionieren – nicht nur im Pitch.</p>
+            <div class="label">3DCAY · Cashback</div>
+            <h1>Cashback-Aktionen. <em>Automatisiert</em>, validiert, skalierbar.</h1>
+            <p class="v5-tagline" style="color:#fff;">KI-gestützte Belegerkennung trifft auf regelbasierte Auszahlung – für Cashback- und Promotionprogramme, die sich selbst verwalten.</p>
             <div class="hero-buttons">
-                <a href="#produkte" class="btn btn--primary">Lösungen entdecken</a>
+                <button class="btn btn--primary" onclick="openDemo()">Cashback-Demo anfragen</button>
+                <a href="#case-study" class="btn btn--outline-white">Case Study ansehen</a>
             </div>
         </div>
     </section>
 
-    <!-- CLIENT LOGOS -->
-    <section class="clients">
-        <p class="clients__label">Vertrauen führender Unternehmen</p>
-        <div class="clients__track">
-            <div class="clients__track-inner">
-                <div class="clients__logo"><img src="images/Logos/Fritz_Egger_Logo.svg-1.png" alt="EGGER"></div>
-                <div class="clients__logo"><img src="images/Logos/PHILIPS_grau.svg" alt="PHILIPS"></div>
-                <div class="clients__logo"><img src="images/Logos/Volkswagen-New-Logo-Vector.svg-.png" alt="Volkswagen"></div>
-                <div class="clients__logo"><img src="images/Logos/BARMER_Logo.svg.png" alt="Barmer"></div>
-                <div class="clients__logo"><img src="images/Logos/Cornelsen_Verlag_Logo.svg.png" alt="Cornelsen"></div>
-                <div class="clients__logo"><img src="images/Logos/Tuev-nord.svg.png" alt="TÜV Nord"></div>
-                <div class="clients__logo"><img src="images/Logos/Coca-Cola_logo.svg.png" alt="Coca-Cola"></div>
-                <div class="clients__logo"><img src="images/Logos/Helmholtz_Logo_grau.png" alt="Helmholtz"></div>
-                <div class="clients__logo"><img src="images/Logos/Logo_VGH_Versicherungen.svg" alt="VGH"></div>
-                <div class="clients__logo"><img src="images/Logos/BAT_logo_grau.svg" alt="BAT"></div>
-                <div class="clients__logo"><img src="images/Logos/heimbs-C-FLcerJ.svg" alt="Heimbs"></div>
-                <div class="clients__logo"><img src="images/Logos/Fritz_Egger_Logo.svg-1.png" alt="EGGER"></div>
-                <div class="clients__logo"><img src="images/Logos/PHILIPS_grau.svg" alt="PHILIPS"></div>
-                <div class="clients__logo"><img src="images/Logos/Volkswagen-New-Logo-Vector.svg-.png" alt="Volkswagen"></div>
-                <div class="clients__logo"><img src="images/Logos/BARMER_Logo.svg.png" alt="Barmer"></div>
-                <div class="clients__logo"><img src="images/Logos/Cornelsen_Verlag_Logo.svg.png" alt="Cornelsen"></div>
-                <div class="clients__logo"><img src="images/Logos/Tuev-nord.svg.png" alt="TÜV Nord"></div>
-                <div class="clients__logo"><img src="images/Logos/Coca-Cola_logo.svg.png" alt="Coca-Cola"></div>
-                <div class="clients__logo"><img src="images/Logos/Helmholtz_Logo_grau.png" alt="Helmholtz"></div>
-                <div class="clients__logo"><img src="images/Logos/Logo_VGH_Versicherungen.svg" alt="VGH"></div>
-                <div class="clients__logo"><img src="images/Logos/BAT_logo_grau.svg" alt="BAT"></div>
-                <div class="clients__logo"><img src="images/Logos/heimbs-C-FLcerJ.svg" alt="Heimbs"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ZAHLEN -->
-    <section class="products-section" style="padding:56px var(--container-px) 32px;">
-        <div class="container">
-            <div class="section-header" style="margin-bottom:40px;">
-                <h2>Zahlen, die für sich sprechen</h2>
-            </div>
-            <div class="stat-grid">
-                <div class="stat reveal">
-                    <div class="stat-num" data-count="20" data-suffix="+">20<em>+</em></div>
-                    <div class="stat-label">Jahre Erfahrung in Marketing-POS-Software &amp; Web-to-Print</div>
-                </div>
-                <div class="stat reveal">
-                    <div class="stat-num" data-count="30" data-suffix="+">30<em>+</em></div>
-                    <div class="stat-label">Jahre Expertise in B2B-Werbemittel-Webshops &amp; Marketing Fulfillment</div>
-                </div>
-                <div class="stat reveal">
-                    <div class="stat-num" data-count="50" data-suffix="+">50<em>+</em></div>
-                    <div class="stat-label">aktive Kunden aus Industrie, FMCG, Versicherung und Handel</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WAS IST 3DCAY -->
-    <section class="products-section" style="padding:24px var(--container-px) 36px; background:var(--gray-50);">
+    <!-- KURZBESCHREIBUNG · KACHEL -->
+    <section class="tile-section">
         <div class="container">
             <div class="tile tile--wide">
-                <div class="label">Was ist 3DCAY?</div>
-                <h2>Die Software-Marke für Marketing-Fulfillment.</h2>
-                <p class="tile-lead">Vom Shop bis zur Aktion.</p>
-                <p class="tile-lead" style="margin-top:22px;">Dabei setzen wir gezielt auf Künstliche Intelligenz, um Prozesse weiter zu optimieren:</p>
-                <ul class="tile-bullets" style="margin-top:14px;">
-                    <li>Automatisierte Belegerkennung für Cashback- und Promotionprozesse</li>
-                    <li>Intelligente Datenverarbeitung für Reporting und Entscheidungsgrundlagen</li>
-                    <li>Skalierbare Kampagnensteuerung für große Aktionsvolumen</li>
-                </ul>
+                <div style="margin-bottom:36px;">
+                    <div class="label">Kurzbeschreibung</div>
+                    <h2>Was ist 3DCAY Cashback?</h2>
+                    <p class="tile-lead">3DCAY Cashback ist eine cloudbasierte Plattform für die vollständige Automatisierung von Cashback- und Promotionprozessen. Teilnehmer laden ihre Belege direkt im Portal hoch; eine Kombination aus OCR-Technologie und Künstlicher Intelligenz erkennt, validiert und verarbeitet alle relevanten Daten automatisch – inklusive Fraud Detection und regelbasierter Auszahlungsberechnung.</p>
+                    <p class="tile-lead">Mit 3DCAY Cashback digitalisieren und automatisieren Sie Ihren gesamten Cashback-Prozess – von der Belegerfassung über die KI-gestützte Validierung bis zur Auszahlung. Kein manueller Aufwand. Kein Medienbruch. Maximale Skalierbarkeit.</p>
+                </div>
+                <div class="tile-2col">
+                    <div>
+                        <div class="label">Für wen</div>
+                        <p style="font-size:15px; color:var(--gray-700); line-height:1.7; margin-bottom:14px;">Die Lösung richtet sich an Hersteller, Marken und Unternehmen, die:</p>
+                        <ul class="tile-bullets">
+                            <li>Cashback-Programme, Händler-Incentives oder Bonusaktionen digital abwickeln möchten</li>
+                            <li>hohe Teilnehmerzahlen und große Aktionsvolumen sicher skalieren müssen</li>
+                            <li>manuellen Prüfaufwand und Fehlerquoten dauerhaft reduzieren wollen</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="label">Kundenvorteile</div>
+                        <ul class="tile-bullets">
+                            <li><strong>Weniger manueller Aufwand:</strong> Der gesamte Prozess – von der Belegerfassung bis zur Auszahlung – läuft automatisiert.</li>
+                            <li><strong>Höhere Prozessgeschwindigkeit:</strong> Validierung und Berechnung erfolgen in Echtzeit statt nach Tagen.</li>
+                            <li><strong>Geringeres Fehlerpotenzial:</strong> KI-Validierung und automatisierte Regelanwendung minimieren menschliche Fehler.</li>
+                            <li><strong>Skalierbarkeit ohne Mehraufwand:</strong> Auch große Teilnehmerzahlen werden sicher und effizient abgewickelt.</li>
+                            <li><strong>Maximale Transparenz:</strong> Alle Prozesse, Belege und Ergebnisse sind jederzeit nachvollziehbar dokumentiert.</li>
+                            <li><strong>Flexibler Einsatz:</strong> Eine Plattform für unterschiedliche Aktionsmechaniken – kein Systemwechsel bei neuen Kampagnen.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- WAS UNS BESONDERS MACHT -->
-    <section class="products-section" style="padding:36px var(--container-px) 72px;">
-        <div class="container">
-            <div class="tile tile--wide">
-                <div class="label">Was uns besonders macht</div>
-                <h2>Individuelle Systeme für komplexe Marketing- und Logistikprozesse</h2>
-                <p class="tile-lead">Neben leistungsstarken Standardlösungen entwickeln wir seit jeher individuelle Systeme für komplexe Marketing- und Logistikprozesse. Genau dieses Know-how macht 3DCAY flexibel, skalierbar und passgenau für Ihre Anforderungen.</p>
-                <p class="v5-tagline" style="margin-top:22px;">Weniger Aufwand. Mehr Kontrolle. <em>Mehr Performance</em> – mit smarter Technologie und generativer KI.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- UNSERE LÖSUNGEN · 6 KACHELN -->
-    <section class="products-section" id="produkte" style="padding:24px var(--container-px) 40px; background:var(--gray-50);">
+    <!-- FEATURES & USPs · GRID-LAYOUT -->
+    <section class="solution-section">
         <div class="container">
             <div class="section-header">
-                <div class="label">Unsere Lösungen</div>
-                <h2>Flexibel, skalierbar, zukunftssicher</h2>
-                <p>Ein modulares Portfolio aus leistungsstarken Tools und individuellen Entwicklungen.</p>
+                <div class="label" style="text-transform:none;">FEATURES &amp; USPs</div>
+                <h2>OCR, KI und Regeln – in einem System</h2>
+                <p>Von der Belegerfassung bis zur Auszahlung: automatisiert, sicher und skalierbar.</p>
             </div>
-            <div class="sol-grid">
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div>
-                    <h3>3DCAY Shop</h3>
-                    <p>Die zentrale Plattform für Ihren Marketing-Fulfillment-Webshop.</p>
-                    <a href="shop.html">Mehr erfahren →</a>
+            <div class="feature-cards">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg></div>
+                    <h3>KI-gestützte Belegerkennung</h3>
+                    <p>OCR + KI erkennen Artikel, Mengen und Rechnungsdaten automatisch – ohne manuelle Dateneingabe.</p>
                 </div>
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"></path><path d="M12 2a10 10 0 0 1 10 10m-10-10a10 10 0 0 0-10 10"></path></svg></div>
-                    <h3>3DCAY Web-to-Publish</h3>
-                    <p>Erstellen und personalisieren Sie Marketingmaterialien einfach und CI-konform.</p>
-                    <a href="web-to-publish.html">Mehr erfahren →</a>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+                    <h3>Regelbasierte Cashback-Berechnung</h3>
+                    <p>Aktionsregeln werden hinterlegt und automatisch auf jeden Beleg angewendet.</p>
                 </div>
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path><path d="M12 17v-6M9 12h6"></path></svg></div>
-                    <h3>3DCAY Cashback</h3>
-                    <p>Intelligente Cashback- und Promotionslösungen mit KI-gestützter Belegerkennung.</p>
-                    <a href="cashback.html">Mehr erfahren →</a>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                    <h3>Integrierte Fraud Detection</h3>
+                    <p>Betrugsversuche werden frühzeitig erkannt und markiert, bevor sie zur Auszahlung gelangen.</p>
                 </div>
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><path d="M12 17v4M4 21h16"></path></svg></div>
-                    <h3>3DCAY App</h3>
-                    <p>Die mobile Lösung für Ihren Vertrieb — alle Unterlagen jederzeit griffbereit.</p>
-                    <a href="3dcay-app.html">Mehr erfahren →</a>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+                    <h3>Admin-Dashboard mit Prüf- &amp; Freigabeprozessen</h3>
+                    <p>Transparente Steuerung aller Aktionen, Belege und Statusverläufe auf einen Blick.</p>
                 </div>
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
-                    <h3>Services – Individuelle IT</h3>
-                    <p>Landingpages, Aktions-Webseiten, Individualentwicklung und Schnittstellen-Design – maßgeschneidert für komplexe Anforderungen.</p>
-                    <a href="services.html">Mehr erfahren →</a>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="8"/><rect x="14" y="6" width="3" height="12"/></svg></div>
+                    <h3>Reporting mit KI-Insight Views</h3>
+                    <p>Automatisierte Auswertungen liefern Entscheidungsgrundlagen in Echtzeit.</p>
                 </div>
-                <div class="product-card reveal" style="display:flex; flex-direction:column;">
-                    <img src="images/BSFZ_Siegel_RGB_2x.png" alt="BSFZ Forschungszulage Siegel 2026" style="width:64px; height:auto; margin-bottom:16px;">
-                    <h3>Forschungszulage 2026</h3>
-                    <p>Unsere B2B-Commerce-Entwicklung ist staatlich als förderungswürdig anerkannt — zertifiziert durch die Bescheinigungsstelle Forschungszulage (BSFZ).</p>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                    <h3>DSGVO-konforme Cloud-Architektur</h3>
+                    <p>Audit-Logs, sichere Datenhaltung und skalierbare Infrastruktur für große Kampagnenvolumen.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                    <h3>Flexible Aktionsmechaniken</h3>
+                    <p>Cashback, Händler-Incentives, Bonus-, Garantie- und Zugabeaktionen – alles auf einer Plattform.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7h-9M14 17H5M17 21l4-4-4-4M7 3 3 7l4 4"/></svg></div>
+                    <h3>Skalierbare Systemstruktur</h3>
+                    <p>Von kleinen Pilotaktionen bis zu nationalen Kampagnen mit Tausenden Teilnehmern.</p>
+                </div>
+            </div>
+            <div class="solution-tagline">
+                <p>Automatisiert. Validiert. <em>Skalierbar.</em><br>Cashback-Programme, die sich selbst verwalten.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE STUDY (HELL) -->
+    <section class="tile-section" id="case-study">
+        <div class="container">
+            <div class="case-study reveal">
+                <div class="label">Case Study · Industrie (Österreich)</div>
+                <h2>KI-gestütztes Cashback-Portal für die Industrie</h2>
+                <div class="case-study-content">
+                    <div class="case-study-block">
+                        <h3>Ausgangssituation</h3>
+                        <p>Ein österreichisches Industrieunternehmen wollte sein bestehendes Cashback-Programm grundlegend effizienter gestalten. Klassische Aktionen verursachten erheblichen manuellen Aufwand: Rechnungen wurden manuell geprüft, Daten händisch übertragen und Auszahlungen einzeln vorbereitet. Gesucht war eine vollständig automatisierte, skalierbare Lösung, die Prozesse vereinfacht, Fehler minimiert und die Teilnehmerzufriedenheit erhöht.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h3>Die Lösung mit 3DCAY Cashback</h3>
+                        <ul>
+                            <li>Teilnehmer laden ihre Belege direkt im Portal hoch</li>
+                            <li>OCR-Technologie und KI erkennen Artikel, Mengen und relevante Daten automatisch</li>
+                            <li>Daten werden validiert, normalisiert und den Aktionsregeln zugeordnet</li>
+                            <li>Cashback-Beträge werden automatisch berechnet, Betrug frühzeitig erkannt</li>
+                            <li>Das Admin-Dashboard ermöglicht zusätzliche Prüf- und Freigabeprozesse sowie Reportings mit KI-Insight Views</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-block">
+                        <h3>Ergebnis &amp; Mehrwert</h3>
+                        <ul>
+                            <li>Vollständige Automatisierung – von der Belegerfassung bis zur Auszahlung</li>
+                            <li>Deutlich reduzierter manueller Aufwand und geringeres Fehlerpotenzial</li>
+                            <li>Flexible Nutzung für verschiedene Aktionsmechaniken: Cashback, Händler-Incentives, Bonusaktionen, Garantie- und Zugabeaktionen</li>
+                            <li>Skalierbare, sichere Lösung für große Teilnehmerzahlen</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-block">
+                        <h3>Fazit</h3>
+                        <p>Mit dem KI-gestützten 3DCAY Cashback-Portal realisieren Unternehmen effiziente, digitale Verkaufsförderung – schnell, sicher und messbar.</p>
+                    </div>
+                </div>
+                <p class="case-study-tagline">Schnell, sicher und messbar – Cashback, das sich selbst verwaltet.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRE-BANNER · 3 SCHRITTE -->
+    <section class="tile-section" style="background:var(--gray-50);">
+        <div class="container">
+            <div style="max-width:1100px; margin:0 auto; text-align:center;">
+                <h3 style="font-size:clamp(22px,3vw,30px); font-weight:800; letter-spacing:-0.02em; line-height:1.25; margin-bottom:8px;">Sie möchten Ihre Cashback-Prozesse automatisieren?</h3>
+                <div class="step-grid">
+                    <div class="step-card"><div class="label">01 · Live-Demo</div><p>Das Cashback-Portal anhand Ihrer Aktionsmechanik.</p></div>
+                    <div class="step-card"><div class="label">02 · Potenzial-Check</div><p>Automatisierungspotenzial für Ihre spezifische Kampagne.</p></div>
+                    <div class="step-card"><div class="label">03 · Umsetzung</div><p>Konkrete nächste Schritte für eine schnelle Implementierung.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BEREIT FÜR DEN NÄCHSTEN SCHRITT -->
-    <section class="products-section" id="kontakt" style="scroll-margin-top:88px; padding:36px var(--container-px) 72px;">
+    <!-- FINAL CTA -->
+    <section class="cta-section" id="kontakt" style="scroll-margin-top:88px;">
         <div class="container">
-            <div class="tile tile--wide" style="text-align:center;">
-                <div class="label" style="justify-content:center;">Bereit für den nächsten Schritt?</div>
-                <h2>Sprechen Sie uns an – wir finden die passende Lösung.</h2>
-                <p class="tile-lead" style="margin:0 auto 28px; max-width:680px;">Ob konkretes Projekt oder erste Orientierung – wir finden die passende Lösung für Ihre Anforderungen.</p>
-                <ul class="v5-check" style="max-width:620px; margin:0 auto 32px; text-align:left;">
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Ehrliche Einschätzung, welche 3DCAY-Lösung zu Ihren Prozessen passt</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Orientierung zu Aufwand, Zeitrahmen und Integrationsmöglichkeiten</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Konkrete nächste Schritte – ohne Umwege</span></li>
-                </ul>
-                <button class="btn btn--primary" onclick="openDemo()">Jetzt Kontakt aufnehmen</button>
-            </div>
+            <h2>Bereit, Ihre Cashback-Prozesse zu automatisieren?</h2>
+            <p>Wir zeigen Ihnen 3DCAY Cashback live – anhand Ihrer eigenen Aktionsmechanik.</p>
+            <button class="btn btn--dark" onclick="openDemo()" style="background-color: var(--white); color: var(--red);">Cashback-Demo anfragen →</button>
         </div>
     </section>
 
@@ -2158,7 +2153,7 @@
                 'nav.ki': 'KI-Lab',
                 'nav.referenzen': 'Referenzen',
                 'nav.kontakt': 'Kontakt \u2192',
-                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS BY drei-d',
+                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS \u00b7 BY DREI-D',
                 'clients.label': 'Vertrauen f\u00fchrender Unternehmen'
             },
             en: {
@@ -2167,7 +2162,7 @@
                 'nav.ki': 'AI Lab',
                 'nav.referenzen': 'References',
                 'nav.kontakt': 'Contact \u2192',
-                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS BY drei-d',
+                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS \u00b7 BY DREI-D',
                 'clients.label': 'Trusted by leading companies'
             }
         };
@@ -2265,7 +2260,7 @@
         }, { threshold: 0.3 });
 
         // Observe both KI stats and case study metrics
-        document.querySelectorAll('.ki-stats, .metrics, .stat-grid').forEach(el => {
+        document.querySelectorAll('.ki-stats, .metrics').forEach(el => {
             countObserver.observe(el);
         });
 

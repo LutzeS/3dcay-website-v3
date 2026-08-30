@@ -10,7 +10,7 @@
     <meta property="og:type" content="website">
     <title>3DCAY – Marketing IT Solutions by drei-d</title>
     
-    <link rel="preload" as="image" href="images/dashboard-office.png">
+    <link rel="preload" as="image" href="video/hero-poster.jpg" fetchpriority="high">
     <link href="fonts/fonts.css" rel="stylesheet">
     
     <style>
@@ -556,11 +556,34 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('images/dashboard-office.png');
+            background-image: url('video/hero-poster.jpg');
             background-size: cover;
             background-position: center;
             opacity: 0.65;
             z-index: 1;
+        }
+
+        /* Hero-Bewegtbild: liegt ueber dem Poster-Layer, unter dem Abdunkler */
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.65;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Kein Video auf schmalen Viewports - dort traegt das Poster,
+           spart Datenvolumen und Akku */
+        @media (max-width: 768px) {
+            .hero-video { display: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-video { display: none; }
         }
 
         .hero::after {
@@ -570,7 +593,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(180deg, rgba(10,10,10,0.30) 0%, rgba(10,10,10,0.60) 100%);
+            /* etwas kraeftiger als zuvor: haelt die rote Headline auch ueber den
+               hellsten Stellen des Bewegtbilds ueber 3:1 */
+            background: linear-gradient(180deg, rgba(10,10,10,0.46) 0%, rgba(10,10,10,0.68) 100%);
             z-index: 2;
         }
 
@@ -1703,7 +1728,7 @@
     </div>
 
         <style>
-        .hero::before{ background-image:url('images/dashboard-office.png'); }
+        .hero::before{ background-image:url('video/hero-poster.jpg'); }
         .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:1000px; margin:0 auto; }
         @media(max-width:760px){ .stat-grid{ grid-template-columns:1fr; } }
         .stat{ background:var(--white); border:1px solid var(--gray-200); border-radius:16px; padding:36px 28px; text-align:center; }
@@ -1716,6 +1741,11 @@
     <!-- HERO SECTION -->
     <style>.hero{ padding:72px 0 50px; }</style>
     <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata"
+               poster="video/hero-poster.jpg" aria-hidden="true" tabindex="-1">
+            <source src="video/hero-loop.webm" type="video/webm">
+            <source src="video/hero-loop.mp4" type="video/mp4">
+        </video>
         <div class="hero-content">
             <div class="label" style="text-transform:none;">3DCAY MARKETING IT SOLUTIONS BY drei-d</div>
             <h1>Smarte IT für <em style="white-space:nowrap;">Marketing &amp; Fulfillment</em></h1>

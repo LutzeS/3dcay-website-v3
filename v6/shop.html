@@ -1619,6 +1619,9 @@
         .case-study-block li { padding-left:20px; position:relative; margin-bottom:12px; color:var(--gray-700); font-size:15px; line-height:1.7; }
         .case-study-block li:before { content:""; position:absolute; left:0; top:0.7em; width:6px; height:6px; border-radius:50%; background-color:var(--gray-500); }
         .case-study-tagline { font-style:italic; color:var(--red); margin-top:20px; font-weight:600; font-size:18px; }
+        .cs-anim { margin-top:26px; display:flex; justify-content:flex-end; }
+        .cs-anim svg { width:100%; max-width:420px; height:auto; display:block; }
+        @media (max-width:720px){ .cs-anim{ justify-content:center; } }
         /* metric cards */
         .case-study-metrics { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; margin-top:24px; }
         .case-study-metric { background:var(--white); padding:24px; border-radius:8px; border:1px solid var(--gray-200); }
@@ -1702,177 +1705,244 @@
         <a href="#kontakt" class="nav__cta" style="margin-top:16px" data-i18n="nav.kontakt">Kontakt &rarr;</a>
     </div>
 
-        <style>
-        .hero::before{ background-image:url('images/dashboard-office.png'); }
-        .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:1000px; margin:0 auto; }
-        @media(max-width:760px){ .stat-grid{ grid-template-columns:1fr; } }
-        .stat{ background:var(--white); border:1px solid var(--gray-200); border-radius:16px; padding:36px 28px; text-align:center; }
-        .stat-num{ font-size:clamp(40px,6vw,64px); font-weight:800; color:var(--red); line-height:1; letter-spacing:-0.03em; }
-        .stat-label{ margin-top:14px; font-size:14px; color:var(--gray-700); line-height:1.55; }
-        .sol-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-        @media(max-width:900px){ .sol-grid{ grid-template-columns:repeat(2,1fr); } }
-        @media(max-width:560px){ .sol-grid{ grid-template-columns:1fr; } }
-    </style>
+        <style>.hero::before{ background-image:url('images/dashboard-office.png'); }</style>
     <!-- HERO SECTION -->
-    <style>.hero{ padding:72px 0 50px; }</style>
     <section class="hero">
         <div class="hero-content">
-            <div class="label" style="text-transform:none;">3DCAY MARKETING IT SOLUTIONS BY drei-d</div>
-            <h1>Smarte IT für <em style="white-space:nowrap;">Marketing &amp; Fulfillment</em></h1>
-            <p class="v5-tagline" style="color:#fff;">20 Jahre Marketing-Software. 30 Jahre B2B-Fulfillment. Eine Plattform.</p>
-            <p><span style="font-weight:600;">3DCAY ist die neue IT-Marke von drei-d —</span> entstanden aus der Integration von CAY SOLUTIONS. Wir bündeln zwei Jahrzehnte Erfahrung in Marketing-POS-Software und Web-to-Print mit drei Jahrzehnten Expertise in B2B-Werbemittel-Webshops und Marketing Fulfillment.</p>
-            <p style="font-weight:600; margin-top:10px;">Das Ergebnis: Lösungen, die in der Praxis funktionieren – nicht nur im Pitch.</p>
+            <div class="label">3DCAY · Shop</div>
+            <h1>3DCAY <em>Shop</em></h1>
+            <p class="v5-tagline" style="color:#fff;">Die zentrale Plattform für Ihren Marketing-Fulfillment-Webshop.</p>
+            <p>Zentral steuern. Dezentral nutzen. Effizient skalieren.</p>
             <div class="hero-buttons">
-                <a href="#produkte" class="btn btn--primary">Lösungen entdecken</a>
+                <button class="btn btn--primary" onclick="openDemo()">Demo anfragen</button>
+                <a href="#" class="btn btn--outline-white" onclick="openLead('whitepaperModal'); return false;">Whitepaper herunterladen</a>
             </div>
         </div>
     </section>
 
-    <!-- CLIENT LOGOS -->
-    <section class="clients">
-        <p class="clients__label">Vertrauen führender Unternehmen</p>
-        <div class="clients__track">
-            <div class="clients__track-inner">
-                <div class="clients__logo"><img src="images/Logos/Fritz_Egger_Logo.svg-1.png" alt="EGGER"></div>
-                <div class="clients__logo"><img src="images/Logos/PHILIPS_grau.svg" alt="PHILIPS"></div>
-                <div class="clients__logo"><img src="images/Logos/Volkswagen-New-Logo-Vector.svg-.png" alt="Volkswagen"></div>
-                <div class="clients__logo"><img src="images/Logos/BARMER_Logo.svg.png" alt="Barmer"></div>
-                <div class="clients__logo"><img src="images/Logos/Cornelsen_Verlag_Logo.svg.png" alt="Cornelsen"></div>
-                <div class="clients__logo"><img src="images/Logos/Tuev-nord.svg.png" alt="TÜV Nord"></div>
-                <div class="clients__logo"><img src="images/Logos/Coca-Cola_logo.svg.png" alt="Coca-Cola"></div>
-                <div class="clients__logo"><img src="images/Logos/Helmholtz_Logo_grau.png" alt="Helmholtz"></div>
-                <div class="clients__logo"><img src="images/Logos/Logo_VGH_Versicherungen.svg" alt="VGH"></div>
-                <div class="clients__logo"><img src="images/Logos/BAT_logo_grau.svg" alt="BAT"></div>
-                <div class="clients__logo"><img src="images/Logos/heimbs-C-FLcerJ.svg" alt="Heimbs"></div>
-                <div class="clients__logo"><img src="images/Logos/Fritz_Egger_Logo.svg-1.png" alt="EGGER"></div>
-                <div class="clients__logo"><img src="images/Logos/PHILIPS_grau.svg" alt="PHILIPS"></div>
-                <div class="clients__logo"><img src="images/Logos/Volkswagen-New-Logo-Vector.svg-.png" alt="Volkswagen"></div>
-                <div class="clients__logo"><img src="images/Logos/BARMER_Logo.svg.png" alt="Barmer"></div>
-                <div class="clients__logo"><img src="images/Logos/Cornelsen_Verlag_Logo.svg.png" alt="Cornelsen"></div>
-                <div class="clients__logo"><img src="images/Logos/Tuev-nord.svg.png" alt="TÜV Nord"></div>
-                <div class="clients__logo"><img src="images/Logos/Coca-Cola_logo.svg.png" alt="Coca-Cola"></div>
-                <div class="clients__logo"><img src="images/Logos/Helmholtz_Logo_grau.png" alt="Helmholtz"></div>
-                <div class="clients__logo"><img src="images/Logos/Logo_VGH_Versicherungen.svg" alt="VGH"></div>
-                <div class="clients__logo"><img src="images/Logos/BAT_logo_grau.svg" alt="BAT"></div>
-                <div class="clients__logo"><img src="images/Logos/heimbs-C-FLcerJ.svg" alt="Heimbs"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ZAHLEN -->
-    <section class="products-section" style="padding:56px var(--container-px) 32px;">
-        <div class="container">
-            <div class="section-header" style="margin-bottom:40px;">
-                <h2>Zahlen, die für sich sprechen</h2>
-            </div>
-            <div class="stat-grid">
-                <div class="stat reveal">
-                    <div class="stat-num" data-count="20" data-suffix="+">20<em>+</em></div>
-                    <div class="stat-label">Jahre Erfahrung in Marketing-POS-Software &amp; Web-to-Print</div>
-                </div>
-                <div class="stat reveal">
-                    <div class="stat-num" data-count="30" data-suffix="+">30<em>+</em></div>
-                    <div class="stat-label">Jahre Expertise in B2B-Werbemittel-Webshops &amp; Marketing Fulfillment</div>
-                </div>
-                <div class="stat reveal">
-                    <div class="stat-num" data-count="50" data-suffix="+">50<em>+</em></div>
-                    <div class="stat-label">aktive Kunden aus Industrie, FMCG, Versicherung und Handel</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WAS IST 3DCAY -->
-    <section class="products-section" style="padding:24px var(--container-px) 36px; background:var(--gray-50);">
+    <!-- KURZBESCHREIBUNG · KACHEL -->
+    <section class="tile-section">
         <div class="container">
             <div class="tile tile--wide">
-                <div class="label">Was ist 3DCAY?</div>
-                <h2>Die Software-Marke für Marketing-Fulfillment.</h2>
-                <p class="tile-lead">Vom Shop bis zur Aktion.</p>
-                <p class="tile-lead" style="margin-top:22px;">Dabei setzen wir gezielt auf Künstliche Intelligenz, um Prozesse weiter zu optimieren:</p>
-                <ul class="tile-bullets" style="margin-top:14px;">
-                    <li>Automatisierte Belegerkennung für Cashback- und Promotionprozesse</li>
-                    <li>Intelligente Datenverarbeitung für Reporting und Entscheidungsgrundlagen</li>
-                    <li>Skalierbare Kampagnensteuerung für große Aktionsvolumen</li>
-                </ul>
+                <div style="margin-bottom:36px;">
+                    <div class="label">Kurzbeschreibung</div>
+                    <h2>Alle Werbemittelprozesse in einem zentralen System</h2>
+                    <p class="tile-lead">Mit dem <strong>3DCAY Shop</strong> bündeln Sie alle Marketing- und Werbemittelprozesse in einem zentralen System – von <strong>Bestellung und Verwaltung</strong> bis hin zu <strong>Lagerung, Kommissionierung und Versand</strong>. Als B2B-Shoplösung ist der 3DCAY Shop auf Marketing-Fulfillment-Anforderungen ausgelegt und lässt sich an Corporate Design und unternehmensspezifische Vorgaben anpassen. Zudem sorgt die Anbindung an Warenwirtschaft/Schnittstellen für aktuelle Daten und hohe Transparenz im Tagesgeschäft.</p>
+                </div>
+                <div class="tile-2col">
+                    <div>
+                        <div class="label">Anwendungsfälle</div>
+                        <ul class="tile-bullets">
+                            <li>Zentraler Werbemittel-Shop für Außendienst, Partner und Standorte</li>
+                            <li>Kampagnenmaterial ausrollen und Verfügbarkeit/Verteilung steuern</li>
+                            <li>POS-Materialien verwalten – inkl. Rollen, Budgets und Reporting</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="label">Kundenvorteile</div>
+                        <ul class="tile-bullets">
+                            <li>Volle Kontrolle über Kosten, Nutzung und Verfügbarkeit Ihrer Materialien</li>
+                            <li>Schnelle Distribution durch integrierte, automatisierte Prozesse</li>
+                            <li>Weniger Abstimmung dank klarer Berechtigungen und Standardabläufe</li>
+                            <li>Mehr Transparenz über Lager, Reichweiten und Bestellmengen</li>
+                            <li>Bessere Planbarkeit von Kampagnen durch belastbares Reporting</li>
+                            <li>Entlastung des Außendienstes: bestellen ohne Administrationsaufwand</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- WAS UNS BESONDERS MACHT -->
-    <section class="products-section" style="padding:36px var(--container-px) 72px;">
-        <div class="container">
-            <div class="tile tile--wide">
-                <div class="label">Was uns besonders macht</div>
-                <h2>Individuelle Systeme für komplexe Marketing- und Logistikprozesse</h2>
-                <p class="tile-lead">Neben leistungsstarken Standardlösungen entwickeln wir seit jeher individuelle Systeme für komplexe Marketing- und Logistikprozesse. Genau dieses Know-how macht 3DCAY flexibel, skalierbar und passgenau für Ihre Anforderungen.</p>
-                <p class="v5-tagline" style="margin-top:22px;">Weniger Aufwand. Mehr Kontrolle. <em>Mehr Performance</em> – mit smarter Technologie und generativer KI.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- UNSERE LÖSUNGEN · 6 KACHELN -->
-    <section class="products-section" id="produkte" style="padding:24px var(--container-px) 40px; background:var(--gray-50);">
+    <!-- FEATURES & USPs · GRID-LAYOUT -->
+    <section class="solution-section" style="padding-bottom:32px;">
         <div class="container">
             <div class="section-header">
-                <div class="label">Unsere Lösungen</div>
-                <h2>Flexibel, skalierbar, zukunftssicher</h2>
-                <p>Ein modulares Portfolio aus leistungsstarken Tools und individuellen Entwicklungen.</p>
+                <div class="label" style="text-transform:none;">FEATURES &amp; USPs</div>
+                <h2>Leistungsstark im Frontend, durchdacht im Backend</h2>
+                <p>Einfache Bestellung trotz komplexer Vorgaben – modular skalierbar von „Basic" bis „Premium".</p>
             </div>
-            <div class="sol-grid">
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div>
-                    <h3>3DCAY Shop</h3>
-                    <p>Die zentrale Plattform für Ihren Marketing-Fulfillment-Webshop.</p>
-                    <a href="shop.html">Mehr erfahren →</a>
+            <div class="feature-cards">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+                    <h3>Bestandsmanagement in Echtzeit</h3>
+                    <p>Aktuelle Verfügbarkeit statt Bauchgefühl – Lagerbestände jederzeit im Blick.</p>
                 </div>
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"></path><path d="M12 2a10 10 0 0 1 10 10m-10-10a10 10 0 0 0-10 10"></path></svg></div>
-                    <h3>3DCAY Web-to-Publish</h3>
-                    <p>Erstellen und personalisieren Sie Marketingmaterialien einfach und CI-konform.</p>
-                    <a href="web-to-publish.html">Mehr erfahren →</a>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                    <h3>Budgetsteuerung</h3>
+                    <p>Budgets begrenzen und Nutzung sauber steuern – volle Kostenkontrolle.</p>
                 </div>
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path><path d="M12 17v-6M9 12h6"></path></svg></div>
-                    <h3>3DCAY Cashback</h3>
-                    <p>Intelligente Cashback- und Promotionslösungen mit KI-gestützter Belegerkennung.</p>
-                    <a href="cashback.html">Mehr erfahren →</a>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <h3>Rollen- &amp; Rechtekonzepte</h3>
+                    <p>Wer sieht und bestellt was – granular und nachvollziehbar steuerbar.</p>
                 </div>
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><path d="M12 17v4M4 21h16"></path></svg></div>
-                    <h3>3DCAY App</h3>
-                    <p>Die mobile Lösung für Ihren Vertrieb — alle Unterlagen jederzeit griffbereit.</p>
-                    <a href="3dcay-app.html">Mehr erfahren →</a>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg></div>
+                    <h3>Reporting &amp; Tracking</h3>
+                    <p>Bestände, Lagerreichweiten, Bestellhistorien und Auswertungen auf einen Blick.</p>
                 </div>
-                <div class="product-card reveal">
-                    <div class="product-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
-                    <h3>Services – Individuelle IT</h3>
-                    <p>Landingpages, Aktions-Webseiten, Individualentwicklung und Schnittstellen-Design – maßgeschneidert für komplexe Anforderungen.</p>
-                    <a href="services.html">Mehr erfahren →</a>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8zM5.5 18.5a2.5 2.5 0 1 0 0-.01M18.5 18.5a2.5 2.5 0 1 0 0-.01"/></svg></div>
+                    <h3>Integrierte Logistikprozesse</h3>
+                    <p>Lagerhaltung, Kommissionierung und Versand nahtlos angebunden.</p>
                 </div>
-                <div class="product-card reveal" style="display:flex; flex-direction:column;">
-                    <img src="images/BSFZ_Siegel_RGB_2x.png" alt="BSFZ Forschungszulage Siegel 2026" style="width:64px; height:auto; margin-bottom:16px;">
-                    <h3>Forschungszulage 2026</h3>
-                    <p>Unsere B2B-Commerce-Entwicklung ist staatlich als förderungswürdig anerkannt — zertifiziert durch die Bescheinigungsstelle Forschungszulage (BSFZ).</p>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7h-9M14 17H5M17 21l4-4-4-4M7 3 3 7l4 4"/></svg></div>
+                    <h3>Skalierbar von „Basic" bis „Premium"</h3>
+                    <p>Modular erweiterbar je nach Komplexität – wächst mit Ihren Anforderungen.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+                    <h3>Frontend + starkes Backend</h3>
+                    <p>Einfache Bestellung für den Außendienst, leistungsfähiges Backend für komplexe Vorgaben.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                    <h3>Internationaler Versand</h3>
+                    <p>Inklusive Optionen für Versand- und Zollanforderungen – je nach Setup.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BEREIT FÜR DEN NÄCHSTEN SCHRITT -->
-    <section class="products-section" id="kontakt" style="scroll-margin-top:88px; padding:36px var(--container-px) 72px;">
+    <!-- SHOP-DETAILS BUTTON -->
+    <section class="tile-section" style="padding:32px var(--container-px); text-align:center;">
         <div class="container">
-            <div class="tile tile--wide" style="text-align:center;">
-                <div class="label" style="justify-content:center;">Bereit für den nächsten Schritt?</div>
-                <h2>Sprechen Sie uns an – wir finden die passende Lösung.</h2>
-                <p class="tile-lead" style="margin:0 auto 28px; max-width:680px;">Ob konkretes Projekt oder erste Orientierung – wir finden die passende Lösung für Ihre Anforderungen.</p>
-                <ul class="v5-check" style="max-width:620px; margin:0 auto 32px; text-align:left;">
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Ehrliche Einschätzung, welche 3DCAY-Lösung zu Ihren Prozessen passt</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Orientierung zu Aufwand, Zeitrahmen und Integrationsmöglichkeiten</span></li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Konkrete nächste Schritte – ohne Umwege</span></li>
-                </ul>
-                <button class="btn btn--primary" onclick="openDemo()">Jetzt Kontakt aufnehmen</button>
+            <a href="shop-details.html#tiers" class="btn btn--primary">SHOP-DETAILS</a>
+        </div>
+    </section>
+
+    <!-- CASE STUDY (HELL) -->
+    <section class="tile-section" id="case-study">
+        <div class="container">
+            <div class="case-study reveal">
+                <div class="label">Case Study · Pharma</div>
+                <h2>Zentral gesteuerter Marketing-Fulfillment-Webshop</h2>
+                <div class="case-study-content">
+                    <div class="case-study-block">
+                        <h3>Ausgangssituation</h3>
+                        <p>Ein führender Pharma-Kunde wollte Werbemittel zentral organisieren und den Vertrieb effektiv steuern – mit voller Kontrolle über Bestände und Verteilung, Reporting &amp; Tracking für Lagerreichweiten, Bestellmengen und Kampagnenerfolg, fein gesteuerten Bestellrechten und einfacher Bedienung für den Außendienst trotz komplexer Verwaltungsprozesse im Hintergrund.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h3>Die Lösung mit 3DCAY Shop</h3>
+                        <ul>
+                            <li>Zentrale Verwaltung aller Werbemittel und POS-Materialien</li>
+                            <li>Individuelle Steuerung von Sichtbarkeit und Bestellrechten</li>
+                            <li>Echtzeit-Reporting zu Beständen, Lagerreichweiten und Bestellhistorien</li>
+                            <li>Tracking und Auswertungen für Kampagnen und Vertriebseinsätze</li>
+                            <li>Intuitive Oberfläche für den Außendienst, starkes Backend im Hintergrund</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-block">
+                        <h3>Ergebnis &amp; Mehrwert</h3>
+                        <ul>
+                            <li>Maximale Transparenz und Kontrolle über Lager, Bestellungen und Verteilung</li>
+                            <li>Effiziente Steuerung des Außendienstes durch differenzierte Berechtigungen</li>
+                            <li>Schnelle Bestellprozesse bei gleichzeitig zentraler Verwaltung</li>
+                            <li>Bessere Planbarkeit von Kampagnen dank Echtzeit-Reporting</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-block">
+                        <h3>Fazit</h3>
+                        <p>Mit dem 3DCAY Shop steuert der Kunde Werbemittel zentral, unterstützt den Außendienst im Tagesgeschäft und sichert Transparenz, Reporting und Kontrolle – in einer skalierbaren, leicht bedienbaren Lösung.</p>
+
+                        <!-- Smarte SVG-Animation: Zentral steuern -> dezentral nutzen -> skalieren -->
+                        <div class="cs-anim" aria-hidden="true">
+                            <svg viewBox="0 0 520 200" role="img" xmlns="http://www.w3.org/2000/svg">
+                                <title>Zentrale Steuerung versorgt dezentrale Standorte</title>
+                                <style>
+                                    .csv-link{fill:none;stroke:#E5E5E5;stroke-width:2}
+                                    .csv-flow{fill:none;stroke:#e3101a;stroke-width:2;stroke-linecap:round;stroke-dasharray:5 13;animation:csv-flow 1.5s linear infinite}
+                                    .csv-flow.f2{animation-delay:.30s}.csv-flow.f3{animation-delay:.60s}.csv-flow.f4{animation-delay:.90s}
+                                    .csv-ring{fill:none;stroke:#e3101a;stroke-width:1.6;transform-box:fill-box;transform-origin:center;animation:csv-pulse 3s ease-out infinite}
+                                    .csv-ring.r2{animation-delay:1.5s}
+                                    .csv-core{fill:#e3101a}
+                                    .csv-core-dot{fill:#fff;opacity:.92}
+                                    .csv-node{fill:#fff;stroke:#0A0A0A;stroke-width:1.6;transform-box:fill-box;transform-origin:center;animation:csv-pop 3s ease-in-out infinite}
+                                    .csv-node.n2{animation-delay:.30s}.csv-node.n3{animation-delay:.60s}.csv-node.n4{animation-delay:.90s}
+                                    .csv-nd{fill:#e3101a;transform-box:fill-box;transform-origin:center;animation:csv-pop 3s ease-in-out infinite}
+                                    .csv-nd.n2{animation-delay:.30s}.csv-nd.n3{animation-delay:.60s}.csv-nd.n4{animation-delay:.90s}
+                                    .csv-add{fill:none;stroke:#e3101a;stroke-width:1.8;stroke-linecap:round;opacity:0;transform-box:fill-box;transform-origin:center;animation:csv-add 6s ease-in-out infinite}
+                                    .csv-cap{font:600 9px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.12em;fill:#737373}
+                                    @keyframes csv-flow{to{stroke-dashoffset:-36}}
+                                    @keyframes csv-pulse{0%{transform:scale(.7);opacity:.6}100%{transform:scale(2.4);opacity:0}}
+                                    @keyframes csv-pop{0%,55%,100%{transform:scale(1)}28%{transform:scale(1.22)}}
+                                    @keyframes csv-add{0%,70%{opacity:0;transform:scale(.4)}82%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
+                                    @media (prefers-reduced-motion: reduce){
+                                        .csv-flow,.csv-ring,.csv-node,.csv-nd,.csv-add{animation:none}
+                                        .csv-ring{opacity:.3}.csv-add{opacity:.6}
+                                    }
+                                </style>
+
+                                <!-- Verbindungen Hub -> Standorte -->
+                                <line class="csv-link" x1="78" y1="100" x2="408" y2="40"/>
+                                <line class="csv-link" x1="78" y1="100" x2="478" y2="82"/>
+                                <line class="csv-link" x1="78" y1="100" x2="478" y2="140"/>
+                                <line class="csv-link" x1="78" y1="100" x2="408" y2="170"/>
+                                <line class="csv-flow"    x1="78" y1="100" x2="408" y2="40"/>
+                                <line class="csv-flow f2" x1="78" y1="100" x2="478" y2="82"/>
+                                <line class="csv-flow f3" x1="78" y1="100" x2="478" y2="140"/>
+                                <line class="csv-flow f4" x1="78" y1="100" x2="408" y2="170"/>
+
+                                <!-- Zentrale (Hub) -->
+                                <circle class="csv-ring"    cx="78" cy="100" r="17"/>
+                                <circle class="csv-ring r2" cx="78" cy="100" r="17"/>
+                                <circle class="csv-core" cx="78" cy="100" r="16"/>
+                                <circle class="csv-core-dot" cx="78" cy="100" r="4.5"/>
+                                <circle class="csv-core-dot" cx="78" cy="89" r="2"/>
+                                <circle class="csv-core-dot" cx="78" cy="111" r="2"/>
+                                <circle class="csv-core-dot" cx="67" cy="100" r="2"/>
+                                <circle class="csv-core-dot" cx="89" cy="100" r="2"/>
+                                <text class="csv-cap" x="78" y="135" text-anchor="middle">ZENTRAL</text>
+
+                                <!-- Standorte (dezentral) -->
+                                <rect class="csv-node"    x="395" y="27" width="26" height="26" rx="7"/>
+                                <circle class="csv-nd"    cx="408" cy="40" r="4"/>
+                                <rect class="csv-node n2" x="465" y="69" width="26" height="26" rx="7"/>
+                                <circle class="csv-nd n2" cx="478" cy="82" r="4"/>
+                                <rect class="csv-node n3" x="465" y="127" width="26" height="26" rx="7"/>
+                                <circle class="csv-nd n3" cx="478" cy="140" r="4"/>
+                                <rect class="csv-node n4" x="395" y="157" width="26" height="26" rx="7"/>
+                                <circle class="csv-nd n4" cx="408" cy="170" r="4"/>
+
+                                <!-- Skalieren: weiterer Standort erscheint -->
+                                <g class="csv-add">
+                                    <rect x="500" y="92" width="22" height="22" rx="6" fill="none" stroke="#e3101a" stroke-width="1.6" stroke-dasharray="3 3"/>
+                                    <line x1="511" y1="98" x2="511" y2="108"/>
+                                    <line x1="506" y1="103" x2="516" y2="103"/>
+                                </g>
+                                <text class="csv-cap" x="478" y="186" text-anchor="middle">DEZENTRAL</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <p class="case-study-tagline">Zentral steuern. Dezentral nutzen. Effizient skalieren.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- PRE-BANNER · 3 SCHRITTE -->
+    <section class="tile-section" style="background:var(--gray-50);">
+        <div class="container">
+            <div style="max-width:1100px; margin:0 auto; text-align:center;">
+                <h3 style="font-size:clamp(22px,3vw,30px); font-weight:800; letter-spacing:-0.02em; line-height:1.25; margin-bottom:8px;">Sie möchten sehen, wie der 3DCAY Shop bei Ihnen aussieht?</h3>
+                <div class="step-grid">
+                    <div class="step-card"><div class="label">01 · Use-Case-Check</div><p>Zielgruppen, Berechtigungen und Artikelstruktur.</p></div>
+                    <div class="step-card"><div class="label">02 · Demo</div><p>Entlang Ihrer Prozesse: Bestellung → Lager → Versand.</p></div>
+                    <div class="step-card"><div class="label">03 · Empfehlung</div><p>Welche Ausbaustufe und Module sinnvoll sind.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-section" id="kontakt" style="scroll-margin-top:88px;">
+        <div class="container">
+            <h2>Sehen Sie, wie der 3DCAY Shop in Ihrer Organisation aussieht.</h2>
+            <p>Use-Case-Check, Demo entlang Ihrer Prozesse und eine Empfehlung zur passenden Ausbaustufe.</p>
+            <button class="btn btn--dark" onclick="openDemo()" style="background-color: var(--white); color: var(--red);">Demo anfragen →</button>
         </div>
     </section>
 
@@ -2158,7 +2228,7 @@
                 'nav.ki': 'KI-Lab',
                 'nav.referenzen': 'Referenzen',
                 'nav.kontakt': 'Kontakt \u2192',
-                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS BY drei-d',
+                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS \u00b7 BY DREI-D',
                 'clients.label': 'Vertrauen f\u00fchrender Unternehmen'
             },
             en: {
@@ -2167,7 +2237,7 @@
                 'nav.ki': 'AI Lab',
                 'nav.referenzen': 'References',
                 'nav.kontakt': 'Contact \u2192',
-                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS BY drei-d',
+                'hero.eyebrow': '3DCAY MARKETING IT SOLUTIONS \u00b7 BY DREI-D',
                 'clients.label': 'Trusted by leading companies'
             }
         };
@@ -2265,7 +2335,7 @@
         }, { threshold: 0.3 });
 
         // Observe both KI stats and case study metrics
-        document.querySelectorAll('.ki-stats, .metrics, .stat-grid').forEach(el => {
+        document.querySelectorAll('.ki-stats, .metrics').forEach(el => {
             countObserver.observe(el);
         });
 
