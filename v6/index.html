@@ -1739,13 +1739,100 @@
         @media(max-width:560px){ .sol-grid{ grid-template-columns:1fr; } }
     </style>
     <!-- HERO SECTION -->
-    <style>.hero{ padding:72px 0 50px; }</style>
+    <style>.hero{ padding:72px 0 50px; }
+
+    /* ---- Hero mit Shop-Screen-Film: Text links, laufende Screens rechts ---- */
+    .hero{ min-height:76vh; }
+    /* Abdunkler jetzt seitlich gewichtet: dunkel hinter dem Text, hell auf der
+       Videoseite - so bleibt die rote Headline lesbar und das Bewegtbild sichtbar */
+    .hero::after{
+        background:
+            linear-gradient(90deg, rgba(10,10,10,.80) 0%, rgba(10,10,10,.72) 34%, rgba(10,10,10,.30) 62%, rgba(10,10,10,.14) 100%),
+            linear-gradient(180deg, rgba(10,10,10,.26) 0%, rgba(10,10,10,.46) 100%);
+    }
+    @media(max-width:1080px){
+        /* gestapelt steht der Text mittig ueber dem hellsten Teil des Bewegtbilds -
+           deshalb hier kraeftiger abdunkeln und das Video zuruecknehmen */
+        .hero::after{ background:linear-gradient(180deg, rgba(10,10,10,.74) 0%, rgba(10,10,10,.86) 100%); }
+        .hero-video{ opacity:.38; }
+    }
+    .hero-layout{
+        position:relative; z-index:3; width:100%; max-width:1400px; margin:0 auto;
+        padding:0 var(--container-px);
+        display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+        gap:clamp(32px,4vw,72px); align-items:center;
+    }
+    .hero .hero-content{ text-align:left; max-width:none; margin:0; padding:0; }
+    .hero .hero-buttons{ justify-content:flex-start; }
+
+    .shop-film{
+        position:relative; aspect-ratio:4/3; background:#f4f1eb;
+        border:7px solid #24272c; border-radius:18px; overflow:hidden;
+        box-shadow:0 45px 100px rgba(0,0,0,.62);
+        transform:perspective(1400px) rotateY(-6deg) rotateX(1.5deg);
+    }
+    .shop-scene{
+        position:absolute; inset:0; margin:0; opacity:0; overflow:hidden;
+        transform:scale(1.025); animation:shop-scene 25s cubic-bezier(.4,0,.2,1) infinite;
+    }
+    .shop-scene img{ display:block; width:100%; height:100%; object-fit:fill; }
+    .shop-scene figcaption{
+        position:absolute; left:22px; bottom:20px; max-width:74%; padding:12px 16px 13px;
+        background:rgba(13,16,20,.93); color:#fff; border-left:3px solid var(--red);
+        border-radius:0 8px 8px 0; box-shadow:0 10px 30px rgba(0,0,0,.35);
+        transform:translateY(14px); opacity:0; animation:scene-caption 25s ease infinite;
+    }
+    .shop-scene figcaption small,.shop-scene figcaption b{ display:block; }
+    .shop-scene figcaption small{ font-size:9px; letter-spacing:1.6px; color:#a9adb2; font-weight:700; }
+    .shop-scene figcaption b{ font-size:15px; margin-top:5px; line-height:1.35; }
+    .scene-2{animation-delay:5s}.scene-3{animation-delay:10s}.scene-4{animation-delay:15s}.scene-5{animation-delay:20s}
+    .scene-2 figcaption{animation-delay:5s}.scene-3 figcaption{animation-delay:10s}.scene-4 figcaption{animation-delay:15s}.scene-5 figcaption{animation-delay:20s}
+
+    .film-progress{ position:absolute; z-index:8; right:18px; bottom:20px; display:flex; gap:7px; }
+    .film-progress i{ width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.5); border:1px solid rgba(17,17,17,.2); }
+    .film-progress i:after{ content:""; display:block; width:100%; height:100%; border-radius:inherit; background:var(--red); opacity:0; animation:progress-dot 25s linear infinite; }
+    .film-progress i:nth-child(2):after{animation-delay:5s}.film-progress i:nth-child(3):after{animation-delay:10s}.film-progress i:nth-child(4):after{animation-delay:15s}.film-progress i:nth-child(5):after{animation-delay:20s}
+
+    .report-bars{ position:absolute; z-index:5; pointer-events:none; }
+    .report-bars i{ display:block; background:linear-gradient(180deg,#e55a61,var(--red)); box-shadow:0 0 7px rgba(207,20,43,.18); }
+    .report-bars.monthly{ left:24.9%; top:43.5%; width:41%; height:18%; display:flex; align-items:end; gap:3.6%; }
+    .report-bars.monthly i{ width:5.3%; height:var(--h); transform-origin:bottom; transform:scaleY(0); border-radius:3px 3px 0 0; animation:report-bar-up 25s cubic-bezier(.2,.8,.2,1) infinite; }
+    .report-bars.monthly i:nth-child(2){animation-delay:.08s}.report-bars.monthly i:nth-child(3){animation-delay:.16s}.report-bars.monthly i:nth-child(4){animation-delay:.24s}.report-bars.monthly i:nth-child(5){animation-delay:.32s}.report-bars.monthly i:nth-child(6){animation-delay:.40s}.report-bars.monthly i:nth-child(7){animation-delay:.48s}.report-bars.monthly i:nth-child(8){animation-delay:.56s}.report-bars.monthly i:nth-child(9){animation-delay:.64s}.report-bars.monthly i:nth-child(10){animation-delay:.72s}.report-bars.monthly i:nth-child(11){animation-delay:.80s}.report-bars.monthly i:nth-child(12){animation-delay:.88s}
+    .report-bars.ranking{ left:70.7%; top:40.7%; width:19%; height:19%; display:flex; flex-direction:column; gap:7.5%; }
+    .report-bars.ranking i{ height:8%; width:var(--w); transform-origin:left; transform:scaleX(0); border-radius:0 3px 3px 0; animation:report-rank 25s cubic-bezier(.2,.8,.2,1) infinite; }
+    .report-bars.ranking i:nth-child(2){animation-delay:.12s}.report-bars.ranking i:nth-child(3){animation-delay:.24s}.report-bars.ranking i:nth-child(4){animation-delay:.36s}.report-bars.ranking i:nth-child(5){animation-delay:.48s}.report-bars.ranking i:nth-child(6){animation-delay:.60s}
+    .report-pulse{ position:absolute; z-index:6; left:22.4%; top:24.5%; color:#111; opacity:0; animation:report-kpi 25s ease infinite; }
+    .report-pulse span{ font-weight:800; font-size:26px; }
+    .report-pulse small{ font-size:10px; color:#209264; margin-left:7px; font-weight:700; }
+
+    @keyframes shop-scene{0%{opacity:0;transform:scale(1.035)}2.5%,17.5%{opacity:1}20%{opacity:0;transform:scale(1)}100%{opacity:0}}
+    @keyframes scene-caption{0%,4%{opacity:0;transform:translateY(14px)}7%,16%{opacity:1;transform:none}19%,100%{opacity:0;transform:translateY(-7px)}}
+    @keyframes progress-dot{0%,19%{opacity:1}20%,100%{opacity:0}}
+    @keyframes report-bar-up{0%,81%{transform:scaleY(0);opacity:.2}87%,98%{transform:scaleY(1);opacity:.92}100%{transform:scaleY(0)}}
+    @keyframes report-rank{0%,84%{transform:scaleX(0);opacity:.2}90%,98%{transform:scaleX(1);opacity:.96}100%{transform:scaleX(0)}}
+    @keyframes report-kpi{0%,82%{opacity:0;transform:translateY(6px)}87%,97%{opacity:1;transform:none}100%{opacity:0}}
+
+    @media(max-width:1080px){
+        .hero-layout{ grid-template-columns:1fr; gap:40px; }
+        .hero .hero-content{ text-align:center; max-width:760px; margin:0 auto; }
+        .hero .hero-buttons{ justify-content:center; }
+        .shop-film{ width:100%; max-width:640px; margin-inline:auto; transform:none; }
+    }
+    @media(max-width:700px){ .shop-film{ display:none; } }
+    @media(prefers-reduced-motion:reduce){
+        .shop-scene{ display:none; }
+        .shop-scene.scene-1{ display:block; opacity:1; transform:none; animation:none; }
+        .shop-scene.scene-1 figcaption{ opacity:1; transform:none; animation:none; }
+        .film-progress,.report-bars,.report-pulse{ display:none; }
+    }
+    </style>
     <section class="hero">
         <video class="hero-video" autoplay muted loop playsinline preload="metadata"
                poster="video/hero-poster.jpg" aria-hidden="true" tabindex="-1">
             <source src="video/hero-loop.webm" type="video/webm">
             <source src="video/hero-loop.mp4" type="video/mp4">
         </video>
+        <div class="hero-layout">
         <div class="hero-content">
             <div class="label" style="text-transform:none;">3DCAY MARKETING IT SOLUTIONS BY drei-d</div>
             <h1>Smarte IT für <em style="white-space:nowrap;">Marketing &amp; Fulfillment</em></h1>
@@ -1755,6 +1842,21 @@
             <div class="hero-buttons">
                 <a href="#produkte" class="btn btn--primary">Lösungen entdecken</a>
             </div>
+        </div>
+
+        <div class="shop-film" aria-label="Der 3DCAY Shop in fünf Schritten">
+            <figure class="shop-scene scene-1"><img src="images/shop/shop-01-katalog.webp" alt="Katalogansicht des 3DCAY Shops" loading="eager" decoding="async"><figcaption><small>01 / ENTDECKEN</small><b>Relevante Werbemittel für jeden Standort.</b></figcaption></figure>
+            <figure class="shop-scene scene-2"><img src="images/shop/shop-02-produktdetail.webp" alt="Produktdetailseite" loading="lazy" decoding="async"><figcaption><small>02 / AUSWÄHLEN</small><b>Produkte, Preise und Budgets im Blick.</b></figcaption></figure>
+            <figure class="shop-scene scene-3"><img src="images/shop/shop-03-konfigurator.webp" alt="Konfigurator zur Individualisierung" loading="lazy" decoding="async"><figcaption><small>03 / INDIVIDUALISIEREN</small><b>CI-konform. Direkt im Browser.</b></figcaption></figure>
+            <figure class="shop-scene scene-4"><img src="images/shop/shop-04-warenkorb.webp" alt="Warenkorb und Freigabe" loading="lazy" decoding="async"><figcaption><small>04 / FREIGEBEN</small><b>Bestellung, Kostenstelle und Freigabe verbunden.</b></figcaption></figure>
+            <figure class="shop-scene scene-5"><img src="images/shop/shop-05-reporting.webp" alt="Reporting und Auswertung" loading="lazy" decoding="async">
+                <div class="report-bars monthly" aria-hidden="true"><i style="--h:42%"></i><i style="--h:55%"></i><i style="--h:70%"></i><i style="--h:35%"></i><i style="--h:48%"></i><i style="--h:53%"></i><i style="--h:68%"></i><i style="--h:59%"></i><i style="--h:56%"></i><i style="--h:76%"></i><i style="--h:88%"></i><i style="--h:100%"></i></div>
+                <div class="report-bars ranking" aria-hidden="true"><i style="--w:96%"></i><i style="--w:69%"></i><i style="--w:61%"></i><i style="--w:45%"></i><i style="--w:34%"></i><i style="--w:22%"></i></div>
+                <div class="report-pulse" aria-hidden="true"><span>348</span><small>+18 %</small></div>
+                <figcaption><small>05 / VERSTEHEN</small><b>Performance, Budgets und Potenziale live auswerten.</b></figcaption>
+            </figure>
+            <div class="film-progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
         </div>
     </section>
 
